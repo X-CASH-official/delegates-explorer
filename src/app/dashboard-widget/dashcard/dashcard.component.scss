@@ -1,0 +1,41 @@
+@mixin mat-icon($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+    color:white;
+}
+
+@mixin mat-headline {
+    margin: 0px;
+    color: white;
+}
+
+@mixin dashcard($theme) {
+
+    .dashcard {
+        margin: 10px 5px;
+        height: 100px;
+        background-color:white;
+    }
+    .mat-icon {
+        @include mat-icon(40px);
+    }
+    .border-top {
+        border-top: 1px solid white;
+    }
+    .mat-headline {
+        @include mat-headline();
+    }
+    .mat-body-1{
+        @include mat-headline();
+    }
+}
+.nav-item {
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: default;
+
+  &:hover {
+    transform: translate(0, -8px);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+  }
+}

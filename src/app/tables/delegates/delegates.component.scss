@@ -1,0 +1,56 @@
+
+.table-container {
+position: relative;
+margin-top:50px;
+}
+.table-container .mat-table {
+max-height: calc(100vh - 200px);
+overflow-y: auto;
+}
+.table-container .mat-table .mat-header-row {
+position: absolute;
+top: -50px;
+left: 0px;
+right: 18px;
+background: #fff;
+}
+.table-header {
+	background-color: #039be5;
+	color: white;
+	padding: 0 5px;
+}
+.table-container {
+	padding: 5px 15px 15px 15px;
+}
+.table-component-holder {
+	border: 1px solid #039be5;
+	background-color: white;
+}
+
+.mat-column-ID {
+  flex: 0 0 5%;
+}
+.mat-column-Delegate_Name {
+  flex: 0 0 25%;
+}
+.mat-column-Online_Status {
+  flex: 0 0 10%;
+}
+.mat-column-Pool_Mode {
+  flex: 0 0 10%;
+}
+.mat-column-Fee_Structure {
+  flex: 0 0 10%;
+}
+.mat-column-Block_Verifier_Total_Rounds {
+  flex: 0 0 10%;
+}
+.mat-column-Block_Verifier_Online_Percentage {
+  flex: 0 0 10%;
+}
+.mat-column-Total_Vote_Count {
+  flex: 0 0 10%;
+}
+.mat-column-Block_Verifier_Score {
+  flex: 0 0 5%;
+}

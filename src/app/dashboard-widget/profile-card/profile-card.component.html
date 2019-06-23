@@ -1,0 +1,11 @@
+<div  class="profile-card-holder " [ngStyle]="settings">
+    <div fxLayout="column" >
+        <div   class="profile-details mat-elevation-z8" [ngStyle]="data_settings" >
+            <div fxLayout="column" class="profile-details-holder" [ngStyle]="text_settings" fxLayoutAlign="space-around center">
+                <h1 class="mat-headline center-align" >{{title}}</h1>
+                <button class="Follow " mat-raised-button [ngStyle]="button_length" color="warn" (click)="voting_data(button_click)">{{button_name}}</button>
+            </div>
+        </div>
+        
+    </div>
+</div>

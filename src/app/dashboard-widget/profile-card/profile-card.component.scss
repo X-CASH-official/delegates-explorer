@@ -1,0 +1,50 @@
+@mixin dashboard-profile($theme) {
+
+    .profile-card-holder{
+        margin: 10px 5px;
+        min-height: 100px;
+        box-sizing: border-box;
+        color:#f5f0f0f2;
+        
+        .profile-details{
+            background-image: -webkit-linear-gradient(45deg, mat-color($primary,400) 45%, mat-color($primary,300)  45%);
+            margin-top: -50px;
+            min-height: 180px;
+            
+            & .profile-details-holder{
+                margin-top: 20px;
+            }
+        }
+        .center-align{
+            text-align: center;
+        }
+        .Follow{
+            width: 70%;
+        }
+        & .banner {
+            background-size: screen;
+            min-height: 56px;
+            background-repeat: no-repeat;
+            color: white;
+            & img {
+                position: relative;
+                z-index: 1;
+            }
+        }
+        .profile-card-content{
+            padding: 10px;
+        }
+    }
+}
+.swal-height {
+  height: 90vh;
+}
+.nav-item {
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: default;
+
+  &:hover {
+    transform: translate(0, -8px);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+  }
+}
