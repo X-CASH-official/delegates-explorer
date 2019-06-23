@@ -116,5 +116,3 @@ Next, navigate to your servers IP address or website domain. You should now see 
 
 When you have verified that the website works correctly, remove the test data, by shutting down the website server and then run it with the following option  
 `--test_data_remove`
-
-When you have verified that the website is working, remove the test data
