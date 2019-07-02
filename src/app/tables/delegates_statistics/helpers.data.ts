@@ -58,7 +58,7 @@ export class ExampleDataSource extends DataSource<any> {
 
     return observableMerge(...displayDataChanges).pipe(map(() => {
       return this._exampleDatabase.data.slice().filter((item: delegates_statisticsdata) => {
-        let searchStr = (item.main_nodes_role).toLowerCase();
+        let searchStr = (item.block_height).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) != -1;
       });
     }));

@@ -52,11 +52,6 @@
 					<mat-header-cell *matHeaderCellDef> Block Height </mat-header-cell>
 					<mat-cell *matCellDef="let row"><a class="text-primary" [routerLink]="['/auth/tables/round_statistics']" [queryParams]="{'data':row.block_height}"><h2>{{row.block_height | number}}</h2></a></mat-cell>
 				</ng-container>
-				
-				<ng-container matColumnDef="Main_Nodes_Role">
-					<mat-header-cell *matHeaderCellDef> Main Nodes Role </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.main_nodes_role}} </mat-cell>
-				</ng-container>	
 
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

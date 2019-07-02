@@ -13,7 +13,6 @@ export interface delegatesdata {
 export interface delegates_statisticsdata {
   id: string;
   block_height: string;
-  main_nodes_role: string;
 }
 
 export interface delegates_voters_listdata {

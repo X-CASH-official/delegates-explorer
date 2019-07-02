@@ -35,6 +35,10 @@ Visit [https://nodejs.org/en/download/current/](https://nodejs.org/en/download/c
 Then add Node.js to your path (replace "Node.js_folder" with the location of the bin folder in the folder you installed Node.js in  
 `echo -e '\nexport PATH=Node.js_folder:$PATH' >> ~/.profile && source ~/.profile`
 
+Note if your installing this on a root account (not recommend) then you need to run these additional commands  
+`npm config set user 0`
+`npm config set unsafe-perm true`
+
 
 
 ### Updating NPM
@@ -44,16 +48,19 @@ Now you need to update NPM
 
 
 
-### Installing Angular using NPM
+### Installing Packages Globally Using NPM
 
 Now you need to install Angular globally  
 `npm install -g @angular/cli@latest`
+
+Then you need to install Uglifyjs globally
+`npm install -g uglify-js`
 
 
 
 ### Updating node_modules for X-CASH Proof of Stake - Delegates Website
 
-Now you need to install all of the dependicies for the website. Navigate to the folder with the package.json file, and then run  
+Now you need to install all of the dependencies for the website. Navigate to the folder with the package.json file, and then run  
 `npm update`
 
 
@@ -65,7 +72,7 @@ Now you need to setup nginx so it will act as a reverse proxy to the website ser
 First install nginx  
 `sudo apt install nginx`
 
-Next setup the sites avaible. You can use the default file if just hosting one website on the server, or you can make another file if you need to host multiple websites on the server. The location of the files are at `/etc/nginx/sites-available`
+Next setup the sites available. You can use the default file if just hosting one website on the server, or you can make another file if you need to host multiple websites on the server. The location of the files are at `/etc/nginx/sites-available`
 
 A default setup for a non SSL website hosting one website, would look similar to this  
 ```
@@ -89,14 +96,21 @@ server {
 }
 ```
 
-Now create an html folder for the website. If you are going to host one website on the server, you can use the default html folder located at `/var/www/html` otherwise you will need to make another html folder inside a website named folder. For exampel `/var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html`
+Apply the changes to nginx  
+`nginx -s reload`
+
+Now create an html folder for the website. If you are going to host one website on the server, you can use the default html folder located at `/var/www/html` otherwise you will need to make another html folder inside a website named folder. For example `/var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html`
 
 ### Build instructions
 
-To build X-CASH Proof of Stake - Delegates Website Server, naviagte to the folder with the package.json file, and then run  
+To build X-CASH Proof of Stake - Delegates Website Server, navigate to the folder with the package.json file, and then run  
 `ng build --prod --aot`
 
-You will then create a dist folder. Move all of the contents of this folder to your html folder for NGINX.
+It will then create a dist folder, compress the javascript using Uglify-JS and move all of the contents of this folder to your html folder for NGINX.  
+`cd FOLDER_LOCATION_OF_DIST_FOLDER`
+`for f in *.js; do echo "Processing $f file.."; uglifyjs $f --compress --mangle --output "{$f}min"; rm $f; mv "{$f}min" $f; done`
+`rm /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/* && rm -r /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/*`
+`cp -a dist/* /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/`
 
 
 
