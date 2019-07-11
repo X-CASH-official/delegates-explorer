@@ -6,6 +6,16 @@ Forked from [cdk-admin](https://github.com/codetok/cdk-admin), an Angular 6 admi
 
 This is the website for the [X-CASH Proof of Stake - Delegates Website Server](https://github.com/X-CASH-official/XCASH_proof_of_stake_delegates_website_server)
 
+This website will allow for users to
+* A dashboard that will explain how to vote and how to register to try to get elected
+* A place to view all of the delegates, their statistics, total votes and reserve proofs that have voted for them
+* A place to view about the details of the delegate, if they have choose to provide this information.
+* A place to view detailed statistics about any delegate
+* A place to view and verify all of the X-CASH proof of stake information about any block created on the network
+
+This website is optional for delegates to run, as the X-CASH proof of stake data network nodes will run this website
+
+
 ## Installation
 
 
