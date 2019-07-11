@@ -5,14 +5,14 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 export class httpdataservice{
 constructor(private httpClient: HttpClient) {}
 
-SERVER_HOSTNAME_AND_PORT_GET_STATISTICS:string = "http://localhost/getstatistics";
-SERVER_HOSTNAME_AND_PORT_GET_DELEGATES:string = "http://localhost/getdelegates";
-SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS:string = "http://localhost/getdelegatesstatistics";
-SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION:string = "http://localhost/getdelegatesinformation";
-SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_VOTERS_LIST:string = "http://localhost/getdelegatesvoterslist";
-SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS:string = "http://localhost/getroundstatistics";
-SERVER_HOSTNAME_AND_PORT_GET_NODES_LIST:string = "http://localhost/getnodeslist";
-SERVER_HOSTNAME_AND_PORT_GET_PUBLIC_ADDRESS_PAYMENT_INFORMATION:string = "http://localhost/getpublicaddresspaymentinformation";
+SERVER_HOSTNAME_AND_PORT_GET_STATISTICS:string = "/getstatistics";
+SERVER_HOSTNAME_AND_PORT_GET_DELEGATES:string = "/getdelegates";
+SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS:string = "/getdelegatesstatistics";
+SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION:string = "/getdelegatesinformation";
+SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_VOTERS_LIST:string = "/getdelegatesvoterslist";
+SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS:string = "/getroundstatistics";
+SERVER_HOSTNAME_AND_PORT_GET_NODES_LIST:string = "/getnodeslist";
+SERVER_HOSTNAME_AND_PORT_GET_PUBLIC_ADDRESS_PAYMENT_INFORMATION:string = "/getpublicaddresspaymentinformation";
 
 Timer:any;
 
