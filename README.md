@@ -120,7 +120,7 @@ It will then create a dist folder, compress the javascript using Uglify-JS and m
 ``` 
 cd dist  
 for f in *.js; do echo "Processing $f file.."; uglifyjs $f --compress --mangle --output "{$f}min"; rm $f; mv "{$f}min" $f; done  
-rm /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/* && rm -r /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/*  
+rm -r /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/* && rm /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/*  
 cd ../  
 cp -a dist/* /var/www/YOUR_DOMANIN_NAME_OR_IP_ADDRESS_OF_SERVER/html/  
 ```
