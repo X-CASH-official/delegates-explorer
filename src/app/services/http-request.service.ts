@@ -11,7 +11,6 @@ SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS:string = "/getdelegatesstatist
 SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION:string = "/getdelegatesinformation";
 SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_VOTERS_LIST:string = "/getdelegatesvoterslist";
 SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS:string = "/getroundstatistics";
-SERVER_HOSTNAME_AND_PORT_GET_NODES_LIST:string = "/getnodeslist";
 SERVER_HOSTNAME_AND_PORT_GET_PUBLIC_ADDRESS_PAYMENT_INFORMATION:string = "/getpublicaddresspaymentinformation";
 
 Timer:any;
