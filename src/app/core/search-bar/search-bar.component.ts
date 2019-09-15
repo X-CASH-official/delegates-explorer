@@ -12,4 +12,9 @@ export class SearchBarComponent implements OnInit {
 
 	ngOnInit() {}
 
+ get_delegates_information(delegates_information:string)
+ {
+   window.location.href = isNaN(delegates_information) ? `/auth/tables/delegates_statistics?data=${delegates_information}` : `/auth/tables/round_statistics?data=${delegates_information}`;
+ }
+
 }

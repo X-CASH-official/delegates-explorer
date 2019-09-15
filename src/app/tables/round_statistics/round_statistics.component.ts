@@ -71,6 +71,13 @@ export class round_statisticsComponent implements OnInit {
         this.delegates_data = this.route.snapshot.queryParamMap.get("data");
         this.title = "Round Statistics For Block Height " + this.delegates_data;
 
+        // check if this is a proof of stake block
+        if (this.delegates_data < XCASH_PROOF_OF_STAKE_BLOCK_HEIGHT)
+        {
+          Swal.fire("Error","An error has occure00d","error");
+          return;
+        }
+
 	  // get the data	 
 	  this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS + "?parameter1=" + this.delegates_data).subscribe(
 	  (res) =>
@@ -110,28 +117,28 @@ export class round_statisticsComponent implements OnInit {
             data2 = reserve_bytes.substr(count,reserve_bytes.indexOf(this.BLOCKCHAIN_DATA_SEGMENT_STRING,count) - count);
             count = count + data2.length + 64;
  
-            for (count2 = 0; count2 < 100; count2++)
+            for (count2 = 0; count2 < BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
 	      data2 = reserve_bytes.substr(count,128);
               count = count + data2.length + 64;
               this.exampleDatabase1.addUser((count2 + 1).toString(),data2.toString());
 	    }
 
-            for (count2 = 0; count2 < 100; count2++)
+            for (count2 = 0; count2 < BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
 	      data2 = reserve_bytes.substr(count,64);
               count = count + data2.length + 64;
               this.exampleDatabase2.addUser((count2 + 1).toString(),data2.toString());
 	    }
 
-            for (count2 = 0; count2 < 100; count2++)
+            for (count2 = 0; count2 < BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
 	      data2 = reserve_bytes.substr(count,200);
               count = count + data2.length + 64;
               this.exampleDatabase3.addUser((count2 + 1).toString(),data2.toString());
 	    }
 
-            for (count2 = 0; count2 < 100; count2++)
+            for (count2 = 0; count2 < BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
 	      data2 = this.text_to_string(reserve_bytes.substr(count,196));
               count = count + (data2.length * 2) + 64;
@@ -141,7 +148,7 @@ export class round_statisticsComponent implements OnInit {
             data2 = reserve_bytes.substr(count,reserve_bytes.indexOf(this.BLOCKCHAIN_DATA_SEGMENT_STRING,count) - count);
             count = count + data2.length + 64;
 
-            for (count2 = 0; count2 < 100; count2++)
+            for (count2 = 0; count2 < BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
               data2 = this.text_to_string(reserve_bytes.substr(count,186));
               count = count + (data2.length * 2) + 64;

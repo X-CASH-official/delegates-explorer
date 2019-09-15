@@ -13,6 +13,12 @@ SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_VOTERS_LIST:string = "/getdelegatesvoters
 SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS:string = "/getroundstatistics";
 SERVER_HOSTNAME_AND_PORT_GET_PUBLIC_ADDRESS_PAYMENT_INFORMATION:string = "/getpublicaddresspaymentinformation";
 
+// Blockchain
+XCASH_PROOF_OF_STAKE_BLOCK_HEIGHT:number = 240501 // The start block height for X-CASH proof of stake
+
+// proof of stake
+BLOCK_VERIFIERS_AMOUNT:number = 100 // The amount of block verifiers in a round
+
 Timer:any;
 
 get_request(url:string)
