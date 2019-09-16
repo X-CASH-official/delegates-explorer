@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class delegates_voters_listComponent implements OnInit {
 	public dashCard = [
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL VOTE COUNT', icon: 'cloud' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'CURRENT VOTE COUNT', icon: 'cloud' }
+        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'CURRENT VOTE COUNT', icon: 'done' }
     ];
         title:string = "Delegates Voters List";
         delegates_data:string = "";

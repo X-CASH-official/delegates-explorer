@@ -9,12 +9,18 @@ export const menus = [
         'name': 'Delegates',
         'open': false,
         'link': 'tables/delegates',
-        'icon': 'cloud',
+        'icon': 'assignments',
     },
     {
         'name': 'Statistics',
         'open': false,
         'link': '/auth/statistics',
+        'icon': 'info',
+    },
+    {
+        'name': 'API',
+        'open': false,
+        'link': '/auth/API',
         'icon': 'cloud',
     },
 ];

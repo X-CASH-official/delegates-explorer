@@ -127,6 +127,78 @@ Swal.fire({
   showCancelButton: false,
 })
 }
+else if (data === "delegateswebsitegetstatistics")
+    {
+Swal.fire({
+  title: '<b>Statistics</b>',
+  type: 'info',
+  width: this.width,
+  customClass: 'swal-height',
+  html: 'Get statistics<br>Method: GET<br>URL: /delegateswebsitegetstatistics<br>Result:<br>most_total_rounds_delegate_name: The delegate that has the most total rounds<br>most_total_rounds: The most total rounds by a delegate<br><br>best_block_verifier_online_percentage_delegate_name: The delegate that has the best block verifier online percentage<br><br>best_block_verifier_online_percentage: The best block verifier online percentage by a delegate<br><br>most_block_producer_total_rounds_delegate_name: The delegate that has been the block producer the most<br><br>most_block_producer_total_rounds: The most block producer total rounds by a delegate<br><br>current_block_height: The current block height<br><br>xcash_proof_of_stake_round_number: The current xcash proof of stake round number<br><br>total_votes: The total amount of votes<br><br>xcash_proof_of_stake_circulating_percentage: The percentage of total votes compared to the circulating supply<br><br>{"most_total_rounds_delegate_name":"delegate1","most_total_rounds":"40","best_block_verifier_online_percentage_delegate_name":"delegate4","best_block_verifier_online_percentage":"0.97","most_block_producer_total_rounds_delegate_name":"delegate2","most_block_producer_total_rounds":"15","current_block_height":"433102","xcash_proof_of_stake_round_number":"192601","total_votes":"5000000","xcash_proof_of_stake_circulating_percentage":"0"}',
+  showCloseButton: false,
+  showCancelButton: false,
+})
+    }
+else if (data === "getdelegates")
+    {
+Swal.fire({
+  title: '<b>Get Delegates</b>',
+  type: 'info',
+  width: this.width,
+  customClass: 'swal-height',
+  html: 'Get a list of all delegates<br><br>Method: GET<br><br>URL: /getdelegates<br><br>Result:<br><br>total_vote_count: The total amount staked towards the delegate<br><br>delegate_name: The delegates name<br><br>pool_mode: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br><br>fee_structure: The fee in a percent<br><br>block_verifier_score: How many invalid reserve proofs the delegate has found<br><br>online_status: The current online status of the delegate<br><br>block_verifier_total_rounds: The total rounds the delegate has been a block verifiers<br><br>block_verifier_online_percentage: The total amount of rounds they were a block verifier and online / the total amount of rounds they were a block verifier<br><br>[{"total_vote_count":"1000000","delegate_name":"delegate1","pool_mode":"false","fee_structure":"1","block_verifier_score":"1","online_status":"true","block_verifier_total_rounds":"40","block_verifier_online_percentage":"100"},{"total_vote_count":"1000000","delegate_name":"delegate2","pool_mode":"false","fee_structure":"1","block_verifier_score":"1","online_status":"true","block_verifier_total_rounds":"37","block_verifier_online_percentage":"100"}]',
+  showCloseButton: false,
+  showCancelButton: false,
+})
+    }
+else if (data === "getdelegatesstatistics")
+    {
+Swal.fire({
+  title: '<b>Get Delegates Statistics</b>',
+  type: 'info',
+  width: this.width,
+  customClass: 'swal-height',
+  html: 'Get a delegates statistics<br>Method: GET<br>URL: /getdelegatesstatistics<br>Parameters:<br> parameter1: The delegates public address, or the delegates name<br>Result:<br>public_address: The public address of the delegate<br>total_vote_count: The total votes staked towards the delegate<br>total_vote_count_number: Same as the total_vote_count<br>IP_address: The delegates IP address, or a domain name<br>delegate_name: The delegates name<br>about: About (optional)<br>website: Website (optional)<br>team: Team (optional)<br>pool_mode: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br>fee_structure: The fee in a percent<br>server_settings: Server settings (optional)<br>block_verifier_score: How many invalid reserve proofs the delegate has found<br>online_status: The current online status of the delegate<br>block_verifier_total_rounds: The total rounds the delegate has been a block verifiers<br>block_verifier_online_total_rounds: The total rounds the delegate has been online and a block verifier<br>block_verifier_online_percentage: The total amount of rounds they were a block verifier and online / the total amount of rounds they were a block verifier<br>block_producer_total_rounds: The total rounds the deelgate has been the block producer<br>block_producer_block_heights: The block heights that the delegate has found<br><br>{"public_address":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3","total_vote_count":"1000000","total_vote_count_number":"10.0","IP_address":"127.0.0.1","delegate_name":"delegatename1","about":"About","website":"Website","team":"Team","pool_mode":"false","fee_structure":"1","server_settings":"server_settings","block_verifier_score":"1","online_status":"true","block_verifier_total_rounds":"40","block_verifier_online_total_rounds":"38","block_verifier_online_percentage":"100","block_producer_total_rounds":"7","block_producer_block_heights":"2813049|10|15|240503|240507"}',
+  showCloseButton: false,
+  showCancelButton: false,
+})
+    }
+else if (data === "getdelegatesinformation")
+    {
+Swal.fire({
+  title: '<b>Get Delegates Information</b>',
+  type: 'info',
+  width: this.width,
+  customClass: 'swal-height',
+  html: 'Get a delegates information<br><br>Method: GET<br><br>URL: /getdelegatesinformation<br><br>Parameters:<br><br> parameter1: The delegates public address, or the delegates name<br><br>Result:<br><br>public_address: The public address of the delegateAbout (optional)<br>website: Website (optional)<br>team: Team (optional)<br>pool_mode: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br>fee_structure: The fee in a percent<br>server_settings: Server settings (optional)<br><br>{"public_address":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3","about":"About","website":"Website","team":"Team","pool_mode":"false","fee_structure":"1","server_settings":"server_settings"}',
+  showCloseButton: false,
+  showCancelButton: false,
+})
+    }
+else if (data === "getdelegatesvoterslist")
+    {
+Swal.fire({
+  title: '<b>Get Delegates Voters List</b>',
+  type: 'info',
+  width: this.width,
+  customClass: 'swal-height',
+  html: 'Get a list of all delegates staking towards the shared delegate<br><br>Method: GET<br><br>URL: /getdelegatesvoterslist<br><br>Parameters:<br><br> parameter1: The public address of the shared delegate<br><br>Result:<br><br>public_address_created_reserve_proof: The public address of the delegate that is staking towards the shared delegate<br><br>public_address_voted_for: The public address of the shared delegate<br><br>total: The total amount of the reserve proof<br><br>reserve_proof: The reserve proof created by the delegate<br><br>[{"public_address_created_reserve_proof":"XCA1VSDHKCc4Qhvqb3fquebSYxfMeyGteQeAYtDSpaTcgquBY1bkKWtQ42tZG2w7Ak7GyqnaiTgWL4bMHE9Lwd2A3g2Recxz7B","public_address_voted_for":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3","total":"10","reserve_proof":"RESERVE_PROOF"},{"public_address_created_reserve_proof":"XCA1VSDHKCc4Qhvqb3fquebSYxfMeyGteQeAYtDSpaTcgquBY1bkKWtQ42tZG2w7Ak7GyqnaiTgWL4bMHE9Lwd2A3g2Recxz7B","public_address_voted_for":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3","total":"10","reserve_proof":"RESERVE_PROOF"}]',
+  showCloseButton: false,
+  showCancelButton: false,
+})
+    }
+else if (data === "getroundstatistics")
+    {
+Swal.fire({
+  title: '<b>Get Round Statistics</b>',
+  type: 'info',
+  width: this.width,
+  customClass: 'swal-height',
+  html: 'Get round statistics<br><br>Method: GET<br><br>URL: /getroundstatistics<br><br>Parameters:<br><br> parameter1: The block height<br><br>Result:<br><br>reserve_bytes: The complete block that contains all of the reserve bytes<br><br>{"reserve_bytes":"reserve_bytes"}',
+  showCloseButton: false,
+  showCancelButton: false,
+})
+    }
 
 
 
