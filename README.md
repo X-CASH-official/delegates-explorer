@@ -8,16 +8,15 @@ Forked from [cdk-admin](https://github.com/codetok/cdk-admin), an Angular 6 admi
 ## Introduction
 
 This website will give users
-* A dashboard that will show how to vote for the delegate, the delegate fee, and how many blocks the delegate has found
-* A place to view a detailed list of the blocks found by the delegate
-* A place to view how many votes the delegate has and what public addresses, with their reserve proofs have voted for the delegate
-* A place to view how many payments and how much X-CASH the delegate has paid
-* A place to view how much X-CASH a user has earned from staking with the delegate
+* A dashboard that will explain how to vote and how to register to try to get elected
+* A place to view all of the delegates, their statistics, total votes and reserve proofs that have voted for them
+* A place to view about the details of the delegate, if they have choose to provide this information.
+* A place to view detailed statistics about any delegate
+* A place to view and verify all of the X-CASH proof of stake information about any block created on the network
 
-This website is for delegates that are planning to get elected by others voting for them. It provides an automatic way to pay users that have voted for you, and provides them an automatic way for them to view their payment history.
-This website is not needed for a solo delegate.
+This website is optional for delegates to run, as the X-CASH proof of stake data network nodes will run this website
 
-**If you plan on running a delegates website or a delegates website, you will need to run the website on the same system as the DPOPS node**
+**If you plan on running a delegates website, you will need to run the website on the same system as the DPOPS node**
 
 
 
@@ -64,15 +63,26 @@ The readme shows you how to setup the website using HTTP, since there is no sens
 ## Installation Process
 
 
+### Installation Path
+It is recommend to install the nodejs folder in the home directory (`/home/$USER/`) or root directory (`/root/`) in a `Installed-Programs` folder
+
+
 
 
 ### Installing Node.js from binaries
 
-Visit [https://nodejs.org/en/download/current/](https://nodejs.org/en/download/current/) and download the "Linux Binaries" download and copy it to a folder
+Visit [https://nodejs.org/en/download/current/](https://nodejs.org/en/download/current/) and download the "Linux Binaries" download and copy it to a folder. Then run these commands  
+``` 
+tar -xf node*.tar.xz
+rm node*.tar.xz
+```
 
 Then add Node.js to your path (replace "Node.js_folder" with the location of the bin folder in the folder you installed Node.js in  
 `echo -e '\nexport PATH=Node.js_folder:$PATH' >> ~/.profile && source ~/.profile`
 
+
+
+### Configuring NPM If Root
 Note if your installing this on a root account then you need to run these additional commands  
 `npm config set user 0`  
 `npm config set unsafe-perm true`
@@ -93,6 +103,15 @@ Now you need to install Angular globally
 
 Then you need to install Uglifyjs globally  
 `npm install -g uglify-js`
+
+
+
+### Cloning the Repository
+```
+cd ~/Installed-Programs 
+git clone https://github.com/X-CASH-official/XCASH_DPOPS_delegates_website.git
+```
+ 
 
 
 
@@ -118,9 +137,9 @@ It will then create a dist folder, compress the javascript using Uglify-JS and m
 ``` 
 cd dist  
 for f in *.js; do echo "Processing $f file.."; uglifyjs $f --compress --mangle --output "{$f}min"; rm $f; mv "{$f}min" $f; done  
-rm -r /PATH_TO_XCASH_DPOPS_FOLDER/delegates_website/* && rm /PATH_TO_XCASH_DPOPS_FOLDER/delegates_website/*   
+rm -r ~/Installed-Programs/XCASH_DPOPS/delegates_website/* && rm ~/Installed-Programs/XCASH_DPOPS/delegates_website/*   
 cd ../  
-cp -a dist/* /PATH_TO_XCASH_DPOPS_FOLDER/delegates_website/ 
+cp -a dist/* ~/Installed-Programs/XCASH_DPOPS/delegates_website/ 
 ```
 
 
