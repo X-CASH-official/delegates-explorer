@@ -137,7 +137,8 @@ It will then create a dist folder, compress the javascript using Uglify-JS and m
 ``` 
 cd dist  
 for f in *.js; do echo "Processing $f file.."; uglifyjs $f --compress --mangle --output "{$f}min"; rm $f; mv "{$f}min" $f; done  
-rm -r ~/Installed-Programs/XCASH_DPOPS/delegates_website/* && rm ~/Installed-Programs/XCASH_DPOPS/delegates_website/*   
+rm -r ~/Installed-Programs/XCASH_DPOPS/delegates_website  
+mkdir ~/Installed-Programs/XCASH_DPOPS/delegates_website
 cd ../  
 cp -a dist/* ~/Installed-Programs/XCASH_DPOPS/delegates_website/ 
 ```
