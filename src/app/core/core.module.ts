@@ -18,7 +18,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FullscreenComponent } from './fullscreen/fullscreen.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import {
     MatSidenavModule,
     MatSliderModule,
@@ -37,8 +36,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         SidemenuItemComponent,
         ToolbarComponent,
         SearchBarComponent,
-        FullscreenComponent,
-        SidebarComponent
+        FullscreenComponent
     ],
 
     imports: [
@@ -65,8 +63,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         SidemenuItemComponent,
         ToolbarComponent,
         SearchBarComponent,
-        FullscreenComponent,
-        SidebarComponent
+        FullscreenComponent
     ],
 
     providers: [

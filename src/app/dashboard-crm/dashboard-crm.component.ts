@@ -31,7 +31,7 @@ export class DashboardCrmComponent implements OnInit {
             var data = JSON.parse(JSON.stringify(res));
             this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
             this.dashCard1[1].text = data.current_block_height;  
-            this.dashCard2[0].text = parseInt(data.total_votes) / this.httpdataservice.XCASH_TOTAL_SUPPLY;
+            this.dashCard2[0].text = parseInt(data.total_votes) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
             this.dashCard2[1].text = data.XCASH_DPOPS_circulating_percentage;  
 	  },
 	  (error) => 
