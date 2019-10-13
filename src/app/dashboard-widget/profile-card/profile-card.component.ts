@@ -74,7 +74,7 @@ Swal.fire({
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: 'Once the wallet is loaded, type the following command:<br><br>vote DELEGATES_PUBLIC_ADDRESS',
+  html: 'Once the wallet is loaded, type the following command:<br><br>vote DELEGATES_PUBLIC_ADDRESS or DELEGATES_NAME',
   showCloseButton: false,
   showCancelButton: false,
 })
@@ -134,7 +134,7 @@ Swal.fire({
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: 'Get statistics<br>Method: GET<br>URL: /delegateswebsitegetstatistics<br>Result:<br>most_total_rounds_delegate_name: The delegate that has the most total rounds<br>most_total_rounds: The most total rounds by a delegate<br><br>best_block_verifier_online_percentage_delegate_name: The delegate that has the best block verifier online percentage<br><br>best_block_verifier_online_percentage: The best block verifier online percentage by a delegate<br><br>most_block_producer_total_rounds_delegate_name: The delegate that has been the block producer the most<br><br>most_block_producer_total_rounds: The most block producer total rounds by a delegate<br><br>current_block_height: The current block height<br><br>xcash_proof_of_stake_round_number: The current xcash proof of stake round number<br><br>total_votes: The total amount of votes<br><br>xcash_proof_of_stake_circulating_percentage: The percentage of total votes compared to the circulating supply<br><br>{"most_total_rounds_delegate_name":"delegate1","most_total_rounds":"40","best_block_verifier_online_percentage_delegate_name":"delegate4","best_block_verifier_online_percentage":"0.97","most_block_producer_total_rounds_delegate_name":"delegate2","most_block_producer_total_rounds":"15","current_block_height":"433102","xcash_proof_of_stake_round_number":"192601","total_votes":"5000000","xcash_proof_of_stake_circulating_percentage":"0"}',
+  html: 'Get statistics<br>Method: GET<br>URL: /delegateswebsitegetstatistics<br>Result:<br>most_total_rounds_delegate_name: The delegate that has the most total rounds<br>most_total_rounds: The most total rounds by a delegate<br><br>best_block_verifier_online_percentage_delegate_name: The delegate that has the best block verifier online percentage<br><br>best_block_verifier_online_percentage: The best block verifier online percentage by a delegate<br><br>most_block_producer_total_rounds_delegate_name: The delegate that has been the block producer the most<br><br>most_block_producer_total_rounds: The most block producer total rounds by a delegate<br><br>current_block_height: The current block height<br><br>XCASH_DPOPS_round_number: The current xcash proof of stake round number<br><br>total_votes: The total amount of votes<br><br>XCASH_DPOPS_circulating_percentage: The percentage of total votes compared to the circulating supply<br><br>{"most_total_rounds_delegate_name":"delegate1","most_total_rounds":"40","best_block_verifier_online_percentage_delegate_name":"delegate4","best_block_verifier_online_percentage":"0.97","most_block_producer_total_rounds_delegate_name":"delegate2","most_block_producer_total_rounds":"15","current_block_height":"433102","XCASH_DPOPS_round_number":"192601","total_votes":"5000000","XCASH_DPOPS_circulating_percentage":"0"}',
   showCloseButton: false,
   showCancelButton: false,
 })

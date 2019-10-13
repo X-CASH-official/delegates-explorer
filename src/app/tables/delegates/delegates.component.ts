@@ -50,9 +50,11 @@ export class delegatesComponent implements OnInit {
             this.exampleDatabase = new ExampleDatabase();
             var data = JSON.parse(JSON.stringify(res));
 	    var count = 0;
+            var delegate_total_vote_count;
 	    for (count = 0; count < data.length; count++)
 	    {
-	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].pool_mode.toString(),data[count].fee_structure.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),data[count].total_vote_count.toString(),data[count].block_verifier_score.toString());
+              delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.httpdataservice.XCASH_TOTAL_SUPPLY;
+	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].pool_mode.toString(),data[count].fee_structure.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),delegate_total_vote_count.toString(),data[count].block_verifier_score.toString());
 	    }
   	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
 	  },

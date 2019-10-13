@@ -36,8 +36,9 @@ export class round_statisticsComponent implements OnInit {
 	
 	title:string = "Round Statistics";
         delegates_data:string = "";
+        XCASH_WALLET_PREFIX = "584341";
         XCASH_PROOF_OF_STAKE_BLOCK_HEIGHT:number = 240501;
-        BLOCK_VERIFIERS_AMOUNT:number = 100;
+        BLOCK_VERIFIERS_AMOUNT:number;
         BLOCKCHAIN_RESERVED_BYTES_START:string = "7c424c4f434b434841494e5f52455345525645445f42595445535f53544152547c";
         BLOCKCHAIN_DATA_SEGMENT_STRING:string = "7c424c4f434b434841494e5f444154415f5345474d454e545f535452494e477c";
         BLOCKCHAIN_RESERVED_BYTES_END:string = "7c424c4f434b434841494e5f52455345525645445f42595445535f454e447c";
@@ -90,6 +91,9 @@ export class round_statisticsComponent implements OnInit {
             this.exampleDatabase4 = new ExampleDatabase();
             this.exampleDatabase5 = new ExampleDatabase();
             var data = JSON.parse(JSON.stringify(res));
+
+            // get the BLOCK_VERIFIERS_AMOUNT
+            this.BLOCK_VERIFIERS_AMOUNT = data.reserve_bytes.split(this.XCASH_WALLET_PREFIX).length - 2;
 
             // get the reserve bytes data
             var data2;

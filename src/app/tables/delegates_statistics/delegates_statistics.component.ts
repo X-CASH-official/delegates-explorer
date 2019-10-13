@@ -39,10 +39,9 @@ export class delegates_statisticsComponent implements OnInit {
           var data = JSON.parse(JSON.stringify(res));
           var block_producer_block_heights = data.block_producer_block_heights.split("|");
 	  var count = 0;
-          var counter = 0;
-          for (count = 0; count < block_producer_block_heights.length; count++, counter++)
+          for (count = 1; count < block_producer_block_heights.length; count++)
 	  {
-	    this.exampleDatabase.addUser((counter + 1).toString(),block_producer_block_heights[count].toString(),"Block Producer");
+	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
 	  }
 	  this.dashCard1[0].text = data.total_vote_count;
 	  this.dashCard1[1].text = data.current_delegate_rank;
