@@ -41,12 +41,14 @@ export class delegates_voters_listComponent implements OnInit {
 	    this.total_vote_count = 0;	
 	    this.amount_of_votes = data.length;
 	    var count = 0;
+            var total;
             for (count = 0; count < this.amount_of_votes; count++)
 	    {
+              total = parseInt(data[count].total) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
               this.total_vote_count += parseInt(data[count].total);
-	      this.exampleDatabase.addUser((count + 1).toString(),data[count].public_address_created_reserve_proof.toString(),data[count].total.toString(),data[count].reserve_proof.toString());
+	      this.exampleDatabase.addUser((count + 1).toString(),data[count].public_address_created_reserve_proof.toString(),total.toString(),data[count].reserve_proof.toString());
 	    }
-	    this.dashCard[0].text = this.total_vote_count;
+	    this.dashCard[0].text = this.total_vote_count / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
 	    this.dashCard[1].text = this.amount_of_votes;	
   	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
             },

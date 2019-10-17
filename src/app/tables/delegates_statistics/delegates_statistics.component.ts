@@ -43,7 +43,7 @@ export class delegates_statisticsComponent implements OnInit {
 	  {
 	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
 	  }
-	  this.dashCard1[0].text = data.total_vote_count;
+	  this.dashCard1[0].text = data.total_vote_count / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
 	  this.dashCard1[1].text = data.current_delegate_rank;
 	  this.dashCard2[0].text = data.block_verifier_total_rounds;
 	  this.dashCard2[1].text = data.block_producer_total_rounds;
