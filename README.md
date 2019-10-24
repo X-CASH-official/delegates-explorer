@@ -82,7 +82,7 @@ The readme shows you how to setup the website using HTTP, since there is no sens
 
 
 ### Installation Path
-It is recommend to install the nodejs folder in the home directory (`/home/$USER/`) or root directory (`/root/`) in a `Installed-Programs` folder
+It is recommend to install the nodejs folder in the home directory (`/home/$USER/`) or root directory (`/root/`) in a `x-network` folder
 
 
 
@@ -126,7 +126,7 @@ Then you need to install Uglifyjs globally
 
 ### Cloning the Repository
 ```
-cd ~/Installed-Programs 
+cd ~/x-network 
 git clone https://github.com/X-CASH-official/XCASH_DPOPS_delegates_website.git
 ```
  
@@ -155,10 +155,10 @@ It will then create a dist folder, compress the javascript using Uglify-JS and m
 ``` 
 cd dist  
 for f in *.js; do echo "Processing $f file.."; uglifyjs $f --compress --mangle --output "{$f}min"; rm $f; mv "{$f}min" $f; done  
-rm -r ~/Installed-Programs/XCASH_DPOPS/delegates_website  
-mkdir ~/Installed-Programs/XCASH_DPOPS/delegates_website  
+rm -r ~/x-network/XCASH_DPOPS/delegates_website  
+mkdir ~/x-network/XCASH_DPOPS/delegates_website  
 cd ../  
-cp -a dist/* ~/Installed-Programs/XCASH_DPOPS/delegates_website/ 
+cp -a dist/* ~/x-network/XCASH_DPOPS/delegates_website/ 
 ```
 
 
