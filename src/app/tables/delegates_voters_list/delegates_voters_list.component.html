@@ -1,6 +1,4 @@
-<div align="center">
-<h2>{{title}}</h2>
-</div>
+<h2 class="text-center">{{title}}</h2>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
@@ -8,10 +6,8 @@
     </div>
 </div>
 
-<div align="center">
-<a [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Information</h3></a>
-<a [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Statistics</h3></a>
-</div>
+<a class="text-center" [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Information</h3></a>
+<a class="text-center" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Statistics</h3></a>
 
 <div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
 

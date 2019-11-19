@@ -1,30 +1,9 @@
-<!-- <mat-sidenav-container class="container" fullscreen>
-    <mat-sidenav [mode]="sideNavMode" class="sidenav" #sidenav [opened]="sideNavOpened" style="overflow: hidden;">
-        <mat-toolbar color="primary" class="mat-elevation-z4">
-            <img src="../../assets/images/xcash.png" width="36px">
-            <h1 class="logo">
-                XCASH
-            </h1>
-        </mat-toolbar>
-
-        <cdk-sidemenu></cdk-sidemenu>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <cdk-toolbar [sidenav]="sidenav" [drawer]="drawer" [sidebar]="sidenav2" [matDrawerShow]="matDrawerShow" style="z-index: 500"></cdk-toolbar>
-        <perfect-scrollbar>
-            <router-outlet></router-outlet>
-        </perfect-scrollbar>
-    </mat-sidenav-content>
-    <mat-sidenav #sidenav2 position="end" mode="over">
-    </mat-sidenav>
-</mat-sidenav-container> -->
-        
- <!-- Below is another example of the home page that has a smaller menu that shows up when the main menu is hidden -->
+<!-- Below is another example of the home page that has a smaller menu that shows up when the main menu is hidden -->
 
 <mat-sidenav-container class="container" fullscreen>
     <mat-sidenav [mode]="sideNavMode" class="sidenav" #sidenav [opened]="sideNavOpened" style="overflow: hidden;">
         <mat-toolbar color="primary" class="mat-elevation-z4">
-            <img src="../../assets/images/xcash.png" width="36px">
+            <img src="../../assets/images/xcash.png" width="36px" alt="XCASH">
             <h1 class="logo">
                 XCASH
             </h1>
@@ -35,7 +14,7 @@
         <mat-drawer-container fullscreen>
             <mat-drawer mode="side" #drawer class="drawer" [opened]="matDrawerOpened" style="overflow: hidden;">
                 <mat-toolbar color="primary" class="mat-elevation-z4">
-                    <img src="../../assets/images/xcash.png" width="36px">
+                    <img src="../../assets/images/xcash.png" width="36px" alt="XCASH">
                 </mat-toolbar>
                 <cdk-sidemenu [iconOnly]="true"></cdk-sidemenu>
             </mat-drawer>

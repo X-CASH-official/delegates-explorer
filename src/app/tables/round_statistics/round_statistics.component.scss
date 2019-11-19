@@ -2,6 +2,7 @@
 .table-container {
 position: relative;
 margin-top:50px;
+padding: 5px 15px 15px 15px;
 }
 .table-container .mat-table {
 max-height: calc(100vh - 200px);
@@ -18,9 +19,6 @@ background: #fff;
 	background-color: #039be5;
 	color: white;
 	padding: 0 5px;
-}
-.table-container {
-	padding: 5px 15px 15px 15px;
 }
 .table-component-holder {
 	border: 1px solid #039be5;

@@ -1,10 +1,6 @@
-<div align="center">
-<h2>{{title}}</h2>
-</div>
+<h2 class="text-center">{{title}}</h2>
 
-<div align="center">
-<h4>Block Producer</h4>
-</div>
+<h4 class="text-center">Block Producer</h4>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard1" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
@@ -24,9 +20,7 @@
     </div>
 </div>
 
-<div align="center">
-<h4>VRF Data</h4>
-</div>
+<h4 class="text-center">VRF Data</h4>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard4" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
@@ -52,13 +46,11 @@
     </div>
 </div>
 
-<div align="center">
-<h4>Block Verification Test</h4>
-</div>
+<h4 class="text-center">Block Verification Test</h4>
 
     <mat-card>
         <mat-card-content>
-            <div align="center"><h3>32 out of 32 passed test</h3></div>
+            <h3 class="text-center">32 out of 32 passed test</h3>
             <section class="example-section">
 	<mat-checkbox class="example-margin" [checked]="true" disabled>Network Version</mat-checkbox><br>
 	<mat-checkbox class="example-margin" [checked]="true">Timestamp</mat-checkbox><br>
