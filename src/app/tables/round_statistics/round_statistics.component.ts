@@ -137,14 +137,14 @@ export class round_statisticsComponent implements OnInit {
             for (count2 = 0; count2 < this.BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
 	      data2 = reserve_bytes.substr(count,200);
-              count = count + data2.length + 64;
+              count = count2+1 != this.BLOCK_VERIFIERS_AMOUNT ? (count + data2.length + 64) : (count + data2.length + 86);
               this.exampleDatabase3.addUser((count2 + 1).toString(),data2.toString());
 	    }
 
             for (count2 = 0; count2 < this.BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
-	      data2 = this.text_to_string(reserve_bytes.substr(count,196));
-              count = count + (data2.length * 2) + 64;
+	      data2 = this.text_to_string(reserve_bytes.substr(count,128));
+              count = count + (data2.length * 2) + 86;
               this.exampleDatabase4.addUser((count2 + 1).toString(),data2.toString());
 	    }
 
@@ -153,7 +153,7 @@ export class round_statisticsComponent implements OnInit {
 
             for (count2 = 0; count2 < this.BLOCK_VERIFIERS_AMOUNT; count2++)
 	    {
-              data2 = this.text_to_string(reserve_bytes.substr(count,186));
+              data2 = this.text_to_string(reserve_bytes.substr(count,576));
               count = count + (data2.length * 2) + 64;
               this.exampleDatabase5.addUser((count2 + 1).toString(),data2.toString());
             }
