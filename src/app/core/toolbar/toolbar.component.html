@@ -1,15 +1,15 @@
 <mat-toolbar   class="mat-elevation-z4">  
 	<button mat-icon-button (click)="sidenav.toggle();drawer.toggle();" *ngIf="matDrawerShow">
-        <i class="material-icons app-toolbar-menu">menu </i>
+        <em class="material-icons app-toolbar-menu">menu </em>
     </button> 
     <button mat-icon-button (click)="sidenav.toggle();" *ngIf="!matDrawerShow">
-        <i class="material-icons app-toolbar-menu">menu </i>
+        <em class="material-icons app-toolbar-menu">menu </em>
     </button>
 
     <span class="spacer"></span>
 
     <button  mat-icon-button (click)="searchOpen = !searchOpen" fxHide="true" [fxHide.gt-xs]="false">
-        <i class="material-icons">search</i>
+        <em class="material-icons">search</em>
     </button>
     <cdk-search-bar [open]="searchOpen"></cdk-search-bar>
 
