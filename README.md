@@ -149,7 +149,7 @@ Make sure to follow the steps to [setup the firewall for XCASH_DPOPS](https://gi
 ### Build XCASH_DPOPS - Delegates Website
 
 To build XCASH_DPOPS - Delegates Website, naviagte to the folder with the package.json file, and then run  
-`ng build --prod --aot`
+`npm build`
 
 It will then create a dist folder, compress the javascript using Uglify-JS and move all of the contents of this folder to your XCASH_DPOPS/delegates_website folder 
 ``` 
