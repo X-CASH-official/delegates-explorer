@@ -12,7 +12,7 @@ describe('DashboardCrmComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardCrmComponent ],
-imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule],
       providers: [ httpdataservice ],
       schemas: [NO_ERRORS_SCHEMA]
     })
