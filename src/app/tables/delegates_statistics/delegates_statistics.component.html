@@ -1,14 +1,14 @@
 <h2 class="text-center">{{title}}</h2>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard1" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+        <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard2" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+        <cdk-dashcard id="dashcard{{count+3}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
@@ -22,19 +22,19 @@
 			<h1 class="mat-headline center-align" >Delegates Statistics</h1>
 		</mat-toolbar>
 		<div class="table-container">
-			<mat-table #table [dataSource]="dataSource">
+			<mat-table #table id="blocks_found_table" [dataSource]="dataSource">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 				
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.id | number}} </mat-cell>
+					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
 				
 				<ng-container matColumnDef="Block_Height">
 					<mat-header-cell *matHeaderCellDef> Block Height </mat-header-cell>
-					<mat-cell *matCellDef="let row"><a class="text-primary" [routerLink]="['/auth/tables/round_statistics']" [queryParams]="{'data':row.block_height}"><h2>{{row.block_height | number}}</h2></a></mat-cell>
+					<mat-cell id="block_height{{row.id}}" *matCellDef="let row"><a class="text-primary" [routerLink]="['/auth/tables/round_statistics']" [queryParams]="{'data':row.block_height}"><h2>{{row.block_height | number}}</h2></a></mat-cell>
 				</ng-container>
 
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

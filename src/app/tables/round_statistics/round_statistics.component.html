@@ -3,20 +3,20 @@
 <h4 class="text-center">Block Producer</h4>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard1" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+        <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard2" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+        <cdk-dashcard id="dashcard3" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard3" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+        <cdk-dashcard id="dashcard4" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
@@ -24,25 +24,25 @@
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard4" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+        <cdk-dashcard id="dashcard5" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard5" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+        <cdk-dashcard id="dashcard6" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard6" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+        <cdk-dashcard id="dashcard7" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard7" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard [dashData]="dash"></cdk-dashcard>
+        <cdk-dashcard id="dashcard8" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
@@ -97,19 +97,19 @@
 			
 		</mat-toolbar>
 		<div class="table-container">
-			<mat-table #table [dataSource]="dataSource1">
+			<mat-table #table id="block_verifiers_vrf_secret_key_table" [dataSource]="dataSource1">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 				
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.id | number}} </mat-cell>
+					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
 				
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Block Verifiers VRF Secret Key </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
+					<mat-cell id="block_verifiers_vrf_secret_key{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
 								
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -129,19 +129,19 @@
 			
 		</mat-toolbar>
 		<div class="table-container">
-			<mat-table #table [dataSource]="dataSource2">
+			<mat-table #table id="block_verifiers_vrf_public_key_table" [dataSource]="dataSource2">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 				
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.id | number}} </mat-cell>
+					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
 				
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Block Verifiers VRF Public Key </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
+					<mat-cell id="block_verifiers_vrf_public_key{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
 								
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -161,19 +161,19 @@
 			
 		</mat-toolbar>
 		<div class="table-container">
-			<mat-table #table [dataSource]="dataSource3">
+			<mat-table #table id="block_verifiers_random_data_table" [dataSource]="dataSource3">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 				
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.id | number}} </mat-cell>
+					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
 				
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Block Verifiers Random Data </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
+					<mat-cell id="block_verifiers_random_data{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
 								
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -193,19 +193,19 @@
 			
 		</mat-toolbar>
 		<div class="table-container">
-			<mat-table #table [dataSource]="dataSource4">
+			<mat-table #table id="next_block_verifiers_public_key_table" [dataSource]="dataSource4">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 				
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.id | number}} </mat-cell>
+					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
 				
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Next Block Verifiers </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
+					<mat-cell id="next_block_verifiers_public_key{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
 								
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -225,19 +225,19 @@
 			
 		</mat-toolbar>
 		<div class="table-container">
-			<mat-table #table [dataSource]="dataSource5">
+			<mat-table #table id="current_block_verifiers_data_signature_table" [dataSource]="dataSource5">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 				
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.id | number}} </mat-cell>
+					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
 				
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Current Block Verifiers Data Signature </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
+					<mat-cell id="current_block_verifiers_data_signature{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
 								
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

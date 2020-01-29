@@ -24,7 +24,7 @@ describe('AuthComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create', () => expect(component).toBeTruthy());
+  it('should create logo1', () => expect(fixture.debugElement.nativeElement.querySelector('#logo1').src).toBe('http://localhost:9876/src/assets/images/xcash.png'));
+  it('should create logo2', () => expect(fixture.debugElement.nativeElement.querySelector('#logo2').src).toBe('http://localhost:9876/src/assets/images/xcash.png'));
 });

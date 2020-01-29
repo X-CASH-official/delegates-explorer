@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, inject} from '@angular/core/testing';
+import { async, TestBed, inject} from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import {httpdataservice} from 'app/services/http-request.service';
@@ -28,14 +28,14 @@ describe('httpdataservice', () => {
           }
         });
 
-        const mockReq = httpMock.expectOne(httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
-
-        expect(mockReq.cancelled).toBeFalsy();
-        expect(mockReq.request.method).toBe('GET');
-        expect(mockReq.request.responseType).toEqual('json');
+        const mockReq = httpMock.match(httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
+         expect(mockReq.slice(-1)[0].cancelled).toBeFalsy();
+         expect(mockReq.slice(-1)[0].request.method).toBe('GET');
+         expect(mockReq.slice(-1)[0].request.responseType).toEqual('json');
+         mockReq.slice(-1)[0].flush(1);
 
         httpMock.verify();
-      }));
+  }));
 
   it('Test POST request',inject([HttpTestingController, httpdataservice],(httpMock: HttpTestingController, httpdataservice: httpdataservice) => {
    httpdataservice.post_request(httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS,"DATA").subscribe((event: HttpEvent<any>) => {
@@ -44,13 +44,13 @@ describe('httpdataservice', () => {
           }
         });
 
-        const mockReq = httpMock.expectOne(httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
-
-        expect(mockReq.cancelled).toBeFalsy();
-        expect(mockReq.request.method).toBe('POST');
-        expect(mockReq.request.responseType).toEqual('json');
+        const mockReq = httpMock.match(httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
+         expect(mockReq.slice(-1)[0].cancelled).toBeFalsy();
+         expect(mockReq.slice(-1)[0].request.method).toBe('POST');
+         expect(mockReq.slice(-1)[0].request.responseType).toEqual('json');
+         mockReq.slice(-1)[0].flush(1);
 
         httpMock.verify();
-      }));
+  }));
 
 });
