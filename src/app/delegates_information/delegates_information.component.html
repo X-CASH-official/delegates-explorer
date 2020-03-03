@@ -1,6 +1,6 @@
-<h2 class="text-center">{{title}}</h2>
-<a class="text-center" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Statistics</h3></a>
-<a class="text-center" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Voters List</h3></a>
+<h2 style="text-align: center;">{{title}}</h2>
+<a style="text-align: center;" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Statistics</h3></a>
+<a style="text-align: center;" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Voters List</h3></a>
 
 <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
     <cdk-profile-card id="profilecard1" [title]="'About'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Start'" [button_length]="{'width': '25%'}" [button_click]="'about'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
