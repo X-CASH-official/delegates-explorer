@@ -1,4 +1,4 @@
-# XCASH_DPOPS - Delegates Website
+# Delegates Explorer
 
 Forked from [cdk-admin](https://github.com/codetok/cdk-admin), an Angular 6 admin panel using angular material & angular flex.
 
@@ -12,9 +12,9 @@ This website will give users
 * A place to view all of the delegates, their statistics, total votes and reserve proofs that have voted for them
 * A place to view about the details of the delegate, if they have choose to provide this information.
 * A place to view detailed statistics about any delegate
-* A place to view and verify all of the X-CASH proof of stake information about any block created on the network
+* A place to view and verify all of the XCASH DPOPS information about any block created on the network
 
-This website is optional for delegates to run, as the X-CASH proof of stake data network nodes will run this website
+This website is optional for delegates to run, as the XCASH DPOPS of stake data network nodes will run this website
 
 **If you plan on running a delegates website, you will need to run the website on the same system as the DPOPS node**
 
@@ -32,7 +32,7 @@ This website is optional for delegates to run, as the X-CASH proof of stake data
 * [Cloning the Repository](#cloning-the-repository)  
 * [Updating node_modules](#updating-node_modules)  
 * [Redirect port 80 to 18283](#redirect-port-80-to-18283)  
-* [Build XCASH_DPOPS - Delegates Website](#build-xcash_dpops---delegates-website)  
+* [Build](#build)  
 * [Build Instructions](#cloning-the-repository)  
 
 [Testing](#testing) 
@@ -64,13 +64,13 @@ Bandwidth Speed: 100 Mbps
  
 ## Dependencies
 
-The following table summarizes the tools and libraries required to run XCASH DPOPS - Delegate Website
+The following table summarizes the tools and libraries required to run delegates explorer
 
 | Dependencies                                 | Min. version  | Ubuntu package            |
 | -------------------------------------------- | ------------- | ------------------------- |
 | Node.js                                      | 8             |  install from binaries    | 
 | Angular                                      | 6             |  install from NPM         |
-| XCASH_DPOPS                                  | latest version | [build from source](https://github.com/X-CASH-official/XCASH_DPOPS)
+| XCASH_DPOPS                                  | latest version | [build from source](https://github.com/X-CASH-official/xcash-dpops)
 
 **If you want to run the website using SSL then you will need to install a webserver like nginx  
 The readme shows you how to setup the website using HTTP, since there is no sensitive data in the website**
@@ -127,7 +127,7 @@ Then you need to install Uglifyjs globally
 ### Cloning the Repository
 ```
 cd ~/x-network 
-git clone https://github.com/X-CASH-official/XCASH_DPOPS_delegates_website.git
+git clone https://github.com/X-CASH-official/delegates-explorer.git
 ```
  
 
@@ -142,27 +142,30 @@ Now you need to install all of the dependicies for the website. Navigate to the 
 
 
 ### Redirect port 80 to 18283
-Make sure to follow the steps to [setup the firewall for XCASH_DPOPS](https://github.com/X-CASH-official/XCASH_DPOPS#how-to-setup-the-firewall)
+Make sure to follow the steps to [setup the firewall for XCASH_DPOPS](https://github.com/X-CASH-official/xcash-dpops#how-to-setup-the-firewall)
 
 
 
-### Build XCASH_DPOPS - Delegates Website
+### Build
 
 To build XCASH_DPOPS - Delegates Website, naviagte to the folder with the package.json file, and then run  
 `npm run build`
 
-It will then create a dist folder, compress the javascript using Uglify-JS and move all of the contents of this folder to your XCASH_DPOPS/delegates_website folder 
+It will then create a dist folder, compress the javascript using Uglify-JS and move all of the contents of this folder to your xcash-dpops/delegates-explorer folder 
 ``` 
 cd dist  
 for f in *.js; do echo "Processing $f file.."; uglifyjs $f --compress --mangle --output "{$f}min"; rm $f; mv "{$f}min" $f; done  
-rm -r ~/x-network/XCASH_DPOPS/delegates_website  
-mkdir ~/x-network/XCASH_DPOPS/delegates_website  
+rm -r ~/x-network/xcash-dpops/delegates-explorer  
+mkdir ~/x-network/xcash-dpops/delegates-explorer  
 cd ../  
-cp -a dist/* ~/x-network/XCASH_DPOPS/delegates_website/ 
+cp -a dist/* ~/x-network/xcash-dpops/delegates-explorer/ 
 ```
 
 
 ## Testing
+
+First run the angular test to make sure the website is functioning correctly  
+`npm test`
 
 To test that you have properly configured XCASH_DPOPS - Delegates Website, run the XCASH_DPOPS with the following flags  
 `--test_data_add`  
