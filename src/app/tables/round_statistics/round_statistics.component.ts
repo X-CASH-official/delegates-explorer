@@ -91,6 +91,7 @@ export class round_statisticsComponent implements OnInit {
             this.exampleDatabase4 = new ExampleDatabase();
             this.exampleDatabase5 = new ExampleDatabase();
             var data = JSON.parse(JSON.stringify(res));
+            this.BLOCK_VERIFIERS_AMOUNT = parseInt(data.block_verifiers_amount);
 
             // get the reserve bytes data
             var data2;
