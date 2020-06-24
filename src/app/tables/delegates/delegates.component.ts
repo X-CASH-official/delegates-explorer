@@ -14,7 +14,7 @@ export class delegatesComponent implements OnInit {
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL BLOCK VERIFIERS', icon: 'cloud' },
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text_settings: 20, text: '', settings: false, title: 'NEXT RECALCULATING OF VOTES', icon: 'assignments' }
     ];
-	public displayedColumns = ['ID', 'Delegate_Name', 'Online_Status', 'Pool_Mode', 'Fee_Structure', 'Block_Verifier_Total_Rounds', 'Block_Verifier_Online_Percentage', 'Total_Vote_Count', 'Block_Verifier_Score'];
+	public displayedColumns = ['ID', 'Delegate_Name', 'Online_Status', 'Shared_Delegate_Status', 'Delegate_Fee', 'Block_Verifier_Total_Rounds', 'Block_Verifier_Online_Percentage', 'Total_Vote_Count', 'Block_Verifier_Score'];
 	public exampleDatabase = new ExampleDatabase();
 	public dataSource: ExampleDataSource | null;
   	public showFilterTableCode;
