@@ -14,8 +14,8 @@ describe('delegatesComponent', () => {
   let fixture: ComponentFixture<delegatesComponent>;
 
   let test_data: any[] = [
-    { id: "1", delegate_name: 'delegate_name_1', online_status: 'online', pool_mode: 'false', fee_structure: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_verifier_score: '0' },
-    { id: "2", delegate_name: 'delegate_name_2', online_status: 'online', pool_mode: 'false', fee_structure: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_verifier_score: '0' }
+    { id: "1", delegate_name: 'delegate_name_1', online_status: 'online', shared_delegates_status: 'false', delegate_fee: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_verifier_score: '0' },
+    { id: "2", delegate_name: 'delegate_name_2', online_status: 'online', shared_delegates_status: 'false', delegate_fee: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_verifier_score: '0' }
   ];
 
   beforeEach(async(() => {
@@ -50,15 +50,15 @@ describe('delegatesComponent', () => {
   // test the code
   it('should update delegates table', () => {
     component.exampleDatabase = new ExampleDatabase();
-    test_data.forEach((item) => component.exampleDatabase.addUser(item.id,item.delegate_name,item.online_status,item.pool_mode,item.fee_structure,item.block_verifier_total_rounds,item.block_verifier_online_percentage,item.total_vote_count,item.block_verifier_score));
+    test_data.forEach((item) => component.exampleDatabase.addUser(item.id,item.delegate_name,item.online_status,item.shared_delegates_status,item.delegate_fee,item.block_verifier_total_rounds,item.block_verifier_online_percentage,item.total_vote_count,item.block_verifier_score));
     component.dataSource = new ExampleDataSource(component.exampleDatabase);
 
     fixture.detectChanges();
     expect(fixture.debugElement.nativeElement.querySelector('#id1').textContent).toContain(test_data[0].id);
     expect(fixture.debugElement.nativeElement.querySelector('#delegatename1').textContent).toContain(test_data[0].delegate_name);
     expect(fixture.debugElement.nativeElement.querySelector('#online_status1').textContent).toContain(test_data[0].online_status);
-    expect(fixture.debugElement.nativeElement.querySelector('#pool_mode1').textContent).toContain(test_data[0].pool_mode);
-    expect(fixture.debugElement.nativeElement.querySelector('#fee_structure1').textContent).toContain(test_data[0].fee_structure);
+    expect(fixture.debugElement.nativeElement.querySelector('#shared_delegates_status1').textContent).toContain(test_data[0].shared_delegates_status);
+    expect(fixture.debugElement.nativeElement.querySelector('#delegate_fee1').textContent).toContain(test_data[0].delegate_fee);
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_total_rounds1').textContent).toContain(test_data[0].block_verifier_total_rounds);
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_online_percentage1').textContent).toContain(test_data[0].block_verifier_online_percentage);
     expect(fixture.debugElement.nativeElement.querySelector('#total_vote_count1').textContent).toContain(test_data[0].total_vote_count);
@@ -67,8 +67,8 @@ describe('delegatesComponent', () => {
     expect(fixture.debugElement.nativeElement.querySelector('#id2').textContent).toContain(test_data[1].id);
     expect(fixture.debugElement.nativeElement.querySelector('#delegatename2').textContent).toContain(test_data[1].delegate_name);
     expect(fixture.debugElement.nativeElement.querySelector('#online_status2').textContent).toContain(test_data[1].online_status);
-    expect(fixture.debugElement.nativeElement.querySelector('#pool_mode2').textContent).toContain(test_data[1].pool_mode);
-    expect(fixture.debugElement.nativeElement.querySelector('#fee_structure2').textContent).toContain(test_data[1].fee_structure);
+    expect(fixture.debugElement.nativeElement.querySelector('#shared_delegates_status2').textContent).toContain(test_data[1].shared_delegates_status);
+    expect(fixture.debugElement.nativeElement.querySelector('#delegate_fee2').textContent).toContain(test_data[1].delegate_fee);
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_total_rounds2').textContent).toContain(test_data[1].block_verifier_total_rounds);
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_online_percentage2').textContent).toContain(test_data[1].block_verifier_online_percentage);
     expect(fixture.debugElement.nativeElement.querySelector('#total_vote_count2').textContent).toContain(test_data[1].total_vote_count);

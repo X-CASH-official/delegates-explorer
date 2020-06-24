@@ -21,7 +21,7 @@ export class delegatesComponent implements OnInit {
   	constructor(private httpdataservice: httpdataservice) { }
 
   	ngOnInit() {
-        this.dashCard[0].text = 100;  
+        this.dashCard[0].text = 50;  
 
         setInterval(() => {
         var current_date_and_time = new Date();
@@ -54,7 +54,7 @@ export class delegatesComponent implements OnInit {
 	    for (count = 0; count < data.length; count++)
 	    {
               delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].pool_mode.toString(),data[count].fee_structure.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),delegate_total_vote_count.toString(),data[count].block_verifier_score.toString());
+	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].shared_delegates_status.toString(),data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),delegate_total_vote_count.toString(),data[count].block_verifier_score.toString());
 	    }
   	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
 	  },

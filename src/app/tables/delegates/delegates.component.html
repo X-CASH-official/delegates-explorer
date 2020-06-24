@@ -34,12 +34,12 @@
 
 				<ng-container matColumnDef="Pool_Mode">
 					<mat-header-cell *matHeaderCellDef> Pool Mode </mat-header-cell>
-					<mat-cell id="pool_mode{{row.id}}" *matCellDef="let row"> {{row.pool_mode}} </mat-cell>
+					<mat-cell id="shared_delegates_status{{row.id}}" *matCellDef="let row"> {{row.shared_delegates_status}} </mat-cell>
 				</ng-container>	
            
                                 <ng-container matColumnDef="Fee_Structure">
 					<mat-header-cell *matHeaderCellDef> Fee Structure </mat-header-cell>
-					<mat-cell id="fee_structure{{row.id}}" *matCellDef="let row"> {{row.fee_structure}} </mat-cell>
+					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row"> {{row.delegate_fee}} </mat-cell>
 				</ng-container>	
 
                                 <ng-container matColumnDef="Block_Verifier_Total_Rounds">

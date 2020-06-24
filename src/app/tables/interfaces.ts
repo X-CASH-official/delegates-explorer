@@ -2,8 +2,8 @@ export interface delegatesdata {
   id: string;
   delegate_name: string;
   online_status: string;
-  pool_mode: string;
-  fee_structure: string;
+  shared_delegates_status: string;
+  delegate_fee: string;
   block_verifier_total_rounds: string;
   block_verifier_online_percentage: string;
   total_vote_count: string;

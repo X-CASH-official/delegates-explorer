@@ -16,20 +16,20 @@ export class ExampleDatabase {
   }
 
   /** Adds a new user to the database. */
-  addUser(id:string,delegate_name:string,online_status:string,pool_mode:string,fee_structure:string,block_verifier_total_rounds:string,block_verifier_online_percentage:string,total_vote_count:string,block_verifier_score:string) {
+  addUser(id:string,delegate_name:string,online_status:string,shared_delegates_status:string,delegate_fee:string,block_verifier_total_rounds:string,block_verifier_online_percentage:string,total_vote_count:string,block_verifier_score:string) {
     const copiedData = this.data.slice();
-    copiedData.push(this.createNewUser(id,delegate_name,online_status,pool_mode,fee_structure,block_verifier_total_rounds,block_verifier_online_percentage,total_vote_count,block_verifier_score));
+    copiedData.push(this.createNewUser(id,delegate_name,online_status,shared_delegates_status,delegate_fee,block_verifier_total_rounds,block_verifier_online_percentage,total_vote_count,block_verifier_score));
     this.dataChange.next(copiedData);
   }
 
   /** Builds and returns a new User. */
-  private createNewUser(id:string,delegate_name:string,online_status:string,pool_mode:string,fee_structure:string,block_verifier_total_rounds:string,block_verifier_online_percentage:string,total_vote_count:string,block_verifier_score:string) {
+  private createNewUser(id:string,delegate_name:string,online_status:string,shared_delegates_status:string,delegate_fee:string,block_verifier_total_rounds:string,block_verifier_online_percentage:string,total_vote_count:string,block_verifier_score:string) {
     return {
       id: id,
       delegate_name: delegate_name,
       online_status: online_status,
-      pool_mode: pool_mode,
-      fee_structure: fee_structure,
+      shared_delegates_status: shared_delegates_status,
+      delegate_fee: delegate_fee,
       block_verifier_total_rounds: block_verifier_total_rounds,
       block_verifier_online_percentage: block_verifier_online_percentage,
       total_vote_count: total_vote_count,

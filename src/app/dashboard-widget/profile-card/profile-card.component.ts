@@ -21,9 +21,9 @@ export class ProfileCardComponent implements OnInit {
     about:string;
     website:string;
     team:string;
-    pool_mode:string;
-    fee_structure:string;
-    server_settings:string;
+    shared_delegates_status:string;
+    delegate_fee:string;
+    server_specs:string;
     public_address:string;
 
     width:number = 0;
@@ -98,7 +98,7 @@ Swal.fire({
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: 'Once the wallet is loaded, type the following command:<br><br>delegate_update ITEM (about, website, team, pool_mode, fee_structure and server_settings)',
+  html: 'Once the wallet is loaded, type the following command:<br><br>delegate_update ITEM (about, website, team, shared_delegates_status, delegate_fee and server_specs)',
   showCloseButton: false,
   showCancelButton: false,
 })
@@ -146,7 +146,7 @@ Swal.fire({
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: 'Get a list of all delegates<br><br>Method: GET<br><br>URL: /getdelegates<br><br>Result:<br><br>total_vote_count: The total amount staked towards the delegate<br><br>delegate_name: The delegates name<br><br>pool_mode: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br><br>fee_structure: The fee in a percent<br><br>block_verifier_score: How many invalid reserve proofs the delegate has found<br><br>online_status: The current online status of the delegate<br><br>block_verifier_total_rounds: The total rounds the delegate has been a block verifiers<br><br>block_verifier_online_percentage: The total amount of rounds they were a block verifier and online / the total amount of rounds they were a block verifier<br><br>[{"total_vote_count":"200000000","delegate_name":"delegate_name_5","pool_mode":"false","fee_structure":"0.100000","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"5","block_verifier_online_percentage":"0"},{"total_vote_count":"100000000","delegate_name":"delegate_name_4","pool_mode":"false","fee_structure":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"4","block_verifier_online_percentage":"25"},{"total_vote_count":"50000000","delegate_name":"delegate_name_3","pool_mode":"false","fee_structure":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"3","block_verifier_online_percentage":"33"},{"total_vote_count":"20000000","delegate_name":"delegate_name_2","pool_mode":"false","fee_structure":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"2","block_verifier_online_percentage":"100"},{"total_vote_count":"10000000","delegate_name":"delegate_name_1","pool_mode":"false","fee_structure":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"1","block_verifier_online_percentage":"0"}]',
+  html: 'Get a list of all delegates<br><br>Method: GET<br><br>URL: /getdelegates<br><br>Result:<br><br>total_vote_count: The total amount staked towards the delegate<br><br>delegate_name: The delegates name<br><br>shared_delegates_status: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br><br>delegate_fee: The fee in a percent<br><br>block_verifier_score: How many invalid reserve proofs the delegate has found<br><br>online_status: The current online status of the delegate<br><br>block_verifier_total_rounds: The total rounds the delegate has been a block verifiers<br><br>block_verifier_online_percentage: The total amount of rounds they were a block verifier and online / the total amount of rounds they were a block verifier<br><br>[{"total_vote_count":"200000000","delegate_name":"delegate_name_5","shared_delegates_status":"false","delegate_fee":"0.100000","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"5","block_verifier_online_percentage":"0"},{"total_vote_count":"100000000","delegate_name":"delegate_name_4","shared_delegates_status":"false","delegate_fee":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"4","block_verifier_online_percentage":"25"},{"total_vote_count":"50000000","delegate_name":"delegate_name_3","shared_delegates_status":"false","delegate_fee":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"3","block_verifier_online_percentage":"33"},{"total_vote_count":"20000000","delegate_name":"delegate_name_2","shared_delegates_status":"false","delegate_fee":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"2","block_verifier_online_percentage":"100"},{"total_vote_count":"10000000","delegate_name":"delegate_name_1","shared_delegates_status":"false","delegate_fee":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"1","block_verifier_online_percentage":"0"}]',
   showCloseButton: false,
   showCancelButton: false,
 })
@@ -158,7 +158,7 @@ Swal.fire({
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: 'Get a delegates statistics<br>Method: GET<br>URL: /getdelegatesstatistics<br>Parameters:<br> parameter1: The delegates public address, or the delegates name<br>Result:<br>public_address: The public address of the delegate<br>total_vote_count: The total votes staked towards the delegate<br>total_vote_count_number: Same as the total_vote_count<br>IP_address: The delegates IP address, or a domain name<br>delegate_name: The delegates name<br>about: About (optional)<br>website: Website (optional)<br>team: Team (optional)<br>pool_mode: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br>fee_structure: The fee in a percent<br>server_settings: Server settings (optional)<br>block_verifier_score: How many invalid reserve proofs the delegate has found<br>online_status: The current online status of the delegate<br>block_verifier_total_rounds: The total rounds the delegate has been a block verifiers<br>block_verifier_online_total_rounds: The total rounds the delegate has been online and a block verifier<br>block_verifier_online_percentage: The total amount of rounds they were a block verifier and online / the total amount of rounds they were a block verifier<br>block_producer_total_rounds: The total rounds the deelgate has been the block producer<br>block_producer_block_heights: The block heights that the delegate has found<br>current_delegate_rank: The current delegate rank<br><br>{"public_address":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3","total_vote_count":"1000000","total_vote_count_number":"10.0","IP_address":"127.0.0.1","delegate_name":"delegatename1","about":"About","website":"Website","team":"Team","pool_mode":"false","fee_structure":"1","server_settings":"server_settings","block_verifier_score":"1","online_status":"true","block_verifier_total_rounds":"40","block_verifier_online_total_rounds":"38","block_verifier_online_percentage":"100","block_producer_total_rounds":"7","block_producer_block_heights":"2813049|10|15|240503|240507","current_delegate_rank":"100"}',
+  html: 'Get a delegates statistics<br>Method: GET<br>URL: /getdelegatesstatistics<br>Parameters:<br> parameter1: The delegates public address, or the delegates name<br>Result:<br>public_address: The public address of the delegate<br>total_vote_count: The total votes staked towards the delegate<br>total_vote_count_number: Same as the total_vote_count<br>IP_address: The delegates IP address, or a domain name<br>delegate_name: The delegates name<br>about: About (optional)<br>website: Website (optional)<br>team: Team (optional)<br>shared_delegates_status: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br>delegate_fee: The fee in a percent<br>server_specs: Server settings (optional)<br>block_verifier_score: How many invalid reserve proofs the delegate has found<br>online_status: The current online status of the delegate<br>block_verifier_total_rounds: The total rounds the delegate has been a block verifiers<br>block_verifier_online_total_rounds: The total rounds the delegate has been online and a block verifier<br>block_verifier_online_percentage: The total amount of rounds they were a block verifier and online / the total amount of rounds they were a block verifier<br>block_producer_total_rounds: The total rounds the deelgate has been the block producer<br>block_producer_block_heights: The block heights that the delegate has found<br>current_delegate_rank: The current delegate rank<br><br>{"public_address":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3","total_vote_count":"1000000","total_vote_count_number":"10.0","IP_address":"127.0.0.1","delegate_name":"delegatename1","about":"About","website":"Website","team":"Team","shared_delegates_status":"false","delegate_fee":"1","server_specs":"server_specs","block_verifier_score":"1","online_status":"true","block_verifier_total_rounds":"40","block_verifier_online_total_rounds":"38","block_verifier_online_percentage":"100","block_producer_total_rounds":"7","block_producer_block_heights":"2813049|10|15|240503|240507","current_delegate_rank":"100"}',
   showCloseButton: false,
   showCancelButton: false,
 })
@@ -170,7 +170,7 @@ Swal.fire({
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: 'Get a delegates information<br><br>Method: GET<br><br>URL: /getdelegatesinformation<br><br>Parameters:<br><br> parameter1: The delegates public address, or the delegates name<br><br>Result:<br><br>public_address: The public address of the delegateAbout (optional)<br>website: Website (optional)<br>team: Team (optional)<br>pool_mode: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br>fee_structure: The fee in a percent<br>server_settings: Server settings (optional)<br><br>{"public_address":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP","total_vote_count":"10000000","delegate_name":"delegate_name_1","about":"","website":"","team":"","pool_mode":"false","fee_structure":"","server_settings":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"1","block_verifier_online_total_rounds":"0","block_verifier_online_percentage":"0","block_producer_total_rounds":"0","block_producer_block_heights":"","current_delegate_rank":"5"}',
+  html: 'Get a delegates information<br><br>Method: GET<br><br>URL: /getdelegatesinformation<br><br>Parameters:<br><br> parameter1: The delegates public address, or the delegates name<br><br>Result:<br><br>public_address: The public address of the delegateAbout (optional)<br>website: Website (optional)<br>team: Team (optional)<br>shared_delegates_status: True if this is a delegate that wants users to vote for them, false is this delegate does not want users to vote for them<br>delegate_fee: The fee in a percent<br>server_specs: Server settings (optional)<br><br>{"public_address":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP","total_vote_count":"10000000","delegate_name":"delegate_name_1","about":"","website":"","team":"","shared_delegates_status":"false","delegate_fee":"","server_specs":"","block_verifier_score":"0","online_status":"true","block_verifier_total_rounds":"1","block_verifier_online_total_rounds":"0","block_verifier_online_percentage":"0","block_producer_total_rounds":"0","block_producer_block_heights":"","current_delegate_rank":"5"}',
   showCloseButton: false,
   showCancelButton: false,
 })
@@ -202,7 +202,7 @@ Swal.fire({
 
 
 
-else if (data === "about" || data === "website" || data === "team" || data === "pool_mode" || data === "fee_structure" || data === "server_settings" || data === "public_address")
+else if (data === "about" || data === "website" || data === "team" || data === "shared_delegates_status" || data === "delegate_fee" || data === "server_specs" || data === "public_address")
 {
 // get the data	 
 this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.data).subscribe(
@@ -245,38 +245,38 @@ Swal.fire({
   showCancelButton: false,
 })
 }
-else if (data === "pool_mode")
+else if (data === "shared_delegates_status")
 {
 Swal.fire({
   title: '<b>Pool Mode</b>',
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: data2.pool_mode,
+  html: data2.shared_delegates_status,
   showCloseButton: false,
   showCancelButton: false,
 })
 }
-else if (data === "fee_structure")
+else if (data === "delegate_fee")
 {
 Swal.fire({
   title: '<b>Fee Structure</b>',
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: data2.fee_structure,
+  html: data2.delegate_fee,
   showCloseButton: false,
   showCancelButton: false,
 })
 }
-else if (data === "server_settings")
+else if (data === "server_specs")
 {
 Swal.fire({
   title: '<b>Server Settings</b>',
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
-  html: data2.server_settings,
+  html: data2.server_specs,
   showCloseButton: false,
   showCancelButton: false,
 })
