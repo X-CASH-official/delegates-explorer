@@ -248,7 +248,7 @@ Swal.fire({
 else if (data === "shared_delegates_status")
 {
 Swal.fire({
-  title: '<b>Pool Mode</b>',
+  title: '<b>Shared Delegate Status</b>',
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
@@ -260,7 +260,7 @@ Swal.fire({
 else if (data === "delegate_fee")
 {
 Swal.fire({
-  title: '<b>Fee Structure</b>',
+  title: '<b>Delegate Fee</b>',
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
@@ -272,7 +272,7 @@ Swal.fire({
 else if (data === "server_specs")
 {
 Swal.fire({
-  title: '<b>Server Settings</b>',
+  title: '<b>Server Specs</b>',
   type: 'info',
   width: this.width,
   customClass: 'swal-height',
