@@ -7,7 +7,7 @@ export interface delegatesdata {
   block_verifier_total_rounds: string;
   block_verifier_online_percentage: string;
   total_vote_count: string;
-  block_verifier_score: string;
+  block_producer_total_rounds: string;
 }
 
 export interface delegates_statisticsdata {

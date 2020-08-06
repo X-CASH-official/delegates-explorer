@@ -63,9 +63,9 @@
 					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row"> {{row.total_vote_count | number}} </mat-cell>
 				</ng-container>
 
-                                 <ng-container matColumnDef="Block_Verifier_Score">
-					<mat-header-cell *matHeaderCellDef> Block Verifier Score </mat-header-cell>
-					<mat-cell id="block_verifier_score{{row.id}}" *matCellDef="let row"> {{row.block_verifier_score | number}} </mat-cell>
+                                 <ng-container matColumnDef="Block_Producer_Total_Rounds">
+					<mat-header-cell *matHeaderCellDef> Block Producer Total Rounds </mat-header-cell>
+					<mat-cell id="block_producer_total_rounds{{row.id}}" *matCellDef="let row"> {{row.block_producer_total_rounds | number}} </mat-cell>
 				</ng-container>
 
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

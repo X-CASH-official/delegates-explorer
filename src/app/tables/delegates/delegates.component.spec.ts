@@ -14,8 +14,8 @@ describe('delegatesComponent', () => {
   let fixture: ComponentFixture<delegatesComponent>;
 
   let test_data: any[] = [
-    { id: "1", delegate_name: 'delegate_name_1', online_status: 'online', shared_delegate_status: 'false', delegate_fee: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_verifier_score: '0' },
-    { id: "2", delegate_name: 'delegate_name_2', online_status: 'online', shared_delegate_status: 'false', delegate_fee: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_verifier_score: '0' }
+    { id: "1", delegate_name: 'delegate_name_1', online_status: 'online', shared_delegate_status: 'false', delegate_fee: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_producer_total_rounds: '0' },
+    { id: "2", delegate_name: 'delegate_name_2', online_status: 'online', shared_delegate_status: 'false', delegate_fee: '1', block_verifier_total_rounds: '0', block_verifier_online_percentage: '100', total_vote_count: '0', block_producer_total_rounds: '0' }
   ];
 
   beforeEach(async(() => {
@@ -50,7 +50,7 @@ describe('delegatesComponent', () => {
   // test the code
   it('should update delegates table', () => {
     component.exampleDatabase = new ExampleDatabase();
-    test_data.forEach((item) => component.exampleDatabase.addUser(item.id,item.delegate_name,item.online_status,item.shared_delegate_status,item.delegate_fee,item.block_verifier_total_rounds,item.block_verifier_online_percentage,item.total_vote_count,item.block_verifier_score));
+    test_data.forEach((item) => component.exampleDatabase.addUser(item.id,item.delegate_name,item.online_status,item.shared_delegate_status,item.delegate_fee,item.block_verifier_total_rounds,item.block_verifier_online_percentage,item.total_vote_count,item.block_producer_total_rounds));
     component.dataSource = new ExampleDataSource(component.exampleDatabase);
 
     fixture.detectChanges();
@@ -62,7 +62,7 @@ describe('delegatesComponent', () => {
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_total_rounds1').textContent).toContain(test_data[0].block_verifier_total_rounds);
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_online_percentage1').textContent).toContain(test_data[0].block_verifier_online_percentage);
     expect(fixture.debugElement.nativeElement.querySelector('#total_vote_count1').textContent).toContain(test_data[0].total_vote_count);
-    expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_score1').textContent).toContain(test_data[0].block_verifier_score);
+    expect(fixture.debugElement.nativeElement.querySelector('#block_producer_total_rounds1').textContent).toContain(test_data[0].block_producer_total_rounds);
 
     expect(fixture.debugElement.nativeElement.querySelector('#id2').textContent).toContain(test_data[1].id);
     expect(fixture.debugElement.nativeElement.querySelector('#delegatename2').textContent).toContain(test_data[1].delegate_name);
@@ -72,7 +72,7 @@ describe('delegatesComponent', () => {
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_total_rounds2').textContent).toContain(test_data[1].block_verifier_total_rounds);
     expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_online_percentage2').textContent).toContain(test_data[1].block_verifier_online_percentage);
     expect(fixture.debugElement.nativeElement.querySelector('#total_vote_count2').textContent).toContain(test_data[1].total_vote_count);
-    expect(fixture.debugElement.nativeElement.querySelector('#block_verifier_score2').textContent).toContain(test_data[1].block_verifier_score);
+    expect(fixture.debugElement.nativeElement.querySelector('#block_producer_total_rounds2').textContent).toContain(test_data[1].block_producer_total_rounds);
     });
 
 });
