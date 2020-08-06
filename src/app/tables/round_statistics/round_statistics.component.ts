@@ -162,7 +162,7 @@ export class round_statisticsComponent implements OnInit {
 	    this.dashCard1[0].text = this.block_producer_delegates_name_data;
 	    this.dashCard1[1].text = this.block_producer_node_backup_count_data;	
 	    this.dashCard2[0].text = this.block_producer_public_address_data;
-	    this.dashCard3[0].text = this.block_producer_backup_nodes_names_data;	    
+	    this.dashCard3[0].text = this.block_producer_backup_nodes_names_data.substr(0,this.block_producer_backup_nodes_names_data.indexOf(","));	    
 	    this.dashCard4[0].text = this.vrf_secret_key_round_part_4_data;
 	    this.dashCard5[0].text = this.vrf_public_key_round_part_4_data;
 	    this.dashCard6[0].text = this.vrf_proof_round_part_4_data;
