@@ -56,12 +56,14 @@ export class delegatesComponent implements OnInit {
             let data = JSON.parse(JSON.stringify(res));
 	    let count = 0;
             let delegate_total_vote_count;
+            let current_delegate_total_vote_count;
             this.dashCard1[1].text = data.length; 
 
 	    for (count = 0, delegate_total_vote_count = 0; count < data.length; count++)
 	    {
-              delegate_total_vote_count += parseInt(data[count].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].shared_delegate_status.toString(),data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),data[count].total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
+              current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+              delegate_total_vote_count += current_delegate_total_vote_count;
+	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].shared_delegate_status.toString(),data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
 	    }
   	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
 
