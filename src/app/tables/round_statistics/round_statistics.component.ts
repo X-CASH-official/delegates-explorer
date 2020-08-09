@@ -77,7 +77,7 @@ export class round_statisticsComponent implements OnInit {
         // check if this is a proof of stake block
         if (parseInt(this.delegates_data) < this.XCASH_PROOF_OF_STAKE_BLOCK_HEIGHT)
         {
-          Swal.fire("Error","An error has occure00d","error");
+          Swal.fire("Error","An error has occured","error");
           return;
         }
 
