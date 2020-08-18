@@ -66,8 +66,9 @@ export class delegatesComponent implements OnInit {
 	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].shared_delegate_status.toString(),data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
 	    }
   	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
-
-            this.dashCard2[0].text = delegate_total_vote_count / 50;
+            
+            // only use 45 to calculate this since there are no votes for the 5 seed nodes
+            this.dashCard2[0].text = delegate_total_vote_count / 45;
 	  },
 	  (error) => 
           {
