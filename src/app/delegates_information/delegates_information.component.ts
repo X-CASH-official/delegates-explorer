@@ -12,13 +12,14 @@ import Swal from 'sweetalert2';
 export class delegates_informationComponent implements OnInit {
     title:string = "Delegates Information";
     delegates_data:string = "";
-    
+
 
     constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
 
     ngOnInit() {
     this.delegates_data = this.route.snapshot.queryParamMap.get("data");
-    this.title = "Delegates Information For " + this.delegates_data;
+    //this.title = "Delegates information for: " + this.delegates_data;
+    this.title = this.delegates_data;
     }
 
 }
