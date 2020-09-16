@@ -25,13 +25,13 @@ export class delegates_statisticsComponent implements OnInit {
 	public exampleDatabase = new ExampleDatabase();
 	public dataSource: ExampleDataSource | null;
   	public showFilterTableCode;
-  	constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { } 
+  	constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
 
   	ngOnInit() {
         this.delegates_data = this.route.snapshot.queryParamMap.get("data");
-        this.title = "Delegates Statistics For " + this.delegates_data;
+        this.title = this.delegates_data;
 
-        // get the data	 
+        // get the data
 	this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegates_data).subscribe(
 	(res) =>
 	{
@@ -49,10 +49,10 @@ export class delegates_statisticsComponent implements OnInit {
 	  this.dashCard2[1].text = data.block_producer_total_rounds;
   	  this.dataSource = new ExampleDataSource(this.exampleDatabase);
           },
-          (error) => 
+          (error) =>
           {
             Swal.fire("Error","An error has occured","error");
           }
-	);       
+	);
         }
 }

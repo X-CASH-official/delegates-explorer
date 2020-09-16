@@ -179,3 +179,28 @@ body{
   padding: 26px;
   margin: 10px 5px;
 }
+
+.delegate_details{
+  text-align: center;
+  color: white;
+}
+
+a.delegate_details:link {
+ color: white;
+ text-decoration: underline;
+ }
+a.delegate_details:visited {
+ color: white;
+ text-decoration: underline;
+ }
+a.delegate_details:hover {
+ color: #039be5;
+ text-decoration: none;
+ }
+
+.delegate_details h3 {
+  color: white;
+  background-color:#29b6f6;
+  padding:18px;
+  margin: 10px 5px;
+}

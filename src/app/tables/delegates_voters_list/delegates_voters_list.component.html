@@ -1,4 +1,4 @@
-<h2 style="text-align: center;">{{title}}</h2>
+<h2 class="page_title">Delegate voters for: {{title}}</h2>
 
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
@@ -6,8 +6,8 @@
     </div>
 </div>
 
-<a style="text-align: center;" [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Information</h3></a>
-<a style="text-align: center;" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View Delegates Statistics</h3></a>
+<a class="delegate_details" style="text-align: center;" [routerLink]="['/auth/tables/delegates_information']" [queryParams]="{'data':delegates_data}"><h3>View {{title}} information</h3></a>
+<a class="delegate_details" style="text-align: center;" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View {{title}} statistics</h3></a>
 
 <div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
 
@@ -20,32 +20,32 @@
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-				
+
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="public_address_created_reserve_proof">
 					<mat-header-cell *matHeaderCellDef> Public address that created reserve proof </mat-header-cell>
 					<mat-cell id="public_address_created_reserve_proof{{row.id}}" *matCellDef="let row"> {{row.public_address_created_reserve_proof}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="total">
 					<mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
 					<mat-cell id="total{{row.id}}" *matCellDef="let row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{row.total | number}} </mat-cell>
-				</ng-container>	
+				</ng-container>
 
 				<ng-container matColumnDef="reserve_proof">
 					<mat-header-cell *matHeaderCellDef> Reserve Proof </mat-header-cell>
 					<mat-cell id="reserve_proof{{row.id}}" *matCellDef="let row"> {{row.reserve_proof}} </mat-cell>
-				</ng-container>	
-			
+				</ng-container>
+
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-				
+
 			</mat-table>
 		</div>
-			
-	</div>	
+
+	</div>
 </div>
