@@ -7,12 +7,12 @@
 
 
 $mat-light-theme-background: (
-  status-bar: map_get($mat-grey, 300),
-  app-bar:    map_get($mat-grey, 100),
+  status-bar: whitesmoke, //map_get($mat-grey, 300),
+  app-bar:    whitesmoke, //map_get($mat-grey, 100),
   background: map_get($mat-indigo, 50),
   hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
-  card:       white,
-  dialog:     white,
+  card:       whitesmoke,
+  dialog:     whitesmoke,
   disabled-button: $black-12-opacity,
   raised-button: white,
   focused-button: $black-6-opacity,
@@ -143,17 +143,17 @@ body{
 }
 
 .bounce3 {
-    background-color: orange;
+    background-color: #039be5;
 }
 
 .spinner .bounce1 {
-    background-color: blue;
-  animation-delay: -0.32s;
+    background-color: #4fc3f7;
+    animation-delay: -0.32s;
 }
 
 .spinner .bounce2 {
-    background-color: red;
-  animation-delay: -0.16s;
+    background-color: #29b6f6;
+    animation-delay: -0.16s;
 }
 
 
