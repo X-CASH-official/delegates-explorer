@@ -30,15 +30,15 @@ export class delegates_voters_listComponent implements OnInit {
 
   	ngOnInit() {
         this.delegates_data = this.route.snapshot.queryParamMap.get("data");
-        this.title = "Delegates Voters List For " + this.delegates_data;
+        this.title = this.delegates_data;
 
-	  // get the data	 
+	  // get the data
 	  this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_VOTERS_LIST + "?parameter1=" + this.delegates_data).subscribe(
 	  (res) =>
 	  {
             this.exampleDatabase = new ExampleDatabase();
             var data = JSON.parse(JSON.stringify(res));
-	    this.total_vote_count = 0;	
+	    this.total_vote_count = 0;
 	    this.amount_of_votes = data.length;
 	    var count = 0;
             var total;
@@ -49,13 +49,13 @@ export class delegates_voters_listComponent implements OnInit {
 	      this.exampleDatabase.addUser((count + 1).toString(),data[count].public_address_created_reserve_proof.toString(),total.toString(),data[count].reserve_proof.toString());
 	    }
 	    this.dashCard[0].text = this.total_vote_count / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-	    this.dashCard[1].text = this.amount_of_votes;	
+	    this.dashCard[1].text = this.amount_of_votes;
   	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
             },
-            (error) => 
+            (error) =>
             {
               Swal.fire("Error","An error has occured","error");
             }
-	  );		  
+	  );
 	}
 }

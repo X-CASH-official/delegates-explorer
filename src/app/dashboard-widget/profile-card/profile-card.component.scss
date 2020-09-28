@@ -5,12 +5,12 @@
         min-height: 100px;
         box-sizing: border-box;
         color:#f5f0f0f2;
-        
+
         .profile-details{
             background-image: -webkit-linear-gradient(45deg, mat-color($primary,400) 45%, mat-color($primary,300)  45%);
             margin-top: -50px;
             min-height: 180px;
-            
+            padding: 12px;
             & .profile-details-holder{
                 margin-top: 20px;
             }
