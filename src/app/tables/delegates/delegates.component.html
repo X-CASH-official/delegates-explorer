@@ -22,55 +22,55 @@
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-				
+
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="Delegate_Name">
 					<mat-header-cell *matHeaderCellDef> Delegate Name </mat-header-cell>
 					<mat-cell id="delegatename{{row.id}}" *matCellDef="let row"><a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':row.delegate_name}"><h5>{{row.delegate_name}}</h5></a></mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="Online_Status">
-					<mat-header-cell *matHeaderCellDef> Online Status </mat-header-cell>
-					<mat-cell id="online_status{{row.id}}" *matCellDef="let row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{row.online_status}} </mat-cell>
-				</ng-container>	
+					<mat-header-cell *matHeaderCellDef> Online </mat-header-cell>
+					<mat-cell id="online_status{{row.id}}" *matCellDef="let row"> {{row.online_status}} </mat-cell>
+				</ng-container>
 
 				<ng-container matColumnDef="Shared_Delegate_Status">
-					<mat-header-cell *matHeaderCellDef> Shared Delegate Status </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef> Shared </mat-header-cell>
 					<mat-cell id="shared_delegate_status{{row.id}}" *matCellDef="let row"> {{row.shared_delegate_status}} </mat-cell>
-				</ng-container>	
-           
+				</ng-container>
+
                                 <ng-container matColumnDef="Delegate_Fee">
-					<mat-header-cell *matHeaderCellDef> Delegate Fee </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef> Fee </mat-header-cell>
 					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row"> {{row.delegate_fee}} </mat-cell>
-				</ng-container>	
+				</ng-container>
 
                                 <ng-container matColumnDef="Block_Verifier_Total_Rounds">
-					<mat-header-cell *matHeaderCellDef> Block Verifier Total Rounds </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef> Verifier Rounds </mat-header-cell>
 					<mat-cell id="block_verifier_total_rounds{{row.id}}" *matCellDef="let row"> {{row.block_verifier_total_rounds | number}} </mat-cell>
-				</ng-container>	
+				</ng-container>
 
                                 <ng-container matColumnDef="Block_Verifier_Online_Percentage">
-					<mat-header-cell *matHeaderCellDef> Block Verifier Online Percentage </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef> Online % </mat-header-cell>
 					<mat-cell id="block_verifier_online_percentage{{row.id}}" *matCellDef="let row"> {{row.block_verifier_online_percentage | number}} </mat-cell>
 				</ng-container>
 
                                 <ng-container matColumnDef="Total_Vote_Count">
-					<mat-header-cell *matHeaderCellDef> Total Vote Count </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef> Vote Count </mat-header-cell>
 					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row"> {{row.total_vote_count | number}} </mat-cell>
 				</ng-container>
 
                                  <ng-container matColumnDef="Block_Producer_Total_Rounds">
-					<mat-header-cell *matHeaderCellDef> Block Producer Total Rounds </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef> Producer Rounds </mat-header-cell>
 					<mat-cell id="block_producer_total_rounds{{row.id}}" *matCellDef="let row"> {{row.block_producer_total_rounds | number}} </mat-cell>
 				</ng-container>
 
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-				
+
 			</mat-table>
 		</div>
 	</div>
