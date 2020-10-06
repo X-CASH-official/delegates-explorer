@@ -9,13 +9,13 @@ export const menus = [
         'name': 'Delegates',
         'open': false,
         'link': 'tables/delegates',
-        'icon': 'assignments',
+        'icon': 'group',
     },
     {
         'name': 'Statistics',
         'open': false,
         'link': '/auth/statistics',
-        'icon': 'info',
+        'icon': 'analytics',
     },
     {
         'name': 'API',
