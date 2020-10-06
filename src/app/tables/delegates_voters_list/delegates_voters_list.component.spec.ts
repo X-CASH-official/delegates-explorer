@@ -36,11 +36,11 @@ describe('delegates_voters_listComponent', () => {
   it('should create', () => expect(component).toBeTruthy());
 
   it('should create dash card one', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1')).toBeTruthy());
-  it('should set dash card ones title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1').dashData.title).toBe('TOTAL VOTE COUNT'));
+  it('should set dash card ones title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1').dashData.title).toBe('VOTE COUNT'));
   it('should set dash card ones property to a number', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1').dashData.text).toBe(0));
 
   it('should create dash card two', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2')).toBeTruthy());
-  it('should set dash card twos title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2').dashData.title).toBe('CURRENT VOTE COUNT'));
+  it('should set dash card twos title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2').dashData.title).toBe('VOTERS'));
   it('should set dash card twos property to a number', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2').dashData.text).toBe(0));
 
   it('should create reserve_proofs table', () => expect(fixture.debugElement.nativeElement.querySelector('#reserve_proofs_table')).toBeTruthy());

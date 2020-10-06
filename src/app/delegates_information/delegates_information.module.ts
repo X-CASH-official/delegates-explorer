@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { delegates_informationComponent } from './delegates_information.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
 
 export const appRoutes: Routes = [
@@ -14,6 +15,7 @@ export const appRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),
+    MatIconModule,
     FlexLayoutModule,
     MatCardModule,
     DashboardWidgetModule

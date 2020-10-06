@@ -1,7 +1,19 @@
-<h2 class="page_title">Delegate information for: {{title}}</h2>
+<h2 class="page_title">{{title}}</h2>
 
-<a class="delegate_details" style="text-align: center;" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View {{title}} statistics</h3></a>
-<a class="delegate_details" style="text-align: center;" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegates_data}"><h3>View {{title}} voters list</h3></a>
+<div fxLayout="row" fxLayout="row wrap">
+  <a class="delegate_details" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+    <mat-icon  class="delegate_details_icon">analytics</mat-icon>
+    <h3>Statistics</h3>
+  </a>
+  <a class="delegate_details" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+    <mat-icon  class="delegate_details_icon">how_to_reg</mat-icon>
+    <h3>Voters</h3>
+  </a>
+  <a class="delegate_details delegate_details_active" [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+    <mat-icon  class="delegate_details_icon">info</mat-icon>
+    <h3>Informations</h3>
+  </a>
+</div>
 
 <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
     <cdk-profile-card id="profilecard1" [title]="'About'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'about'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>

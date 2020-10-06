@@ -12,47 +12,44 @@ import { Observable } from 'rxjs';
 })
 export class delegates_statisticsComponent implements OnInit {
         public dashCard1 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL VOTE COUNT', icon: 'done' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'CURRENT DELEGATE RANK', icon: 'info' }
+        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'VOTE COUNT', icon: 'done_all' },
+        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'DELEGATE RANK', icon: 'leaderboard' }
     ];
 	public dashCard2 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'BLOCK VERIFIER TOTAL ROUNDS', icon: 'cloud' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'BLOCK PRODUCER TOTAL ROUNDS', icon: 'cloud' }
+        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'VERIFIER ROUNDS', icon: 'autorenew' },
+        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'PRODUCER ROUNDS', icon: 'find_replace' }
     ];
         title:string = "Delegates Statistics";
         delegates_data:string = "";
 	public displayedColumns = ['ID', 'Block_Height'];
 	public exampleDatabase = new ExampleDatabase();
 	public dataSource: ExampleDataSource | null;
-  	public showFilterTableCode;
-  	constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
+	public showFilterTableCode;
+	constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
 
-  	ngOnInit() {
-        this.delegates_data = this.route.snapshot.queryParamMap.get("data");
-        this.title = this.delegates_data;
+	ngOnInit() {
+      this.delegates_data = this.route.snapshot.queryParamMap.get("data");
+      this.title = this.delegates_data;
 
-        // get the data
-	this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegates_data).subscribe(
-	(res) =>
-	{
+      // get the data
+    	this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegates_data).subscribe(
+    	   (res) =>	{
           this.exampleDatabase = new ExampleDatabase();
           var data = JSON.parse(JSON.stringify(res));
           var block_producer_block_heights = data.block_producer_block_heights.split("|");
-	  var count = 0;
-          for (count = 1; count < block_producer_block_heights.length; count++)
-	  {
-	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
-	  }
-	  this.dashCard1[0].text = data.total_vote_count / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-	  this.dashCard1[1].text = data.current_delegate_rank;
-	  this.dashCard2[0].text = data.block_verifier_total_rounds;
-	  this.dashCard2[1].text = data.block_producer_total_rounds;
-  	  this.dataSource = new ExampleDataSource(this.exampleDatabase);
-          },
-          (error) =>
-          {
-            Swal.fire("Error","An error has occured","error");
-          }
-	);
+          var count = 0;
+      	  for (count = 1; count < block_producer_block_heights.length; count++) {
+      	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
+      	  }
+      	  this.dashCard1[0].text = data.total_vote_count / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+      	  this.dashCard1[1].text = data.current_delegate_rank;
+      	  this.dashCard2[0].text = data.block_verifier_total_rounds;
+      	  this.dashCard2[1].text = data.block_producer_total_rounds;
+      	  this.dataSource = new ExampleDataSource(this.exampleDatabase);
+        },
+        (error) => {
+          Swal.fire("Error","An error has occured","error");
         }
+    	);
+    }
 }
