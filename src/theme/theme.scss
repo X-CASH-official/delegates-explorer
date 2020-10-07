@@ -219,12 +219,15 @@ a.delegate_details_active  {
 
 .mat-cell{
   font-weight: 300;
-  font-style: normal;
   text-align: center;
-
 }
 .mat-cell h5, .mat-cell a {
  	font-weight: 500;
   font-size: 14px;
   text-align: left;
+}
+.mat-header-cell{
+ 	font-weight: 500;
+  font-size: 14px;
+  text-align: center;
 }

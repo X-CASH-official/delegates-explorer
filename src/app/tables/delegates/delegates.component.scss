@@ -18,37 +18,51 @@
 .table-header {
 	background-color: #039be5;
 	color: white;
-	padding: 0 20px;
+	padding: 0 0px;
 }
 .table-component-holder {
 	border: 1px solid #039be5;
 	background-color: white;
 }
-
-.mat-column-ID {
-  flex: 0 0 5%;
+.mat-toolbar-single-row{
+	height: 75px;
 }
-.mat-column-Delegate_Name {
+.mat-form-field {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-form-field-wrapper{
+	padding-bottom: 0.8em;
+}
+
+
+
+.mat-column-id {
+  flex: 0 0 4%;
+}
+.mat-column-delegate_name {
   flex: 0 0 25%;
 }
-.mat-column-Online_Status {
+.mat-column-online_status {
+  flex: 0 0 8%;
+}
+.mat-column-pool_mode {
+  flex: 0 0 8%;
+}
+.mat-column-fee_structure {
   flex: 0 0 10%;
 }
-.mat-column-Pool_Mode {
+.mat-column-block_verifier_total_rounds {
   flex: 0 0 10%;
 }
-.mat-column-Fee_Structure {
+.mat-column-block_verifier_online_percentage {
   flex: 0 0 10%;
 }
-.mat-column-Block_Verifier_Total_Rounds {
-  flex: 0 0 10%;
+.mat-column-total_vote_count {
+  flex: 0 0 15%;
 }
-.mat-column-Block_Verifier_Online_Percentage {
+.mat-column-block_verifier_score {
   flex: 0 0 10%;
-}
-.mat-column-Total_Vote_Count {
-  flex: 0 0 10%;
-}
-.mat-column-Block_Verifier_Score {
-  flex: 0 0 5%;
 }
