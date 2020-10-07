@@ -57,7 +57,10 @@
 					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row"> {{row.delegate_fee}} </mat-cell>
 				</ng-container>
 
-
+        <ng-container matColumnDef="total_vote_count">
+					<mat-header-cell *matHeaderCellDef mat-sort-header> Votes </mat-header-cell>
+					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row"> {{row.total_vote_count | number}} </mat-cell>
+				</ng-container>
 
         <ng-container matColumnDef="block_verifier_online_percentage">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Online % </mat-header-cell>
@@ -69,11 +72,6 @@
 					<mat-cell id="block_verifier_total_rounds{{row.id}}" *matCellDef="let row"> {{row.block_verifier_total_rounds | number}} </mat-cell>
 				</ng-container>
 
-        <ng-container matColumnDef="total_vote_count">
-					<mat-header-cell *matHeaderCellDef mat-sort-header> Votes </mat-header-cell>
-					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row"> {{row.total_vote_count | number}} </mat-cell>
-				</ng-container>
-
         <ng-container matColumnDef="block_producer_total_rounds">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Produced </mat-header-cell>
 					<mat-cell id="block_producer_total_rounds{{row.id}}" *matCellDef="let row"> {{row.block_producer_total_rounds | number}} </mat-cell>
@@ -82,19 +80,20 @@
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-        <div class="example-no-results" [style.display]="dataSource?.renderedData.length == 0 ? '' : 'none'">
-  				No delegates found matching filter.
-  			</div>
+
 
 			</mat-table>
 
+      <div class="no-results" [style.display]="dataSource?.renderedData.length == 0 ? '' : 'none'">
+        No delegates found matching filter.
+      </div>
 
 
 			<mat-paginator #paginator
-				[length]="50"
+				[length]="length"
 				[pageIndex]="0"
-				[pageSize]="50"
-				[pageSizeOptions]="[ 25, 50, 100, 150]">
+				[pageSize]="pagesize"
+				[pageSizeOptions]="[ 50, 100, 150, 200]">
 			</mat-paginator>
 
 		</div>
