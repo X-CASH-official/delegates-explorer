@@ -193,7 +193,9 @@ body{
   display:inline-block;
   vertical-align:middle;
 }
-
+a.delegate_details{
+  margin: 10px 5px;
+}
 a.delegate_details:link {
   text-decoration: none;
 }

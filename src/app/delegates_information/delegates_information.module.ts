@@ -7,6 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
 
+import { MatButtonModule } from '@angular/material/button';
+
+
 export const appRoutes: Routes = [
     { path: '', component: delegates_informationComponent },
 ];
@@ -18,7 +21,8 @@ export const appRoutes: Routes = [
     MatIconModule,
     FlexLayoutModule,
     MatCardModule,
-    DashboardWidgetModule
+    DashboardWidgetModule,
+    MatButtonModule
   ],
   declarations: [delegates_informationComponent],
   exports: [ ]

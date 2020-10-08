@@ -1,15 +1,15 @@
 <h2 class="page_title">{{title}}</h2>
 
 <div fxLayout="row" fxLayout="row wrap">
-  <a class="delegate_details delegate_details_active" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
     <mat-icon class="delegate_details_icon">analytics</mat-icon>
     <h3>Statistics</h3>
   </a>
-  <a class="delegate_details" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
     <mat-icon class="delegate_details_icon">how_to_reg</mat-icon>
     <h3>Voters</h3>
   </a>
-  <a class="delegate_details" [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details" [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegates_data}"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
     <mat-icon class="delegate_details_icon">info</mat-icon>
     <h3>Informations</h3>
   </a>
