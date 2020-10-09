@@ -15,7 +15,7 @@
                   <h1 class="mat-subheading-1 center-align" > produced</h1>
                   <h1 class="mat-headline center-align" >{{most_block_producer_total_rounds}}</h1>
                   <h1 class="mat-subheading-1 center-align" >blocks</h1>
-                  <button class="view" mat-raised-button color="warn">View delegate</button>
+                  <a mat-raised-button class="view mat-raised-button mat-warn"   [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
@@ -34,7 +34,7 @@
                   <h1 class="mat-subheading-1 center-align" >verified</h1>
                   <h1 class="mat-headline center-align" >{{most_total_rounds}}</h1>
                   <h1 class="mat-subheading-1 center-align" >rounds</h1>
-                  <button class="view" mat-raised-button color="warn">View delegate</button>
+                  <a mat-raised-button class="view mat-raised-button mat-warn"   [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
