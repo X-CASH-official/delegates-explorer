@@ -9,7 +9,7 @@ export const menus = [
         'name': 'Delegates',
         'open': false,
         'link': 'tables/delegates',
-        'icon': 'supervised_user_circle',
+        'icon': 'groups',
     },
     {
         'name': 'Statistics',
@@ -21,7 +21,7 @@ export const menus = [
        'name': 'Help',
         'open': false,
         'link': '/auth/help',
-        'icon': 'help_outline',
+        'icon': 'help',
     },
     {
         'name': 'API',

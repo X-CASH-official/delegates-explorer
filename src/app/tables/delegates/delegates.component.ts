@@ -21,7 +21,7 @@ import Swal from 'sweetalert2';
 export class delegatesComponent implements OnInit {
   dashCard1 = [
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL DELEGATES', icon: 'supervised_user_circle' }
+        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL DELEGATES', icon: 'groups' }
     ];
 
   dashCard2 = [
