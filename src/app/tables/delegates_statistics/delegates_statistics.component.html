@@ -39,24 +39,6 @@
 		<div class="table-container">
 			<mat-table #table id="blocks_found_table" [dataSource]="dataSource">
 
-				<!--- Note that these columns can be defined in any order.
-				The actual rendered columns are set as a property on the row definition" -->
-
-				<!-- <ng-container matColumnDef="ID">
-					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
-				</ng-container>
-
-				<ng-container matColumnDef="Block_Height">
-					<mat-header-cell *matHeaderCellDef> Block Height </mat-header-cell>
-					<mat-cell id="block_height{{row.id}}" *matCellDef="let row">
-            <a class="text-primary" [routerLink]="['/auth/tables/round_statistics']" [queryParams]="{'data':row.block_height}">
-              <h3>{{row.block_height | number}}</h3>
-            </a>
-          </mat-cell>
-				</ng-container> -->
-
-
         <ng-container matColumnDef="id">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
