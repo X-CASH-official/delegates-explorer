@@ -2,3 +2,59 @@ mat-card {
   padding: 5px;
   margin: 5px;
 }
+
+.topstats-card-holder{
+    margin: 10px 5px;
+    min-height: 300px;
+    box-sizing: border-box;
+    color:#f5f0f0f2;
+
+    .topstats-details{
+        //background-image: -webkit-linear-gradient(45deg, mat-color($primary,400) 45%, mat-color($primary,300)  45%);
+        background-color: #fa741c;
+        margin-top:-50px;
+        min-height: 242px;
+
+        & .topstats-details-holder{
+            margin-top: 50px;
+        }
+    }
+    .center-align{
+        text-align: center;
+    }
+    .view{
+        width: 25%;
+        margin-bottom: 15px;
+    }
+    & .banner {
+        background-size: screen;
+        background-color: #fa741c;
+        min-height: 56px;
+        background-repeat: no-repeat;
+        color: white;
+
+        border-radius: 50%;
+        display: inline-block;
+        span{
+          position: relative;
+          z-index: 1;
+          height: 56px;
+        }
+        & img {
+            position: relative;
+            z-index: 1;
+        }
+    }
+    .topstats-card-content{
+        padding: 5px;
+    }
+}
+.nav-item {
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: default;
+
+  &:hover {
+    transform: translate(0, -8px);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+  }
+}

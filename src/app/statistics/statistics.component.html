@@ -1,11 +1,43 @@
-<div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
-    </div>
-</div>
 
-<div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard id="dashcard{{count+3}}" [dashData]="dash"></cdk-dashcard>
-    </div>
+<h2 class="page_title">Top Block Producer & Verifier</h2>
+
+<div fxLayout="row">
+  <div  class="topstats-card-holder "  fxFlex="50" fxFlex.lt-sm="50" fxFlex.sm="100" fxFlex.md="50">
+      <div fxLayout="column" >
+          <div fxLayout="row" fxLayoutAlign="space-around center"  >
+              <div  class="banner">
+                   <img width="100" [style.borderRadius]="'50%'" src="/assets/images/emoji_events-white-48dp.svg">
+              </div>
+          </div>
+          <div   class="topstats-details mat-elevation-z8" >
+              <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
+                  <h1 class="mat-headline center-align" >{{most_block_producer_total_rounds_delegate_name}}</h1>
+                  <h1 class="mat-subheading-1 center-align" > produced</h1>
+                  <h1 class="mat-headline center-align" >{{most_block_producer_total_rounds}}</h1>
+                  <h1 class="mat-subheading-1 center-align" >blocks</h1>
+                  <button class="view" mat-raised-button color="warn">View delegate</button>
+              </div>
+          </div>
+
+      </div>
+  </div>
+  <div  class="topstats-card-holder "  fxFlex="50" fxFlex.lt-sm="50" fxFlex.sm="100" fxFlex.md="50">
+      <div fxLayout="column" >
+          <div fxLayout="row" fxLayoutAlign="space-around center"  >
+              <div  class="banner">
+                   <img width="100" [style.borderRadius]="'50%'" src="/assets/images/military_tech-white-48dp.svg">
+              </div>
+          </div>
+          <div   class="topstats-details mat-elevation-z8" >
+              <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
+                  <h1 class="mat-headline center-align" >{{most_total_rounds_delegate_name}}</h1>
+                  <h1 class="mat-subheading-1 center-align" >verified</h1>
+                  <h1 class="mat-headline center-align" >{{most_total_rounds}}</h1>
+                  <h1 class="mat-subheading-1 center-align" >rounds</h1>
+                  <button class="view" mat-raised-button color="warn">View delegate</button>
+              </div>
+          </div>
+
+      </div>
+  </div>
 </div>
