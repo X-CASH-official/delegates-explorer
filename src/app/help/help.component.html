@@ -1,14 +1,43 @@
-<!-- <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
+<h2 class="page_title">Help</h2>
+
+<div fxLayout="column" class="service-card-content">
+  <div fxLayout="row" class="service-card-container" fxLayout.lt-md="column" fxLayoutGap="20px"  >
+
+    <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.gt-sm="32" class="mat-elevation-z4 service-card " >
+      <div class="service-card-header" fxFlex>
+        <img src="/assets/images/menu_book-white-48dp.svg" fxFlex><br />
+      </div>
+      <h3 class="mat-title" fxFlex>X-Cash Documentation </h3>
+      <p class="mat-body-2"  fxFlex>Learn the basic functions and join the validation of the blockchain as an elected delegate.</p>
+      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://docs.xcash.foundation/"  fxFlex.lt-sm="100" fxFlex.md="33">
+        Visit X-Cash Documentation
+      </a>
     </div>
+    <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-md="100" fxFlex.gt-sm="32" class="mat-elevation-z4 service-card "  >
+      <div class="service-card-header" fxFlex>
+        <img src="/assets/images/forum-white-48dp.svg" fxFlex>
+      </div>
+      <h3 class="mat-title" fxFlex>X-Cash Community</h3>
+      <p class="mat-body-2"  fxFlex>Join the official Discord server of the X-Cash community! We are thrilled to have you on board! </p>
+      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://docs.xcash.foundation/"  fxFlex.lt-sm="100" fxFlex.md="33">
+        Visit X-CASH Community
+      </a>
+    </div>
+    <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.gt-sm="32" class="mat-elevation-z4 service-card "  >
+      <div class="service-card-header-github" fxFlex>
+        <img src="/assets/images/GitHub-Mark-Light-120px-plus.png" fxFlex style="height: 160px;">
+      </div>
+      <h3 class="mat-title"  fxFlex>X-Cash Github</h3>
+      <p class="mat-body-2"  fxFlex>From ideation to market research:Discover, Design, plan your product!</p>
+      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://docs.xcash.foundation/"  fxFlex.lt-sm="100" fxFlex.md="33">
+        Visit X-CASH Github
+      </a>
+    </div>
+
+  </div>
 </div>
 
-<div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
-        <cdk-dashcard id="dashcard{{count+3}}" [dashData]="dash"></cdk-dashcard>
-    </div>
-</div> -->
+<h2 class="page_title">FAQ</h2>
 
 <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
     <cdk-profile-card id="profilecard1" [title]="'Voting Rules'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'voting_rules'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>

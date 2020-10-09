@@ -2,3 +2,56 @@ mat-card {
   padding: 5px;
   margin: 5px;
 }
+
+.service-card-content{
+    .service-card-container {
+        padding: 0px;
+        margin: 10px 5px;
+        .service-card {
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: default;
+            background-color: #29b6f6;
+            color: white;
+            padding: 20px;
+            .service-card-header{
+              background-color: #039be5;
+              height: 160px;
+              width: 160px;
+              border-radius: 50%;
+              display: inline-block;
+              padding-top: 14px;
+              img {
+                  height: 120px;
+              }
+            }
+            .service-card-header-github{
+              background-color: #039be5;
+              height: 160px;
+              width: 160px;
+              border-radius: 50%;
+              display: inline-block;
+              img {
+                  height: 120px;
+              }
+            }
+
+            mat-icon {
+                margin-top: 10px;
+            }
+            i {
+                height: 200px;
+            }
+            h3 {
+                margin: 0;
+            }
+            p {
+                margin: 0;
+                text-align: center;
+            }
+            &:hover {
+                transform: translate(0, -8px);
+                box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+            }
+        }
+    }
+}
