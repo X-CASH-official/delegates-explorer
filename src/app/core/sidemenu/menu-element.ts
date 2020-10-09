@@ -18,6 +18,12 @@ export const menus = [
         'icon': 'insights',
     },
     {
+       'name': 'Help',
+        'open': false,
+        'link': '/auth/help',
+        'icon': 'not_listed_location',
+    },
+    {
         'name': 'API',
         'open': false,
         'link': '/auth/API',

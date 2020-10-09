@@ -8,6 +8,7 @@ export const appRoutes: Routes = [{
         { path: 'tables', loadChildren: '../tables/tables.module#TablesModule' },
         { path: 'statistics', loadChildren: '../statistics/statistics.module#statisticsModule' },
         { path: 'delegates_information', loadChildren: '../delegates_information/delegates_information.module#delegates_informationModule' },
+        { path: 'help', loadChildren: '../help/help.module#helpModule' },
         { path: 'API', loadChildren: '../API/API.module#APIModule' },
     ]
 }];
