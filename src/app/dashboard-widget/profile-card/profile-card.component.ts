@@ -47,7 +47,20 @@ export class ProfileCardComponent implements OnInit {
     document.body.removeChild(selBox);
     Swal.fire("Success",text,"success");
   }
-
+  copyVote(val: string){
+   let selBox = document.createElement('textarea');
+   selBox.style.position = 'fixed';
+   selBox.style.left = '0';
+   selBox.style.top = '0';
+   selBox.style.opacity = '0';
+   selBox.value = val;
+   document.body.appendChild(selBox);
+   selBox.focus();
+   selBox.select();
+   document.execCommand('copy');
+   document.body.removeChild(selBox);
+   Swal.fire("Success","The vote has been copied to the clipboard","success");
+ }
   redirect(url:string)
   {
     window.location.href = url;
@@ -204,7 +217,7 @@ Swal.fire({
 
 else if (data === "about" || data === "website" || data === "team" || data === "shared_delegate_status" || data === "delegate_fee" || data === "server_specs" || data === "public_address")
 {
-// get the data	 
+// get the data
 this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.data).subscribe(
 (res) =>
 {
@@ -295,13 +308,13 @@ Swal.fire({
   onClose: () => { this.copyMessage("vote " + data2.public_address,"The vote command for this particular delegate has been copied to the clipboard"); },
 })
 }
-          
+
           },
-          (error) => 
+          (error) =>
           {
             Swal.fire("Error","An error has occured","error");
           }
-	); 
+	);
     }
   }
 

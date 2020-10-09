@@ -25,6 +25,7 @@ $mat-light-theme-background: (
 
 @include mat-core();
 
+
 $primary : $mat-light-blue;
 $accent  : $mat-orange;
 $warn    : $mat-light-blue;
@@ -59,13 +60,17 @@ cdk-dashcard {
 }
 
 cdk-profile-card{
-  $dashboard-profile-primary: mat-palette($primary , 600);
+    $dashboard-profile-primary: mat-palette($primary , 600);
     $dashboard-profile-accent:  mat-palette($accent , 900);
     $dashboard-profile-warn:    mat-palette($warn, 600 );
     $cdk-dashboard-profile-theme:   mat-dark-theme($dashboard-profile-primary, $dashboard-profile-accent,$dashboard-profile-warn);
     @include dashboard-profile($cdk-dashboard-profile-theme);
     @include mat-tabs-theme($cdk-dashboard-profile-theme);
 }
+
+
+
+
 @include angular-material-theme($cdk-theme);
 @include auth($cdk-theme);
 
@@ -177,9 +182,13 @@ body{
   text-align: center;
   color: white;
   background-color:#29b6f6;
-  padding:12px;
-  margin: 10px 5px;
+  // padding:12px;
+  // margin: 10px 5px;
   line-height:24px;
+  &:hover {
+      transform: translate(0, -2px);
+      box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+  }
 }
 .delegate_details_icon{
     font-size: 24px;
@@ -217,6 +226,16 @@ a.delegate_details_active  {
   pointer-events: none !important;
   cursor: default !important;
   text-decoration: underline !important;
+}
+
+.codeblock {
+	font: 500 16px Roboto, "Helvetica Neue", sans-serif;
+  color: #1189a5;
+  background: white;
+  border-radius: 3px;
+  border: 2px solid white;
+  padding: 4px 16px;
+	margin: 0 0 20px;
 }
 
 .mat-cell{

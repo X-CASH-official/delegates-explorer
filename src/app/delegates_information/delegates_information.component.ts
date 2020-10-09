@@ -11,16 +11,60 @@ import Swal from 'sweetalert2';
 })
 
 export class delegates_informationComponent implements OnInit {
-    title:string = "Delegates Information";
-    delegates_data:string = "";
 
+    delegate_name:string = "Delegates Information";
+    data;
+
+    about:string;
+    website:string;
+    team:string;
+    shared_delegate_status:string;
+    delegate_fee:string;
+    server_specs:string;
+    public_address:string;
 
     constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
 
     ngOnInit() {
-    this.delegates_data = this.route.snapshot.queryParamMap.get("data");
-    //this.title = "Delegates information for: " + this.delegates_data;
-    this.title = this.delegates_data;
-    }
+      this.delegate_name = this.route.snapshot.queryParamMap.get("data");
+      //this.delegate_name = this.delegate_name;
 
+      this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
+      (res) => {
+                var data = JSON.parse(JSON.stringify(res));
+
+            // this.delegatestatistics = "website/auth/tables/delegates_statistics?data=" + this.public_address;
+            // this.delegateprofileinformation = "website/auth/delegates_information?data=" + this.public_address;
+
+                this.data = data;
+                //this.title = data.delegate_name;
+                this.about = data.about;
+                this.website = data.website;
+                this.team = data.team;
+                this.shared_delegate_status = data.shared_delegate_status ? 'Shared' : 'Solo';
+                this.delegate_fee = data.delegate_fee;
+                this.server_specs = data.server_specs;
+                this.public_address = data.public_address;
+              },
+              (error) =>
+              {
+                Swal.fire("Error","An error has occured","error");
+              }
+      );
+    }
+    
+    copyVote(val: string){
+     let selBox = document.createElement('textarea');
+     selBox.style.position = 'fixed';
+     selBox.style.left = '0';
+     selBox.style.top = '0';
+     selBox.style.opacity = '0';
+     selBox.value = val;
+     document.body.appendChild(selBox);
+     selBox.focus();
+     selBox.select();
+     document.execCommand('copy');
+     document.body.removeChild(selBox);
+     Swal.fire("Success","The vote has been copied to the clipboard","success");
+   }
 }

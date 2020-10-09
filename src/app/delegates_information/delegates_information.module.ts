@@ -5,10 +5,11 @@ import { delegates_informationComponent } from './delegates_information.componen
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
-
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDividerModule } from '@angular/material/divider';
 
+import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
 
 export const appRoutes: Routes = [
     { path: '', component: delegates_informationComponent },
@@ -18,13 +19,17 @@ export const appRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),
-    MatIconModule,
     FlexLayoutModule,
     MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatButtonToggleModule,
     DashboardWidgetModule,
-    MatButtonModule
+    MatDividerModule
   ],
-  declarations: [delegates_informationComponent],
+  declarations: [
+    delegates_informationComponent,
+  ],
   exports: [ ]
 })
 export class delegates_informationModule { }

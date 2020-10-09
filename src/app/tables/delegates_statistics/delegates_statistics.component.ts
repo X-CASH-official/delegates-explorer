@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./delegates_statistics.component.scss']
 })
 export class delegates_statisticsComponent implements OnInit {
-        public dashCard1 = [
+
+  public dashCard1 = [
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'VOTE COUNT', icon: 'done_all' },
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'DELEGATE RANK', icon: 'leaderboard' }
     ];
@@ -19,20 +20,22 @@ export class delegates_statisticsComponent implements OnInit {
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'VERIFIER ROUNDS', icon: 'autorenew' },
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'PRODUCER ROUNDS', icon: 'find_replace' }
     ];
-        title:string = "Delegates Statistics";
-        delegates_data:string = "";
-	public displayedColumns = ['ID', 'Block_Height'];
+
+  title:string = "Delegates Statistics";
+  delegate_name:string = "";
+
+  public displayedColumns = ['id', 'block_height', 'block_hash', 'block_date_and_time', 'block_reward'];
 	public exampleDatabase = new ExampleDatabase();
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
-	constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
+
+  constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
 
 	ngOnInit() {
-      this.delegates_data = this.route.snapshot.queryParamMap.get("data");
-      this.title = this.delegates_data;
+      this.delegate_name = this.route.snapshot.queryParamMap.get("data");
 
       // get the data
-    	this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegates_data).subscribe(
+    	this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegate_name).subscribe(
     	   (res) =>	{
           this.exampleDatabase = new ExampleDatabase();
           var data = JSON.parse(JSON.stringify(res));
@@ -52,4 +55,21 @@ export class delegates_statisticsComponent implements OnInit {
         }
     	);
     }
+
+
+    copyVote(val: string){
+     let selBox = document.createElement('textarea');
+     selBox.style.position = 'fixed';
+     selBox.style.left = '0';
+     selBox.style.top = '0';
+     selBox.style.opacity = '0';
+     selBox.value = val;
+     document.body.appendChild(selBox);
+     selBox.focus();
+     selBox.select();
+     document.execCommand('copy');
+     document.body.removeChild(selBox);
+     Swal.fire("Success","The vote has been copied to the clipboard","success");
+   }
+
 }
