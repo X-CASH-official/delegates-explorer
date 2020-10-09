@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
     styleUrls: ['./delegates_information.component.scss']
 })
 
-export class delegates_informationComponent implements OnInit {
+export class Delegates_informationComponent implements OnInit {
 
     delegate_name:string = "Delegates Information";
     data;
@@ -52,7 +52,7 @@ export class delegates_informationComponent implements OnInit {
               }
       );
     }
-    
+
     copyVote(val: string){
      let selBox = document.createElement('textarea');
      selBox.style.position = 'fixed';
