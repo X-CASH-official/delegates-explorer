@@ -21,7 +21,7 @@ export const menus = [
        'name': 'Help',
         'open': false,
         'link': '/auth/help',
-        'icon': 'not_listed_location',
+        'icon': 'help_outline',
     },
     {
         'name': 'API',
