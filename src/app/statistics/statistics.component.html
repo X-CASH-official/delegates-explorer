@@ -1,8 +1,8 @@
 
 <h2 class="page_title">Top Block Producer & Verifier</h2>
 
-<div fxLayout="row">
-  <div  class="topstats-card-holder "  fxFlex="50" fxFlex.lt-sm="50" fxFlex.sm="100" fxFlex.md="50">
+<div fxLayout="row" fxLayout="row wrap">
+  <div  class="topstats-card-holder" fxFlex>
       <div fxLayout="column" >
           <div fxLayout="row" fxLayoutAlign="space-around center"  >
               <div  class="banner">
@@ -15,13 +15,13 @@
                   <h1 class="mat-subheading-1 center-align" > produced</h1>
                   <h1 class="mat-headline center-align" >{{most_block_producer_total_rounds}}</h1>
                   <h1 class="mat-subheading-1 center-align" >blocks</h1>
-                  <a mat-raised-button class="view mat-raised-button mat-warn"   [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
       </div>
   </div>
-  <div  class="topstats-card-holder "  fxFlex="50" fxFlex.lt-sm="50" fxFlex.sm="100" fxFlex.md="50">
+  <div  class="topstats-card-holder" fxFlex>
       <div fxLayout="column" >
           <div fxLayout="row" fxLayoutAlign="space-around center"  >
               <div  class="banner">
@@ -34,7 +34,7 @@
                   <h1 class="mat-subheading-1 center-align" >verified</h1>
                   <h1 class="mat-headline center-align" >{{most_total_rounds}}</h1>
                   <h1 class="mat-subheading-1 center-align" >rounds</h1>
-                  <a mat-raised-button class="view mat-raised-button mat-warn"   [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
