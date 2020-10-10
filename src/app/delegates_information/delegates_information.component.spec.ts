@@ -3,7 +3,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatTableModule } from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import {httpdataservice} from 'app/services/http-request.service';
+import {HttpdataService} from 'app/services/http-request.service';
 
 import { Delegates_informationComponent } from './delegates_information.component';
 
@@ -15,7 +15,7 @@ describe('Delegates_informationComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ Delegates_informationComponent ],
       imports: [HttpClientTestingModule,RouterTestingModule,MatTableModule],
-      providers: [ httpdataservice ],
+      providers: [ HttpdataService ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();

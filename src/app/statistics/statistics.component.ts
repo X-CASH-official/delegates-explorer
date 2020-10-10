@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {httpdataservice} from '../services/http-request.service';
+import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,11 +29,11 @@ export class statisticsComponent implements OnInit {
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'MOST TOTAL ROUNDS', icon: 'model_training' }
     ];
 
-    constructor(private httpdataservice: httpdataservice) { }
+    constructor(private HttpdataService: HttpdataService) { }
 
     ngOnInit() {
           // get the data
-	  this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
+	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
   	  (res) => {
         var data = JSON.parse(JSON.stringify(res));
         // this.dashCard1[0].text = data.most_block_producer_total_rounds_delegate_name;

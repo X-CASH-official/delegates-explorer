@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import {httpdataservice} from '../services/http-request.service';
+//import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -25,13 +25,13 @@ export class HelpComponent implements OnInit {
 
     ngOnInit() {
           // get the data
-	  // this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
+	  // this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
 	  // (res) =>
 	  // {
     //         var data = JSON.parse(JSON.stringify(res));
     //         this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
     //         this.dashCard1[1].text = data.current_block_height;
-    //         this.dashCard2[0].text = parseInt(data.total_votes) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+    //         this.dashCard2[0].text = parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
     //         this.dashCard2[1].text = data.XCASH_DPOPS_circulating_percentage;
 	  // },
 	  // (error) =>

@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {httpdataservice} from '../services/http-request.service';
+import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 
 
@@ -23,13 +23,13 @@ export class Delegates_informationComponent implements OnInit {
     server_specs:string;
     public_address:string;
 
-    constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
+    constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
 
     ngOnInit() {
       this.delegate_name = this.route.snapshot.queryParamMap.get("data");
       //this.delegate_name = this.delegate_name;
 
-      this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
+      this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
       (res) => {
                 var data = JSON.parse(JSON.stringify(res));
 

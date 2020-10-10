@@ -5,7 +5,7 @@ import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
 
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { DelegateDatabase, DelegateDataSource } from './helpers.data';
-import {httpdataservice} from '../../services/http-request.service';
+import {HttpdataService} from '../../services/http-request.service';
 import { MatPaginator, MatSort } from '@angular/material';
 
 import Swal from 'sweetalert2';
@@ -36,7 +36,7 @@ export class delegatesComponent implements OnInit {
   pagesize;
 
 
-	constructor(private httpdataservice: httpdataservice) { }
+	constructor(private HttpdataService: HttpdataService) { }
 
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
@@ -63,7 +63,7 @@ export class delegatesComponent implements OnInit {
 
 	get_delegates() {
     // get the data
-	  this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES).subscribe(
+	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES).subscribe(
   	  (res) => {
         this.exampleDatabase = new DelegateDatabase();
         let data = JSON.parse(JSON.stringify(res));
@@ -73,7 +73,7 @@ export class delegatesComponent implements OnInit {
         this.dashCard1[1].text = data.length;
 
   	    for (count = 0, delegate_total_vote_count = 0; count < data.length; count++) {
-          current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
           delegate_total_vote_count += current_delegate_total_vote_count;
   	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].shared_delegate_status.toString(),data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
   	    }

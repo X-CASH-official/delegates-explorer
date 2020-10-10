@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {httpdataservice} from '../services/http-request.service';
+import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +14,7 @@ export class APIComponent implements OnInit {
     delegates_data:string = "";
     
 
-    constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
+    constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
 
     ngOnInit() {
     }

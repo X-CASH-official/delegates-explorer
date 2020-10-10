@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {httpdataservice} from '../../services/http-request.service';
+import {HttpdataService} from '../../services/http-request.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -31,7 +31,7 @@ export class ProfileCardComponent implements OnInit {
     public bio =true;
     public skill;
     public proj;
-    constructor(private httpdataservice: httpdataservice) { }
+    constructor(private HttpdataService: HttpdataService) { }
 
    copyMessage(val: string, text:string){
     let selBox = document.createElement('textarea');
@@ -218,7 +218,7 @@ Swal.fire({
 else if (data === "about" || data === "website" || data === "team" || data === "shared_delegate_status" || data === "delegate_fee" || data === "server_specs" || data === "public_address")
 {
 // get the data
-this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.data).subscribe(
+this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.data).subscribe(
 (res) =>
 {
 var data2 = JSON.parse(JSON.stringify(res));

@@ -1,7 +1,7 @@
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
-import {httpdataservice} from '../../services/http-request.service';
+import {HttpdataService} from '../../services/http-request.service';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 
@@ -68,7 +68,7 @@ export class round_statisticsComponent implements OnInit {
 	public dataSource4: ExampleDataSource | null;
 	public dataSource5: ExampleDataSource | null;
   	public showFilterTableCode;
-  	constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
+  	constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
 
   	ngOnInit() {
         this.delegates_data = this.route.snapshot.queryParamMap.get("data");
@@ -82,7 +82,7 @@ export class round_statisticsComponent implements OnInit {
         }
 
 	  // get the data	 
-	  this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS + "?parameter1=" + this.delegates_data).subscribe(
+	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS + "?parameter1=" + this.delegates_data).subscribe(
 	  (res) =>
 	  {
             this.exampleDatabase1 = new ExampleDatabase();

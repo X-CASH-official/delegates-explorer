@@ -2,24 +2,24 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
-import {httpdataservice} from 'app/services/http-request.service';
+import {HttpdataService} from 'app/services/http-request.service';
 import { statisticsComponent } from './statistics.component';
 
 
 describe('statisticsComponent', () => {
   let component: statisticsComponent;
   let fixture: ComponentFixture<statisticsComponent>;
-  let service: httpdataservice;
+  let service: HttpdataService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ statisticsComponent ],
       imports: [HttpClientTestingModule],
-      providers: [ httpdataservice ],
+      providers: [ HttpdataService ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
-    service = TestBed.get(httpdataservice);
+    service = TestBed.get(HttpdataService);
   }));
 
   beforeEach(() => {

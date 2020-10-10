@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
-import {httpdataservice} from 'app/services/http-request.service';
+import {HttpdataService} from 'app/services/http-request.service';
 
 import { HelpComponent } from './help.component';
 
@@ -14,7 +14,7 @@ describe('HelpComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ HelpComponent ],
       imports: [HttpClientTestingModule],
-      providers: [ httpdataservice ],
+      providers: [ HttpdataService ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
@@ -64,14 +64,14 @@ describe('HelpComponent', () => {
   it('should set profile card sixs title', () => expect(fixture.debugElement.nativeElement.querySelector('#profilecard6').title).toBe('How to verify round statistics in the CLI'));
 
   // test the services
-  it('Test GET /delegateswebsitegetstatistics',inject([HttpTestingController, httpdataservice],(httpMock: HttpTestingController, httpdataservice: httpdataservice) => {
-    httpdataservice.get_request(httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe((event: HttpEvent<any>) => {
+  it('Test GET /delegateswebsitegetstatistics',inject([HttpTestingController, HttpdataService],(httpMock: HttpTestingController, HttpdataService: HttpdataService) => {
+    HttpdataService.get_request(HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe((event: HttpEvent<any>) => {
       switch (event.type) {
         case HttpEventType.Response:
            }
          });
 
-         const mockReq = httpMock.match(httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
+         const mockReq = httpMock.match(HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
          expect(mockReq.slice(-1)[0].cancelled).toBeFalsy();
          expect(mockReq.slice(-1)[0].request.method).toBe('GET');
          expect(mockReq.slice(-1)[0].request.responseType).toEqual('json');

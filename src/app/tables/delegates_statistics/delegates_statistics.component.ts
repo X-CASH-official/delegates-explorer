@@ -1,7 +1,7 @@
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
-import {httpdataservice} from '../../services/http-request.service';
+import {HttpdataService} from '../../services/http-request.service';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 
@@ -29,13 +29,13 @@ export class delegates_statisticsComponent implements OnInit {
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
 
-  constructor(private route: ActivatedRoute, private httpdataservice: httpdataservice) { }
+  constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
 
 	ngOnInit() {
       this.delegate_name = this.route.snapshot.queryParamMap.get("data");
 
       // get the data
-    	this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegate_name).subscribe(
+    	this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegate_name).subscribe(
     	   (res) =>	{
           this.exampleDatabase = new ExampleDatabase();
           var data = JSON.parse(JSON.stringify(res));
@@ -44,7 +44,7 @@ export class delegates_statisticsComponent implements OnInit {
       	  for (count = 1; count < block_producer_block_heights.length; count++) {
       	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
       	  }
-      	  this.dashCard1[0].text = data.total_vote_count / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+      	  this.dashCard1[0].text = data.total_vote_count / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
       	  this.dashCard1[1].text = data.current_delegate_rank;
       	  this.dashCard2[0].text = data.block_verifier_total_rounds;
       	  this.dashCard2[1].text = data.block_producer_total_rounds;
