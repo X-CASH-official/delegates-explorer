@@ -1,12 +1,12 @@
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50">
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50">
         <cdk-dashcard id="dashcard{{count+2}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
