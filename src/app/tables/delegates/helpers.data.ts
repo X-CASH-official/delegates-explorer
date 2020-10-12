@@ -107,6 +107,7 @@ export class DelegateDataSource extends DataSource<any> {
         case 'id': [propertyA, propertyB] = [a.id, b.id]; break;
         case 'delegate_name': [propertyA, propertyB] = [a.delegate_name, b.delegate_name]; break;
         case 'online_status': [propertyA, propertyB] = [a.online_status, b.online_status]; break;
+        case 'delegate_fee': [propertyA, propertyB] = [a.delegate_fee, b.delegate_fee]; break;
         case 'shared_delegate_status': [propertyA, propertyB] = [a.shared_delegate_status, b.shared_delegate_status]; break;
         case 'block_verifier_total_rounds': [propertyA, propertyB] = [a.block_verifier_total_rounds, b.block_verifier_total_rounds]; break;
         case 'block_verifier_online_percentage': [propertyA, propertyB] = [a.block_verifier_online_percentage, b.block_verifier_online_percentage]; break;
