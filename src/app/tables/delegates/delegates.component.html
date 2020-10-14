@@ -50,7 +50,7 @@
 
 				<ng-container matColumnDef="online_status">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-					<mat-cell id="online_status{{row.id}}" *matCellDef="let row">{{row.online_status == "true" ? "Online" : "Offline" }}</mat-cell>
+					<mat-cell id="online_status{{row.id}}" *matCellDef="let row" class="mat-cell {{row.online_status == 'true' ? 'online' : 'offline' }}">{{row.online_status == "true" ? "Online" : "Offline" }}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="shared_delegate_status">
