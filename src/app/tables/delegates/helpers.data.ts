@@ -77,7 +77,7 @@ export class DelegateDataSource extends DataSource<any> {
 
       // Filter data
       this.filteredData = this._exampleDatabase.data.slice().filter((item: delegatesdata) => {
-        let searchStr = (item.delegate_name).toLowerCase();
+        let searchStr = (item.delegate_name + item.online_status + item.shared_delegate_status ).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) != -1;
       });
 

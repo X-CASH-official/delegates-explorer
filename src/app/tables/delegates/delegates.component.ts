@@ -67,12 +67,16 @@ export class delegatesComponent implements OnInit {
   	    let count = 0;
         let delegate_total_vote_count;
         let current_delegate_total_vote_count;
+        let mode;
+        let status;
         this.dashCard1[1].text = data.length;
 
   	    for (count = 0, delegate_total_vote_count = 0; count < data.length; count++) {
           current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
           delegate_total_vote_count += current_delegate_total_vote_count;
-  	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].shared_delegate_status.toString(),data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
+          status = data[count].online_status == 'true' ? 'Online'  : 'Offline';
+          mode = data[count].shared_delegate_status == 'true' ? 'Shared'  : 'Solo';
+  	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),status,mode,data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
   	    }
         // only use 45 to calculate this since there are no votes for the 5 seed nodes
         this.dashCard2[0].text = delegate_total_vote_count / 45;
@@ -82,6 +86,7 @@ export class delegatesComponent implements OnInit {
         this.pagesize = 50;
 
         this.dataSource = new DelegateDataSource(this.exampleDatabase, this.paginator, this.sort);
+        console.log(this.dataSource);
 
         observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
           debounceTime(150),

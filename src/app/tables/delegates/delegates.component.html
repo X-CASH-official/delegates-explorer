@@ -36,7 +36,7 @@
 
 				<ng-container matColumnDef="id">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-					<mat-cell id="id{{row.id}}" *matCellDef="let row">{{row.id | number}}</mat-cell>
+					<mat-cell id="id{{row.id}}" *matCellDef="let row">{{ row.id | number}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="delegate_name">
@@ -50,37 +50,37 @@
 
 				<ng-container matColumnDef="online_status">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-					<mat-cell id="online_status{{row.id}}" *matCellDef="let row" class="mat-cell {{row.online_status == 'true' ? 'online' : 'offline' }}">{{row.online_status == "true" ? "Online" : "Offline" }}</mat-cell>
+					<mat-cell id="online_status{{row.id}}" *matCellDef="let row" class="mat-cell {{ row.online_status }}">{{ row.online_status }}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="shared_delegate_status">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Mode </mat-header-cell>
-					<mat-cell id="shared_delegate_status{{row.id}}" *matCellDef="let row">{{row.shared_delegate_status == "true" ? "Shared" : "Solo" }}</mat-cell>
+					<mat-cell id="shared_delegate_status{{row.id}}" *matCellDef="let row">{{ row.shared_delegate_status }}</mat-cell>
 				</ng-container>
 
         <ng-container matColumnDef="delegate_fee">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Fee </mat-header-cell>
-					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row">{{row.delegate_fee != "" ? row.delegate_fee + " %": "-" }}</mat-cell>
+					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row">{{ row.delegate_fee != "" ? row.delegate_fee + " %": "-" }}</mat-cell>
 				</ng-container>
 
         <ng-container matColumnDef="total_vote_count">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Votes </mat-header-cell>
-					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row">{{row.total_vote_count | number}} XCA</mat-cell>
+					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row">{{ row.total_vote_count | number}} XCA</mat-cell>
 				</ng-container>
 
         <ng-container matColumnDef="block_verifier_online_percentage">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Online </mat-header-cell>
-					<mat-cell id="block_verifier_online_percentage{{row.id}}" *matCellDef="let row">{{row.block_verifier_online_percentage | number}} %</mat-cell>
+					<mat-cell id="block_verifier_online_percentage{{row.id}}" *matCellDef="let row">{{ row.block_verifier_online_percentage | number}} %</mat-cell>
 				</ng-container>
 
         <ng-container matColumnDef="block_verifier_total_rounds">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Verified </mat-header-cell>
-					<mat-cell id="block_verifier_total_rounds{{row.id}}" *matCellDef="let row">{{row.block_verifier_total_rounds | number}}</mat-cell>
+					<mat-cell id="block_verifier_total_rounds{{row.id}}" *matCellDef="let row">{{ row.block_verifier_total_rounds | number}}</mat-cell>
 				</ng-container>
 
         <ng-container matColumnDef="block_producer_total_rounds">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Produced </mat-header-cell>
-					<mat-cell id="block_producer_total_rounds{{row.id}}" *matCellDef="let row">{{row.block_producer_total_rounds | number}}</mat-cell>
+					<mat-cell id="block_producer_total_rounds{{row.id}}" *matCellDef="let row">{{ row.block_producer_total_rounds | number}}</mat-cell>
 				</ng-container>
 
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
