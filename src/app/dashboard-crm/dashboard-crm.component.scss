@@ -2,34 +2,3 @@ mat-card {
   padding: 5px;
   margin: 5px;
 }
-
-.table-component-holder {
-	border: 1px solid #039be5;
-	background-color: white;
-  margin: 5px;
-  //padding: 5px
-}
-.table-header {
-	background-color: #039be5;
-	color: white;
-	padding: 3px 10px 0px 10px;
-}
-.table-container {
-	padding: 3px 10px 3px 10px;
-	overflow-y: auto;
-	width: 90%;
-	background: #fff;
-}
-
-.count {
-  width: 10%;
-}
-.delegate_name {
-  width: 70%;
-}
-.block_producer_total_rounds {
-  width: 5%;
-}
-.visit {
-  width: 50%;
-}

@@ -12,28 +12,27 @@ export class DashboardCrmComponent implements OnInit {
     delegatestatistics:string;
     delegateprofileinformation:string;
     circulating_percentage;
-    top10Producer;
-    top10Verifier;
-    top10Ratio;
 
     dashCard1 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'BLOCK HEIGHT', icon: 'assignment' }
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'BLOCK HEIGHT', icon: 'assignment' }
     ];
 
     dashCard2 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'TOTAL VOTES', icon: 'done_all' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'PoS CIRCULATING %', icon: 'pie_chart' }
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL DELEGATES', icon: 'groups' }
+
     ];
     dashCard3 = [
-          { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
-          { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'TOTAL DELEGATES', icon: 'groups' }
-      ];
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'TOTAL VOTES', icon: 'done_all' },
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' }
+
+    ];
 
     dashCard4 = [
-          { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' },
-          { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text_settings: 20, text: '', settings: false, title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
-      ];
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
+    ];
 
 
     constructor(private HttpdataService: HttpdataService) { }
@@ -42,20 +41,20 @@ export class DashboardCrmComponent implements OnInit {
       // get the data
   	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
     	  (res) => {
-                var data = JSON.parse(JSON.stringify(res));
-                this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
-                this.dashCard1[1].text = data.current_block_height;
-                this.dashCard2[0].text = parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-                this.dashCard2[1].text = data.XCASH_DPOPS_circulating_percentage;
+          var data = JSON.parse(JSON.stringify(res));
+          this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
+          this.dashCard1[1].text = data.current_block_height;
+          this.dashCard3[0].text = parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          this.dashCard4[0].text = data.XCASH_DPOPS_circulating_percentage;
 
-                this.circulating_percentage = parseInt(data.XCASH_DPOPS_circulating_percentage);
+          this.circulating_percentage = parseInt(data.XCASH_DPOPS_circulating_percentage);
     	  },
     	  (error) =>  {
     	    Swal.fire("Error","An error has occured","error");
     	  }
   	  );
 
-      this.dashCard3[0].text = 50;
+      this.dashCard2[0].text = 50;
 
       setInterval(() => {
           var current_date_and_time = new Date();
@@ -70,6 +69,39 @@ export class DashboardCrmComponent implements OnInit {
           this.dashCard4[1].text = minutes + ":" + seconds;
       }, 1000);
 
+      this.get_delegates();
+
     }
+
+    get_delegates()
+    {
+      // get the data
+      this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES).subscribe(
+        (res) => {
+          //this.exampleDatabase = new ExampleDatabase();
+          let data = JSON.parse(JSON.stringify(res));
+          let count = 0;
+          let delegate_total_vote_count;
+          let current_delegate_total_vote_count;
+          let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+
+          this.dashCard2[1].text = data.length;
+
+          for (count = 0, delegate_total_vote_count = 0; count < data.length; count++)
+          {
+            current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / xcash_wallet_decimal_places_amount;
+            delegate_total_vote_count += current_delegate_total_vote_count;
+          }
+
+          // only use 45 to calculate this since there are no votes for the 5 seed nodes
+          this.dashCard3[1].text = delegate_total_vote_count / 45;
+        },
+        (error) => {
+          Swal.fire("Error","An error has occured","error");
+        }
+      );
+    }
+
+
 
 }

@@ -29,6 +29,10 @@
     .mat-body-1{
         @include mat-headline();
     }
+    .ng-star-inserted{
+      font-family: "Helvetica Neue", sans-serif;
+      line-height: 1.1em;
+    }
 }
 .nav-item {
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
