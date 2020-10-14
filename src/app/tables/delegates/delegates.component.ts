@@ -72,7 +72,7 @@ export class delegatesComponent implements OnInit {
         //this.dashCard1[1].text = data.length;
 
   	    for (count = 0, delegate_total_vote_count = 0; count < data.length; count++) {
-          // current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
           // delegate_total_vote_count += current_delegate_total_vote_count;
           status = data[count].online_status == 'true' ? 'Online'  : 'Offline';
           mode = data[count].shared_delegate_status == 'true' ? 'Shared'  : 'Solo';
