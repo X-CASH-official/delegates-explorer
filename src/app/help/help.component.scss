@@ -10,11 +10,11 @@ mat-card {
         .service-card {
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: default;
-            background-color: #29b6f6;
+            background-color: #1189a5;
             color: white;
             padding: 20px;
             .service-card-header{
-              background-color: #fa741c; //#039be5;
+              background-color: #fa741c; //#1189a5;
               height: 160px;
               width: 160px;
               border-radius: 50%;
@@ -25,7 +25,7 @@ mat-card {
               }
             }
             .service-card-header-github{
-              background-color: #fa741c; //#039be5;
+              background-color: #fa741c; //#1189a5;
               height: 160px;
               width: 160px;
               border-radius: 50%;

@@ -27,9 +27,9 @@ $mat-light-theme-background: (
 @include mat-core();
 
 
-$primary : $mat-light-blue;
-$accent  : $mat-orange;
-$warn    : $mat-light-blue;
+$primary : $mat-cyan;
+$accent  : $mat-amber;
+$warn    : $mat-cyan;
 
 
 
@@ -39,7 +39,7 @@ $primary-app-warn:    mat-palette($warn, 600 );
 $cdk-theme:   mat-light-theme($primary-app-primary, $primary-app-accent,$primary-app-warn);
 
 cdk-sidemenu{
-    $sidemenu-app-primary: mat-palette($primary , 600);
+    $sidemenu-app-primary: mat-palette($primary , 50);
     $sidemenu-app-accent:  mat-palette($accent , 900);
     $sidemenu-app-warn:    mat-palette($warn, 600 );
     $cdk-sidemenu-theme:   mat-dark-theme($sidemenu-app-primary, $sidemenu-app-accent,$sidemenu-app-warn);
@@ -133,7 +133,6 @@ body{
     width: 70px;
     text-align: center;
 }
-
 .spinner > div {
   width: 18px;
   height: 18px;
@@ -141,17 +140,20 @@ body{
   display: inline-block;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
+
 .bounce3 {
-    background-color: #039be5;
+  background-color: #0e6e84;
 }
 .spinner .bounce1 {
-    background-color: #4fc3f7;
-    animation-delay: -0.32s;
+  background-color: #15abce;
+  animation-delay: -0.32s;
 }
 .spinner .bounce2 {
-    background-color: #29b6f6;
-    animation-delay: -0.16s;
+  background-color: #1189a5;
+  animation-delay: -0.16s;
 }
+
+
 @keyframes sk-bouncedelay {
   0%, 80%, 100% { transform: scale(0) }
   40% { transform: scale(1.0) }
@@ -165,11 +167,16 @@ body{
   }
 }
 
+
+.swal2-confirm {
+	background-color: #1189a5 !important;
+}
+
 .page_title{
   color: white;
   font: 500 26px Roboto, "Helvetica Neue", sans-serif;
   text-align: center;
-  background: #039be5;
+  background: #1189a5;
   padding: 16px;
   margin: 10px 5px;
 }
@@ -177,7 +184,7 @@ body{
   color: white;
   font: 500 20px Roboto, "Helvetica Neue", sans-serif;
   text-align: center;
-  background: #039be5;
+  background: #1189a5;
   padding: 12px;
   margin: 10px 5px;
 }
@@ -190,7 +197,7 @@ body{
 .delegate_details{
   text-align: center;
   color: white;
-  background-color:#29b6f6;
+  background-color: #00acc1;
   // padding:12px;
   // margin: 10px 5px;
   line-height:24px;
@@ -265,4 +272,8 @@ a.delegate_details_active  {
     text-align: center;
     margin: 2em;
     font: 500 16px Roboto, "Helvetica Neue", sans-serif;
+}
+a{
+    color: #1189a5;
+    text-decoration: none;
 }

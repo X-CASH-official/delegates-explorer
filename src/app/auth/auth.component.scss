@@ -6,13 +6,15 @@
 
 
     .sidenav{
-        background: mat-color($primary,400);
+        //background: mat-color($primary,400);
+        background: #1189a5;
         overflow: hidden;
         position: relative;
         width: 250px;
     }
     .drawer{
-        background: mat-color($primary,400);
+        //background: mat-color($primary,400);
+        background: #1189a5;
         overflow: hidden;
         position: relative;
         width: 80px;
