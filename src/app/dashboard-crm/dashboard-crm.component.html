@@ -1,14 +1,35 @@
-<div fxLayout="row" fxLayout="row wrap">
+<h2 class="page_title">Dashboard</h2>
+
+<div fxLayout="row wrap">
     <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50">
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
-<div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50">
+
+<div fxLayout="row wrap">
+    <div *ngFor="let dash of dashCard3; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50">
         <cdk-dashcard id="dashcard{{count+3}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
+
+<div fxLayout="row wrap">
+    <div *ngFor="let dash of dashCard4; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50">
+        <cdk-dashcard id="dashcard{{count+5}}" [dashData]="dash"></cdk-dashcard>
+    </div>
+</div>
+
+<div fxLayout="row wrap">
+    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50">
+        <cdk-dashcard id="dashcard{{count+7}}" [dashData]="dash"></cdk-dashcard>
+    </div>
+</div>
+
+<!-- <div fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33.3"  fxFlex.lg="33.3">
+    <cdk-round-progressbar [title]="'PoS CIRCULATING % '" [current]="circulating_percentage" [max]="'100'" [background]="'#fa741c'" [color]="'#FFE268'" [boxcolor]="'#29b6f6'"></cdk-round-progressbar>
+</div> -->
+
+
 
 <!-- <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
     <cdk-profile-card id="profilecard1" [title]="'Voting Rules'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'voting_rules'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>

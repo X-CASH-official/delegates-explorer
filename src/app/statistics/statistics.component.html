@@ -11,10 +11,10 @@
           </div>
           <div   class="topstats-details mat-elevation-z8" >
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
-                  <h1 class="mat-headline center-align" >{{most_block_producer_total_rounds_delegate_name}}</h1>
-                  <h1 class="mat-subheading-1 center-align" > produced</h1>
-                  <h1 class="mat-headline center-align" >{{most_block_producer_total_rounds}}</h1>
-                  <h1 class="mat-subheading-1 center-align" >blocks</h1>
+                  <h2 class="mat-headline center-align" >{{most_block_producer_total_rounds_delegate_name}}</h2>
+                  <h2 class="mat-headline center-align" >produced {{most_block_producer_total_rounds}} blocks</h2>
+                  <!-- <h2 class="mat-headline center-align" >{{most_block_producer_total_rounds}}</h2>
+                  <h2 class="mat-subheading-1 center-align" >blocks</h2> -->
                   <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
@@ -30,14 +30,67 @@
           </div>
           <div   class="topstats-details mat-elevation-z8" >
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
-                  <h1 class="mat-headline center-align" >{{most_total_rounds_delegate_name}}</h1>
-                  <h1 class="mat-subheading-1 center-align" >verified</h1>
+                  <h2 class="mat-headline center-align" >{{most_total_rounds_delegate_name}}</h2>
+                  <h2 class="mat-headline center-align" >verified {{most_total_rounds}} blocks</h2>
+                  <!-- <h1 class="mat-subheading-1 center-align" >verified</h1>
                   <h1 class="mat-headline center-align" >{{most_total_rounds}}</h1>
-                  <h1 class="mat-subheading-1 center-align" >rounds</h1>
+                  <h1 class="mat-subheading-1 center-align" >rounds</h1> -->
                   <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
       </div>
   </div>
+</div>
+
+
+<div fxLayout="row wrap">
+
+    <div fxFlex fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="32.5" class="table-component-holder">
+  		<div class="table-header">
+  			<h1 class="mat-headline center-align" >Top 10 Produced/Verfied Ratio</h1>
+  		</div>
+  		<div class="table-container">
+  	    	<table>
+  					<tbody>
+  						<tr  *ngFor="let delegate of top10_ratio; let count = index ">
+                <td class="mat-subheading-1 count">{{ count+1 }}</td>
+                <td class="mat-subheading-1 delegate_name">{{ delegate.delegate_name | slice:0:35 }}</td>
+    						<td class="text-right mat-subheading-1 block_producer_total_rounds">{{ delegate.block_ratio| number:'1.0-1' }}%</td>
+							</tr>
+  					</tbody>
+  				</table>
+    	</div>
+  	</div>
+
+    <div fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="32.5" class="table-component-holder">
+  		<div class="table-header">
+  			<h1 class="mat-headline" >Top 10 Block Producer</h1>
+  		</div>
+  		<div class="table-container">
+  	    	<table>
+  						<tr  *ngFor="let delegate of top10_producer; let count = index ">
+                <td class="mat-subheading-1 count">{{ count+1 }}</td>
+                <td class="mat-subheading-1 delegate_name">{{ delegate.delegate_name | slice:0:35 }}</td>
+    						<td class="text-right mat-subheading-1 block_producer_total_rounds">{{ delegate.block_producer_total_rounds }}</td>
+							</tr>
+  				</table>
+    	</div>
+  	</div>
+
+    <div fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="32.5" class="table-component-holder">
+  		<div class="table-header">
+  			<h1 class="mat-headline" >Top 10 Block Verifier</h1>
+  		</div>
+  		<div class="table-container">
+  	    	<table>
+  						<tr  *ngFor="let delegate of top10_verifier; let count = index ">
+                <td class="mat-subheading-1 count">{{ count+1 }}</td>
+                <td class="mat-subheading-1 delegate_name">{{ delegate.delegate_name | slice:0:35 }}</td>
+    						<td class="text-right mat-subheading-1 block_producer_total_rounds">{{ delegate.block_verifier_total_rounds }}</td>
+							</tr>
+  				</table>
+    	</div>
+  	</div>
+
 </div>

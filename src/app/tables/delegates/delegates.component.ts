@@ -1,6 +1,4 @@
-
 import {fromEvent as observableFromEvent,  Observable } from 'rxjs';
-
 import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
 
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
@@ -16,9 +14,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./delegates.component.scss']
 })
 
-
-
 export class delegatesComponent implements OnInit {
+
   dashCard1 = [
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL DELEGATES', icon: 'groups' }
@@ -28,13 +25,13 @@ export class delegatesComponent implements OnInit {
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' },
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text_settings: 20, text: '', settings: false, title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
     ];
+
 	displayedColumns = ['id', 'delegate_name', 'online_status', 'shared_delegate_status', 'delegate_fee', 'total_vote_count', 'block_verifier_online_percentage', 'block_verifier_total_rounds', 'block_producer_total_rounds'];
 	exampleDatabase = new DelegateDatabase();
 	dataSource: DelegateDataSource | null;
 	showFilterTableCode;
   length;
   pagesize;
-
 
 	constructor(private HttpdataService: HttpdataService) { }
 
@@ -43,23 +40,23 @@ export class delegatesComponent implements OnInit {
 	@ViewChild('filter') filter: ElementRef;
 
 	ngOnInit() {
-              this.dashCard1[0].text = 50;
+    this.dashCard1[0].text = 50;
 
-              setInterval(() => {
-                  var current_date_and_time = new Date();
-                  var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
-                  var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
-                  if (minutes < 10) {
-                    minutes = "0" + minutes.toString();
-                  }
-                  if (seconds < 10) {
-                    seconds = "0" + seconds;
-                  }
-                  this.dashCard2[1].text = minutes + ":" + seconds;
-              }, 1000);
+    setInterval(() => {
+        var current_date_and_time = new Date();
+        var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
+        var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
+        if (minutes < 10) {
+          minutes = "0" + minutes.toString();
+        }
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        this.dashCard2[1].text = minutes + ":" + seconds;
+    }, 1000);
 
-              this.get_delegates();
-            }
+    this.get_delegates();
+  }
 
 	get_delegates() {
     // get the data

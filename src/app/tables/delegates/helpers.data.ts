@@ -14,9 +14,7 @@ export class DelegateDatabase {
   dataChange: BehaviorSubject<delegatesdata[]> = new BehaviorSubject<delegatesdata[]>([]);
   get data(): delegatesdata[] { return this.dataChange.value; }
 
-  constructor() {
-
-  }
+  constructor() {}
 
   /** Adds a new user to the database. */
   addUser(id:string,delegate_name:string,online_status:string,shared_delegate_status:string,delegate_fee:string,block_verifier_total_rounds:string,block_verifier_online_percentage:string,total_vote_count:string,block_producer_total_rounds:string) {
