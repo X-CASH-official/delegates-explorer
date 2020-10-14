@@ -16,15 +16,15 @@ import Swal from 'sweetalert2';
 
 export class delegatesComponent implements OnInit {
 
-  dashCard1 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL DELEGATES', icon: 'groups' }
-    ];
-
-  dashCard2 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text_settings: 20, text: '', settings: false, title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
-    ];
+  // dashCard1 = [
+  //       { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
+  //       { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL DELEGATES', icon: 'groups' }
+  //   ];
+  //
+  // dashCard2 = [
+  //       { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' },
+  //       { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text_settings: 20, text: '', settings: false, title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
+  //   ];
 
 	displayedColumns = ['id', 'delegate_name', 'online_status', 'shared_delegate_status', 'delegate_fee', 'total_vote_count', 'block_verifier_online_percentage', 'block_verifier_total_rounds', 'block_producer_total_rounds'];
 	exampleDatabase = new DelegateDatabase();
@@ -40,20 +40,20 @@ export class delegatesComponent implements OnInit {
 	@ViewChild('filter') filter: ElementRef;
 
 	ngOnInit() {
-    this.dashCard1[0].text = 50;
-
-    setInterval(() => {
-        var current_date_and_time = new Date();
-        var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
-        var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
-        if (minutes < 10) {
-          minutes = "0" + minutes.toString();
-        }
-        if (seconds < 10) {
-          seconds = "0" + seconds;
-        }
-        this.dashCard2[1].text = minutes + ":" + seconds;
-    }, 1000);
+    // this.dashCard1[0].text = 50;
+    //
+    // setInterval(() => {
+    //     var current_date_and_time = new Date();
+    //     var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
+    //     var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
+    //     if (minutes < 10) {
+    //       minutes = "0" + minutes.toString();
+    //     }
+    //     if (seconds < 10) {
+    //       seconds = "0" + seconds;
+    //     }
+    //     this.dashCard2[1].text = minutes + ":" + seconds;
+    // }, 1000);
 
     this.get_delegates();
   }
@@ -69,17 +69,17 @@ export class delegatesComponent implements OnInit {
         let current_delegate_total_vote_count;
         let mode;
         let status;
-        this.dashCard1[1].text = data.length;
+        //this.dashCard1[1].text = data.length;
 
   	    for (count = 0, delegate_total_vote_count = 0; count < data.length; count++) {
-          current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-          delegate_total_vote_count += current_delegate_total_vote_count;
+          // current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          // delegate_total_vote_count += current_delegate_total_vote_count;
           status = data[count].online_status == 'true' ? 'Online'  : 'Offline';
           mode = data[count].shared_delegate_status == 'true' ? 'Shared'  : 'Solo';
   	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),status,mode,data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
   	    }
         // only use 45 to calculate this since there are no votes for the 5 seed nodes
-        this.dashCard2[0].text = delegate_total_vote_count / 45;
+        //this.dashCard2[0].text = delegate_total_vote_count / 45;
 
         // paginator settings
         this.length = data.length;
