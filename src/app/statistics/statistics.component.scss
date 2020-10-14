@@ -4,19 +4,18 @@ mat-card {
 }
 
 .topstats-card-holder{
-    margin: 10px 5px;
-    min-height: 300px;
+    margin: 0px 5px 10px 5px;
+    min-height: 200px;
     box-sizing: border-box;
     color:#f5f0f0f2;
 
     .topstats-details{
-        //background-image: -webkit-linear-gradient(45deg, mat-color($primary,400) 45%, mat-color($primary,300)  45%);
         background-color: #fa741c;
         margin-top:-50px;
-        min-height: 242px;
-
+        min-height: 200px;
         & .topstats-details-holder{
             margin-top: 50px;
+            padding-top: 15px;
         }
     }
     .center-align{
@@ -30,21 +29,17 @@ mat-card {
     }
     & .banner {
         background-size: screen;
-        background-color: #fa741c;
-        min-height: 56px;
+        background-color: #f9a825;
+        min-height: 60px;
         background-repeat: no-repeat;
         color: white;
-
+        z-index: 1;
         border-radius: 50%;
         display: inline-block;
-        span{
-          position: relative;
-          z-index: 1;
-          height: 56px;
-        }
         & img {
             position: relative;
             z-index: 1;
+            padding-top: 2px;
         }
     }
     .topstats-card-content{
