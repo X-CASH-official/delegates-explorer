@@ -1,90 +1,99 @@
-<h2 style="text-align: center;">{{title}}</h2>
+<h2 class="page_title">Block Height {{title}} <br /> <small>(round statistics)</small></h2>
 
-<h4 style="text-align: center;">Block Producer</h4>
+<h4 class="page_subtitle">Block Producer</h4>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50"  fxFlex.lg="33.3">
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard2" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard2" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100">
         <cdk-dashcard id="dashcard3" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard3" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard3" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100">
         <cdk-dashcard id="dashcard4" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
-<h4 style="text-align: center;">VRF Data</h4>
+<h4 class="page_subtitle">VRF Data</h4>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard4" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard4" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100">
         <cdk-dashcard id="dashcard5" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard5" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard5" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100">
         <cdk-dashcard id="dashcard6" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard6" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard6" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100">
         <cdk-dashcard id="dashcard7" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard7" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.md="25">
+    <div *ngFor="let dash of dashCard7" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100">
         <cdk-dashcard id="dashcard8" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
-<h4 style="text-align: center;">Block Verification Test</h4>
+<h4 class="page_subtitle">Block Verification Test</h4>
 
     <mat-card>
+        <h3 style="text-align: center;">32 out of 32 passed test</h3>
         <mat-card-content>
-            <h3 style="text-align: center;">32 out of 32 passed test</h3>
-            <section class="example-section">
-	<mat-checkbox class="example-margin" [checked]="true" disabled>Network Version</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Timestamp</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Previous Block Hash</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Nonce</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Reward Transaction Version</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Unlock Block</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Reward Input</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">vin Type</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Height</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Reward Output</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Reward</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Stealth Address Output Tag</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Stealth Address Output</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Extra Bytes Size</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Transaction Public Key Tag</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Transaction Public Key</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Extra Nonce Tag</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Reserve Bytes Size</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Producer Delegate Name</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Producer Public Address</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Producer Node Backup Count</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Producer Backup Nodes Names</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">VRF Secret Key Round Part 4</mat-checkbox><br>	
-	<mat-checkbox class="example-margin" [checked]="true">VRF Public Key Round Part 4</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">VRF Alpha String Round Part 4</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">VRF Proof Round Part 4</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">VRF Beta String Part 4</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">VRF Data Round Part 4</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">VRF Data</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Block Validation signatures</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">RingCT Version</mat-checkbox><br>
-	<mat-checkbox class="example-margin" [checked]="true">Transaction Amount</mat-checkbox><br>
-        </section>        
+
+          <section class="example-section"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+          	<mat-checkbox class="example-margin" [checked]="true" disabled>Network Version</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Timestamp</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Previous Block Hash</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Nonce</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Reward Transaction Version</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Unlock Block</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Reward Input</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">vin Type</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Height</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Reward Output</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Reward</mat-checkbox><br>
+
+          </section>
+          <section class="example-section"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+            <mat-checkbox class="example-margin" [checked]="true">Stealth Address Output Tag</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Stealth Address Output</mat-checkbox><br>
+            <mat-checkbox class="example-margin" [checked]="true">Extra Bytes Size</mat-checkbox><br>
+            <mat-checkbox class="example-margin" [checked]="true">Transaction Public Key Tag</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Transaction Public Key</mat-checkbox><br>
+            <mat-checkbox class="example-margin" [checked]="true">Extra Nonce Tag</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Reserve Bytes Size</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Producer Delegate Name</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Producer Public Address</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Producer Node Backup Count</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Producer Backup Nodes Names</mat-checkbox><br>
+
+          </section>
+          <section class="example-section"  fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33">
+
+
+          	<mat-checkbox class="example-margin" [checked]="true">VRF Secret Key Round Part 4</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">VRF Public Key Round Part 4</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">VRF Alpha String Round Part 4</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">VRF Proof Round Part 4</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">VRF Beta String Part 4</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">VRF Data Round Part 4</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">VRF Data</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Block Validation signatures</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">RingCT Version</mat-checkbox><br>
+          	<mat-checkbox class="example-margin" [checked]="true">Transaction Amount</mat-checkbox><br>
+          </section>
         </mat-card-content>
     </mat-card>
 
@@ -94,27 +103,27 @@
 		<mat-toolbar class="table-header">
 			<h1 class="mat-headline center-align" >Block Verifiers VRF Secret Key</h1>
 			<br><br>
-			
+
 		</mat-toolbar>
 		<div class="table-container">
 			<mat-table #table id="block_verifiers_vrf_secret_key_table" [dataSource]="dataSource1">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-				
+
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Block Verifiers VRF Secret Key </mat-header-cell>
 					<mat-cell id="block_verifiers_vrf_secret_key{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
-								
+
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-				
+
 			</mat-table>
 		</div>
 	</div>
@@ -126,27 +135,27 @@
 		<mat-toolbar class="table-header">
 			<h1 class="mat-headline center-align" >Block Verifiers VRF Public Key</h1>
 			<br><br>
-			
+
 		</mat-toolbar>
 		<div class="table-container">
 			<mat-table #table id="block_verifiers_vrf_public_key_table" [dataSource]="dataSource2">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-				
+
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Block Verifiers VRF Public Key </mat-header-cell>
 					<mat-cell id="block_verifiers_vrf_public_key{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
-								
+
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-				
+
 			</mat-table>
 		</div>
 	</div>
@@ -158,27 +167,27 @@
 		<mat-toolbar class="table-header">
 			<h1 class="mat-headline center-align" >Block Verifiers Random Data</h1>
 			<br><br>
-			
+
 		</mat-toolbar>
 		<div class="table-container">
 			<mat-table #table id="block_verifiers_random_data_table" [dataSource]="dataSource3">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-				
+
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Block Verifiers Random Data </mat-header-cell>
 					<mat-cell id="block_verifiers_random_data{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
-								
+
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-				
+
 			</mat-table>
 		</div>
 	</div>
@@ -190,27 +199,27 @@
 		<mat-toolbar class="table-header">
 			<h1 class="mat-headline center-align" >Next Block Verifiers Public Key</h1>
 			<br><br>
-			
+
 		</mat-toolbar>
 		<div class="table-container">
 			<mat-table #table id="next_block_verifiers_public_key_table" [dataSource]="dataSource4">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-				
+
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Next Block Verifiers </mat-header-cell>
 					<mat-cell id="next_block_verifiers_public_key{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
-								
+
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-				
+
 			</mat-table>
 		</div>
 	</div>
@@ -222,29 +231,28 @@
 		<mat-toolbar class="table-header">
 			<h1 class="mat-headline center-align" >Current Block Verifiers Data Signature</h1>
 			<br><br>
-			
+
 		</mat-toolbar>
 		<div class="table-container">
 			<mat-table #table id="current_block_verifiers_data_signature_table" [dataSource]="dataSource5">
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-				
+
 				<ng-container matColumnDef="ID">
 					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row"> {{row.id | number}} </mat-cell>
 				</ng-container>
-				
+
 				<ng-container matColumnDef="next_block_verifiers">
 					<mat-header-cell *matHeaderCellDef> Current Block Verifiers Data Signature </mat-header-cell>
 					<mat-cell id="current_block_verifiers_data_signature{{row.id}}" *matCellDef="let row"> {{row.next_block_verifiers}} </mat-cell>
 				</ng-container>
-								
+
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-				
+
 			</mat-table>
 		</div>
 	</div>
 </div>
-

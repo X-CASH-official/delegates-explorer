@@ -49,7 +49,11 @@
   	    	<table>
   						<tr  *ngFor="let delegate of top_producer; let count = index ">
                 <td class="mat-subheading-1 count">{{ count+1 }}</td>
-                <td class="mat-subheading-1 delegate_name">{{ delegate.delegate_name | slice:0:35 }}</td>
+                <td class="mat-subheading-1 delegate_name">
+                  <a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                    {{ delegate.delegate_name | slice:0:35 }}
+                  </a>
+                </td>
     						<td class="text-right mat-subheading-1 block_producer_total_rounds">{{ delegate.block_producer_total_rounds }}</td>
 							</tr>
   				</table>
@@ -64,7 +68,11 @@
   	    	<table>
   						<tr  *ngFor="let delegate of top_verifier; let count = index ">
                 <td class="mat-subheading-1 count">{{ count+1 }}</td>
-                <td class="mat-subheading-1 delegate_name">{{ delegate.delegate_name | slice:0:35 }}</td>
+                <td class="mat-subheading-1 delegate_name">
+                  <a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                    {{ delegate.delegate_name | slice:0:35 }}
+                  </a>
+                </td>
     						<td class="text-right mat-subheading-1 block_producer_total_rounds">{{ delegate.block_verifier_total_rounds }}</td>
 							</tr>
   				</table>
@@ -80,7 +88,11 @@
   					<tbody>
   						<tr  *ngFor="let delegate of top_ratio; let count = index ">
                 <td class="mat-subheading-1 count">{{ count+1 }}</td>
-                <td class="mat-subheading-1 delegate_name">{{ delegate.delegate_name | slice:0:35 }}</td>
+                <td class="mat-subheading-1 delegate_name">
+                  <a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                    {{ delegate.delegate_name | slice:0:35 }}
+                  </a>
+                </td>
     						<td class="text-right mat-subheading-1 block_producer_total_rounds">{{ delegate.block_ratio| number:'1.0-1' }}%</td>
 							</tr>
   					</tbody>

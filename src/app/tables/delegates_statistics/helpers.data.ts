@@ -12,7 +12,7 @@ export class ExampleDatabase {
   get data(): delegates_statisticsdata[] { return this.dataChange.value; }
 
   constructor() {
-   
+
   }
 
   /** Adds a new user to the database. */

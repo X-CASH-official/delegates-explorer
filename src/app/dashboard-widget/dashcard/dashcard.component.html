@@ -1,6 +1,6 @@
 <div fxLayout="row"  class="dashcard mat-elevation-z4">
 
-    <div [fxFlex]="dashData?.width_icon"   fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight">
+    <div *ngIf="dashData?.width_icon > 0"  [fxFlex]="dashData?.width_icon"   fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight">
         <mat-icon  class="cardIcon">{{dashData?.icon}}</mat-icon>
     </div>
 

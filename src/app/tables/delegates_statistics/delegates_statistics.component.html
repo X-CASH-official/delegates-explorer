@@ -53,7 +53,7 @@
                    </mat-cell>
 				</ng-container>
 
-				<ng-container matColumnDef="block_hash">
+				<!-- <ng-container matColumnDef="block_hash">
 					<mat-header-cell *matHeaderCellDef> Block Hash </mat-header-cell>
 					<mat-cell id="block_hash{{row.id}}" *matCellDef="let row">{{row.block_hash}}</mat-cell>
 				</ng-container>
@@ -66,7 +66,8 @@
 				<ng-container matColumnDef="block_reward">
 					<mat-header-cell *matHeaderCellDef> Block Reward </mat-header-cell>
 					<mat-cell id="block_reward{{row.id}}" *matCellDef="let row"> {{row.block_reward | number}} </mat-cell>
-				</ng-container>
+				</ng-container> -->
+
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 

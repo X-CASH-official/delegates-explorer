@@ -13,18 +13,19 @@ import { Observable } from 'rxjs';
 export class delegates_statisticsComponent implements OnInit {
 
   public dashCard1 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'VOTE COUNT', icon: 'done_all' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'DELEGATE RANK', icon: 'leaderboard' }
+        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
+        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK', icon: 'leaderboard' }
     ];
 	public dashCard2 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'VERIFIER ROUNDS', icon: 'autorenew' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'PRODUCER ROUNDS', icon: 'find_replace' }
+        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
+        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
     ];
 
   title:string = "Delegates Statistics";
   delegate_name:string = "";
 
-  public displayedColumns = ['id', 'block_height', 'block_hash', 'block_date_and_time', 'block_reward'];
+  //public displayedColumns = ['id', 'block_height', 'block_hash', 'block_date_and_time', 'block_reward'];
+  public displayedColumns = ['id', 'block_height'];
 	public exampleDatabase = new ExampleDatabase();
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
@@ -38,17 +39,34 @@ export class delegates_statisticsComponent implements OnInit {
     	this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegate_name).subscribe(
     	   (res) =>	{
           this.exampleDatabase = new ExampleDatabase();
+
           var data = JSON.parse(JSON.stringify(res));
           var block_producer_block_heights = data.block_producer_block_heights.split("|");
-          var count = 0;
-      	  for (count = 1; count < block_producer_block_heights.length; count++) {
+          var block_reward;
+          let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+
+          var count = block_producer_block_heights.length -1;
+
+      	  for (count; count >= 0; count--) {
+            console.log(count);
+
       	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
+
+            // var data2 = this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS + "?parameter1=" + block_producer_block_heights[count]);
+            // var data2 = JSON.parse(JSON.stringify(data2));
+            // console.log("data2= " + data2);
+            //
+            // block_reward = '' //parseInt(data[count].block_reward) / xcash_wallet_decimal_places_amount;
+            // this.exampleDatabase.addUser((count).toString(), data2[count].block_producer_block_heights[count].toString(), data2[count].block_hash.toString(), (parseInt(data2[count].block_date_and_time) * 1000).toString(), block_reward.toString());
       	  }
+
       	  this.dashCard1[0].text = data.total_vote_count / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
       	  this.dashCard1[1].text = data.current_delegate_rank;
       	  this.dashCard2[0].text = data.block_verifier_total_rounds;
       	  this.dashCard2[1].text = data.block_producer_total_rounds;
       	  this.dataSource = new ExampleDataSource(this.exampleDatabase);
+          //console.log(this.dataSource);
+
         },
         (error) => {
           Swal.fire("Error","An error has occured","error");
