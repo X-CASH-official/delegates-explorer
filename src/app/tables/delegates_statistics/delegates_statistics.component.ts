@@ -47,7 +47,7 @@ export class delegates_statisticsComponent implements OnInit {
 
           var count = block_producer_block_heights.length -1;
 
-      	  for (count; count >= 0; count--) {
+      	  for (count; count > 0; count--) {
             console.log(count);
 
       	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
