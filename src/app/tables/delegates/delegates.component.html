@@ -35,7 +35,7 @@
 				The actual rendered columns are set as a property on the row definition" -->
 
 				<ng-container matColumnDef="id">
-					<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row">{{ row.id | number}}</mat-cell>
 				</ng-container>
 
