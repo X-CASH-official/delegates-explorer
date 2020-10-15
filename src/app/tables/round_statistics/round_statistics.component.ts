@@ -14,9 +14,9 @@ import { Observable } from 'rxjs';
 
 export class round_statisticsComponent implements OnInit {
 	dashCard1 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'PRODUCER DELEGATE NAME', icon: 'verified_user' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE COUNT', icon: 'cloud' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE NAME', icon: 'cloud' }
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'PRODUCER DELEGATE', icon: 'verified_user' },
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE COUNT', icon: 'av_timer' },
+      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE', icon: 'admin_panel_settings' }
     ];
 	dashCard2 = [
       { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'BLOCK PRODUCER DELEGATE PUBLIC ADDRESS', icon: 'cloud' }
