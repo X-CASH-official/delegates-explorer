@@ -1,9 +1,14 @@
+import {fromEvent as observableFromEvent,  Observable } from 'rxjs';
+import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
+
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
 import {HttpdataService} from '../../services/http-request.service';
 import Swal from 'sweetalert2';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
+
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-fixed-table',
@@ -29,8 +34,14 @@ export class delegates_statisticsComponent implements OnInit {
 	public exampleDatabase = new ExampleDatabase();
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
+  length;
 
   constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+	@ViewChild(MatSort) sort: MatSort;
+	@ViewChild('filter') filter: ElementRef;
+
 
 	ngOnInit() {
       this.delegate_name = this.route.snapshot.queryParamMap.get("data");
@@ -44,29 +55,31 @@ export class delegates_statisticsComponent implements OnInit {
           var block_producer_block_heights = data.block_producer_block_heights.split("|");
           var block_reward;
           let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          var count = 0;
 
-          var count = block_producer_block_heights.length -1;
-
-      	  for (count; count > 0; count--) {
-            console.log(count);
+          for (count = 1; count < block_producer_block_heights.length; count++) {
 
       	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
 
-            // var data2 = this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS + "?parameter1=" + block_producer_block_heights[count]);
-            // var data2 = JSON.parse(JSON.stringify(data2));
-            // console.log("data2= " + data2);
-            //
-            // block_reward = '' //parseInt(data[count].block_reward) / xcash_wallet_decimal_places_amount;
-            // this.exampleDatabase.addUser((count).toString(), data2[count].block_producer_block_heights[count].toString(), data2[count].block_hash.toString(), (parseInt(data2[count].block_date_and_time) * 1000).toString(), block_reward.toString());
       	  }
 
       	  this.dashCard1[0].text = data.total_vote_count / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
       	  this.dashCard1[1].text = data.current_delegate_rank;
       	  this.dashCard2[0].text = data.block_verifier_total_rounds;
       	  this.dashCard2[1].text = data.block_producer_total_rounds;
-      	  this.dataSource = new ExampleDataSource(this.exampleDatabase);
-          //console.log(this.dataSource);
 
+          this.length = block_producer_block_heights.length - 1;
+          this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
+
+          //console.log(this.dataSource);
+          observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
+            debounceTime(150),
+            distinctUntilChanged(),)
+            .subscribe(() => {
+              if (!this.dataSource) { return; }
+              this.dataSource.filter = this.filter.nativeElement.value;
+            }
+          );
         },
         (error) => {
           Swal.fire("Error","An error has occured","error");
