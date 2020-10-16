@@ -17,8 +17,8 @@ import { MatPaginator, MatSort } from '@angular/material';
 export class delegates_voters_listComponent implements OnInit {
 
 	public dashCard = [
-        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'VOTE COUNT', icon: 'done_all' },
-        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'VOTERS', icon: 'how_to_reg' }
+        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'VOTE COUNT', icon: 'done_all' },
+        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'VOTERS', icon: 'how_to_reg' }
     ];
 
   title:string = "Delegates Voters List";

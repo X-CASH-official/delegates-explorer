@@ -18,12 +18,12 @@ import { MatPaginator, MatSort } from '@angular/material';
 export class delegates_statisticsComponent implements OnInit {
 
   public dashCard1 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
-        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK', icon: 'leaderboard' }
+        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
+        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK', icon: 'leaderboard' }
     ];
 	public dashCard2 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
-        { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
+        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
+        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
     ];
 
   title:string = "Delegates Statistics";

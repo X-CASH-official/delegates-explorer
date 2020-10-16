@@ -14,24 +14,24 @@ export class DashboardCrmComponent implements OnInit {
     circulating_percentage;
 
     dashCard1 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'BLOCK HEIGHT', icon: 'assignment' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'BLOCK HEIGHT', icon: 'assignment' }
     ];
 
     dashCard2 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL DELEGATES', icon: 'groups' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL DELEGATES', icon: 'groups' }
 
     ];
     dashCard3 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'TOTAL VOTES', icon: 'done_all' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'TOTAL VOTES', icon: 'done_all' },
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' }
 
     ];
 
     dashCard4 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
     ];
 
 

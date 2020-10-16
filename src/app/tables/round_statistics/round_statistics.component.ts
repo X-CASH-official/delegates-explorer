@@ -14,27 +14,27 @@ import { Observable } from 'rxjs';
 
 export class round_statisticsComponent implements OnInit {
 	dashCard1 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'PRODUCER DELEGATE', icon: 'verified_user' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE COUNT', icon: 'av_timer' },
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE', icon: 'admin_panel_settings' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'PRODUCER DELEGATE', icon: 'verified_user' },
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE COUNT', icon: 'av_timer' },
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE', icon: 'admin_panel_settings' }
     ];
 	dashCard2 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'BLOCK PRODUCER DELEGATE PUBLIC ADDRESS', icon: 'cloud' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'BLOCK PRODUCER DELEGATE PUBLIC ADDRESS', icon: 'cloud' }
     ];
   dashCard3 = [
 
     ];
   dashCard4 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF SECRET KEY', icon: 'cloud' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF SECRET KEY', icon: 'cloud' }
     ];
   dashCard5 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PUBLIC KEY', icon: 'cloud' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PUBLIC KEY', icon: 'cloud' }
     ];
   dashCard6 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PROOF', icon: 'cloud' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PROOF', icon: 'cloud' }
     ];
   dashCard7 = [
-      { colorDark: '#fa741c', colorLight: '#fb934e',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF BETA STRING', icon: 'cloud' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF BETA STRING', icon: 'cloud' }
     ];
 
 

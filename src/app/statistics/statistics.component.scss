@@ -10,7 +10,8 @@ mat-card {
     color:#f5f0f0f2;
 
     .topstats-details{
-        background-color: #fa741c;
+        //background-color: #fa741c;
+        background-color: #1189a5;
         margin-top:-50px;
         min-height: 200px;
         & .topstats-details-holder{
@@ -24,13 +25,14 @@ mat-card {
     .view{
         // width: 20%;
         margin-bottom: 15px;
-        background-color: #fa741c;
+        background-color: #1189a5;
         color:  white;
         font-size: 14px;
     }
     & .banner {
         background-size: screen;
-        background-color: #f9a825;
+        //background-color: #f9a825;
+        background-color: #fa741c;
         min-height: 60px;
         background-repeat: no-repeat;
         color: white;
