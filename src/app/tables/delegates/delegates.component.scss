@@ -19,24 +19,36 @@
 .table-header {
 	background-color: #1189a5;
 	color: white;
-	padding: 0 0px;
+	padding: 0px 20px 0px 20px;
+	color: white;
 }
 .table-component-holder {
 	border: 1px solid #1189a5;
 	background-color: white;
 }
 .mat-toolbar-single-row{
-	height: 75px;
+	height: 65px;
 }
 .mat-form-field {
-    font-size: 18px;
+		font-size: 28px;
     font-weight: 500;
-    line-height: 1;
+    line-height: normal;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+		padding: 0px;
+		margin:0;
+		width: 100%;
 }
-.mat-form-field-wrapper{
-	padding-bottom: 0.8em;
+::ng-deep .mat-form-field-label { left: 45% !important; }
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+	bottom: 0.8em !important;
+	height: 2px !important;
 }
+::ng-deep .mat-form-field-suffix .mat-icon{ font-size: 100% !important; }
+::ng-deep .mat-form-field-wrapper { padding-bottom: 0.5em !important; }
+::ng-deep .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+	transform: translateY(-0.6em) scale(0.6) perspective(100px) translateZ(0.001px) !important;
+}
+::ng-deep .mat-input-element{	font-size: 75% !important; }
 
 .Online{
 	color:#4c8c4a;
