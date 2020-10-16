@@ -17,14 +17,41 @@ import { MatPaginator, MatSort } from '@angular/material';
 })
 export class delegates_statisticsComponent implements OnInit {
 
+  // public dashCard1 = [
+  //       { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
+  //       { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK', icon: 'leaderboard' }
+  //   ];
+	// public dashCard2 = [
+  //       { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
+  //       { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
+  //   ];
+  //
+  // public dashCard3 = [
+  //       { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER/VERIFIER Ratio', icon: 'star_half' },
+  //       { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
+  //   ];
+
   public dashCard1 = [
-        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
-        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK', icon: 'leaderboard' }
-    ];
-	public dashCard2 = [
-        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
-        { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
-    ];
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK ', icon: 'leaderboard' },
+  ];
+  public dashCard2 = [
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 10, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
+  ];
+  public dashCard3 = [
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'BLOCKS FOUND ', icon: 'find_in_page' },
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 36, text: 0, suffix: '',  title: 'ONLINE STATUS', icon: 'online_prediction' },
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'ONLINE PERCENTAGE', icon: 'update' }
+  ];
+  public dashCard4 = [
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '%',  title: 'PRODUCER/VERIFIER RATIO', icon: 'star_half' },
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'EST ROUNDS BTW HITS ', icon: 'published_with_changes' },
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'HOURS SINCE LAST FINDING', icon: 'alarm_on' }
+  ];
+	public  dashCard5 = [
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VERIFIERS ONLINE ROUNDS', icon: 'model_training' },
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
+    { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
+  ];
 
   title:string = "Delegates Statistics";
   delegate_name:string = "";
@@ -58,15 +85,36 @@ export class delegates_statisticsComponent implements OnInit {
           var count = 0;
 
           for (count = 1; count < block_producer_block_heights.length; count++) {
-
       	    this.exampleDatabase.addUser((count).toString(),block_producer_block_heights[count].toString(),"Block Producer");
-
       	  }
 
-      	  this.dashCard1[0].text = data.total_vote_count / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-      	  this.dashCard1[1].text = data.current_delegate_rank;
-      	  this.dashCard2[0].text = data.block_verifier_total_rounds;
-      	  this.dashCard2[1].text = data.block_producer_total_rounds;
+      	  // this.dashCard1[0].text = data.total_vote_count / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+      	  // this.dashCard1[1].text = data.current_delegate_rank;
+      	  // this.dashCard2[0].text = data.block_verifier_total_rounds;
+      	  // this.dashCard2[1].text = data.block_producer_total_rounds;
+          //
+          // this.dashCard3[0].text = data.block_producer_total_rounds / data.block_verifier_total_rounds;
+      	  // this.dashCard3[1].text = data.block_producer_total_rounds;
+
+
+          this.dashCard1[0].text = parseInt(data.current_delegate_rank);
+          this.dashCard2[1].text =  parseInt(data.total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+
+
+          this.dashCard3[0].text = block_producer_block_heights.length-1;
+          this.dashCard3[1].text = data[count].online_status == 'true' ? 'Online'  : 'Offline';
+          this.dashCard3[2].text = parseInt(data.block_verifier_online_percentage);
+
+          this.dashCard4[0].text = parseInt(data.block_producer_total_rounds) / parseInt(data.block_verifier_total_rounds) * 100;
+          this.dashCard4[1].text = parseInt(data.block_verifier_total_rounds) / block_producer_block_heights.length;
+
+
+          this.dashCard5[0].text = parseInt(data.block_verifier_online_total_rounds);
+          this.dashCard5[1].text = parseInt(data.block_verifier_total_rounds);
+          this.dashCard5[2].text = parseInt(data.block_producer_total_rounds);
+
+
+          this.get_delegates_website_statistics();
 
           this.length = block_producer_block_heights.length - 1;
           this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
@@ -87,6 +135,19 @@ export class delegates_statisticsComponent implements OnInit {
     	);
     }
 
+    get_delegates_website_statistics()
+    {
+      this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATE_WEBSITE_STATISTICS).subscribe(
+      (res) =>
+      {
+        var data = JSON.parse(JSON.stringify(res));
+        this.dashCard4[2].text = ((parseInt(data.current_block_height) - this.last_block_found) * this.httpdataservice.BLOCK_TIME) / 60;
+      },
+      (error) =>
+      {
+        Swal.fire("Error","An error has occured","error");
+      });
+    }
 
     copyVote(val: string){
      let selBox = document.createElement('textarea');
