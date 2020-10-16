@@ -1,9 +1,13 @@
+import {fromEvent as observableFromEvent,  Observable } from 'rxjs';
+import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
+
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
 import {HttpdataService} from '../../services/http-request.service';
 import Swal from 'sweetalert2';
-import { Observable } from 'rxjs';
+
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-fixed-table',
@@ -25,13 +29,17 @@ export class delegates_voters_listComponent implements OnInit {
 	data:any[] = [];
 	document_start_count:number = 1;
 
-	public displayedColumns = ['ID', 'public_address_created_reserve_proof', 'total', 'reserve_proof'];
+	public displayedColumns = ['id', 'public_address_created_reserve_proof', 'total', 'reserve_proof'];
 	public exampleDatabase;
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
-
+  length;
 
 	constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+	@ViewChild(MatSort) sort: MatSort;
+	@ViewChild('filter') filter: ElementRef;
 
 	ngOnInit() {
     this.delegate_name = this.route.snapshot.queryParamMap.get("data");
@@ -43,16 +51,32 @@ export class delegates_voters_listComponent implements OnInit {
         var data = JSON.parse(JSON.stringify(res));
   	    this.total_vote_count = 0;
   	    this.amount_of_votes = data.length;
+        let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
   	    var count = 0;
         var total;
+
         for (count = 0; count < this.amount_of_votes; count++) {
-          total = parseInt(data[count].total) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          total = parseInt(data[count].total) / xcash_wallet_decimal_places_amount;
           this.total_vote_count += parseInt(data[count].total);
           this.exampleDatabase.addUser((count + 1).toString(),data[count].public_address_created_reserve_proof.toString(),total.toString(),data[count].reserve_proof.toString());
   	    }
-  	    this.dashCard[0].text = this.total_vote_count / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+
+  	    this.dashCard[0].text = this.total_vote_count / xcash_wallet_decimal_places_amount;
   	    this.dashCard[1].text = this.amount_of_votes;
-  	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
+
+        this.length = this.amount_of_votes;
+        this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
+        console.log(this.dataSource);
+        //console.log(this.dataSource);
+        observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
+          debounceTime(150),
+          distinctUntilChanged(),)
+          .subscribe(() => {
+            if (!this.dataSource) { return; }
+            this.dataSource.filter = this.filter.nativeElement.value;
+          }
+        );
+
       },
       (error) => {
         Swal.fire("Error","An error has occured","error");

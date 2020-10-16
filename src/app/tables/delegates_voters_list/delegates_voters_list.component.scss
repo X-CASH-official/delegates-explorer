@@ -5,8 +5,9 @@
 	padding: 5px 0px 15px 0px;
 }
 .table-container .mat-table {
-	max-height: calc(100vh - 200px);
-	overflow-y: auto;
+	// max-height: calc(100vh - 250px);
+	// overflow-y: auto;
+	width: 100%;
 }
 .table-container .mat-table .mat-header-row {
 	position: absolute;
@@ -18,15 +19,28 @@
 .table-header {
 	background-color: #1189a5;
 	color: white;
-	padding: 0 20px;
+	padding: 0 0px;
 }
 .table-component-holder {
 	border: 1px solid #1189a5;
 	background-color: white;
 }
+.mat-toolbar-single-row{
+	height: 75px;
+}
+.mat-form-field {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-form-field-wrapper{
+	padding-bottom: 0.8em;
+}
 
 
-.mat-column-ID {
+
+.mat-column-id {
   flex: 0 0 5%;
 }
 .mat-column-public_address_created_reserve_proof {
