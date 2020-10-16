@@ -221,6 +221,12 @@ body{
 a.delegate_details{
   margin: 10px 5px;
 }
+@media(max-width: 600px)
+{
+  a.delegate_details{
+    margin: 5px 5px !important;
+  }
+}
 a.delegate_details:link {
   text-decoration: none;
 }

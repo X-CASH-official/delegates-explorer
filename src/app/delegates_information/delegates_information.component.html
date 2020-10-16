@@ -1,4 +1,4 @@
-<h2 class="page_title">{{delegate_name}} <button class="Follow " style="float:right;" mat-raised-button [ngStyle]="{'width': '15%'}" color="warn" (click)="copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
+<h2 class="page_title" >{{delegate_name}} <button class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
 
 <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
   <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">

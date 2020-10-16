@@ -37,9 +37,6 @@
 .mat-form-field-wrapper{
 	padding-bottom: 0.8em;
 }
-
-
-
 .mat-column-id {
   flex: 0 0 5%;
 }
@@ -51,4 +48,15 @@
 }
 .mat-column-reserve_proof {
   flex: 0 0 5000%;
+}
+
+@media(max-width: 600px)
+{
+	.page_title{
+		padding-left: 0px !important;
+		font-size: 22px;
+	}
+	.copy_vote_btn{
+		display:none;
+	}
 }
