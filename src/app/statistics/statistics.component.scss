@@ -22,10 +22,10 @@ mat-card {
         text-align: center;
     }
     .view{
-        width: 20%;
+        // width: 20%;
         margin-bottom: 15px;
         background-color: #fa741c;
-        color:  white; 
+        color:  white;
         font-size: 14px;
     }
     & .banner {
@@ -72,19 +72,32 @@ mat-card {
 .table-container {
 	padding: 3px 10px 3px 10px;
 	overflow-y: auto;
-	width: 90%;
 	background: #fff;
 }
+.table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+}
+.table tr:first-child td {
+    border-top: none;
+}
 
+.text-right {
+	text-align: right;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-top: 1px solid #ddd;
+}
 .count {
-  width: 10%;
+  width: 8%;
 }
 .delegate_name {
-  width: 70%;
+  width: 87%;
 }
 .block_producer_total_rounds {
   width: 5%;
-}
-.visit {
-  width: 50%;
 }

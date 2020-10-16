@@ -24,7 +24,7 @@
 
 				<ng-container matColumnDef="delegate_name">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Delegate </mat-header-cell>
-					<mat-cell id="delegatename{{row.id}}" *matCellDef="let row">
+					<mat-cell id="delegate_name{{row.id}}" *matCellDef="let row">
             <a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':row.delegate_name}">
               <h5>{{row.delegate_name}}</h5>
             </a>

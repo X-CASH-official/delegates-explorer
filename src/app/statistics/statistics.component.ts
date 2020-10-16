@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
     selector: 'app-statistics',
     templateUrl: './statistics.component.html',
@@ -21,6 +22,8 @@ export class statisticsComponent implements OnInit {
     top_verifier;
     top_ratio;
     ratio_data;
+    top_ratio_delegate_name;
+    top_ratio_block_ratio;
 
     public dashCard1 = [
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text_settings: 20, text: '', settings: false, title: 'MOST BLOCK PRODUCER TOTAL ROUNDS', icon: 'emoji_events' },
@@ -81,6 +84,10 @@ export class statisticsComponent implements OnInit {
             this.top_ratio = data.sort(function(a, b) {
               return b.block_ratio - a.block_ratio;
             }).slice( 0, top_count);
+
+            var top_ratio_delegate = this.top_ratio[0];
+            this.top_ratio_delegate_name = top_ratio_delegate.delegate_name;
+            this.top_ratio_block_ratio = Number.isNaN(top_ratio_delegate.block_ratio) ? "0" : top_ratio_delegate.block_ratio;
 
           },
           (error) => {
