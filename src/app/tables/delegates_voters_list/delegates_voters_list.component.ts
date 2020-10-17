@@ -45,7 +45,7 @@ export class delegates_voters_listComponent implements OnInit {
     this.delegate_name = this.route.snapshot.queryParamMap.get("data");
 
 	  // get the data
-	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_VOTERS_LIST + "?parameter1=" + this.delegate_name).subscribe(
+	  this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES_VOTERS_LIST + "?parameter1=" + this.delegate_name).subscribe(
 	  (res) => {
         this.exampleDatabase = new ExampleDatabase();
         var data = JSON.parse(JSON.stringify(res));

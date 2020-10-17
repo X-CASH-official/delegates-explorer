@@ -25,7 +25,7 @@ export class HelpComponent implements OnInit {
 
     ngOnInit() {
           // get the data
-	  // this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
+	  // this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
 	  // (res) =>
 	  // {
     //         var data = JSON.parse(JSON.stringify(res));

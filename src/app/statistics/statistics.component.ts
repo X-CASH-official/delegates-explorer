@@ -39,7 +39,7 @@ export class statisticsComponent implements OnInit {
 
     ngOnInit() {
           // get the data
-  	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
+  	  this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
     	  (res) => {
           var data = JSON.parse(JSON.stringify(res));
             // this.dashCard1[0].text = data.most_block_producer_total_rounds_delegate_name;
@@ -63,7 +63,7 @@ export class statisticsComponent implements OnInit {
 
     get_delegates_stats() {
       // get the data
-   	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES).subscribe(
+   	  this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES).subscribe(
      	  (res) =>  {
             let data = JSON.parse(JSON.stringify(res));
             let count = 0;

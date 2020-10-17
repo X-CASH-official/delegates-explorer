@@ -85,7 +85,7 @@ export class round_statisticsComponent implements OnInit {
     }
 
 	  // get the data
-	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_ROUND_STATISTICS + "?parameter1=" + this.block_height).subscribe(
+	  this.HttpdataService.get_request(this.HttpdataService.GET_ROUND_STATISTICS + "?parameter1=" + this.block_height).subscribe(
   	  (res) =>
   	  {
         this.exampleDatabase1 = new ExampleDatabase();

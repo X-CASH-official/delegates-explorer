@@ -36,7 +36,7 @@ export class delegatesComponent implements OnInit {
 
 	get_delegates() {
     // get the data
-	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES).subscribe(
+	  this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES).subscribe(
   	  (res) => {
         this.exampleDatabase = new DelegateDatabase();
         let data = JSON.parse(JSON.stringify(res));

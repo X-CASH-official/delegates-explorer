@@ -39,7 +39,7 @@ export class DashboardCrmComponent implements OnInit {
 
     ngOnInit() {
       // get the data
-  	  this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe(
+  	  this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
     	  (res) => {
           var data = JSON.parse(JSON.stringify(res));
           this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
@@ -76,7 +76,7 @@ export class DashboardCrmComponent implements OnInit {
     get_delegates()
     {
       // get the data
-      this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES).subscribe(
+      this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES).subscribe(
         (res) => {
           //this.exampleDatabase = new ExampleDatabase();
           let data = JSON.parse(JSON.stringify(res));

@@ -29,7 +29,7 @@ export class Delegates_informationComponent implements OnInit {
       this.delegate_name = this.route.snapshot.queryParamMap.get("data");
       //this.delegate_name = this.delegate_name;
 
-      this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
+      this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
       (res) => {
                 var data = JSON.parse(JSON.stringify(res));
 

@@ -218,7 +218,7 @@ Swal.fire({
 else if (data === "about" || data === "website" || data === "team" || data === "shared_delegate_status" || data === "delegate_fee" || data === "server_specs" || data === "public_address")
 {
 // get the data
-this.HttpdataService.get_request(this.HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES_INFORMATION + "?parameter1=" + this.data).subscribe(
+this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES_INFORMATION + "?parameter1=" + this.data).subscribe(
 (res) =>
 {
 var data2 = JSON.parse(JSON.stringify(res));

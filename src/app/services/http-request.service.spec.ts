@@ -22,13 +22,13 @@ describe('HttpdataService', () => {
   });
 
   it('Test GET request',inject([HttpTestingController, HttpdataService],(httpMock: HttpTestingController, HttpdataService: HttpdataService) => {
-   HttpdataService.get_request(HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS).subscribe((event: HttpEvent<any>) => {
+   HttpdataService.get_request(HttpdataService.GET_STATISTICS).subscribe((event: HttpEvent<any>) => {
      switch (event.type) {
        case HttpEventType.Response:
           }
         });
 
-        const mockReq = httpMock.match(HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
+        const mockReq = httpMock.match(HttpdataService.GET_STATISTICS);
          expect(mockReq.slice(-1)[0].cancelled).toBeFalsy();
          expect(mockReq.slice(-1)[0].request.method).toBe('GET');
          expect(mockReq.slice(-1)[0].request.responseType).toEqual('json');
@@ -38,13 +38,13 @@ describe('HttpdataService', () => {
   }));
 
   it('Test POST request',inject([HttpTestingController, HttpdataService],(httpMock: HttpTestingController, HttpdataService: HttpdataService) => {
-   HttpdataService.post_request(HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS,"DATA").subscribe((event: HttpEvent<any>) => {
+   HttpdataService.post_request(HttpdataService.GET_STATISTICS,"DATA").subscribe((event: HttpEvent<any>) => {
      switch (event.type) {
        case HttpEventType.Response:
           }
         });
 
-        const mockReq = httpMock.match(HttpdataService.SERVER_HOSTNAME_AND_PORT_GET_STATISTICS);
+        const mockReq = httpMock.match(HttpdataService.GET_STATISTICS);
          expect(mockReq.slice(-1)[0].cancelled).toBeFalsy();
          expect(mockReq.slice(-1)[0].request.method).toBe('POST');
          expect(mockReq.slice(-1)[0].request.responseType).toEqual('json');
