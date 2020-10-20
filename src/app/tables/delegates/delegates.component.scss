@@ -38,7 +38,8 @@
 		margin:0;
 		width: 100%;
 }
-::ng-deep .deleagtes_table .mat-form-field-label { left: 45% !important; top: 1.05em !important}
+::ng-deep .deleagtes_table .mat-form-field-label {  top: 1.05em !important}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {text-align: center !important;}
 ::ng-deep .deleagtes_table .mat-form-field-underline, ::ng-deep .deleagtes_table .mat-form-field-ripple {
 	bottom: 0.8em !important;
 	height: 2px !important;

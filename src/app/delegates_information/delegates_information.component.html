@@ -18,22 +18,22 @@
 <div fxLayout="row" class="service-card-container" fxLayout.lt-lg="column" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" >
   <div *ngIf="about" fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
       <h3 class="mat-title">About</h3>
-      <p class="mat-body-2"  fxFlex>{{about}}</p>
+      <p class="mat-body-1"  fxFlex>{{about}}</p>
   </div>
 
   <div *ngIf="website"  fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
       <h3 class="mat-title">Website</h3>
-      <p class="mat-subheading-2"  fxFlex><a href="http://{{website}}" target="_blank">{{website}}</a></p>
+      <p class="mat-subheading-1"  fxFlex><a href="http://{{website}}" title="{{website}}" target="_blank">{{website}}</a></p>
   </div>
 
   <div *ngIf="team" fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
       <h3 class="mat-title">Team</h3>
-      <p class="mat-body-2"  fxFlex>{{team}}</p>
+      <p class="mat-subheading-1"  fxFlex>{{team}}</p>
   </div>
 
   <div *ngIf="server_specs" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
       <h3 class="mat-title">Server</h3>
-      <p class="mat-body-2"  fxFlex>{{server_specs}}</p>
+      <p class="mat-body-1"  fxFlex>{{server_specs}}</p>
   </div>
 
   <div *ngIf="shared_delegate_status" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">

@@ -46,7 +46,7 @@
           <div   class="topstats-details mat-elevation-z8" >
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{top_ratio_delegate_name}}</h2>
-                  <h2 class="mat-headline center-align">{{top_ratio_block_ratio}}% producer/verifier ratio</h2>
+                  <h2 class="mat-headline center-align">{{top_ratio_block_ratio| number:'1.0-1'}}% producer/verifier ratio</h2>
                   <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>

@@ -53,7 +53,7 @@ export class statisticsComponent implements OnInit {
             this.most_total_rounds = data.most_total_rounds;
       	  },
       	  (error) =>  {
-      	     Swal.fire("Error","An error has occured","error");
+      	     Swal.fire("Error","An error has occured.<br/>Get statistics failed.","error");
       	  }
        );
 
@@ -91,7 +91,7 @@ export class statisticsComponent implements OnInit {
 
           },
           (error) => {
-            Swal.fire("Error","An error has occured","error");
+            Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
           }
         );
       }

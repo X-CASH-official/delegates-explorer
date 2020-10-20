@@ -24,8 +24,8 @@ export class DashboardCrmComponent implements OnInit {
 
     ];
     dashCard3 = [
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'TOTAL VOTES', icon: 'done_all' },
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: 'XCA', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' }
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', suffix: '', title: 'TOTAL VOTES', icon: 'done_all' },
+      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', suffix: '', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' }
 
     ];
 
@@ -44,13 +44,14 @@ export class DashboardCrmComponent implements OnInit {
           var data = JSON.parse(JSON.stringify(res));
           this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
           this.dashCard1[1].text = data.current_block_height;
-          this.dashCard3[0].text = parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          console.log("total_votes" + data.total_votes);
+          this.dashCard3[0].text = this.get_lg_numer_format(parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
           this.dashCard4[0].text = data.XCASH_DPOPS_circulating_percentage;
 
           this.circulating_percentage = parseInt(data.XCASH_DPOPS_circulating_percentage);
     	  },
     	  (error) =>  {
-    	    Swal.fire("Error","An error has occured","error");
+    	    Swal.fire("Error","An error has occured.<br/>Get statistics failed.","error");
     	  }
   	  );
 
@@ -94,14 +95,23 @@ export class DashboardCrmComponent implements OnInit {
           }
 
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
-          this.dashCard3[1].text = delegate_total_vote_count / 45;
+          var avg_vote_count = delegate_total_vote_count / 45;
+          console.log("avg_vote_count" + avg_vote_count);
+
+          this.dashCard3[1].text = this.get_lg_numer_format(avg_vote_count);
         },
         (error) => {
-          Swal.fire("Error","An error has occured","error");
+          Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
         }
       );
     }
 
-
+    get_lg_numer_format(value){
+      var exp, suffixes = ['k', 'M', 'B', 't', 'q', 'Q'];
+      if (Number.isNaN(value)) { return null; }
+      if (value < 1000) { return value; }
+      exp = Math.floor(Math.log(value) / Math.log(1000));
+      return (value / Math.pow(1000, exp)).toFixed(1) + suffixes[exp - 1];
+    }
 
 }

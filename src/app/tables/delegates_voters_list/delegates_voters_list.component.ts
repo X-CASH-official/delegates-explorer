@@ -79,7 +79,7 @@ export class delegates_voters_listComponent implements OnInit {
 
       },
       (error) => {
-        Swal.fire("Error","An error has occured","error");
+        Swal.fire("Error","An error has occured.<br>Get delegates voters list failed.","error");
       }
 	  );
 	}

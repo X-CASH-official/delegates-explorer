@@ -70,7 +70,7 @@ export class delegatesComponent implements OnInit {
         );
   	  },
   	  (error) => {
-  	    Swal.fire("Error","An error has occured","error");
+  	    Swal.fire("Error","An error has occured.<br>Get delegates failed.","error");
   	  }
     );
   }
