@@ -18,25 +18,23 @@ import { MatPaginator, MatSort } from '@angular/material';
 export class delegates_statisticsComponent implements OnInit {
 
   public dashCard1 = [
-    { ogmeter: false, width_icon: 16.3, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
-  ];
-  public dashCard2 = [
     { ogmeter: false, width_icon: 33.3, text_size: 36, text: '', suffix: '',  title: 'ONLINE STATUS', icon: 'online_prediction' },
-  ];
-  public dashCard3 = [
     { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK ', icon: 'leaderboard' },
     { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'BLOCKS PRODUCED ', icon: 'find_in_page' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '%',  title: 'ONLINE PERCENTAGE', icon: 'update' }
+    { ogmeter: false, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
+
   ];
-  public dashCard4 = [
+	public dashCard2 = [
+    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '%',  title: 'ONLINE PERCENTAGE', icon: 'update' },
+    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIERS ONLINE ROUNDS', icon: 'model_training' },
+    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
+    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER SCORE', icon: 'military_tech' },
+
+  ];
+  public dashCard3 = [
     { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '%',  title: 'PRODUCER/VERIFIER RATIO', icon: 'star_half' },
     { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'EST ROUNDS BTW BLOCK PRODUCER ', icon: 'published_with_changes' },
     { ogmeter: false, width_icon: 33.3, text_size: 40, text: '', suffix: '',  title: 'SINCE LAST BLOCK PRODUCED', icon: 'alarm_on' }
-  ];
-	public  dashCard5 = [
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIERS ONLINE ROUNDS', icon: 'model_training' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'PRODUCER ROUNDS', icon: 'find_replace' }
   ];
 
   title:string = "Delegates Statistics";
@@ -65,6 +63,8 @@ export class delegates_statisticsComponent implements OnInit {
           this.exampleDatabase = new ExampleDatabase();
 
           var data = JSON.parse(JSON.stringify(res));
+          console.log(data);
+
           var block_producer_block_heights = data.block_producer_block_heights.split("|");
           var block_reward;
           let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
@@ -77,21 +77,19 @@ export class delegates_statisticsComponent implements OnInit {
             }
       	  }
 
+          this.dashCard1[0].text = data.online_status == 'true' ? 'Online'  : 'Offline';
+          this.dashCard1[1].text = parseInt(data.current_delegate_rank);
+          this.dashCard1[2].text = block_producer_block_heights.length-1;
+          this.dashCard1[3].text = this.get_lg_numer_format(parseInt(data.total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
 
-          this.dashCard1[0].text = this.get_lg_numer_format(parseInt(data.total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
+          this.dashCard2[0].text = parseInt(data.block_verifier_online_percentage);//     parseInt(data.block_verifier_online_total_rounds);
+          this.dashCard2[1].text = parseInt(data.block_verifier_online_total_rounds);
+          this.dashCard2[2].text = parseInt(data.block_verifier_total_rounds);
+          this.dashCard2[3].text = parseInt(data.block_verifier_score);
 
-          this.dashCard2[0].text = data.online_status == 'true' ? 'Online'  : 'Offline';
+          this.dashCard3[0].text = parseInt(data.block_producer_total_rounds) / parseInt(data.block_verifier_total_rounds) * 100;
+          this.dashCard3[1].text = parseInt(data.block_verifier_total_rounds) / parseInt(data.block_producer_total_rounds);
 
-          this.dashCard3[0].text = parseInt(data.current_delegate_rank);
-          this.dashCard3[1].text = block_producer_block_heights.length-1;
-          this.dashCard3[2].text = parseInt(data.block_verifier_online_percentage);
-
-          this.dashCard4[0].text = parseInt(data.block_producer_total_rounds) / parseInt(data.block_verifier_total_rounds) * 100;
-          this.dashCard4[1].text = parseInt(data.block_verifier_total_rounds) / parseInt(data.block_producer_total_rounds);
-
-          this.dashCard5[0].text = parseInt(data.block_verifier_online_total_rounds);
-          this.dashCard5[1].text = parseInt(data.block_verifier_total_rounds);
-          this.dashCard5[2].text = parseInt(data.block_producer_total_rounds);
 
           this.length = block_producer_block_heights.length - 1;
           this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
@@ -123,7 +121,7 @@ export class delegates_statisticsComponent implements OnInit {
         var minutes_since_last_block_found = ((parseInt(data.current_block_height) - this.last_block_found) * this.HttpdataService.BLOCK_TIME);
         var minutes = minutes_since_last_block_found % 60;
         var hours = (minutes_since_last_block_found-minutes) / 60;
-        this.dashCard4[2].text =  "~" + hours.toString() + "h " + (minutes<10?"0":"") + minutes.toString() + "m";
+        this.dashCard3[2].text =  "~" + hours.toString() + "h " + (minutes<10?"0":"") + minutes.toString() + "m";
       },
       (error) => {
         Swal.fire("Error","An error has occured.<br>Get delegates website statistics failed.","error");

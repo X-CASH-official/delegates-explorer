@@ -4,7 +4,7 @@
             <div fxLayout="column" class="profile-details-holder" [ngStyle]="text_settings" fxLayoutAlign="space-around center">
                 <h1 class="mat-headline center-align" >{{title}}</h1>
                 <code *ngIf="data" class="codeblock center-align" >{{data}}</code>
-                <button class="Follow " mat-raised-button [ngStyle]="button_length" color="warn" (click)="button_click === 'copyVote' ? copyVote(data) : voting_data(button_click)">{{button_name}}</button>
+                <button class="Follow " mat-raised-button [ngStyle]="button_length" color="warn" (click)="button_click === 'copyVote' ? copyVote(data) : copyMessage(data, 'Data copied to the clipboard')">{{button_name}}</button>
             </div>
         </div>
     </div>

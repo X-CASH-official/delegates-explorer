@@ -15,6 +15,7 @@
   </a>
 </div>
 
+<!--
 <div fxLayout="row wrap">
     <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="66.7" fxFlex.lg="66.7">
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
@@ -23,24 +24,38 @@
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
+-->
+
 
 <div fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard3; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33.3">
-        <cdk-dashcard id="dashcard{{count+2}}" [dashData]="dash"></cdk-dashcard>
+    <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="25" fxFlex.lg="25">
+        <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard4; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33.3">
-        <cdk-dashcard id="dashcard{{count+5}}" [dashData]="dash"></cdk-dashcard>
+    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="25" fxFlex.lg="25">
+        <cdk-dashcard id="dashcard{{count+4}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
 
 <div fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard5; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="33.3">
+    <div *ngFor="let dash of dashCard3; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="25" fxFlex.lg="25">
         <cdk-dashcard id="dashcard{{count+8}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
+
+<!-- <div fxLayout="row wrap">
+    <div *ngFor="let dash of dashCard4; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="25" fxFlex.lg="25">
+        <cdk-dashcard id="dashcard{{count+12}}" [dashData]="dash"></cdk-dashcard>
+    </div>
+</div>
+
+<div fxLayout="row wrap">
+    <div *ngFor="let dash of dashCard5; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="25" fxFlex.lg="25">
+        <cdk-dashcard id="dashcard{{count+16}}" [dashData]="dash"></cdk-dashcard>
+    </div>
+</div> -->
 
 
 <div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
