@@ -1,10 +1,10 @@
 <div fxLayout="row"  class="dashcard mat-elevation-z4">
 
-    <div *ngIf="dashData?.width_icon > 0"  [fxFlex]="dashData?.width_icon"   fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight">
+    <div *ngIf="dashData?.width_icon > 0"  [fxFlex]="dashData?.width_icon"   fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight" class="dashcard_icon">
         <mat-icon  class="cardIcon"  [style.color]="dashData?.colorFont" >{{dashData?.icon}}</mat-icon>
     </div>
 
-    <div [fxFlex]="100 - dashData?.width_icon" fxLayout="column" fxLayoutAlign="center center" [style.background]="dashData?.colorDark" >
+    <div [fxFlex]="100 - dashData?.width_icon" fxLayout="column" fxLayoutAlign="center center" [style.background]="dashData?.colorDark"  class="dashcard_box">
 
         <div *ngIf="dashData?.ogmeter === true"  [style.color]="dashData?.colorFont" [style.fontSize.px]="dashData?.text_size">
             <ng2-odometer [number]="dashData?.text" [config]="{ }"></ng2-odometer> {{dashData?.suffix}}

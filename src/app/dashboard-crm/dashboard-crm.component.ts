@@ -14,24 +14,24 @@ export class DashboardCrmComponent implements OnInit {
     circulating_percentage;
 
     dashCard1 = [
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'BLOCK HEIGHT', icon: 'assignment' }
+      { ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
+      { ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'BLOCK HEIGHT', icon: 'assignment' }
     ];
 
     dashCard2 = [
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL DELEGATES', icon: 'groups' }
+      { ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL BLOCK VERIFIERS', icon: 'verified_user' },
+      { ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'TOTAL DELEGATES', icon: 'groups' }
 
     ];
     dashCard3 = [
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', suffix: '', title: 'TOTAL VOTES', icon: 'done_all' },
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', suffix: '', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' }
+      { ogmeter: false, width_icon: 20, text_size: 40, text: '', suffix: '', title: 'TOTAL VOTES', icon: 'done_all' },
+      { ogmeter: false, width_icon: 20, text_size: 40, text: '', suffix: '', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' }
 
     ];
 
     dashCard4 = [
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
-      { colorDark: '#1189a5', colorLight: '#fa741c',  colorFont: '#ffffff', ogmeter: false, width_icon: 20, text_size: 40, text: '', title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
+      { ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
+      { ogmeter: false, width_icon: 20, text_size: 40, text: '', title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' }
     ];
 
 
@@ -44,7 +44,6 @@ export class DashboardCrmComponent implements OnInit {
           var data = JSON.parse(JSON.stringify(res));
           this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
           this.dashCard1[1].text = data.current_block_height;
-          console.log("total_votes" + data.total_votes);
           this.dashCard3[0].text = this.get_lg_numer_format(parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
           this.dashCard4[0].text = data.XCASH_DPOPS_circulating_percentage;
 
@@ -71,7 +70,6 @@ export class DashboardCrmComponent implements OnInit {
       }, 1000);
 
       this.get_delegates();
-
     }
 
     get_delegates()
@@ -93,11 +91,8 @@ export class DashboardCrmComponent implements OnInit {
             current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / xcash_wallet_decimal_places_amount;
             delegate_total_vote_count += current_delegate_total_vote_count;
           }
-
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
           var avg_vote_count = delegate_total_vote_count / 45;
-          console.log("avg_vote_count" + avg_vote_count);
-
           this.dashCard3[1].text = this.get_lg_numer_format(avg_vote_count);
         },
         (error) => {
