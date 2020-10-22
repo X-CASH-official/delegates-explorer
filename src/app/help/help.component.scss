@@ -48,3 +48,58 @@ mat-card {
         }
     }
 }
+
+.expansion-header {
+	background-color: #1189a5;
+	color: white;
+	padding: 0 5px;
+}
+.page_title{
+  padding: 16px 0px 16px 0px;
+  margin:  0px;
+}
+.mat-subheading-2{
+  margin:  0px;
+}
+.expansion-container {
+	padding: 26px 0px 26px 0px;
+
+}
+.expansion-component-holder {
+	// border: 1px solid #1189a5;
+  //background-color: white;
+  border-style: 0;
+  margin-bottom: 150px;
+
+  mat-divider {
+  	margin-bottom: 20px;
+    border: 0px;
+  }
+  mat-expansion-panel-header, mat-panel-title {
+    background-color: #1189a5;
+    color: white;
+    text-align: center !important;
+    padding-left: 10px;
+  }
+ .mat-expansion-panel-header{
+    height: 52px !important;
+    border: 1px solid #1189a5;
+ }
+ .mat-expanded {
+   border: 1px solid #1189a5;
+ }
+ .mat-expansion-panel-header-title{
+    display: block;
+    color: white;
+    font: 500 20px Roboto, "Helvetica Neue", sans-serif;
+    text-align: center !important;
+    line-height: 52px;
+
+  }
+
+}
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover,
+::ng-deep .mat-expansion-indicator::after {
+  background-color: #1189a5;
+  color: white;
+}

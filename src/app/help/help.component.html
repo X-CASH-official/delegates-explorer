@@ -8,7 +8,7 @@
         <img src="/assets/images/menu_book-white-48dp.svg" fxFlex><br />
       </div>
       <h3 class="mat-title" fxFlex>X-Cash Documentation </h3>
-      <p class="mat-body-2"  fxFlex>Learn the basic functions and join the validation of the blockchain as an elected delegate.</p>
+      <p class="mat-body-1"  fxFlex>Learn the basic functions and join the validation of the blockchain as an elected delegate.</p>
       <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://docs.xcash.foundation/"  fxFlex.lt-sm="100" fxFlex.md="33">
         Visit X-Cash Documentation
       </a>
@@ -18,7 +18,7 @@
         <img src="/assets/images/forum-white-48dp.svg" fxFlex>
       </div>
       <h3 class="mat-title" fxFlex>X-Cash Community</h3>
-      <p class="mat-body-2"  fxFlex>Join the official Discord server of the X-Cash community! We are thrilled to have you on board! </p>
+      <p class="mat-body-1"  fxFlex>Join the official Discord server of the X-Cash community! We are thrilled to have you on board! </p>
       <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://discord.gg/3yGCMr"  fxFlex.lt-sm="100" fxFlex.md="33">
         Visit X-CASH Community
       </a>
@@ -28,7 +28,7 @@
         <img src="/assets/images/GitHub-Mark-Light-120px-plus.png" fxFlex style="height: 160px;">
       </div>
       <h3 class="mat-title"  fxFlex>X-Cash Github</h3>
-      <p class="mat-body-2"  fxFlex>Contribute or submit a bug report to X-Cash and its derived programs on GitHub!</p>
+      <p class="mat-body-1"  fxFlex>Contribute or submit a bug report to X-Cash and its derived programs on GitHub!</p>
       <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://github.com/X-CASH-official"  fxFlex.lt-sm="100" fxFlex.md="33">
         Visit X-CASH Github
       </a>
@@ -37,11 +37,100 @@
   </div>
 </div>
 
-<h2 class="page_title">FAQ</h2>
+
+
+<div fxLayout="column" class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
+  <div fxFlex class="expansion-component-holder">
+
+    <h2 class="page_title">FAQ</h2>
+
+    <div class="expansion-container">
+      <div fxLayout="row" fxLayout.lt-sm="column">
+        <div fxFlexLayoutWrap fxFlex.xs="100" fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100">
+          <mat-accordion>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header [style.height.px]="52">
+                <mat-panel-title>
+                Voting Rules
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <h4 class="mat-body-1">One vote per wallet</h4>
+                <p class="mat-body-2">
+                  Only one reserve proof will be valid per wallet address. This means you can only vote for one delegate per wallet address.
+                </p>
+                <h4 class="mat-body-1" >Changing your vote</h4>
+                <p class="mat-body-2">
+                  You can change your vote by voting for a new delegate, and the old vote will automatically be replaced with the new vote.
+                </p>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  How to vote in the CLI
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2"> Once the wallet is loaded, type the following command: </p>
+              <code>vote DELEGATES_PUBLIC_ADDRESS or DELEGATES_NAME</code>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  How to register a delegate
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2"> Once the wallet is loaded, type the following command: </p>
+              <code>delegate_register DELEGATE_NAME DELEGATE_IP_ADDRESS</code>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  How to update a delegates data
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2"> Once the wallet is loaded, type the following command: </p>
+              <code>delegate_update ITEM (about, website, team, shared_delegate_status, delegate_fee and server_specs)</code>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Verify Round Statistics
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2"> Once the wallet is loaded, type the following command: </p>
+              <code>verify_round_statistics BLOCK_HEIGHT_OR_BLOCK_HASH</code>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!--
+
 
 <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
     <cdk-profile-card id="profilecard1" [title]="'Voting Rules'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'voting_rules'" fxFlex="50" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50"></cdk-profile-card>
     <cdk-profile-card id="profilecard2" [title]="'How to vote in the CLI'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'vote_cli'" fxFlex="50" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50"></cdk-profile-card>
     <cdk-profile-card id="profilecard3" [title]="'How to register a delegate'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'delegate_register'" fxFlex="50" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50"></cdk-profile-card>
     <cdk-profile-card id="profilecard4" [title]="'How to update a delegates data'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'delegate_update'" fxFlex="50" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50"></cdk-profile-card>
-</div>
+</div> -->

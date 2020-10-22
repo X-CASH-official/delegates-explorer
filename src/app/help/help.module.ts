@@ -5,8 +5,12 @@ import { HelpComponent } from './help.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
+
+import { MatDividerModule } from '@angular/material'
+import { MatExpansionModule } from '@angular/material/expansion';
 
 export const appRoutes: Routes = [
     { path: '', component: HelpComponent },
@@ -19,9 +23,14 @@ export const appRoutes: Routes = [
     FlexLayoutModule,
     MatCardModule,
     MatIconModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatDividerModule,
     DashboardWidgetModule
   ],
-  declarations: [HelpComponent],
+  declarations: [
+    HelpComponent
+  ],
   exports: [ ]
 })
 export class helpModule { }

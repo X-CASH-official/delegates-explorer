@@ -1,13 +1,13 @@
 <h2 class="page_title">API</h2>
 
-<div fxLayout="row wrap"  [ngClass.xs]="'components-container-xs'">
+<div fxLayout="row wrap"  [ngClass.xs]="'components-container-xs'" class="api_container">
   <div fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100" fxFlex.xs="100" *ngFor="let data of apiData; let count = index ">
 		<div class="cards-container">
 
       <mat-toolbar class="cards-header">
         <h1 class="mat-headline center-align title_padding" >{{data?.title}}</h1>
       </mat-toolbar>
-      <div  fxLayoutAlign="space-around stretch" fxLayoutWrap >
+      <div  fxLayoutAlign="space-around stretch " fxLayoutWrap >
         <mat-tab-group fxFlexFill>
           <mat-tab label="API Details">
             <div class="components-container-xs">
@@ -75,12 +75,3 @@
 		</div>
   </div>
 </div>
-
-<!-- <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
-    <cdk-profile-card id="profilecard1" [title]="'Statistics'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'delegateswebsitegetstatistics'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard2" [title]="'Get Delegates'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegates'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard3" [title]="'Get Delegates Statistics'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegatesstatistics'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard4" [title]="'Get Delegates Information'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegatesinformation'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard5" [title]="'Get Delegates Voters List'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegatesvoterslist'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard6" [title]="'Get Round Statistics'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getroundstatistics'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-</div> -->
