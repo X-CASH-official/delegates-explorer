@@ -18,23 +18,23 @@ import { MatPaginator, MatSort } from '@angular/material';
 export class delegates_statisticsComponent implements OnInit {
 
   public dashCard1 = [
-    { ogmeter: false, width_icon: 33.3, text_size: 36, text: '', suffix: '',  title: 'ONLINE STATUS', icon: 'online_prediction' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK ', icon: 'leaderboard' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'BLOCKS PRODUCED ', icon: 'find_in_page' },
-    { ogmeter: false, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
+    { ogmeter: false, width_icon: 25, text_size: 36, text: '', suffix: '',  title: 'ONLINE STATUS', icon: 'online_prediction' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK ', icon: 'leaderboard' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'BLOCKS PRODUCED ', icon: 'find_in_page' },
+    { ogmeter: false, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
 
   ];
 	public dashCard2 = [
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '%',  title: 'ONLINE PERCENTAGE', icon: 'update' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIERS ONLINE ROUNDS', icon: 'model_training' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER SCORE', icon: 'military_tech' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'ONLINE PERCENTAGE', icon: 'update' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VERIFIERS ONLINE ROUNDS', icon: 'model_training' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER SCORE', icon: 'military_tech' },
 
   ];
   public dashCard3 = [
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '%',  title: 'PRODUCER/VERIFIER RATIO', icon: 'star_half' },
-    { ogmeter: true, width_icon: 33.3, text_size: 40, text: 0, suffix: '',  title: 'EST ROUNDS BTW BLOCK PRODUCER ', icon: 'published_with_changes' },
-    { ogmeter: false, width_icon: 33.3, text_size: 40, text: '', suffix: '',  title: 'SINCE LAST BLOCK PRODUCED', icon: 'alarm_on' }
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'PRODUCER/VERIFIER RATIO', icon: 'star_half' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'EST ROUNDS BTW BLOCK PRODUCER ', icon: 'published_with_changes' },
+    { ogmeter: false, width_icon: 25, text_size: 40, text: '', suffix: '',  title: 'SINCE LAST BLOCK PRODUCED', icon: 'alarm_on' }
   ];
 
   title:string = "Delegates Statistics";
@@ -63,7 +63,6 @@ export class delegates_statisticsComponent implements OnInit {
           this.exampleDatabase = new ExampleDatabase();
 
           var data = JSON.parse(JSON.stringify(res));
-          console.log(data);
 
           var block_producer_block_heights = data.block_producer_block_heights.split("|");
           var block_reward;
@@ -107,7 +106,7 @@ export class delegates_statisticsComponent implements OnInit {
           );
         },
         (error) => {
-          Swal.fire("Error","An error has occured.<br>Get delegates statistics failed.","error");
+          Swal.fire("Error","An error has occured:<br>API: Get delegates statistics failed.","error");
         }
     	);
     }
@@ -124,7 +123,7 @@ export class delegates_statisticsComponent implements OnInit {
         this.dashCard3[2].text =  "~" + hours.toString() + "h " + (minutes<10?"0":"") + minutes.toString() + "m";
       },
       (error) => {
-        Swal.fire("Error","An error has occured.<br>Get delegates website statistics failed.","error");
+        Swal.fire("Error","An error has occured:<br>API: Get delegates website statistics failed.","error");
       });
     }
 

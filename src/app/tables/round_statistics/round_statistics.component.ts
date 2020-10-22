@@ -186,7 +186,7 @@ export class round_statisticsComponent implements OnInit {
         },
         (error) =>
         {
-          Swal.fire("Error","An error has occured.<br>Get round statistics failed.","error");
+          Swal.fire("Error","An error has occured:<br>API: Get round statistics failed.","error");
         }
 	  );
 	}
