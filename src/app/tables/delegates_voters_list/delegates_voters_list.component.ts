@@ -66,8 +66,7 @@ export class delegates_voters_listComponent implements OnInit {
 
         this.length = this.amount_of_votes;
         this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
-        console.log(this.dataSource);
-        //console.log(this.dataSource);
+
         observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
           debounceTime(150),
           distinctUntilChanged(),)
