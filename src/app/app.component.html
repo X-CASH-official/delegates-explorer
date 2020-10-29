@@ -1,1 +1,14 @@
 <router-outlet ></router-outlet>
+
+<!-- loader -->
+<div class="loader-container"  *ngIf="loading">
+    <div class="spinner">
+        <svg id=pulsar xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.2 46.2" height="50" width="50">
+          <g transform="translate(-2.6 -1)">
+            <circle r="7.7" cy="8.7" cx="10.3" class="st0" fill="#fa741c"/>
+            <path d="M20.6 24.1c0 5.7-4.6 7.7-10.3 7.7a7.7 7.7 0 107.7 7.7c0-5.7 2-10.3 7.7-10.3s7.7 4.6 7.7 10.3a7.7 7.7 0 107.7-7.7c-5.7 0-10.3-2-10.3-7.7s4.6-7.7 10.3-7.7a7.7 7.7 0 10-7.7-7.7c0 5.7-2 10.3-7.7 10.3a5.1 5.1 0 00-5.1 5.1" class="st1" fill="#1189a5"/>
+            <circle r="3.2" cy="17" cx="19.3" class="st0" fill="#fa741c"/>
+          </g>
+        </svg>
+    </div>
+</div>

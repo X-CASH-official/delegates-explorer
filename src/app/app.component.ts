@@ -1,38 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  query,
-} from '@angular/animations'
+import { NavigationStart, NavigationEnd, Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  
-
 })
+
+
 export class AppComponent {
-  title = 'app';
+
+  loading:boolean = false;
+
   getRouteAnimation(outlet) {
-      
       return outlet.activatedRouteData.animation
   }
 
-  constructor(private router: Router)
-  {
+  constructor(private router: Router) {
     // override the route reuse strategy
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;  
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
-  ngOnInit() {    
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+
+      if(event instanceof NavigationStart) {
+        this.loading = true;
+      }else if(event instanceof NavigationEnd) {
+        this.loading = false;
       }
+
       window.scrollTo(0, 0);
     });
   }

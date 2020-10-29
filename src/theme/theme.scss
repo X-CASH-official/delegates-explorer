@@ -86,11 +86,9 @@ body{
 }
 .components-container-gt-xs {
     padding: 20px;
-    // background-color: #fdfdfd;
 }
 .components-container-xs {
     padding: 5px !important;
-    // background-color: #fdfdfd;
 }
 .component-preview {
     padding: 20px;
@@ -100,20 +98,17 @@ body{
 }
 
 .loader-container {
-    background-color: white;
+    background: rgba(255,255,255,0.9);
     width: 100vw;
     height: 100vh;
     z-index: 2000;
     position: absolute;
-
     -moz-animation: cssAnimation 1s ease-in 3s forwards;
-    /* Firefox */
     animation: cssAnimation 1s ease-in 3s forwards;
-    /* Safari and Chrome */
     -o-animation: cssAnimation 1s ease-in 3s forwards;
-    /* Opera */
     animation-fill-mode: forwards;
 }
+
 @keyframes cssAnimation {
     to {
         opacity:0;
@@ -121,52 +116,44 @@ body{
         visibility:hidden;
     }
 }
-@keyframes cssAnimation {
-    to {
-        visibility:hidden;
-        opacity:0;
-        display: none;
-    }
-}
+
+
 .spinner {
     margin: 50vh auto 0;
-    width: 70px;
+    width: 120px;
     text-align: center;
+    animation: spin 3s linear infinite;
+    -webkit-animation: spin 3s linear infinite;
 }
-.spinner > div {
-  width: 18px;
-  height: 18px;
-  border-radius: 100%;
-  display: inline-block;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-}
-
-.bounce3 {
-  background-color: #0e6e84;
-}
-.spinner .bounce1 {
-  background-color: #15abce;
-  animation-delay: -0.32s;
-}
-.spinner .bounce2 {
-  background-color: #1189a5;
-  animation-delay: -0.16s;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% {  transform: rotate(359deg); }
 }
 
 
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% { transform: scale(0) }
-  40% { transform: scale(1.0) }
+#pulsar {
+  animation:pulse 1s infinite normal;
+  -webkit-animation: pulse 1s infinite normal;
 }
+@keyframes pulse {
+	0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+	}
 
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-  } 40% {
-    transform: scale(1.0);
-  }
+	70% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+	}
+
+	100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+	}
 }
-
 
 .swal2-confirm {
 	background-color: #1189a5 !important;
