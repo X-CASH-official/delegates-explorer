@@ -118,13 +118,13 @@ body{
 }
 
 
-.spinner {
-    margin: 50vh auto 0;
-    width: 120px;
-    text-align: center;
-    animation: spin 3s linear infinite;
-    -webkit-animation: spin 3s linear infinite;
-}
+// .spinner {
+//     margin: 50vh auto 0;
+//     width: 120px;
+//     text-align: center;
+//     animation: spin 3s linear infinite;
+//     -webkit-animation: spin 3s linear infinite;
+// }
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% {  transform: rotate(359deg); }
