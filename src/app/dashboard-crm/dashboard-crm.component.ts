@@ -37,17 +37,18 @@ export class DashboardCrmComponent implements OnInit {
           var data = JSON.parse(JSON.stringify(res));
           this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
           this.dashCard1[1].text = data.current_block_height;
-          this.dashCard1[2].text = this.get_lg_numer_format(parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
-          this.dashCard1[3].text = data.XCASH_DPOPS_circulating_percentage;
+          this.dashCard1[2].text = 50;
+          this.dashCard1[4].text = this.get_lg_numer_format(parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
 
-          this.circulating_percentage = parseInt(data.XCASH_DPOPS_circulating_percentage);
+          this.dashCard1[6].text = parseInt(data.XCASH_DPOPS_circulating_percentage);
+
     	  },
     	  (error) =>  {
     	    Swal.fire("Error","An error has occured.<br/>Get statistics failed.","error");
     	  }
   	  );
 
-      this.dashCard1[4].text = 50;
+
 
       setInterval(() => {
           var current_date_and_time = new Date();
@@ -59,7 +60,7 @@ export class DashboardCrmComponent implements OnInit {
           if (seconds < 10) {
             seconds = "0" + seconds;
           }
-          this.dashCard1[5].text = minutes + ":" + seconds;
+          this.dashCard1[7].text = minutes + ":" + seconds;
       }, 1000);
 
       this.get_delegates();
@@ -77,16 +78,21 @@ export class DashboardCrmComponent implements OnInit {
           let current_delegate_total_vote_count;
           let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
 
-          this.dashCard1[6].text = data.length;
+          this.dashCard1[3].text = data.length;
 
           for (count = 0, delegate_total_vote_count = 0; count < data.length; count++)
           {
             current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / xcash_wallet_decimal_places_amount;
             delegate_total_vote_count += current_delegate_total_vote_count;
           }
+
+
+
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
           var avg_vote_count = delegate_total_vote_count / 45;
-          this.dashCard1[7].text = this.get_lg_numer_format(avg_vote_count);
+          console.log("avg_vote_count ", avg_vote_count);
+
+          this.dashCard1[5].text = this.get_lg_numer_format(avg_vote_count);
         },
         (error) => {
           Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
