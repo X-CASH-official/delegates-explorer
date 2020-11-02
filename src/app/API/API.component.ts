@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
+import { Title } from '@angular/platform-browser';
 
 import { API_DATA } from './API.data';
 
@@ -16,7 +17,11 @@ export class APIComponent implements OnInit {
     delegates_data:string = "";
     apiData:any;
 
-    constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService)  { }
+    //constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService)  { }
+
+    constructor(private HttpdataService: HttpdataService, private titleService:Title) {
+        this.titleService.setTitle(" API - Delegates Explorer - X-CASH");
+     }
 
     ngOnInit() {
 

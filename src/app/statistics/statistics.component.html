@@ -13,7 +13,7 @@
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{most_block_producer_total_rounds_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{most_block_producer_total_rounds}} produced blocks</h2>
-                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
@@ -30,7 +30,7 @@
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{most_total_rounds_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{most_total_rounds}} verified blocks</h2>
-                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
@@ -47,7 +47,7 @@
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{top_ratio_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{top_ratio_block_ratio| number:'1.0-1'}}% producer/verifier ratio</h2>
-                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
 
@@ -67,7 +67,7 @@
   						<tr  *ngFor="let delegate of top_producer; let count = index ">
                 <td class="mat-subheading-2 count">{{ count+1 }}</td>
                 <td class="mat-subheading-2 delegate_name">
-                  <a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                  <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
                     {{ delegate.delegate_name | slice:0:35 }}
                   </a>
                 </td>
@@ -86,7 +86,7 @@
   						<tr  *ngFor="let delegate of top_verifier; let count = index ">
                 <td class="mat-subheading-2 count">{{ count+1 }}</td>
                 <td class="mat-subheading-2 delegate_name">
-                  <a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                  <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
                     {{ delegate.delegate_name | slice:0:35 }}
                   </a>
                 </td>
@@ -105,7 +105,7 @@
   						<tr  *ngFor="let delegate of top_ratio; let count = index ">
                 <td class="mat-subheading-2 count">{{ count+1 }}</td>
                 <td class="mat-subheading-2 delegate_name">
-                  <a class="text-primary" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                  <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
                     {{ delegate.delegate_name | slice:0:35 }}
                   </a>
                 </td>

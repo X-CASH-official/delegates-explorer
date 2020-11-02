@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-help',
@@ -21,24 +21,10 @@ export class HelpComponent implements OnInit {
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'PROOF OF STAKE CIRCULATING PERCENTAGE', icon: 'pie_chart' }
     ];
 
-    constructor() { }
+    constructor(private titleService:Title) {
+        this.titleService.setTitle(" Help - Delegates Explorer - X-CASH");
+     }
 
-    ngOnInit() {
-          // get the data
-	  // this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
-	  // (res) =>
-	  // {
-    //         var data = JSON.parse(JSON.stringify(res));
-    //         this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
-    //         this.dashCard1[1].text = data.current_block_height;
-    //         this.dashCard2[0].text = parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-    //         this.dashCard2[1].text = data.XCASH_DPOPS_circulating_percentage;
-	  // },
-	  // (error) =>
-    //       {
-	  //   Swal.fire("Error","An error has occured","error");
-	  // }
-	  // );
-    }
+    ngOnInit() {  }
 
 }

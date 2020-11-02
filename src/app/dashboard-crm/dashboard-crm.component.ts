@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-dashboard-crm',
@@ -28,7 +29,10 @@ export class DashboardCrmComponent implements OnInit {
     ];
 
 
-    constructor(private HttpdataService: HttpdataService) { }
+    constructor(private HttpdataService: HttpdataService, private titleService:Title) {
+        this.titleService.setTitle("Delegates Explorer - X-CASH");
+     }
+
 
     ngOnInit() {
       // get the data
@@ -86,11 +90,8 @@ export class DashboardCrmComponent implements OnInit {
             delegate_total_vote_count += current_delegate_total_vote_count;
           }
 
-
-
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
           var avg_vote_count = delegate_total_vote_count / 45;
-          console.log("avg_vote_count ", avg_vote_count);
 
           this.dashCard1[5].text = this.get_lg_numer_format(avg_vote_count);
         },

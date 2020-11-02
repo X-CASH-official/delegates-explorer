@@ -12,30 +12,28 @@ import { Observable } from 'rxjs';
 })
 
 
-export class round_statisticsComponent implements OnInit {
+export class Round_statisticsComponent implements OnInit {
 	dashCard1 = [
-      { ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'PRODUCER DELEGATE', icon: 'verified_user' },
-      { ogmeter: true, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE COUNT', icon: 'av_timer' },
-      { ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE', icon: 'admin_panel_settings' }
-    ];
+    { ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'PRODUCER DELEGATE', icon: 'verified_user' },
+    { ogmeter: true, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE COUNT', icon: 'av_timer' },
+    { ogmeter: false, width_icon: 20, text_size: 26, text: '', suffix: '', title: 'BACKUP DELEGATE', icon: 'admin_panel_settings' }
+  ];
 	dashCard2 = [
-      { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'BLOCK PRODUCER DELEGATE PUBLIC ADDRESS', icon: 'cloud' }
-    ];
-  dashCard3 = [
-
-    ];
+    { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'BLOCK PRODUCER DELEGATE PUBLIC ADDRESS', icon: 'cloud' }
+  ];
+  dashCard3 = [ ];
   dashCard4 = [
-      { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF SECRET KEY', icon: 'cloud' }
-    ];
+    { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF SECRET KEY', icon: 'cloud' }
+  ];
   dashCard5 = [
-      { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PUBLIC KEY', icon: 'cloud' }
-    ];
+    { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PUBLIC KEY', icon: 'cloud' }
+  ];
   dashCard6 = [
-      { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PROOF', icon: 'cloud' }
-    ];
+    { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF PROOF', icon: 'cloud' }
+  ];
   dashCard7 = [
-      { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF BETA STRING', icon: 'cloud' }
-    ];
+    { ogmeter: false, width_icon: 0, text_size: 18, text: '', suffix: '', title: 'VRF BETA STRING', icon: 'cloud' }
+  ];
 
 
 	title:string = "Round Statistics";
@@ -172,7 +170,6 @@ export class round_statisticsComponent implements OnInit {
   	    this.dashCard1[1].text = this.block_producer_node_backup_count_data;
         this.dashCard1[2].text = this.block_producer_backup_nodes_names_data.substr(0,this.block_producer_backup_nodes_names_data.indexOf(","));
   	    this.dashCard2[0].text = this.block_producer_public_address_data;
-  	    //this.dashCard3[0].text = this.block_producer_backup_nodes_names_data.substr(0,this.block_producer_backup_nodes_names_data.indexOf(","));
   	    this.dashCard4[0].text = this.vrf_secret_key_round_part_4_data;
   	    this.dashCard5[0].text = this.vrf_public_key_round_part_4_data;
   	    this.dashCard6[0].text = this.vrf_proof_round_part_4_data;

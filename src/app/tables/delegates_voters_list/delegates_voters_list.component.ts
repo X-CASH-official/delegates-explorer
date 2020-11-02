@@ -14,7 +14,7 @@ import { MatPaginator, MatSort } from '@angular/material';
   templateUrl: './delegates_voters_list.component.html',
   styleUrls: ['./delegates_voters_list.component.scss']
 })
-export class delegates_voters_listComponent implements OnInit {
+export class Delegates_voters_listComponent implements OnInit {
 
 	public dashCard = [
         { ogmeter: true, width_icon: 20, text_size: 40, text: 0, suffix: '', title: 'VOTE COUNT', icon: 'done_all' },

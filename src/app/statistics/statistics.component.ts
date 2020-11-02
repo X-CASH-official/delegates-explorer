@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
-
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-statistics',
@@ -35,18 +35,15 @@ export class statisticsComponent implements OnInit {
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'MOST TOTAL ROUNDS', icon: 'model_training' }
     ];
 
-    constructor(private HttpdataService: HttpdataService) { }
+    constructor(private HttpdataService: HttpdataService, private titleService:Title) {
+        this.titleService.setTitle(" Statistics - Delegates Explorer - X-CASH");
+     }
 
     ngOnInit() {
           // get the data
   	  this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
     	  (res) => {
           var data = JSON.parse(JSON.stringify(res));
-            // this.dashCard1[0].text = data.most_block_producer_total_rounds_delegate_name;
-            // this.dashCard1[1].text = data.most_total_rounds_delegate_name;
-            // this.dashCard2[0].text = data.most_block_producer_total_rounds;
-            // this.dashCard2[1].text = data.most_total_rounds;
-
             this.most_block_producer_total_rounds_delegate_name = data.most_block_producer_total_rounds_delegate_name;
             this.most_total_rounds_delegate_name = data.most_total_rounds_delegate_name;
             this.most_block_producer_total_rounds = data.most_block_producer_total_rounds;

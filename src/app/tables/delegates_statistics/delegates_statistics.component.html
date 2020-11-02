@@ -1,15 +1,15 @@
 <h2 class="page_title" >{{delegate_name}} <button class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
 
 <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
-  <a mat-raised-button class="delegate_details " [routerLink]="['/auth/delegates_information']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details " [routerLink]="['/delegates/delegate_information']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
     <mat-icon  class="delegate_details_icon">info</mat-icon>
     <h3>Informations</h3>
   </a>
-  <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
     <mat-icon  class="delegate_details_icon">insights</mat-icon>
     <h3>Statistics</h3>
   </a>
-  <a mat-raised-button class="delegate_details" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details" [routerLink]="['/delegates/delegate_voters_list']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
     <mat-icon  class="delegate_details_icon">how_to_reg</mat-icon>
     <h3>Voters</h3>
   </a>
@@ -46,7 +46,7 @@
 				<ng-container matColumnDef="block_height">
 					<mat-header-cell *matHeaderCellDef  mat-sort-header> Block Height </mat-header-cell>
            <mat-cell id="block_height{{row.id}}" *matCellDef="let row">
-            <a class="text-primary" [routerLink]="['/auth/tables/round_statistics']" [queryParams]="{'data':row.block_height}" target="_blank">
+            <a class="text-primary" [routerLink]="['/tables/round_statistics']" [queryParams]="{'data':row.block_height}" target="_blank">
                <h3>{{row.block_height | number}}</h3>
              </a>
            </mat-cell>

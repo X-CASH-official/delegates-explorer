@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
-
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-delegates_information',
@@ -23,21 +23,19 @@ export class Delegates_informationComponent implements OnInit {
     server_specs:string;
     public_address:string;
 
-    constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
+    constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService, private titleService:Title) {
+        this.delegate_name = this.route.snapshot.queryParamMap.get("data");
+        this.titleService.setTitle(   this.delegate_name +  "Delegate Information - Delegates Explorer - X-CASH");
+     }
+
 
     ngOnInit() {
-      this.delegate_name = this.route.snapshot.queryParamMap.get("data");
-      //this.delegate_name = this.delegate_name;
 
       this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
       (res) => {
                 var data = JSON.parse(JSON.stringify(res));
 
-            // this.delegatestatistics = "website/auth/tables/delegates_statistics?data=" + this.public_address;
-            // this.delegateprofileinformation = "website/auth/delegates_information?data=" + this.public_address;
-
                 this.data = data;
-                //this.title = data.delegate_name;
                 this.about = data.about;
                 this.website = data.website;
                 this.team = data.team;

@@ -5,8 +5,18 @@ import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { DelegateDatabase, DelegateDataSource } from './helpers.data';
 import {HttpdataService} from '../../services/http-request.service';
 import { MatPaginator, MatSort } from '@angular/material';
+import { Title } from '@angular/platform-browser';
 
 import Swal from 'sweetalert2';
+
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  query,
+} from '@angular/animations'
 
 @Component({
   selector: 'app-fixed-table',
@@ -14,7 +24,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./delegates.component.scss']
 })
 
-export class delegatesComponent implements OnInit {
+export class DelegatesComponent implements OnInit {
 
 	displayedColumns = ['id', 'delegate_name', 'online_status', 'shared_delegate_status', 'delegate_fee', 'total_vote_count', 'block_verifier_online_percentage', 'block_verifier_total_rounds', 'block_producer_total_rounds'];
 	exampleDatabase = new DelegateDatabase();
@@ -23,15 +33,20 @@ export class delegatesComponent implements OnInit {
   length;
   pagesize;
 
-	constructor(private HttpdataService: HttpdataService) { }
+	constructor(private HttpdataService: HttpdataService, private titleService:Title) {
+      this.titleService.setTitle(" Delegates List - Delegates Explorer - X-CASH");
+   }
 
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 	@ViewChild('filter') filter: ElementRef;
 
 	ngOnInit() {
-
     this.get_delegates();
+  }
+
+  getRouteAnimation(outlet) {
+     return outlet.activatedRouteData.animation;
   }
 
 	get_delegates() {
