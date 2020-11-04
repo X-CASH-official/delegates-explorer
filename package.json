@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^6.0.7",
     "@angular/platform-browser-dynamic": "^6.0.7",
     "@angular/router": "^6.0.7",
+    "@ngx-lite/json-ld": "^0.6.2",
     "angular-highlight-js": "^2.0.1",
     "angular-svg-round-progressbar": "^2.0.0",
     "core-js": "^2.5.7",

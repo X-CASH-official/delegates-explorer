@@ -20,6 +20,8 @@ import { AuthComponent } from './auth/auth.component';
 import { DashboardCrmModule } from './dashboard-crm/dashboard-crm.module';
 import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
 
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+
 export function getBaseHref(platformLocation: PlatformLocation): string {
     return platformLocation.getBaseHrefFromDOM();
 }
@@ -43,6 +45,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     PerfectScrollbarModule,
     LazyLoadModule,
     DashboardCrmModule,
+    NgxJsonLdModule
   ],
   providers: [
     HttpdataService,
