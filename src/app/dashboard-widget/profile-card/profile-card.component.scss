@@ -1,42 +1,43 @@
 @mixin dashboard-profile($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
 
-    .profile-card-holder{
-        margin: 10px 5px;
-        min-height: 100px;
-        box-sizing: border-box;
-        color:#f5f0f0f2;
+  .profile-card-holder{
+    margin: 10px 5px;
+    min-height: 100px;
+    box-sizing: border-box;
+    color: white;
 
-        .profile-details{
-            //background-image: -webkit-linear-gradient(45deg, mat-color($primary,400) 45%, mat-color($primary,300)  45%);
-            //#15abce
-            background-color: #1189a5;
-            margin-top: -50px;
-            min-height: 180px;
-            padding: 12px;
-            & .profile-details-holder{
-                margin-top: 20px;
-            }
-        }
-        .center-align{
-            text-align: center;
-        }
-        .Follow{
-            width: 70%;
-        }
-        & .banner {
-            background-size: screen;
-            min-height: 56px;
-            background-repeat: no-repeat;
-            color: white;
-            & img {
-                position: relative;
-                z-index: 1;
-            }
-        }
-        .profile-card-content{
-            padding: 10px;
+    .profile-details{
+        background-color: mat-color($primary,500);
+        margin-top: -50px;
+        min-height: 180px;
+        padding: 12px;
+        & .profile-details-holder{
+            margin-top: 20px;
         }
     }
+    .center-align{
+        text-align: center;
+    }
+    .Follow{
+        width: 70%;
+    }
+    & .banner {
+        background-size: screen;
+        min-height: 56px;
+        background-repeat: no-repeat;
+        color: white;
+        & img {
+            position: relative;
+            z-index: 1;
+        }
+    }
+    .profile-card-content{
+        padding: 10px;
+    }
+  }
 }
 .swal-height {
   height: 90vh;

@@ -11,6 +11,9 @@ import { MatTabsModule } from '@angular/material';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { NgxJsonLdModule } from 'ngx-json-ld';
+import { MatMenuModule} from '@angular/material/menu';
+
 
 import { HttpdataService } from './services/http-request.service'
 import { CoreModule } from './core/core.module';
@@ -18,9 +21,10 @@ import { AppComponent } from './app.component';
 import { LazyLoadModule } from './lazy-load/lazy-load.module';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardCrmModule } from './dashboard-crm/dashboard-crm.module';
-import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
+import { PlatformLocation } from '@angular/common';
 
-import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+
+
 
 export function getBaseHref(platformLocation: PlatformLocation): string {
     return platformLocation.getBaseHrefFromDOM();
@@ -45,14 +49,11 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     PerfectScrollbarModule,
     LazyLoadModule,
     DashboardCrmModule,
-    NgxJsonLdModule
+    NgxJsonLdModule,
+    MatMenuModule
   ],
   providers: [
-    HttpdataService,
-    { provide: APP_BASE_HREF,
-      useFactory: getBaseHref,
-      deps: [PlatformLocation]
-    },
+    HttpdataService
   ],
   bootstrap: [AppComponent]
 })

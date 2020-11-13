@@ -1,43 +1,22 @@
 
-.table-container {
-	position: relative;
-	margin-top:50px;
-	padding: 5px 0px 15px 0px;
-}
-.table-container .mat-table {
-	// max-height: calc(100vh - 250px);
-	// overflow-y: auto;
-	width: 100%;
-}
-.table-container .mat-table .mat-header-row {
-	position: absolute;
-	top: -50px;
-	left: 0px;
-	right: 18px;
-	background: #fff;
-}
-.table-header {
-	background-color: #1189a5;
-	color: white;
-	padding: 0px 20px 0px 20px;
-	color: white;
-}
-.table-component-holder {
-	border: 1px solid #1189a5;
-	background-color: white;
-}
+// @mixin delegates($theme) {
+//
+//
+// }
+
 .mat-toolbar-single-row{
 	height: 65px;
 }
 .mat-form-field {
 		font-size: 26px;
-    font-weight: 500;
-    line-height: normal;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+		font-weight: 500;
+		line-height: normal;
+		font-family: Roboto, "Helvetica Neue", sans-serif;
 		padding: 0px;
 		margin:0;
 		width: 100%;
 }
+
 ::ng-deep .deleagtes_table .mat-form-field-label {  top: 1.05em !important}
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {text-align: center !important;}
 ::ng-deep .deleagtes_table .mat-form-field-underline, ::ng-deep .deleagtes_table .mat-form-field-ripple {
@@ -51,12 +30,7 @@
 }
 ::ng-deep .deleagtes_table .mat-input-element{	font-size: 75% !important; }
 
-.Online{
-	color:#4c8c4a;
-}
-.Offline{
-	color:#b71c1c;
-}
+
 
 .mat-column-id {
   flex: 0 0 4%;

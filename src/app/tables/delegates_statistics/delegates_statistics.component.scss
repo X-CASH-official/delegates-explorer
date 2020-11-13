@@ -1,30 +1,4 @@
 
-.table-container {
-	position: relative;
-	margin-top:50px;
-	padding: 5px 0px 15px 0px;
-}
-.table-container .mat-table {
-	// max-height: calc(100vh - 250px);
-	// overflow-y: auto;
-	width: 100%;
-}
-.table-container .mat-table .mat-header-row {
-	position: absolute;
-	top: -50px;
-	left: 0px;
-	right: 18px;
-	background: #fff;
-}
-.table-header {
-	background-color: #1189a5;
-	color: white;
-	padding: 0 0px;
-}
-.table-component-holder {
-	border: 1px solid #1189a5;
-	background-color: white;
-}
 .mat-toolbar-single-row{
 	height: 75px;
 }
@@ -36,14 +10,4 @@
 }
 .mat-form-field-wrapper{
 	padding-bottom: 0.8em;
-}
-@media(max-width: 600px)
-{
-	.page_title{
-		padding-left: 0px !important;
-		font-size: 22px;
-	}
-	.copy_vote_btn{
-		display:none;
-	}
 }

@@ -4,6 +4,8 @@ import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 import { Title } from '@angular/platform-browser';
 
+import { environment } from './../../environments/environment';
+
 import { API_DATA } from './API.data';
 
 @Component({
@@ -13,11 +15,8 @@ import { API_DATA } from './API.data';
 })
 
 export class APIComponent implements OnInit {
-    title:string = "Delegates Information";
     delegates_data:string = "";
     apiData:any;
-
-    //constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService)  { }
 
     constructor(private HttpdataService: HttpdataService, private titleService:Title) {
         this.titleService.setTitle(" API - Delegates Explorer - X-CASH");
@@ -26,10 +25,11 @@ export class APIComponent implements OnInit {
     ngOnInit() {
 
       let data = API_DATA;
+      console.log(environment.baseURL);
 
       Object.keys(data).forEach(function(key) {
 
-        var request_url = 'http://delegates.xcash.foundation' + data[key].url;
+        var request_url = environment.baseURL + data[key].url;
 
         if (data[key].hasOwnProperty('parameters') ) {
           request_url = request_url + '?';

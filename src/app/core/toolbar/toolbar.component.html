@@ -12,9 +12,14 @@
         <em class="material-icons">search</em>
     </button>
     <cdk-search-bar [open]="searchOpen"></cdk-search-bar> -->
+		<button mat-button [matMenuTriggerFor]="menu">Change Theme </button>
+		<mat-menu #menu="matMenu">
+						<button value='dark' mat-menu-item   (click)="switchTheme('dark')">Dark</button>
+						<button value='light' mat-menu-item (click)="switchTheme('light')">Light</button>
+						<button value='unicorn' mat-menu-item (click)="switchTheme('unicorn')">Unicorn</button>
+	 </mat-menu>
 
-
-    <cdk-fullscreen></cdk-fullscreen>
+    <!-- <cdk-fullscreen></cdk-fullscreen> -->
 
 
 </mat-toolbar>

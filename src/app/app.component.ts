@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationStart, NavigationEnd, Router } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
 
+import { environment } from './../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,22 +13,21 @@ import { Meta } from '@angular/platform-browser';
 
 export class AppComponent {
 
-  loading:boolean = false;
-  // set metadata variables
-  baseUrl = window.location.origin;
-  metaImage= window.location.origin + "/assets/icons/apple-touch-icon-180x180.png";
+  loading:boolean = true;
+  baseURL:string= environment.baseURL;
+  metaImage:string= this.baseURL + "/assets/icons/apple-touch-icon-180x180.png";
 
   schema = [{
       "@context": "http://schema.org",
       "@type": "WebSite",
-      "@id": this.baseUrl + "#website",
-      "url": this.baseUrl,
+      "@id": this.baseURL + "#website",
+      "url": this.baseURL,
       "name": "X-Cash Delegates Explorer",
       "alternateName": "Delegates Explorer",
       "headline": "X-Cash Delegates Explorer for DPoPs nodes.",
       "image": this.metaImage,
       "inLanguage": "en",
-      "description": "X-Cash Delegates Explorer for DPoPs nodes. Check delegates, their votes, statistics and blocks Information.",
+      "description": "X-Cash Delegates Explorer for DPoPs nodes. Check delegates, votes, statistics and blocks information.",
       "disambiguatingDescription": "Delegates Explorer for X-Cash",
       "isFamilyFriendly": "http://schema.org/True",
       "keywords":[
@@ -54,40 +54,42 @@ export class AppComponent {
       {
         "@context": "https://schema.org",
         "@type":"SiteNavigationElement",
-        "@id":"#header",
+        "@id":"#sidebar",
         "name": "Dashboard",
-        "url": this.baseUrl + "/dashboard"
+        "url": this.baseURL + "/dashboard"
       },
       {
         "@context": "https://schema.org",
         "@type":"SiteNavigationElement",
-        "@id":"#header",
+        "@id":"#sidebar",
         "name": "Delegates",
-        "url": this.baseUrl + "/delegates"
+        "url": this.baseURL + "/delegates"
       },
       {
         "@context": "https://schema.org",
         "@type":"SiteNavigationElement",
-        "@id":"#header",
+        "@id":"#sidebar",
         "name": "Statistics",
-        "url": this.baseUrl + "/statistics"
+        "url": this.baseURL + "/statistics"
       },
       {
         "@context": "https://schema.org",
         "@type":"SiteNavigationElement",
-        "@id":"#header",
+        "@id":"#sidebar",
         "name": "Help",
-        "url": this.baseUrl + "/help"
+        "url": this.baseURL + "/help"
       },
       {
         "@context": "https://schema.org",
         "@type":"SiteNavigationElement",
-        "@id":"#header",
+        "@id":"#sidebar",
         "name": "API",
-        "url": this.baseUrl + "/API"
+        "url": this.baseURL + "/API"
       }
     ]
   }];
+
+  static storageKey = 'xcash-explorer-theme-preference';
 
   getRouteAnimation(outlet) {
       return outlet.activatedRouteData.animation
@@ -97,13 +99,8 @@ export class AppComponent {
     // override the route reuse strategy
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
-    // override default meta tags
-    this.meta.updateTag({ property: 'og:url', content: this.baseUrl  });
-    this.meta.updateTag({ property: 'og:image', content: this.metaImage  });
-    this.meta.updateTag({ name: 'twitter:domain', value: this.baseUrl  });
-    this.meta.updateTag({ name: 'twitter:url', value: window.location.href  });
-    this.meta.updateTag({ name: 'twitter:image', content: this.metaImage  });
-
+    //this.baseURL = environment.baseURL;
+    //this.metaImage = this.baseURL + "/assets/icons/apple-touch-icon-180x180.png";
   }
 
   ngOnInit() {
@@ -114,10 +111,27 @@ export class AppComponent {
         this.loading = true;
       }else if(event instanceof NavigationEnd) {
         this.loading = false;
+
+        //override default meta tags
+        this.meta.updateTag({ property: 'og:url', content: this.baseURL  });
+        this.meta.updateTag({ property: 'og:image', content: this.metaImage  });
+        this.meta.updateTag({ name: 'twitter:domain', value: this.baseURL  });
+        this.meta.updateTag({ name: 'twitter:url', value: window.location.href  });
+        this.meta.updateTag({ name: 'twitter:image', content: this.metaImage  });
       }
 
       window.scrollTo(0, 0);
     });
+
+    'xcash-explorer-theme-preference'
+    var theme = window.localStorage.getItem('xcash-explorer-theme-preference');
+    if (theme) {
+      let body = document.getElementsByTagName('body')[0];
+      body.classList.remove("dark-theme");   //remove theme class
+      body.classList.remove("light-theme");   //remove theme class
+      body.classList.remove("unicorn-theme");   //remove theme class
+      body.classList.add(theme + "-theme");   //add selected theme
+    }
 
   }
 }

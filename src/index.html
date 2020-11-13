@@ -6,21 +6,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title >Delegates Explorer - X-Cash</title>
-    <meta name="description" content="X-Cash Delegates Explorer for DPoPs nodes. Check delegates, their votes, statistics and blocks Information.">
+    <title>Delegates Explorer - X-Cash</title>
+    <meta name="description" content="X-Cash Delegates Explorer for DPoPs nodes. Check delegates, votes, statistics and blocks information.">
 
-    <meta property="og:url" content="/assets/icons/apple-touch-icon-180x180.png">
+    <meta property="og:url" content="http://delegates.xcash.foundation">
     <meta property="og:type" content="website">
     <meta property="og:title" content="X-Cash Delegates Explorer">
-    <meta property="og:description" content="X-Cash Delegates Explorer for DPoPs nodes. Check delegates, their votes, statistics and blocks Information.">
-    <meta property="og:image" content="assets/icons/apple-touch-icon-180x180.png">
+    <meta property="og:description" content="X-Cash Delegates Explorer for DPoPs nodes. Check delegates, votes, statistics and blocks information.">
+    <meta property="og:image" content="http://delegates.xcash.rocks/assets/icons/apple-touch-icon-180x180.png">
 
     <meta name="twitter:card" content="app">
     <meta name="twitter:domain" value="delegates.xcash.foundation" />
     <meta name="twitter:title" value="X-Cash Delegates Explorer" />
-    <meta name="twitter:description" value="X-Cash Delegates Explorer for DPoPs nodes. Check delegates, their votes, statistics and blocks Information." />
-    <meta name="twitter:image" content="/assets/icons/apple-touch-icon-180x180.png" />
-    <meta name="twitter:url" value="delegates.xcash.foundation" />
+    <meta name="twitter:description" value="X-Cash Delegates Explorer for DPoPs nodes. Check delegates, votes, statistics and blocks information." />
+    <meta name="twitter:image" content="http://delegates.xcash.rocks/assets/icons/apple-touch-icon-180x180.png" />
+    <meta name="twitter:url" value="http://delegates.xcash.foundation" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
@@ -47,73 +47,78 @@
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
     <style media="screen">
-        /* critical preloader css */
-        .loader-container {
-            background: rgba(255,255,255,0.9);
-            width: 100vw;
-            height: 100vh;
-            z-index: 2000;
-            position: absolute;
-            -moz-animation: cssAnimation 1s ease-in 3s forwards;
-            animation: cssAnimation 1s ease-in 3s forwards;
-            -o-animation: cssAnimation 1s ease-in 3s forwards;
-            animation-fill-mode: forwards;
-        }
-        @keyframes cssAnimation {
-            to {
-                opacity:0;
-                display: none;
-                visibility:hidden;
-            }
-        }
-      .spinner {
-          margin: 50vh auto 0;
-          width: 120px;
-          text-align: center;
-          animation: spin 3s linear infinite;
-          -webkit-animation: spin 3s linear infinite;
+    /* critical preloader css */
+    .loader-container {
+
+      width: 100vw;
+      height: 100vh;
+      z-index: 2000;
+      position: absolute;
+      -moz-animation: cssAnimation 1s ease-in 3s forwards;
+      animation: cssAnimation 1s ease-in 3s forwards;
+      -o-animation: cssAnimation 1s ease-in 3s forwards;
+      animation-fill-mode: forwards;
+    }
+    @keyframes cssAnimation {
+      to {
+        opacity:0;
+        display: none;
+        visibility:hidden;
       }
-      @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% {  transform: rotate(359deg); }
+    }
+    .spinner {
+      margin: 50vh auto 0;
+      width: 120px;
+      text-align: center;
+      animation: spin 3s linear infinite;
+      -webkit-animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% {  transform: rotate(359deg); }
+    }
+    #pulsar {
+      animation:pulse 1s infinite normal;
+      -webkit-animation: pulse 1s infinite normal;
+    }
+    @keyframes pulse {
+      0% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
       }
-      #pulsar {
-        animation:pulse 1s infinite normal;
-        -webkit-animation: pulse 1s infinite normal;
+      70% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
       }
-      @keyframes pulse {
-      	0% {
-          -webkit-transform: scale(0.9);
-          -ms-transform: scale(0.9);
-          transform: scale(0.9);
-      	}
-      	70% {
-          -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-          transform: scale(1);
-      	}
-      	100% {
-          -webkit-transform: scale(0.9);
-          -ms-transform: scale(0.9);
-          transform: scale(0.9);
-      	}
+      100% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
       }
+    }
+
     </style>
   </head>
-  <body>
+  <body class="dark-theme">
 
     <app-root>
     </app-root>
 
-    <!-- loader -->
-    <div class="loader-container">
+    <!-- loader 1 -->
+    <!-- <div class="loader-container" >
         <div class="spinner">
           <svg id=pulsar xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.2 46.2" height="50" width="50">
-            <g transform="translate(-2.6 -1)"><circle r="7.7" cy="8.7" cx="10.3" class="st0" fill="#fa741c"/><path d="M20.6 24.1c0 5.7-4.6 7.7-10.3 7.7a7.7 7.7 0 107.7 7.7c0-5.7 2-10.3 7.7-10.3s7.7 4.6 7.7 10.3a7.7 7.7 0 107.7-7.7c-5.7 0-10.3-2-10.3-7.7s4.6-7.7 10.3-7.7a7.7 7.7 0 10-7.7-7.7c0 5.7-2 10.3-7.7 10.3a5.1 5.1 0 00-5.1 5.1" class="st1" fill="#1189a5"/><circle r="3.2" cy="17" cx="19.3" class="st0" fill="#fa741c"/>
+            <g transform="translate(-2.6 -1)">
+              <circle r="7.7" cy="8.7" cx="10.3" class="xca0"/>
+              <path d="M20.6 24.1c0 5.7-4.6 7.7-10.3 7.7a7.7 7.7 0 107.7 7.7c0-5.7 2-10.3 7.7-10.3s7.7 4.6 7.7 10.3a7.7 7.7 0 107.7-7.7c-5.7 0-10.3-2-10.3-7.7s4.6-7.7 10.3-7.7a7.7 7.7 0 10-7.7-7.7c0 5.7-2 10.3-7.7 10.3a5.1 5.1 0 00-5.1 5.1" class="xca1" />
+              <circle r="3.2" cy="17" cx="19.3" class="xca0"/>
             </g>
           </svg>
         </div>
-    </div>
+    </div> -->
+
 
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
   </body>

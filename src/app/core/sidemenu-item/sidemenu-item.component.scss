@@ -8,6 +8,10 @@
 }
 
 @mixin sidemenu-item($theme,$icon-size) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+
     .sidenav-dropdown-indicator {
         transition: transform .25s;
         &.indicateOpen {
@@ -24,8 +28,7 @@
         padding-top: 0px;
     }
     .secondaryMenu {
-        //background:  mat-color($primary, 500);
-        background-color: #1189a5;
+        background:  mat-color($primary, 500);
         transition: max-height .4s cubic-bezier(.35, 0, .25, 1);
         padding-top: 0px;
     }

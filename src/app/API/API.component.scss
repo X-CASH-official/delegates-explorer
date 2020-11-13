@@ -1,47 +1,44 @@
-.api_container{
-	margin-bottom: 150px;
-}
-.cards-header {
-	background-color: #1189a5;
-	color: white;
-	padding: 0 5px;
-}
-.cards-container {
-	margin: 5px;
-  border: 1px solid #1189a5;
-	background-color: white;
-}
-.cdk-card-holder {}
 
+@mixin api($theme) {
+	$primary: map-get($theme, primary);
+	$accent: map-get($theme, accent);
+	$warn: map-get($theme, warn);
+	.api_container{
+		margin-bottom: 150px;
+	}
+	.cards-header {
+		background-color: mat-color($primary,500);
+		color: white;
+		padding: 0 5px;
+	}
+	.cards-container {
+		margin: 5px;
+	}
+	.cdk-card-holder {}
+	table.border_bottom {
+	  //border: 0px solid whitesmoke;
+	}
+	// tr.row_bg:nth-child(even) {background: whitesmoke}
+	// tr.row_bg:nth-child(odd) {background: white}
+	.title_padding{
+	  padding-left: 10px;
+	}
+
+	.paramters_row {
+	  margin-bottom: 10px;
+	}
+	.parameters_data_desc{ padding-left: 20px; }
+	.data_title{ width: 100px; vertical-align: top; padding-top:5px;}
+	.data_value{ padding-left:0; }
+	//.mat-tab-label-content {color: mat-color($primary,500) !important;}
+
+	td.result_data_name, td.result_data_desc { padding: 5px 0px 5px 10px; }
+
+	.parameters_data_name code{
+	    padding:  5px 5px 5px 0px;
+	    white-space: normal;
+			font-variant-ligatures: none;
+			tab-size: 4;
+	}
+}
 ::ng-deep .hljs-attr{ padding-left: 10px !important; margin-left: 10px !important; }
-::ng-deep .hljs-string{ color: #1189a5 }
-
-table.border_bottom {
-  border: 0px solid whitesmoke;
-}
-tr.row_bg:nth-child(even) {background: whitesmoke}
-tr.row_bg:nth-child(odd) {background: white}
-.title_padding{
-  padding-left: 10px;
-}
-.result_data_name, .parameters_data_name{
-  font-style: italic;
-	color: #1189a5;
-}
-.paramters_row {
-  margin-bottom: 10px;
-}
-.parameters_data_desc{ padding-left: 20px; }
-.data_title{ width: 100px; }
-.data_value{ padding-left:0; }
-.mat-tab-label-content {color: #1189a5 !important;}
-
-td.result_data_name, td.result_data_desc { padding: 5px 0px 5px 10px; }
-
-.parameters_data_name code{
-    padding:  5px;
-    white-space: normal;
-		border: 1px solid #ddd;
-		font-variant-ligatures: none;
-		tab-size: 4;
-}

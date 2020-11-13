@@ -3,8 +3,6 @@ import { Component, OnInit ,Input} from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
 
-
-
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -20,6 +18,7 @@ export class AuthComponent implements OnInit{
   matDrawerOpened: boolean = false;
   matDrawerShow: boolean = true;
   sideNavMode: string = 'side';
+
 
   ngOnChanges() {
    this.visibility = this.isVisible ? 'shown' : 'hidden';
