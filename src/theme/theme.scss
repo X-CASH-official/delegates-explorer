@@ -28,10 +28,169 @@ $warn-xgrey    : $mat-grey;
 $spin_background-xgrey: mat-palette($mat-grey);
 
 // UNICDORN THEME
-$primary-xunicorn : $mat-pink;
-$accent-xunicorn  : $mat-cyan;
-$warn-xunicorn    : $mat-purple;
-$spin_background-xunicorn: mat-palette($primary-xunicorn);
+$primary-unicorn : $mat-pink;
+$accent-unicorn  : $mat-cyan;
+$warning-unicorn    : $mat-purple;
+$spin_background-unicorn: mat-palette($primary-unicorn);
+
+
+// DARKSEA THEME
+$primary-darksea : $mat-cyan;
+$accent-darksea  : $mat-light-blue;
+$warning-darksea : $mat-blue-grey;
+$spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
+
+
+
+//
+// DARK THEME
+//
+.darksea-theme {
+
+  $primary-app-primary-darksea: mat-palette($primary-darksea,800);
+  $primary-app-accent-darksea:  mat-palette($accent-darksea,900);
+  $primary-app-warn-darksea:    mat-palette($warning-darksea,900 );
+
+  $pri-darksea: mat-color($primary-darksea,800);
+  $acc-darksea: mat-color($accent-darksea,900);
+  $warn-darksea: mat-color($warning-darksea,900);
+
+  $cdk-theme-dark-darksea:      mat-dark-theme($primary-app-primary-darksea, $primary-app-accent-darksea,$primary-app-warn-darksea);
+
+  cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-darksea); }
+  cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-dark-darksea,28px) }
+
+  cdk-dashcard { @include dashcard($cdk-theme-dark-darksea); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-darksea);
+    @include mat-tabs-theme($cdk-theme-dark-darksea);
+  }
+  @include angular-material-theme($cdk-theme-dark-darksea);
+  @include mat-table-theme($cdk-theme-dark-darksea);
+
+  @include auth($cdk-theme-dark-darksea);
+  @include help($cdk-theme-dark-darksea);
+  @include api($cdk-theme-dark-darksea);
+  @include stats($cdk-theme-dark-darksea);
+  @include delegate-info($cdk-theme-dark-darksea);
+
+  // Backgrounds
+  .sidenav{background: $warn-darksea;}
+  .mat-drawer-container{background: mat-color($warning-darksea,800);}
+  #header{background: $warn-darksea;}
+  #logo-header{background: $warn-darksea;}
+  .mat-table,  .mat-paginator{background: $warn-darksea;}
+  .mat-expansion-panel{background: $warn-darksea;}
+  .mat-tab-group{background: $warn-darksea;}
+  .table-header { background: $pri-darksea; }
+  .table-container{background: $warn-darksea;}
+
+  // Logo SVG Fill
+  .xca0 { fill: $pri-darksea; }
+  .xca1 { fill: white; }
+  .loader-container { background: mat-color($spin_background-darksea); }
+  .swal2-confirm { background-color: $pri-darksea !important; }
+  .logo { color: $pri-darksea; }
+  .page_title { color: white; background: $pri-darksea;}
+  .page_subtitle { color: white; background: $pri-darksea; }
+  .page_title_icon { color: white; }
+  .dashcard_icon { color: white; background-color: $acc-darksea; }
+  .dashcard_box { color: white; background-color: $pri-darksea; }
+  .delegate_details{ color: white; background-color: $acc-darksea; }
+  .delegate_details_active{ color: white; background-color:$pri-darksea; }
+  .codeblock { color: $pri-darksea; background: white;     border: 2px solid white; }
+  a { color: white; }
+  a:hover { color: $acc-darksea; }
+  a.delegate_details:hover { background: $pri-darksea; color: white; }
+  .mat-raised-button:hover { background: $acc-darksea; color: white; }
+
+  .result_data_name, .parameters_data_name { font-style: italic; color: mat-color($accent-darksea,400); }
+  .cards-container { border: 2px solid $pri-darksea; }
+
+  span.hljs-string { color: mat-color($accent-darksea,400); }
+  span.hljs-built_in { color: mat-color($mat-amber  ,500); }
+  span.hljs-literal { color: mat-color($md-xorange,500); }
+
+  .Online { color:  mat-color($mat-green,500); }
+  .Offline { color: mat-color($mat-red,500); }
+}
+
+
+
+//
+// UNICDORN THEME
+//
+.unicorn-theme {
+  $primary-app-primary-unicorn: mat-palette($primary-unicorn, 500);
+  $primary-app-accent-unicorn:  mat-palette($accent-unicorn, 400);
+  $primary-app-warn-unicorn:    mat-palette($warning-unicorn, 600 );
+
+  $pri-unicorn: mat-color($primary-unicorn,500);
+  $acc-unicorn: mat-color($accent-unicorn,900);
+  $warn-unicorn: mat-color($mat-yellow,50);
+
+  $cdk-theme-dark-unicorn:   mat-dark-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
+  $cdk-theme-light-unicorn:  mat-light-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
+
+  cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-unicorn); }
+  cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-light-unicorn,28px) }
+  
+  cdk-dashcard { @include dashcard($cdk-theme-dark-unicorn); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-unicorn);
+    @include mat-tabs-theme($cdk-theme-dark-unicorn);
+  }
+  @include angular-material-theme($cdk-theme-light-unicorn);
+  @include mat-table-theme($cdk-theme-light-unicorn);
+  @include auth($cdk-theme-light-unicorn);
+  @include help($cdk-theme-light-unicorn);
+  @include api($cdk-theme-light-unicorn);
+  @include stats($cdk-theme-light-unicorn);
+  @include delegate-info($cdk-theme-light-unicorn);
+
+  // Logo SVG Fill
+  .xca0 { fill: mat-color($mat-cyan,500); }
+  .xca1 { fill: mat-color($primary-unicorn,500); }
+
+  // Backgrounds
+  .loader-container { background: mat-color($spin_background-unicorn, 50, 0.9);  }
+  .mat-drawer-container{background: $warn-unicorn;}
+  #header{background: mat-color($mat-yellow,50)}
+  #logo-header{background: mat-color($mat-yellow,50)}
+  .table-container, .mat-table,  .mat-paginator{background: $warn-unicorn;}
+  .mat-expansion-panel{background: $warn-unicorn;}
+  .table-header { background: mat-color($primary-unicorn,500); color: white; }
+  .table-component-holder {  border: 1px solid mat-color($primary-unicorn,500); }
+  .swal2-confirm { background-color: mat-color($primary-unicorn,500) !important; }
+
+  // Toolbar nav-elements
+  .mat-icon-button, .mat-button{ color: mat-color($primary-unicorn,500); }
+
+  .logo { color: mat-color($accent-unicorn,500); }
+  .page_title {  color: white; background: mat-color($primary-unicorn,500); }
+  .page_subtitle {  color: white; background: mat-color($primary-unicorn,500); }
+  .page_title_icon {    color: white; }
+  .dashcard_icon {  color: white; background-color: mat-color($accent-unicorn,500); }
+  .dashcard_box {  color: white; background-color: mat-color($primary-unicorn,500); }
+  .delegate_details {  color: white; background-color: mat-color($warning-unicorn,600); }
+  .delegate_details_active {  color: white; background-color:mat-color($accent-unicorn,500); }
+  .codeblock {  color: mat-color($primary-unicorn,500); background: white; border: 2px solid white; }
+  a{  color: mat-color($primary-unicorn,500); text-decoration: none; }
+  a:hover {  color: mat-color($accent-unicorn,500); }
+  a.delegate_details:hover { background: mat-color($accent-unicorn,500); color: white; }
+  .mat-raised-button:hover { background: mat-color($accent-unicorn,500); color: white; }
+
+  .topstats-details { color: white; }
+  .result_data_name, .parameters_data_name {  font-style: italic; color: mat-color($primary-unicorn,500); }
+  span.hljs-string { color: mat-color($primary-unicorn, 500); }
+  span.hljs-built_in { color: mat-color($mat-green, 500); }
+  span.hljs-literal { color: mat-color($mat-cyan, 500); }
+  .cards-container {  border: 2px solid mat-color($primary-unicorn,500); }
+  .Online {	color:  mat-color($mat-green,500); }
+  .Offline {	color: mat-color($mat-red,500); }
+  .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover, ::ng-deep .mat-expansion-indicator::after {  color: white;  }
+  .mat-expansion-indicator::after {  color: white;  }
+}
 
 
 //
@@ -46,7 +205,10 @@ $spin_background-xunicorn: mat-palette($primary-xunicorn);
   cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-xteal); }
   cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-light-xteal,28px); }
   cdk-dashcard { @include dashcard($cdk-theme-dark-xteal); }
-  cdk-profile-card{ @include dashboard-profile($cdk-theme-dark-xteal); @include mat-tabs-theme($cdk-theme-dark-xteal); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-xteal);
+    @include mat-tabs-theme($cdk-theme-dark-xteal);
+  }
   @include angular-material-theme($cdk-theme-light-xteal);
   @include mat-table-theme($cdk-theme-light-xteal);
   @include auth($cdk-theme-light-xteal);
@@ -57,6 +219,10 @@ $spin_background-xunicorn: mat-palette($primary-xunicorn);
   // Logo SVG Fill
   .xca0 { fill: mat-color($accent-xteal,500); }
   .xca1 { fill: mat-color($primary-xteal,500); }
+
+  // Toolbar nav-elements
+  .mat-icon-button, .mat-button{ color: mat-color($primary-xteal,500); }
+
   .loader-container {  background: mat-color($spin_background-xteal, 50, 0.9); }
   .swal2-confirm {	background-color: mat-color($primary-xteal,500) !important; }
   .logo{    color: mat-color($accent-xteal,500); }
@@ -92,14 +258,17 @@ $spin_background-xunicorn: mat-palette($primary-xunicorn);
 //
 .dark-theme {
   $primary-app-primary-xgrey: mat-palette($primary-xgrey);
-  $primary-app-accent-xgrey:  mat-palette($accent-xgrey , 900);
+  $primary-app-accent-xgrey:  mat-palette($accent-xgrey);
   $primary-app-warn-xgrey:    mat-palette($warn-xgrey, 600 );
   $cdk-theme-dark-xgrey:      mat-dark-theme($primary-app-primary-xgrey, $primary-app-accent-xgrey,$primary-app-warn-xgrey);
   $cdk-theme-light-xgrey:     mat-light-theme($primary-app-primary-xgrey, $primary-app-accent-xgrey,$primary-app-warn-xgrey);
   cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-xgrey); }
   cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-dark-xgrey,28px) }
   cdk-dashcard { @include dashcard($cdk-theme-dark-xgrey); }
-  cdk-profile-card{ @include dashboard-profile($cdk-theme-dark-xgrey); @include mat-tabs-theme($cdk-theme-dark-xgrey); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-xgrey);
+    @include mat-tabs-theme($cdk-theme-dark-xgrey);
+  }
   @include angular-material-theme($cdk-theme-dark-xgrey);
   @include mat-table-theme($cdk-theme-dark-xgrey);
   @include auth($cdk-theme-dark-xgrey);
@@ -110,6 +279,7 @@ $spin_background-xunicorn: mat-palette($primary-xunicorn);
   // Logo SVG Fill
   .xca0 { fill: mat-color($accent-xgrey,500); }
   .xca1 { fill: white; }
+
   .loader-container { background: mat-color($spin_background-xgrey, 900, 0.9); }
   .swal2-confirm { background-color: mat-color($primary-xgrey,500) !important; }
   .logo { color: mat-color($accent-xgrey,500); }
@@ -137,57 +307,6 @@ $spin_background-xunicorn: mat-palette($primary-xunicorn);
 }
 
 
-//
-// UNICDORN THEME
-//
-.unicorn-theme {
-  $primary-app-primary-xunicorn: mat-palette($primary-xunicorn);
-  $primary-app-accent-xunicorn:  mat-palette($accent-xunicorn , 900);
-  $primary-app-warn-xunicorn:    mat-palette($warn-xunicorn, 600 );
-  $cdk-theme-dark-xunicorn:   mat-dark-theme($primary-app-primary-xunicorn, $primary-app-accent-xunicorn,$primary-app-warn-xunicorn);
-  $cdk-theme-light-xunicorn:  mat-light-theme($primary-app-primary-xunicorn, $primary-app-accent-xunicorn,$primary-app-warn-xunicorn);
-  cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-xunicorn); }
-  cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-light-xunicorn,28px) }
-  cdk-dashcard { @include dashcard($cdk-theme-dark-xunicorn); }
-  cdk-profile-card{ @include dashboard-profile($cdk-theme-dark-xunicorn); @include mat-tabs-theme($cdk-theme-dark-xunicorn); }
-  @include angular-material-theme($cdk-theme-light-xunicorn);
-  @include mat-table-theme($cdk-theme-light-xunicorn);
-  @include auth($cdk-theme-light-xunicorn);
-  @include help($cdk-theme-light-xunicorn);
-  @include api($cdk-theme-light-xunicorn);
-  @include stats($cdk-theme-light-xunicorn);
-  @include delegate-info($cdk-theme-light-xunicorn);
-  // Logo SVG Fill
-  .xca0 { fill: mat-color($mat-cyan,500); }
-  .xca1 { fill: mat-color($primary-xunicorn,500); }
-  .loader-container { background: mat-color($spin_background-xunicorn, 50, 0.9);  }
-  .swal2-confirm { background-color: mat-color($primary-xunicorn,500) !important; }
-  .logo { color: mat-color($accent-xunicorn,500); }
-  .page_title {  color: white; background: mat-color($primary-xunicorn,500); }
-  .page_subtitle {  color: white; background: mat-color($primary-xunicorn,500); }
-  .page_title_icon {    color: white; }
-  .dashcard_icon {  color: white; background-color: mat-color($accent-xunicorn,500); }
-  .dashcard_box {  color: white; background-color: mat-color($primary-xunicorn,500); }
-  .delegate_details {  color: white; background-color: mat-color($warn-xunicorn,600); }
-  .delegate_details_active {  color: white; background-color:mat-color($accent-xunicorn,500); }
-  .codeblock {  color: mat-color($primary-xunicorn,500); background: white; border: 2px solid white; }
-  a{  color: mat-color($primary-xunicorn,500); text-decoration: none; }
-  a:hover {  color: mat-color($accent-xunicorn,500); }
-  a.delegate_details:hover { background: mat-color($accent-xunicorn,500); color: white; }
-  .mat-raised-button:hover { background: mat-color($accent-xunicorn,500); color: white; }
-  .table-header { background: mat-color($primary-xunicorn,500); color: white; }
-  .table-component-holder {  border: 1px solid mat-color($primary-xunicorn,500); }
-  .topstats-details { color: white; }
-  .result_data_name, .parameters_data_name {  font-style: italic; color: mat-color($primary-xunicorn,500); }
-  span.hljs-string { color: mat-color($primary-xunicorn, 500); }
-  span.hljs-built_in { color: mat-color($mat-green, 500); }
-  span.hljs-literal { color: mat-color($mat-cyan, 500); }
-  .cards-container {  border: 2px solid mat-color($primary-xunicorn,500); }
-  .Online {	color:  mat-color($mat-green,500); }
-  .Offline {	color: mat-color($mat-red,500); }
-  .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover, ::ng-deep .mat-expansion-indicator::after {  color: white;  }
-  .mat-expansion-indicator::after {  color: white;  }
-}
 
 
 //

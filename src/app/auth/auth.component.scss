@@ -5,12 +5,12 @@
   $warn: map-get($theme, warn);
 
   .sidenav{
-    background: mat-color($primary,500);
+    background: mat-color($primary);
     overflow: hidden;
     width: 250px;
   }
   .drawer{
-    background: mat-color($primary,500);
+    background: mat-color($primary);
     overflow: hidden;
     width: 80px;
   }

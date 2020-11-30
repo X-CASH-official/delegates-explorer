@@ -7,7 +7,7 @@
 		margin-bottom: 150px;
 	}
 	.cards-header {
-		background-color: mat-color($primary,500);
+		background-color: mat-color($primary);
 		color: white;
 		padding: 0 5px;
 	}
@@ -30,7 +30,6 @@
 	.parameters_data_desc{ padding-left: 20px; }
 	.data_title{ width: 100px; vertical-align: top; padding-top:5px;}
 	.data_value{ padding-left:0; }
-	//.mat-tab-label-content {color: mat-color($primary,500) !important;}
 
 	td.result_data_name, td.result_data_desc { padding: 5px 0px 5px 10px; }
 

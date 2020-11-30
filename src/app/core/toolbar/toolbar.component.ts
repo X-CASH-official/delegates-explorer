@@ -24,6 +24,7 @@ export class ToolbarComponent implements OnInit {
     body.classList.remove("dark-theme");   //remove theme class
     body.classList.remove("light-theme");   //remove theme class
     body.classList.remove("unicorn-theme");   //remove theme class
+    body.classList.remove("darksea-theme");   //remove theme class
     body.classList.add(appId + "-theme");   //add selected theme
     window.localStorage.setItem('xcash-explorer-theme-preference', appId );
   }
