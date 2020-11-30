@@ -145,6 +145,18 @@ cd delegates-explorer
 npm install
 ```
 
+
+#### Configure application
+
+Edit the `delegates-explorer/src/environments/environment.prod.ts` , set your Base-URL and if needed the API EndPoint:
+
+```
+export const environment = {
+    baseURL: "http://delegates.your-domain.tld",
+    apiEndPoint: ''
+};
+```
+
 #### Redirect port 80 to 18283
 
 Make sure to follow the steps to [setup the firewall for `xcash-dpops`](https://github.com/X-CASH-official/xcash-dpops/tree/develop#how-to-setup-the-firewall)
