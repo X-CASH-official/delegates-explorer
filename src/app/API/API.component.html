@@ -11,27 +11,27 @@
         <mat-tab-group fxFlexFill>
           <mat-tab label="API Details">
             <div class="components-container-xs">
-							<table class="components-container-xs">
+							<table class="components-container-xs"  aria-describedby="{{data?.title}} API Description">
 								<tr>
 									<td class="mat-body-1 data_title">Description:</td>
 									<td class="mat-body-2" colspan=2>{{data?.description}}</td>
 								</tr>
 								<tr>
-									<td class="mat-body-1 data_title">HTTP method:</td>
+									<th class="mat-body-1 data_title">HTTP method:</th>
 									<td class="mat-body-1"><code>{{data?.method}} <wbr> {{data?.url}}</code></td>
 								</tr>
 								<tr>
-									<td class="mat-body-1 data_title">Request URL:</td>
+									<th class="mat-body-1 data_title">Request URL:</th>
 									<td class="mat-body-2">
 											<code>{{ data?.request_url}}</code>
 									</td>
 								</tr>
 								<tr *ngIf="data?.parameters && data?.parameters.length > 0" >
-									<td class="mat-body-1 data_title">Parameters:</td>
+									<th class="mat-body-1 data_title">Parameters:</th>
 									<td>
-										<table>
+										<table aria-describedby="{{data?.title}} API Parameters">
 										<tr  *ngFor="let parameters_data of data?.parameters; let count = index" class="row_bg paramters_row">
-											<td	class="mat-body-2 parameters_data_name"><code>{{parameters_data?.name}}</code></td>
+											<th	class="mat-body-2 parameters_data_name"><code>{{parameters_data?.name}}</code></th>
 											<td	class="mat-body-2 parameters_data_desc">{{parameters_data?.desc}}</td>
 										</tr>
 										</table>
@@ -39,9 +39,9 @@
 								</tr>
 							</table>
 
-							<table class="components-container-xs border_bottom">
+							<table class="components-container-xs border_bottom"  aria-describedby="{{data?.title}} API Result">
 								<tr>
-									<td class="mat-body-1" colspan="2">Result:</td>
+									<th class="mat-body-1" colspan="2">Result:</th>
 								</tr>
 								<tr  *ngFor="let result_data of data?.result; let count = index" class="row_bg">
 									<td	class="mat-body-2 result_data_name"><code>{{result_data?.name}}</code></td>
