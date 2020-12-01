@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import Swal from 'sweetalert2';
 import { FunctionsService } from './../../services/functions.service';
 
 
