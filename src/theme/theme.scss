@@ -96,28 +96,21 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .page_title_icon { color: white; }
   .dashcard_icon { color: white; background-color: $acc-darksea; }
   .dashcard_box { color: white; background-color: $pri-darksea; }
-  .delegate_details{ color: white; background-color: $acc-darksea; }
-  .delegate_details_active{ color: white; background-color:$pri-darksea; }
   .codeblock { color: $pri-darksea; background: white;     border: 2px solid white; }
-
-
   // Links
   a{  color: white; text-decoration: none; }
   a:hover {  color: mat-color($accent-darksea,500); }
-
    // Buttons
   .delegate_details {  color: white; background-color:mat-color($accent-darksea,700); }
   .delegate_details_active, a.delegate_details:hover  {  color: white; background-color: $warn-darksea; }
   .mat-raised-button.mat-warn { color: white; background-color: mat-color($accent-darksea,700); }
   .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: $warn-darksea;; background-color: mat-color($accent-darksea,700); }
-
+  // ...
   .result_data_name, .parameters_data_name { font-style: italic; color: mat-color($accent-darksea,400); }
   .cards-container { border: 2px solid $pri-darksea; }
-
   span.hljs-string { color: mat-color($accent-darksea,400); }
   span.hljs-built_in { color: mat-color($mat-amber  ,500); }
   span.hljs-literal { color: mat-color($md-xorange,500); }
-
   .Online { color:  mat-color($mat-green,500); }
   .Offline { color: mat-color($mat-red,500); }
 }

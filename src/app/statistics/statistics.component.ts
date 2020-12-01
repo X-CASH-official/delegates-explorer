@@ -65,7 +65,6 @@ export class statisticsComponent implements OnInit {
             let data = JSON.parse(JSON.stringify(res));
             let count = 0;
             let top_count = 25;
-            let xcash_wallet_decimal_places_amount = this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
 
             this.top_producer = data.sort(function(a, b) {
               return b.block_producer_total_rounds - a.block_producer_total_rounds;

@@ -61,16 +61,14 @@ mat-card {
 
     .table-container {
     	margin-top:5px;
+      padding: 3px 10px 3px 10px;
+      overflow-y: auto;
     }
     .table-component-holder {
       margin: 5px;
     }
     .table-header {
     	padding: 10px 20px 1px 20px;
-    }
-    .table-container {
-    	padding: 3px 10px 3px 10px;
-    	overflow-y: auto;
     }
     .table {
         width: 100%;
