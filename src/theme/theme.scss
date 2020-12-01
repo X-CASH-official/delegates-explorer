@@ -30,12 +30,11 @@ $spin_background-xgrey: mat-palette($mat-grey);
 // UNICDORN THEME
 $primary-unicorn : $mat-pink;
 $accent-unicorn  : $mat-cyan;
-$warning-unicorn    : $mat-purple;
-$spin_background-unicorn: mat-palette($primary-unicorn);
+$warning-unicorn : $mat-yellow;
 
 
 // DARKSEA THEME
-$primary-darksea : $mat-cyan;
+$primary-darksea : $mat-blue;
 $accent-darksea  : $mat-light-blue;
 $warning-darksea : $mat-blue-grey;
 $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
@@ -47,13 +46,13 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
 //
 .darksea-theme {
 
-  $primary-app-primary-darksea: mat-palette($primary-darksea,800);
-  $primary-app-accent-darksea:  mat-palette($accent-darksea,900);
+  $primary-app-primary-darksea: mat-palette($primary-darksea,900);
+  $primary-app-accent-darksea:  mat-palette($accent-darksea,700);
   $primary-app-warn-darksea:    mat-palette($warning-darksea,900 );
 
-  $pri-darksea: mat-color($primary-darksea,800);
-  $acc-darksea: mat-color($accent-darksea,900);
-  $warn-darksea: mat-color($warning-darksea,900);
+  $pri-darksea: mat-color($primary-darksea,900);
+  $acc-darksea:  #002240; // mat-color($accent-darksea,800);
+  $warn-darksea: #002240;//mat-color($warning-darksea,900);
 
   $cdk-theme-dark-darksea:      mat-dark-theme($primary-app-primary-darksea, $primary-app-accent-darksea,$primary-app-warn-darksea);
 
@@ -76,22 +75,22 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
 
   // Backgrounds
   .sidenav{background: $warn-darksea;}
-  .mat-drawer-container{background: mat-color($warning-darksea,800);}
+  .mat-drawer-container{background: #1d3557;}
   #header{background: $warn-darksea;}
   #logo-header{background: $warn-darksea;}
-  .mat-table,  .mat-paginator{background: $warn-darksea;}
-  .mat-expansion-panel{background: $warn-darksea;}
-  .mat-tab-group{background: $warn-darksea;}
-  .table-header { background: $pri-darksea; }
-  .table-container{background: $warn-darksea;}
+  .mat-table,  .mat-paginator {background: $warn-darksea;}
+  .mat-expansion-panel {background: $warn-darksea;}
+  .mat-tab-group {background: $warn-darksea;}
+  .table-header { background: $warn-darksea; }
+  .table-container {background: $warn-darksea;}
 
   // Logo SVG Fill
-  .xca0 { fill: $pri-darksea; }
+  .xca0 { fill: mat-color($primary-darksea,500); }
   .xca1 { fill: white; }
-  .loader-container { background: mat-color($spin_background-darksea); }
+  .loader-container { background: $warn-darksea; }
   .swal2-confirm { background-color: $pri-darksea !important; }
-  .logo { color: $pri-darksea; }
-  .page_title { color: white; background: $pri-darksea;}
+  .logo { color:  mat-color($primary-darksea,500); }
+  .page_title { color: white; background: $warn-darksea;}
   .page_subtitle { color: white; background: $pri-darksea; }
   .page_title_icon { color: white; }
   .dashcard_icon { color: white; background-color: $acc-darksea; }
@@ -103,6 +102,16 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   a:hover { color: $acc-darksea; }
   a.delegate_details:hover { background: $pri-darksea; color: white; }
   .mat-raised-button:hover { background: $acc-darksea; color: white; }
+
+  // Links
+  a{  color: white; text-decoration: none; }
+  a:hover {  color: mat-color($accent-darksea,500); }
+   // Buttons
+  .delegate_details {  color: white; background-color:mat-color($accent-darksea,500); }
+  .delegate_details_active, a.delegate_details:hover  {  color: white; background-color: $warn-darksea; }
+  .mat-raised-button.mat-warn { color: white; background-color: mat-color($accent-darksea,700); }
+  .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: $warn-darksea;; background-color: mat-color($accent-darksea,700); }
+
 
   .result_data_name, .parameters_data_name { font-style: italic; color: mat-color($accent-darksea,400); }
   .cards-container { border: 2px solid $pri-darksea; }
@@ -123,18 +132,16 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
 .unicorn-theme {
   $primary-app-primary-unicorn: mat-palette($primary-unicorn, 500);
   $primary-app-accent-unicorn:  mat-palette($accent-unicorn, 400);
-  $primary-app-warn-unicorn:    mat-palette($warning-unicorn, 600 );
+  $primary-app-warn-unicorn:    mat-palette($warning-unicorn,500 );
 
-  $pri-unicorn: mat-color($primary-unicorn,500);
-  $acc-unicorn: mat-color($accent-unicorn,900);
-  $warn-unicorn: mat-color($mat-yellow,50);
+  $bg-unicorn: mat-color($mat-yellow,50);
 
   $cdk-theme-dark-unicorn:   mat-dark-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
   $cdk-theme-light-unicorn:  mat-light-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
 
   cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-unicorn); }
   cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-light-unicorn,28px) }
-  
+
   cdk-dashcard { @include dashcard($cdk-theme-dark-unicorn); }
   cdk-profile-card{
     @include dashboard-profile($cdk-theme-dark-unicorn);
@@ -151,40 +158,41 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   // Logo SVG Fill
   .xca0 { fill: mat-color($mat-cyan,500); }
   .xca1 { fill: mat-color($primary-unicorn,500); }
-
   // Backgrounds
-  .loader-container { background: mat-color($spin_background-unicorn, 50, 0.9);  }
-  .mat-drawer-container{background: $warn-unicorn;}
-  #header{background: mat-color($mat-yellow,50)}
+  .loader-container { background: $bg-unicorn;  }
+  .mat-drawer-container{background: $bg-unicorn;}
+  #header{background: mat-color($mat-yellow,50);}
   #logo-header{background: mat-color($mat-yellow,50)}
-  .table-container, .mat-table,  .mat-paginator{background: $warn-unicorn;}
-  .mat-expansion-panel{background: $warn-unicorn;}
+  .table-container, .mat-table,  .mat-paginator{background: $bg-unicorn;}
+  .mat-expansion-panel{background: $bg-unicorn;}
   .table-header { background: mat-color($primary-unicorn,500); color: white; }
   .table-component-holder {  border: 1px solid mat-color($primary-unicorn,500); }
   .swal2-confirm { background-color: mat-color($primary-unicorn,500) !important; }
-
-  // Toolbar nav-elements
+  // Toolbar
   .mat-icon-button, .mat-button{ color: mat-color($primary-unicorn,500); }
-
   .logo { color: mat-color($accent-unicorn,500); }
   .page_title {  color: white; background: mat-color($primary-unicorn,500); }
+  // Page title
   .page_subtitle {  color: white; background: mat-color($primary-unicorn,500); }
   .page_title_icon {    color: white; }
+  // Dashcards
   .dashcard_icon {  color: white; background-color: mat-color($accent-unicorn,500); }
   .dashcard_box {  color: white; background-color: mat-color($primary-unicorn,500); }
-  .delegate_details {  color: white; background-color: mat-color($warning-unicorn,600); }
-  .delegate_details_active {  color: white; background-color:mat-color($accent-unicorn,500); }
-  .codeblock {  color: mat-color($primary-unicorn,500); background: white; border: 2px solid white; }
+  // Links
   a{  color: mat-color($primary-unicorn,500); text-decoration: none; }
   a:hover {  color: mat-color($accent-unicorn,500); }
-  a.delegate_details:hover { background: mat-color($accent-unicorn,500); color: white; }
-  .mat-raised-button:hover { background: mat-color($accent-unicorn,500); color: white; }
-
+   // Buttons
+  .delegate_details {  color: white; background-color:mat-color($accent-unicorn,500); }
+  .delegate_details_active, a.delegate_details:hover  {  color: mat-color($primary-unicorn,500); background-color: mat-color($warning-unicorn,700); }
+  .mat-raised-button.mat-warn { color: white; background-color:mat-color($accent-unicorn,500); }
+  .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: mat-color($primary-unicorn,500); background-color: mat-color($warning-unicorn,700); }
+  // ...
+  .codeblock {  color: mat-color($primary-unicorn,500); background: mat-color($warning-unicorn,700); border: 2px solid mat-color($warning-unicorn,700); }
   .topstats-details { color: white; }
-  .result_data_name, .parameters_data_name {  font-style: italic; color: mat-color($primary-unicorn,500); }
-  span.hljs-string { color: mat-color($primary-unicorn, 500); }
+  .result_data_name, .parameters_data_name {  font-style: italic; color: mat-color($mat-cyan,500); }
+  span.hljs-string { color: mat-color($mat-cyan, 500); }
   span.hljs-built_in { color: mat-color($mat-green, 500); }
-  span.hljs-literal { color: mat-color($mat-cyan, 500); }
+  span.hljs-literal { color: mat-color($primary-unicorn, 500); }
   .cards-container {  border: 2px solid mat-color($primary-unicorn,500); }
   .Online {	color:  mat-color($mat-green,500); }
   .Offline {	color: mat-color($mat-red,500); }
