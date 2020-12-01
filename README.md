@@ -25,7 +25,7 @@
 - [Installation Process](#installation-process)
   - [Dependencies](#dependencies)
   - [Requirements](#requirements)
-  - [Develop](#develop)
+  - [Install](#install)
   - [Testing](#testing)
 
 ## Features
@@ -129,7 +129,7 @@ Then install the compressor `UglifyJS` globally :
 npm install -g uglify-js
 ```
 
-### Develop
+### Install
 
 #### Clone repository
 
@@ -145,10 +145,9 @@ cd delegates-explorer
 npm install
 ```
 
-
 #### Configure application
 
-Edit the `delegates-explorer/src/environments/environment.prod.ts` , set your Base-URL and if needed the API EndPoint:
+Edit the `delegates-explorer/src/environments/environment.prod.ts` , set your Base-URL (Domain URL) and if needed an external API Endpoint:
 
 ```
 export const environment = {
@@ -157,9 +156,25 @@ export const environment = {
 };
 ```
 
-#### Redirect port 80 to 18283
+#### Install the firewall with parameters for shared delegates.
 
-Make sure to follow the steps to [setup the firewall for `xcash-dpops`](https://github.com/X-CASH-official/xcash-dpops/tree/develop#how-to-setup-the-firewall)
+Run `bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"` and choose `12 = Shared Delegates Firewall`.
+
+#### Manual Installation of the firewall
+
+Download the [`firewall_script.sh`](https://github.com/X-CASH-official/xcash-dpops/tree/master/scripts/firewall) .
+
+Uncomment these lines in `firewall_script.sh` to enable port 80 and redirect port 80 to 18283:
+```
+# iptables -t filter -I INPUT -p tcp --syn --dport 80 -m connlimit --connlimit-above 100 --connlimit-mask 32 -j DROP
+# iptables -t filter -I INPUT -p tcp --syn --dport 18283 -m connlimit --connlimit-above 100 --connlimit-mask 32 -j DROP
+```
+```
+# iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+```
+
+Run the firewall script
+`./firewall_script.sh`
 
 #### Build
 
