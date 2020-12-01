@@ -83,7 +83,8 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .mat-tab-group {background: $warn-darksea;}
   .table-header { background: $warn-darksea; }
   .table-container {background: $warn-darksea;}
-
+  .service-card-content .service-card-container .service-card {background: $warn-darksea;}
+  .topstats-card-holder .topstats-details {background: $warn-darksea;}
   // Logo SVG Fill
   .xca0 { fill: mat-color($primary-darksea,500); }
   .xca1 { fill: white; }
@@ -107,7 +108,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   a{  color: white; text-decoration: none; }
   a:hover {  color: mat-color($accent-darksea,500); }
    // Buttons
-  .delegate_details {  color: white; background-color:mat-color($accent-darksea,500); }
+  .delegate_details {  color: white; background-color:mat-color($accent-darksea,700); }
   .delegate_details_active, a.delegate_details:hover  {  color: white; background-color: $warn-darksea; }
   .mat-raised-button.mat-warn { color: white; background-color: mat-color($accent-darksea,700); }
   .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: $warn-darksea;; background-color: mat-color($accent-darksea,700); }
@@ -176,7 +177,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .page_subtitle {  color: white; background: mat-color($primary-unicorn,500); }
   .page_title_icon {    color: white; }
   // Dashcards
-  .dashcard_icon {  color: white; background-color: mat-color($accent-unicorn,500); }
+  .dashcard_icon {  color: white; background-color: mat-color($warning-unicorn,700); }
   .dashcard_box {  color: white; background-color: mat-color($primary-unicorn,500); }
   // Links
   a{  color: mat-color($primary-unicorn,500); text-decoration: none; }
