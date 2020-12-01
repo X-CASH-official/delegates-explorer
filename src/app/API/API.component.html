@@ -31,7 +31,7 @@
 									<td>
 										<table aria-describedby="{{data?.title}} API Parameters">
 										<tr  *ngFor="let parameters_data of data?.parameters; let count = index" class="row_bg paramters_row">
-											<th	class="mat-body-2 parameters_data_name"><code>{{parameters_data?.name}}</code></th>
+											<th scope="row"	class="mat-body-2 parameters_data_name"><code>{{parameters_data?.name}}</code></th>
 											<td	class="mat-body-2 parameters_data_desc">{{parameters_data?.desc}}</td>
 										</tr>
 										</table>
@@ -41,7 +41,7 @@
 
 							<table class="components-container-xs border_bottom"  aria-describedby="{{data?.title}} API Result">
 								<tr>
-									<th scope="row" class="mat-body-1" colspan="2">Result:</th>
+									<th scope="col" class="mat-body-1" colspan="2">Result:</th>
 								</tr>
 								<tr  *ngFor="let result_data of data?.result; let count = index" class="row_bg">
 									<td	class="mat-body-2 result_data_name"><code>{{result_data?.name}}</code></td>
