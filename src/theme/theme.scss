@@ -133,9 +133,9 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
 .unicorn-theme {
   $primary-app-primary-unicorn: mat-palette($primary-unicorn, 500);
   $primary-app-accent-unicorn:  mat-palette($accent-unicorn, 400);
-  $primary-app-warn-unicorn:    mat-palette($warning-unicorn,500 );
+  $primary-app-warn-unicorn:    mat-palette($warning-unicorn, 500 );
 
-  $bg-unicorn: mat-color($mat-yellow,50);
+  $bg-unicorn: mat-color($warning-unicorn,200);
 
   $cdk-theme-dark-unicorn:   mat-dark-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
   $cdk-theme-light-unicorn:  mat-light-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
@@ -160,15 +160,18 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .xca0 { fill: mat-color($mat-cyan,500); }
   .xca1 { fill: mat-color($primary-unicorn,500); }
   // Backgrounds
-  .loader-container { background: $bg-unicorn;  }
-  .mat-drawer-container{background: $bg-unicorn;}
-  #header{background: mat-color($mat-yellow,50);}
-  #logo-header{background: mat-color($mat-yellow,50)}
+  .loader-container { background: mat-color($mat-light-green,400);  }
+  .mat-drawer-container{background:  mat-color($mat-light-green,400);}
+  #header{background: $bg-unicorn;;}
+  #logo-header{background: $bg-unicorn;}
   .table-container, .mat-table,  .mat-paginator{background: $bg-unicorn;}
   .mat-expansion-panel{background: $bg-unicorn;}
+  .mat-tab-group {background: $bg-unicorn;}
   .table-header { background: mat-color($primary-unicorn,500); color: white; }
   .table-component-holder {  border: 1px solid mat-color($primary-unicorn,500); }
   .swal2-confirm { background-color: mat-color($primary-unicorn,500) !important; }
+  // .service-card-content .service-card-container .service-card {background: $bg-unicorn;}
+  // .topstats-card-holder .topstats-details {background: $bg-unicorn;}
   // Toolbar
   .mat-icon-button, .mat-button{ color: mat-color($primary-unicorn,500); }
   .logo { color: mat-color($accent-unicorn,500); }
@@ -178,7 +181,9 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .page_title_icon {    color: white; }
   // Dashcards
   .dashcard_icon {  color: white; background-color: mat-color($warning-unicorn,700); }
-  .dashcard_box {  color: white; background-color: mat-color($primary-unicorn,500); }
+  .dashcard_box, .dashcard_box p {  color: white; background-color: mat-color($primary-unicorn,500); }
+  cdk-dashcard .mat-icon {  color: mat-color($primary-unicorn,500); }
+  .dashcard_box {  color:  mat-color($warning-unicorn,700); }
   // Links
   a{  color: mat-color($primary-unicorn,500); text-decoration: none; }
   a:hover {  color: mat-color($accent-unicorn,500); }
@@ -190,13 +195,13 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   // ...
   .codeblock {  color: mat-color($primary-unicorn,500); background: mat-color($warning-unicorn,700); border: 2px solid mat-color($warning-unicorn,700); }
   .topstats-details { color: white; }
-  .result_data_name, .parameters_data_name {  font-style: italic; color: mat-color($mat-cyan,500); }
+  .result_data_name, .parameters_data_name {  font-style: italic; color: mat-color($primary-unicorn,500); }
   span.hljs-string { color: mat-color($mat-cyan, 500); }
   span.hljs-built_in { color: mat-color($mat-green, 500); }
   span.hljs-literal { color: mat-color($primary-unicorn, 500); }
   .cards-container {  border: 2px solid mat-color($primary-unicorn,500); }
-  .Online {	color:  mat-color($mat-green,500); }
-  .Offline {	color: mat-color($mat-red,500); }
+  .Online {	color:  mat-color($mat-green,900); }
+  .Offline {	color: mat-color($mat-red,900); }
   .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover, ::ng-deep .mat-expansion-indicator::after {  color: white;  }
   .mat-expansion-indicator::after {  color: white;  }
 }
