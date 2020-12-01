@@ -5,8 +5,9 @@ import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
 import { HttpdataService } from '../../services/http-request.service';
+import { FunctionsService } from '../../services/functions.service';
 import Swal from 'sweetalert2';
-//import { Observable } from 'rxjs';
+
 
 import { MatPaginator, MatSort } from '@angular/material';
 
@@ -41,7 +42,9 @@ export class Delegates_statisticsComponent implements OnInit {
   last_block_found:number;
   length;
 
-  constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService) { }
+  constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private functionsService: FunctionsService) {
+    this.functionsService;
+  }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
@@ -134,19 +137,6 @@ export class Delegates_statisticsComponent implements OnInit {
       return (value / Math.pow(1000, exp)).toFixed(1) + suffixes[exp - 1];
     }
 
-    copyVote(val: string) {
-     let selBox = document.createElement('textarea');
-     selBox.style.position = 'fixed';
-     selBox.style.left = '0';
-     selBox.style.top = '0';
-     selBox.style.opacity = '0';
-     selBox.value = val;
-     document.body.appendChild(selBox);
-     selBox.focus();
-     selBox.select();
-     document.execCommand('copy');
-     document.body.removeChild(selBox);
-     Swal.fire("Success","The vote has been copied to the clipboard","success");
-   }
+
 
 }
