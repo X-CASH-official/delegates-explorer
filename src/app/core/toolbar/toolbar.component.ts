@@ -21,10 +21,7 @@ export class ToolbarComponent implements OnInit {
   switchTheme(appId: string) {
     this.appId = appId; // changing theme based on choice
     let body = document.getElementsByTagName('body')[0];
-    body.classList.remove("dark-theme");   //remove theme class
-    body.classList.remove("light-theme");   //remove theme class
-    body.classList.remove("unicorn-theme");   //remove theme class
-    body.classList.remove("darksea-theme");   //remove theme class
+    body.classList.remove("dark-theme","light-theme","unicorn-theme","darksea-theme");   //remove theme class
     body.classList.add(appId + "-theme");   //add selected theme
     window.localStorage.setItem('xcash-explorer-theme-preference', appId );
   }
