@@ -6,7 +6,7 @@
       <div fxLayout="column" >
           <div fxLayout="row" fxLayoutAlign="space-around center"  >
               <div  class="banner">
-                   <img width="100" [style.borderRadius]="'50%'" src="/assets/images/emoji_events-white-48dp.svg">
+                   <img alt="top block producer" width="100" [style.borderRadius]="'50%'" src="/assets/images/emoji_events-white-48dp.svg">
               </div>
           </div>
           <div   class="topstats-details mat-elevation-z8" >
@@ -23,7 +23,7 @@
       <div fxLayout="column" >
           <div fxLayout="row" fxLayoutAlign="space-around center"  >
               <div  class="banner">
-                   <img width="100" [style.borderRadius]="'50%'" src="/assets/images/military_tech-white-48dp.svg">
+                   <img alt="top block verifier" width="100" [style.borderRadius]="'50%'" src="/assets/images/military_tech-white-48dp.svg">
               </div>
           </div>
           <div   class="topstats-details mat-elevation-z8" >
@@ -40,7 +40,7 @@
       <div fxLayout="column" >
           <div fxLayout="row" fxLayoutAlign="space-around center"  >
               <div  class="banner">
-                   <img width="100" [style.borderRadius]="'50%'" src="/assets/images/star_half-white-48dp.svg">
+                   <img alt="top producer/verifier ratio" width="100" [style.borderRadius]="'50%'" src="/assets/images/star_half-white-48dp.svg">
               </div>
           </div>
           <div   class="topstats-details mat-elevation-z8" >
@@ -63,16 +63,21 @@
   			<h1 class="mat-headline" >Top Block Producer</h1>
   		</div>
   		<div class="table-container">
-  	    	<table class="table">
-  						<tr  *ngFor="let delegate of top_producer; let count = index ">
-                <td class="mat-subheading-2 count">{{ count+1 }}</td>
-                <td class="mat-subheading-2 delegate_name">
-                  <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
-                    {{ delegate.delegate_name | slice:0:35 }}
-                  </a>
-                </td>
-    						<td class="text-right mat-subheading-2 block_producer_total_rounds">{{ delegate.block_producer_total_rounds }}</td>
-							</tr>
+  	    	<table class="table" aria-describedby="Top Block Producer">
+            <tr class="hide_th">
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Rank</span></th>
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Name</span></th>
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Count</span></th>
+            </tr>
+						<tr  *ngFor="let delegate of top_producer; let count = index ">
+              <td class="mat-subheading-2 count">{{ count+1 }}</td>
+              <td class="mat-subheading-2 delegate_name">
+                <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                  {{ delegate.delegate_name | slice:0:35 }}
+                </a>
+              </td>
+  						<td class="text-right mat-subheading-2 block_producer_total_rounds">{{ delegate.block_producer_total_rounds }}</td>
+						</tr>
   				</table>
     	</div>
   	</div>
@@ -82,16 +87,21 @@
   			<h1 class="mat-headline" >Top Block Verifier</h1>
   		</div>
   		<div class="table-container">
-  	    	<table class="table">
-  						<tr  *ngFor="let delegate of top_verifier; let count = index ">
-                <td class="mat-subheading-2 count">{{ count+1 }}</td>
-                <td class="mat-subheading-2 delegate_name">
-                  <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
-                    {{ delegate.delegate_name | slice:0:35 }}
-                  </a>
-                </td>
-    						<td class="text-right mat-subheading-2 block_producer_total_rounds">{{ delegate.block_verifier_total_rounds }}</td>
-							</tr>
+  	    	<table class="table"  aria-describedby="Top Block Verifier">
+            <tr class="hide_th">
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Rank</span></th>
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Name</span></th>
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Count</span></th>
+            </tr>
+						<tr  *ngFor="let delegate of top_verifier; let count = index ">
+              <td class="mat-subheading-2 count">{{ count+1 }}</td>
+              <td class="mat-subheading-2 delegate_name">
+                <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                  {{ delegate.delegate_name | slice:0:35 }}
+                </a>
+              </td>
+  						<td class="text-right mat-subheading-2 block_producer_total_rounds">{{ delegate.block_verifier_total_rounds }}</td>
+						</tr>
   				</table>
     	</div>
   	</div>
@@ -101,16 +111,21 @@
   			<h1 class="mat-headline center-align" >Top Producer/Verfier Ratio</h1>
   		</div>
   		<div class="table-container">
-  	    	<table class="table">
-  						<tr  *ngFor="let delegate of top_ratio; let count = index ">
-                <td class="mat-subheading-2 count">{{ count+1 }}</td>
-                <td class="mat-subheading-2 delegate_name">
-                  <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
-                    {{ delegate.delegate_name | slice:0:35 }}
-                  </a>
-                </td>
-    						<td class="mat-subheading-2 block_producer_total_rounds">{{ delegate.block_ratio| number:'1.0-1' }}%</td>
-							</tr>
+  	    	<table class="table" aria-describedby="Top Producer/Verfier Ratio">
+            <tr class="hide_th">
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Rank</span></th>
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Name</span></th>
+              <th class="mat-subheading-2" scope="col"><span class="offscreen">Count</span></th>
+            </tr>
+						<tr  *ngFor="let delegate of top_ratio; let count = index ">
+              <td class="mat-subheading-2 count">{{ count+1 }}</td>
+              <td class="mat-subheading-2 delegate_name">
+                <a class="text-primary" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate.delegate_name}">
+                  {{ delegate.delegate_name | slice:0:35 }}
+                </a>
+              </td>
+  						<td class="mat-subheading-2 block_producer_total_rounds">{{ delegate.block_ratio| number:'1.0-1' }}%</td>
+						</tr>
   				</table>
     	</div>
   	</div>

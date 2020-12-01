@@ -477,3 +477,5 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .components-container-gt-xs{
   	padding:  10px 5px;
   }
+  .hide_th { height: 1px; border: none }
+  .offscreen { height: 1px; width: 1px; position: absolute; overflow: hidden; top: -10px; }
