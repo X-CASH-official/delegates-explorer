@@ -308,10 +308,6 @@ export const API_DATA:any = [
         {
           "name": "parameter1",
           "desc": " The block height"
-        },
-        {
-          "name": "parameter2",
-          "desc": " The block height"
         }
       ],
       result: [
