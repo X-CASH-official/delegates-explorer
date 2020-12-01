@@ -11,7 +11,7 @@
         <mat-tab-group fxFlexFill>
           <mat-tab label="API Details">
             <div class="components-container-xs">
-							<table class="components-container-xs"  aria-describedby="{{data?.title}} API Description">
+							<table class="components-container-xs"  aria-describedby="API Description">
 								<tr>
 									<th scope="row" class="mat-body-1 data_title">Description:</th>
 									<td class="mat-body-2" colspan=2>{{data?.description}}</td>
@@ -29,7 +29,7 @@
 								<tr *ngIf="data?.parameters && data?.parameters.length > 0" >
 									<th scope="row" class="mat-body-1 data_title">Parameters:</th>
 									<td>
-										<table aria-describedby="{{data?.title}} API Parameters">
+										<table aria-describedby="API Parameters">
 										<tr  *ngFor="let parameters_data of data?.parameters; let count = index" class="row_bg paramters_row">
 											<th scope="row"	class="mat-body-2 parameters_data_name"><code>{{parameters_data?.name}}</code></th>
 											<td	class="mat-body-2 parameters_data_desc">{{parameters_data?.desc}}</td>
@@ -39,7 +39,7 @@
 								</tr>
 							</table>
 
-							<table class="components-container-xs border_bottom"  aria-describedby="{{data?.title}} API Result">
+							<table class="components-container-xs border_bottom"  aria-describedby="API Result">
 								<tr>
 									<th scope="col" class="mat-body-1" colspan="2">Result:</th>
 								</tr>
