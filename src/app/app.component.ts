@@ -98,9 +98,6 @@ export class AppComponent {
   constructor(private router: Router,  private meta: Meta) {
     // override the route reuse strategy
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-
-    //this.baseURL = environment.baseURL;
-    //this.metaImage = this.baseURL + "/assets/icons/apple-touch-icon-180x180.png";
   }
 
   ngOnInit() {
@@ -123,14 +120,10 @@ export class AppComponent {
       window.scrollTo(0, 0);
     });
 
-    'xcash-explorer-theme-preference'
     var theme = window.localStorage.getItem('xcash-explorer-theme-preference');
     if (theme) {
       let body = document.getElementsByTagName('body')[0];
-      body.classList.remove("dark-theme");   //remove theme class
-      body.classList.remove("light-theme");   //remove theme class
-      body.classList.remove("unicorn-theme");   //remove theme class
-      body.classList.remove("darksea-theme");   //remove theme class
+      body.classList.remove("dark-theme","light-theme","unicorn-theme","darksea-theme");   //remove theme class
       body.classList.add(theme + "-theme");   //add selected theme
     }
 
