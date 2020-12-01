@@ -8,10 +8,6 @@
 
     <span class="spacer"></span>
 
-    <!-- <button  mat-icon-button (click)="searchOpen = !searchOpen" fxHide="true" [fxHide.gt-xs]="false">
-        <em class="material-icons">search</em>
-    </button>
-    <cdk-search-bar [open]="searchOpen"></cdk-search-bar> -->
 		<button mat-button [matMenuTriggerFor]="menu">Change Theme </button>
 		<mat-menu #menu="matMenu">
 						<button value='dark' mat-menu-item   (click)="switchTheme('dark')">Dark</button>
@@ -19,8 +15,5 @@
 						<button value='unicorn' mat-menu-item (click)="switchTheme('unicorn')">Unicorn</button>
 						<button value='darksea' mat-menu-item (click)="switchTheme('darksea')">Darksea</button>
 	 </mat-menu>
-
-    <!-- <cdk-fullscreen></cdk-fullscreen> -->
-
 
 </mat-toolbar>
