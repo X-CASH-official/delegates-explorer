@@ -66,10 +66,10 @@ describe('HelpComponent', () => {
   // test the services
   it('Test GET /delegateswebsitegetstatistics',inject([HttpTestingController, HttpdataService],(httpMock: HttpTestingController, httpdataservice: HttpdataService) => {
     HttpdataService.get_request(HttpdataService.GET_STATISTICS).subscribe((event: HttpEvent<any>) => {
-      switch (event.type) {
-        case HttpEventType.Response:
-           }
-         });
+        // switch (event.type) {
+        //   case HttpEventType.Response:
+        //      }
+        //    });
 
          const mockReq = httpMock.match(httpdataservice.GET_STATISTICS);
          expect(mockReq.slice(-1)[0].cancelled).toBeFalsy();

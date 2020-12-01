@@ -1,4 +1,4 @@
-import {fromEvent as observableFromEvent,  Observable } from 'rxjs';
+import {fromEvent as observableFromEvent } from 'rxjs';
 import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
 
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
@@ -9,14 +9,6 @@ import { Title } from '@angular/platform-browser';
 
 import Swal from 'sweetalert2';
 
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  query,
-} from '@angular/animations'
 
 @Component({
   selector: 'app-fixed-table',

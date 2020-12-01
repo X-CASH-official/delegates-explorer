@@ -1,4 +1,4 @@
-import {fromEvent as observableFromEvent,  Observable } from 'rxjs';
+import {fromEvent as observableFromEvent} from 'rxjs';
 import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
 
 import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
