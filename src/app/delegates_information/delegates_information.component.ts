@@ -24,10 +24,9 @@ export class Delegates_informationComponent implements OnInit {
     server_specs:string;
     public_address:string;
 
-    constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private titleService:Title, private functionsService: FunctionsService) {
+    constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private titleService:Title, public functionsService: FunctionsService) {
         this.delegate_name = this.route.snapshot.queryParamMap.get("data");
         this.titleService.setTitle( this.delegate_name +  "Delegate Information - Delegates Explorer - X-CASH" );
-        this.functionsService;
      }
 
 

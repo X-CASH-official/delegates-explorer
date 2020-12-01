@@ -19,9 +19,7 @@ export class ProfileCardComponent implements OnInit {
   @Input() button_length: string;
   @Input() button_click: string;
 
-  constructor(private functionsService: FunctionsService){
-    this.functionsService;
-  }
+  constructor(public functionsService: FunctionsService){ }
 
   width:number = 0;
 

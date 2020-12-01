@@ -42,9 +42,7 @@ export class Delegates_statisticsComponent implements OnInit {
   last_block_found:number;
   length;
 
-  constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private functionsService: FunctionsService) {
-    this.functionsService;
-  }
+  constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, public functionsService: FunctionsService) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;

@@ -36,9 +36,7 @@ export class Delegates_voters_listComponent implements OnInit {
 	public showFilterTableCode;
   length;
 
-	constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private functionsService: FunctionsService) {
-    this.functionsService;
-  }
+	constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, public functionsService: FunctionsService) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
