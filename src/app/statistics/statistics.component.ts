@@ -35,13 +35,13 @@ export class statisticsComponent implements OnInit {
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text: 0, settings: true, title: 'MOST TOTAL ROUNDS', icon: 'model_training' }
     ];
 
-    constructor(private HttpdataService: HttpdataService, private titleService:Title) {
+    constructor(private httpdataservice: HttpdataService, private titleService:Title) {
         this.titleService.setTitle(" Statistics - Delegates Explorer - X-CASH");
      }
 
     ngOnInit() {
           // get the data
-  	  this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
+  	  this.httpdataservice.get_request(this.httpdataservice.GET_STATISTICS).subscribe(
     	  (res) => {
           var data = JSON.parse(JSON.stringify(res));
             this.most_block_producer_total_rounds_delegate_name = data.most_block_producer_total_rounds_delegate_name;
@@ -60,12 +60,12 @@ export class statisticsComponent implements OnInit {
 
     get_delegates_stats() {
       // get the data
-   	  this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES).subscribe(
+   	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES).subscribe(
      	  (res) =>  {
             let data = JSON.parse(JSON.stringify(res));
             let count = 0;
             let top_count = 25;
-            let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+            let xcash_wallet_decimal_places_amount = this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
 
             this.top_producer = data.sort(function(a, b) {
               return b.block_producer_total_rounds - a.block_producer_total_rounds;

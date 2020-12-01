@@ -69,7 +69,7 @@ export class Round_statisticsComponent implements OnInit {
 	public dataSource5: ExampleDataSource | null;
 	public showFilterTableCode;
 
-  constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
+  constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService) { }
 
 	ngOnInit() {
     this.block_height = this.route.snapshot.queryParamMap.get("data");
@@ -83,7 +83,7 @@ export class Round_statisticsComponent implements OnInit {
     }
 
 	  // get the data
-	  this.HttpdataService.get_request(this.HttpdataService.GET_ROUND_STATISTICS + "?parameter1=" + this.block_height).subscribe(
+	  this.httpdataservice.get_request(this.httpdataservice.GET_ROUND_STATISTICS + "?parameter1=" + this.block_height).subscribe(
   	  (res) =>
   	  {
         this.exampleDatabase1 = new ExampleDatabase();

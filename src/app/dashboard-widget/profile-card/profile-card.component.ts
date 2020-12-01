@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {HttpdataService} from '../../services/http-request.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -19,8 +18,8 @@ export class ProfileCardComponent implements OnInit {
   @Input() button_click: string;
 
   width:number = 0;
-  
-  constructor(private HttpdataService: HttpdataService) { }
+
+  constructor() { }
 
   copyMessage(val: string, text:string){
     let selBox = document.createElement('textarea');

@@ -23,7 +23,7 @@ export class Delegates_informationComponent implements OnInit {
     server_specs:string;
     public_address:string;
 
-    constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService, private titleService:Title) {
+    constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private titleService:Title) {
         this.delegate_name = this.route.snapshot.queryParamMap.get("data");
         this.titleService.setTitle(   this.delegate_name +  "Delegate Information - Delegates Explorer - X-CASH");
      }
@@ -31,7 +31,7 @@ export class Delegates_informationComponent implements OnInit {
 
     ngOnInit() {
 
-      this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
+      this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES_INFORMATION + "?parameter1=" + this.delegate_name).subscribe(
       (res) => {
                 var data = JSON.parse(JSON.stringify(res));
 

@@ -33,7 +33,7 @@ export class DelegatesComponent implements OnInit {
   length;
   pagesize;
 
-	constructor(private HttpdataService: HttpdataService, private titleService:Title) {
+	constructor(private httpdataservice: HttpdataService, private titleService:Title) {
       this.titleService.setTitle(" Delegates List - Delegates Explorer - X-CASH");
    }
 
@@ -51,18 +51,17 @@ export class DelegatesComponent implements OnInit {
 
 	get_delegates() {
     // get the data
-	  this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES).subscribe(
+	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES).subscribe(
   	  (res) => {
         this.exampleDatabase = new DelegateDatabase();
         let data = JSON.parse(JSON.stringify(res));
   	    let count = 0;
-        let delegate_total_vote_count;
         let current_delegate_total_vote_count;
         let mode;
         let status;
-        let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+        let xcash_wallet_decimal_places_amount = this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
 
-  	    for (count = 0, delegate_total_vote_count = 0; count < data.length; count++) {
+  	    for (count = 0; count < data.length; count++) {
           current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / xcash_wallet_decimal_places_amount;
           status = data[count].online_status == 'true' ? 'Online'  : 'Offline';
           mode = data[count].shared_delegate_status == 'true' ? 'Shared'  : 'Solo';

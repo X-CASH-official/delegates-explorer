@@ -64,14 +64,14 @@ describe('HelpComponent', () => {
   it('should set profile card sixs title', () => expect(fixture.debugElement.nativeElement.querySelector('#profilecard6').title).toBe('How to verify round statistics in the CLI'));
 
   // test the services
-  it('Test GET /delegateswebsitegetstatistics',inject([HttpTestingController, HttpdataService],(httpMock: HttpTestingController, HttpdataService: HttpdataService) => {
+  it('Test GET /delegateswebsitegetstatistics',inject([HttpTestingController, HttpdataService],(httpMock: HttpTestingController, httpdataservice: HttpdataService) => {
     HttpdataService.get_request(HttpdataService.GET_STATISTICS).subscribe((event: HttpEvent<any>) => {
       switch (event.type) {
         case HttpEventType.Response:
            }
          });
 
-         const mockReq = httpMock.match(HttpdataService.GET_STATISTICS);
+         const mockReq = httpMock.match(httpdataservice.GET_STATISTICS);
          expect(mockReq.slice(-1)[0].cancelled).toBeFalsy();
          expect(mockReq.slice(-1)[0].request.method).toBe('GET');
          expect(mockReq.slice(-1)[0].request.responseType).toEqual('json');

@@ -29,20 +29,20 @@ export class DashboardCrmComponent implements OnInit {
     ];
 
 
-    constructor(private HttpdataService: HttpdataService, private titleService:Title) {
+    constructor(private httpdataservice:HttpdataService, private titleService:Title) {
         this.titleService.setTitle("Delegates Explorer - X-CASH");
      }
 
 
     ngOnInit() {
       // get the data
-  	  this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
+  	  this.httpdataservice.get_request(this.httpdataservice.GET_STATISTICS).subscribe(
     	  (res) => {
           var data = JSON.parse(JSON.stringify(res));
           this.dashCard1[0].text = data.XCASH_DPOPS_round_number;
           this.dashCard1[1].text = data.current_block_height;
           this.dashCard1[2].text = 50;
-          this.dashCard1[4].text = this.get_lg_numer_format(parseInt(data.total_votes) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
+          this.dashCard1[4].text = this.get_lg_numer_format(parseInt(data.total_votes) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
 
           this.dashCard1[6].text = parseInt(data.XCASH_DPOPS_circulating_percentage);
 
@@ -73,14 +73,14 @@ export class DashboardCrmComponent implements OnInit {
     get_delegates()
     {
       // get the data
-      this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES).subscribe(
+      this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES).subscribe(
         (res) => {
           //this.exampleDatabase = new ExampleDatabase();
           let data = JSON.parse(JSON.stringify(res));
           let count = 0;
           let delegate_total_vote_count;
           let current_delegate_total_vote_count;
-          let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+          let xcash_wallet_decimal_places_amount = this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
 
           this.dashCard1[3].text = data.length;
 

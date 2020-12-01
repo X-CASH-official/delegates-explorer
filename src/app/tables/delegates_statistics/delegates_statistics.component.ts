@@ -41,7 +41,7 @@ export class Delegates_statisticsComponent implements OnInit {
   last_block_found:number;
   length;
 
-  constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
+  constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
@@ -53,7 +53,7 @@ export class Delegates_statisticsComponent implements OnInit {
       this.delegate_name = this.route.snapshot.queryParamMap.get("data");
 
       // get the data
-    	this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegate_name).subscribe(
+    	this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegate_name).subscribe(
   	   (res) =>	{
           this.exampleDatabase = new ExampleDatabase();
 
@@ -61,7 +61,6 @@ export class Delegates_statisticsComponent implements OnInit {
 
           var block_producer_block_heights = data.block_producer_block_heights.split("|");
           var block_reward;
-          let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
           var count = 0;
 
           for (count = 1; count < block_producer_block_heights.length; count++) {
@@ -74,7 +73,7 @@ export class Delegates_statisticsComponent implements OnInit {
           this.dashCard1[0].text = data.online_status == 'true' ? 'Online'  : 'Offline';
           this.dashCard1[1].text = parseInt(data.current_delegate_rank);
           this.dashCard1[2].text = block_producer_block_heights.length-1;
-          this.dashCard1[3].text = this.get_lg_numer_format(parseInt(data.total_vote_count) / this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
+          this.dashCard1[3].text = this.get_lg_numer_format(parseInt(data.total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
 
           this.dashCard1[4].text = parseInt(data.block_verifier_online_percentage);//     parseInt(data.block_verifier_online_total_rounds);
           this.dashCard1[5].text = parseInt(data.block_verifier_online_total_rounds);
@@ -107,13 +106,13 @@ export class Delegates_statisticsComponent implements OnInit {
 
     get_delegates_website_statistics()
     {
-      this.HttpdataService.get_request(this.HttpdataService.GET_STATISTICS).subscribe(
+      this.httpdataservice.get_request(this.httpdataservice.GET_STATISTICS).subscribe(
       (res) =>
       {
 
         var data = JSON.parse(JSON.stringify(res));
         if (this.last_block_found) {
-          var minutes_since_last_block_found = ((parseInt(data.current_block_height) - this.last_block_found) * this.HttpdataService.BLOCK_TIME);
+          var minutes_since_last_block_found = ((parseInt(data.current_block_height) - this.last_block_found) * this.httpdataservice.BLOCK_TIME);
           var minutes = minutes_since_last_block_found % 60;
           var hours = (minutes_since_last_block_found-minutes) / 60;
           this.dashCard1[10].text =  "~" + hours.toString() + "h " + (minutes<10?"0":"") + minutes.toString() + "m";

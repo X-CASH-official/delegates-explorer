@@ -35,7 +35,7 @@ export class Delegates_voters_listComponent implements OnInit {
 	public showFilterTableCode;
   length;
 
-	constructor(private route: ActivatedRoute, private HttpdataService: HttpdataService) { }
+	constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
@@ -45,13 +45,13 @@ export class Delegates_voters_listComponent implements OnInit {
     this.delegate_name = this.route.snapshot.queryParamMap.get("data");
 
 	  // get the data
-	  this.HttpdataService.get_request(this.HttpdataService.GET_DELEGATES_VOTERS_LIST + "?parameter1=" + this.delegate_name).subscribe(
+	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES_VOTERS_LIST + "?parameter1=" + this.delegate_name).subscribe(
 	  (res) => {
         this.exampleDatabase = new ExampleDatabase();
         var data = JSON.parse(JSON.stringify(res));
   	    this.total_vote_count = 0;
   	    this.amount_of_votes = data.length;
-        let xcash_wallet_decimal_places_amount = this.HttpdataService.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+        let xcash_wallet_decimal_places_amount = this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
   	    var count = 0;
         var total;
 
