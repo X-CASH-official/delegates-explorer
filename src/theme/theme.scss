@@ -104,7 +104,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .delegate_details {  color: white; background-color:mat-color($accent-darksea,700); }
   .delegate_details_active, a.delegate_details:hover  {  color: white; background-color: $warn-darksea; }
   .mat-raised-button.mat-warn { color: white; background-color: mat-color($accent-darksea,700); }
-  .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: $warn-darksea;; background-color: mat-color($accent-darksea,700); }
+  .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: $warn-darksea; background-color: mat-color($accent-darksea,700); }
   // ...
   .result_data_name, .parameters_data_name { font-style: italic; color: mat-color($accent-darksea,400); }
   .cards-container { border: 2px solid $pri-darksea; }
@@ -152,7 +152,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   // Backgrounds
   .loader-container { background: mat-color($mat-light-green,400);  }
   .mat-drawer-container{background:  mat-color($mat-light-green,400);}
-  #header{background: $bg-unicorn;;}
+  #header{background: $bg-unicorn;}
   #logo-header{background: $bg-unicorn;}
   .table-container, .mat-table,  .mat-paginator{background: $bg-unicorn;}
   .mat-expansion-panel{background: $bg-unicorn;}
