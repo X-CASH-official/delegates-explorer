@@ -42,18 +42,28 @@ export class APIComponent implements OnInit {
         data[key].request_url = request_url + '';
 
         data[key].curl = `curl --request GET \\
-                          --url "`+ data[key].request_url  + `" \\
-                          --header 'Accept: application/json' \\
-                          --header 'Content-Type: application/json'`.trim();
+                          \xA0 \xA0 \xA0--url "`+ data[key].request_url  + `" \\
+                          \xA0 \xA0 \xA0--header 'Accept: application/json' \\
+                          \xA0 \xA0 \xA0--header 'Content-Type: application/json'`.trim();
 
-        data[key].javascript = `var data = null;
+        data[key].es8 = `let url = '"`+ data[key].request_url + `"';
+let response = await fetch(url);
+
+if (response.ok) {
+\xA0 let data = await response.json();
+} else {
+\xA0 alert("HTTP-Error: " + response.status);
+}`.trim();
+
+
+        data[key].xhr = `var data = null;
                                 var xhr = new XMLHttpRequest();
                                 xhr.withCredentials = false;
 
                                 xhr.addEventListener("readystatechange", function () {
-                                  if (this.readyState === this.DONE) {
-                                    console.log(this.responseText);
-                                  }
+                                \xA0  if (this.readyState === this.DONE) {
+                                  \xA0 \xA0  console.log(this.responseText);
+                                \xA0  }
                                 });
 
                                 xhr.open("GET", "`+ data[key].request_url + `");
