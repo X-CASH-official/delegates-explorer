@@ -1,4 +1,4 @@
-import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpdataService } from '../services/http-request.service';
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
