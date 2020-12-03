@@ -76,7 +76,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .drawer { background: $warn-darksea; }
   #header{ background: $warn-darksea; }
   #logo-header, #logo-header-xs{ background: $warn-darksea; }
-  .mat-table,  .mat-paginator {background: $warn-darksea; }
+  .mat-table,  .mat-paginator, .section-container {background: $warn-darksea; }
   .mat-expansion-panel {background: $warn-darksea; }
   .mat-tab-group {background: $warn-darksea; }
   .table-header { background: $warn-darksea; }
@@ -163,9 +163,8 @@ $warning-unicorn : $mat-lime;
   .loader-container { background: $container-bg-unicorn;  }
   .mat-drawer-container{ background:  $container-bg-unicorn; }
   .mat-toolbar { background: mat-color($primary-unicorn,A100); }
-  #header{ background: $bg-unicorn; }
-  #logo-header, #logo-header-xs { background: $bg-unicorn; }
-  .table-container, .mat-table,  .mat-paginator { background: $bg-unicorn; }
+  #header, #logo-header, #logo-header-xs { background: $bg-unicorn; }
+  .table-container, .mat-table,  .mat-paginator, .section-container { background: $bg-unicorn; }
   .mat-expansion-panel{ background: $bg-unicorn; }
   .mat-tab-group { background: $bg-unicorn; }
   .table-header { background: mat-color($primary-unicorn,A100); color: white; }
