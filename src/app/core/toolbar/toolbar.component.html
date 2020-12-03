@@ -8,7 +8,9 @@
 
     <span class="spacer"></span>
 
-		<button mat-button [matMenuTriggerFor]="menu">Change Theme </button>
+		<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Select a theme" matTooltip="Select a theme">
+			<em class="material-icons app-toolbar-menu">format_color_fill </em>
+		</button>
 		<mat-menu #menu="matMenu">
 						<button value='dark' mat-menu-item   (click)="switchTheme('dark')">Dark</button>
 						<button value='light' mat-menu-item (click)="switchTheme('light')">Light</button>
