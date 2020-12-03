@@ -46,7 +46,7 @@
 				<ng-container matColumnDef="block_height">
 					<mat-header-cell *matHeaderCellDef  mat-sort-header> Block Height </mat-header-cell>
            <mat-cell id="block_height{{row.id}}" *matCellDef="let row">
-            <a class="text-primary" [routerLink]="['/delegates/round_statistics']" [queryParams]="{'data':row.block_height}" target="_blank">
+            <a class="text-primary" [routerLink]="['/delegates/round_statistics']" [queryParams]="{'data':row.block_height}">
                <h3>{{row.block_height | number}}</h3>
              </a>
            </mat-cell>
