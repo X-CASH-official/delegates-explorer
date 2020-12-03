@@ -51,3 +51,13 @@
     box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
   }
 }
+.codeblock{
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-word;
+  word-break: break-word;
+  -ms-hyphens: manual;
+  -moz-hyphens: manual;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
