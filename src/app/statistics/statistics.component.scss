@@ -8,7 +8,7 @@ mat-card {
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);
   .topstats-card-holder{
-      margin: 0px 5px 10px 5px;
+      padding: 0px 5px 10px 5px;
       min-height: 200px;
       box-sizing: border-box;
 
@@ -16,6 +16,14 @@ mat-card {
           background-color: mat-color($primary);
           margin-top:-50px;
           min-height: 200px;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-word;
+          word-break: break-word;
+          -ms-hyphens: manual;
+          -moz-hyphens: manual;
+          -webkit-hyphens: manual;
+          hyphens: manual;
           & .topstats-details-holder{
               margin-top: 50px;
               padding-top: 15px;

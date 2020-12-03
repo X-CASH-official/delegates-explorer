@@ -1,56 +1,53 @@
 
 <h2 class="page_title">Statistics</h2>
 
-<div fxLayout="row wrap">
-  <div  class="topstats-card-holder" fxFlex>
+<div fxLayout="row wrap" fxLayoutAlign="space-around center">
+  <div class="topstats-card-holder" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="33.3" fxFlex.xl="33.3">
       <div fxLayout="column" >
-          <div fxLayout="row" fxLayoutAlign="space-around center"  >
-              <div  class="banner">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+              <div class="banner">
                    <img alt="top block producer" width="100" [style.borderRadius]="'50%'" src="/assets/images/emoji_events-white-48dp.svg">
               </div>
           </div>
-          <div   class="topstats-details mat-elevation-z8" >
+          <div class="topstats-details mat-elevation-z8" >
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{most_block_producer_total_rounds_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{most_block_producer_total_rounds}} produced blocks</h2>
                   <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
-
       </div>
   </div>
-  <div  class="topstats-card-holder" fxFlex>
+  <div class="topstats-card-holder" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="33.3" fxFlex.xl="33.3">
       <div fxLayout="column" >
-          <div fxLayout="row" fxLayoutAlign="space-around center"  >
-              <div  class="banner">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+              <div class="banner">
                    <img alt="top block verifier" width="100" [style.borderRadius]="'50%'" src="/assets/images/military_tech-white-48dp.svg">
               </div>
           </div>
-          <div   class="topstats-details mat-elevation-z8" >
+          <div class="topstats-details mat-elevation-z8" >
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{most_total_rounds_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{most_total_rounds}} verified blocks</h2>
                   <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
-
       </div>
   </div>
-  <div  class="topstats-card-holder" fxFlex>
+  <div class="topstats-card-holder" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="33.3" fxFlex.xl="33.3">
       <div fxLayout="column" >
-          <div fxLayout="row" fxLayoutAlign="space-around center"  >
-              <div  class="banner">
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+              <div class="banner">
                    <img alt="top producer/verifier ratio" width="100" [style.borderRadius]="'50%'" src="/assets/images/star_half-white-48dp.svg">
               </div>
           </div>
-          <div   class="topstats-details mat-elevation-z8" >
+          <div class="topstats-details mat-elevation-z8" >
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{top_ratio_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{top_ratio_block_ratio| number:'1.0-1'}}% producer/verifier ratio</h2>
                   <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
               </div>
           </div>
-
       </div>
   </div>
 </div>
