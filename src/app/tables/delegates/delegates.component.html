@@ -17,10 +17,14 @@
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 
+
+
 				<ng-container matColumnDef="id">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row">{{ row.id | number}}</mat-cell>
 				</ng-container>
+
+
 
 				<ng-container matColumnDef="delegate_name">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Delegate </mat-header-cell>
@@ -31,38 +35,105 @@
           </mat-cell>
 				</ng-container>
 
+
+
 				<ng-container matColumnDef="online_status">
-					<mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-					<mat-cell id="online_status{{row.id}}" *matCellDef="let row" class="mat-cell {{ row.online_status }}">{{ row.online_status }}</mat-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>
+
+						<mat-icon *ngIf="mobile; else status" matTooltip="Online Status">cast_connected</mat-icon>
+						<ng-template #status>
+							Status
+						</ng-template>
+
+					</mat-header-cell>
+					<mat-cell id="online_status{{row.id}}" *matCellDef="let row" class="mat-cell">
+
+							<mat-icon *ngIf="row.online_status === 'Online'; else offline" matTooltip="Online" matTooltipClass="green-tooltip" class="Online">online_prediction</mat-icon>
+							<ng-template #offline>
+								<mat-icon matTooltip="Offline" matTooltipClass="red-tooltip" class="Offline">highlight_off</mat-icon>
+							</ng-template>
+
+					</mat-cell>
 				</ng-container>
 
+
+
 				<ng-container matColumnDef="shared_delegate_status">
-					<mat-header-cell *matHeaderCellDef mat-sort-header> Mode </mat-header-cell>
-					<mat-cell id="shared_delegate_status{{row.id}}" *matCellDef="let row">{{ row.shared_delegate_status }}</mat-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>
+
+						<mat-icon *ngIf="mobile; else mode" matTooltip="Mode">rss_feed</mat-icon>
+						<ng-template #mode>
+							Mode
+						</ng-template>
+					</mat-header-cell>
+					<mat-cell id="shared_delegate_status{{row.id}}" *matCellDef="let row">
+
+						<mat-icon *ngIf="row.shared_delegate_status === 'Solo'; else shared" matTooltip="Solo Node">person_outline</mat-icon>
+						<ng-template #shared>
+							<mat-icon matTooltip="Shared Node - {{ row.delegate_fee + '%' }} Fee">groups</mat-icon>
+						</ng-template>
+
+					</mat-cell>
 				</ng-container>
+
+
 
         <ng-container matColumnDef="delegate_fee">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Fee </mat-header-cell>
-					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row">{{ row.delegate_fee != "" ? row.delegate_fee + " %": "-" }}</mat-cell>
+					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row">{{ row.delegate_fee  | number:'1.0-2' }}{{ row.delegate_fee != "" ?  "%" : "-" }}</mat-cell>
 				</ng-container>
 
+
+
         <ng-container matColumnDef="total_vote_count">
-					<mat-header-cell *matHeaderCellDef mat-sort-header> Votes </mat-header-cell>
-					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row">{{ row.total_vote_count | number}} XCA</mat-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header>
+
+						<mat-icon *ngIf="mobile; else votes" matTooltip="Verifed Blocks">done_all</mat-icon>
+						<ng-template #votes>
+							Votes
+						</ng-template>
+
+					</mat-header-cell>
+					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row">
+
+						<span matTooltip="{{ row.total_vote_count | number }} XCA" >
+							{{ get_lg_numer_format(row.total_vote_count) }}
+						</span>
+
+					</mat-cell>
 				</ng-container>
+
+
 
         <ng-container matColumnDef="block_verifier_online_percentage">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Online </mat-header-cell>
 					<mat-cell id="block_verifier_online_percentage{{row.id}}" *matCellDef="let row">{{ row.block_verifier_online_percentage | number}} %</mat-cell>
 				</ng-container>
 
+
+
         <ng-container matColumnDef="block_verifier_total_rounds">
-					<mat-header-cell *matHeaderCellDef mat-sort-header> Verified </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Verifed Blocks">
+
+						<mat-icon *ngIf="mobile; else verified" matTooltip="Verifed Blocks">autorenew</mat-icon>
+						<ng-template #verified>
+							Verifed
+						</ng-template>
+
+					</mat-header-cell>
 					<mat-cell id="block_verifier_total_rounds{{row.id}}" *matCellDef="let row">{{ row.block_verifier_total_rounds | number}}</mat-cell>
 				</ng-container>
 
+
+
         <ng-container matColumnDef="block_producer_total_rounds">
-					<mat-header-cell *matHeaderCellDef mat-sort-header> Produced </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Produced Blocks">
+
+						<mat-icon *ngIf="mobile; else produced">find_in_page</mat-icon>
+						<ng-template #produced>
+							Produced
+						</ng-template>
+					</mat-header-cell>
 					<mat-cell id="block_producer_total_rounds{{row.id}}" *matCellDef="let row">{{ row.block_producer_total_rounds | number}}</mat-cell>
 				</ng-container>
 

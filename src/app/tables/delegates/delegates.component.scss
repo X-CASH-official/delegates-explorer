@@ -31,31 +31,110 @@
 ::ng-deep .deleagtes_table .mat-input-element{	font-size: 75% !important; }
 
 
-
 .mat-column-id {
-  flex: 0 0 4%;
+	flex: 1 0 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
 .mat-column-delegate_name {
-  flex: 0 0 25%;
+	flex: 4 1 18%;
 }
 .mat-column-online_status {
-  flex: 0 0 8%;
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-pool_mode {
-  flex: 0 0 8%;
+.mat-column-shared_delegate_status {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-fee_structure {
-  flex: 0 0 10%;
-}
-.mat-column-block_verifier_total_rounds {
-  flex: 0 0 10%;
-}
-.mat-column-block_verifier_online_percentage {
-  flex: 0 0 10%;
+.mat-column-delegate_fee{
+	flex: 1 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
 .mat-column-total_vote_count {
-  flex: 0 0 15%;
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-block_verifier_score {
-  flex: 0 0 10%;
+.mat-column-block_verifier_online_percentage {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
+.mat-column-block_verifier_total_rounds {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+.mat-column-block_producer_total_rounds {
+	flex: 2 1 36px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+
+// .mat-header-cell {
+//   flex-direction: column;
+//   justify-content: center;
+// }
+// .mat-cell {
+//   text-align: center;
+//   justify-content: center;
+// }
+// mat-cell.mat-column-delegate_name {
+// 	text-align: left;
+// 	justify-content: space-between;
+// }
+// mat-header-cell.mat-column-delegate_name {
+// 	flex-direction: column;
+// 	justify-content: space-evenly;
+// }
+
+
+.mat-cell, .mat-header-cell {
+    overflow-wrap: break-word;
+		word-wrap: break-word;
+
+    -ms-word-break: break-word;
+    word-break: break-word;
+
+    -ms-hyphens: manual;
+    -moz-hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+}
+
+
+
+mat-cell:first-of-type, mat-footer-cell:first-of-type, mat-header-cell:first-of-type { padding-left: 0px;}
+mat-footer-cell:last-of-type, mat-header-cell:last-of-type  { padding-right: 0px;}
+mat-cell:last-of-type  { padding-right: 6px;}
+
+@media(max-width: 800px)
+{
+
+	::ng-deep .mat-sort-header-arrow, ::ng-deep [dir="rtl"] .mat-sort-header-position-before .mat-sort-header-arrow {
+	    margin: 0 0 0 1px !important;
+	}
+	.material-icons {font-size: 18px;}
+	.mat-column-block_verifier_online_percentage,
+	.mat-column-block_verifier_total_rounds,
+	.mat-column-delegate_fee{
+	  display: none;
+	}
+
+}
+mat-cell.mat-column-online_status > mat-icon,
+mat-cell.mat-column-shared_delegate_status >  mat-icon,
+mat-cell.mat-column-total_vote_count > span { cursor: help; }
