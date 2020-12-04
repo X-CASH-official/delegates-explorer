@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
 import {HttpdataService} from '../../services/http-request.service';
 import { FunctionsService } from '../../services/functions.service';
+import {MatDialog} from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
 import { MatPaginator, MatSort } from '@angular/material';
@@ -30,7 +31,7 @@ export class Delegates_voters_listComponent implements OnInit {
 	data:any[] = [];
 	document_start_count:number = 1;
 
-	public displayedColumns = ['id', 'public_address_created_reserve_proof', 'total', 'reserve_proof'];
+	public displayedColumns = ['id', 'total', 'public_address_created_reserve_proof', 'reserve_proof'];
 	public exampleDatabase;
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
@@ -59,7 +60,7 @@ export class Delegates_voters_listComponent implements OnInit {
         for (count = 0; count < this.amount_of_votes; count++) {
           total = parseInt(data[count].total) / xcash_wallet_decimal_places_amount;
           this.total_vote_count += parseInt(data[count].total);
-          this.exampleDatabase.addUser((count + 1).toString(),data[count].public_address_created_reserve_proof.toString(),total.toString(),data[count].reserve_proof.toString());
+          this.exampleDatabase.addUser((count + 1).toString(), total.toString(), data[count].public_address_created_reserve_proof.toString(), data[count].reserve_proof.toString());
   	    }
 
   	    this.dashCard[0].text = this.total_vote_count / xcash_wallet_decimal_places_amount;
