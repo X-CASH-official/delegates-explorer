@@ -92,7 +92,7 @@
 					<mat-cell id="total_vote_count{{row.id}}" *matCellDef="let row">
 
 						<span matTooltip="{{ row.total_vote_count | number }} XCA" >
-							{{ get_lg_numer_format(row.total_vote_count) }}
+							{{ functionsService.get_lg_numer_format(row.total_vote_count) }}
 						</span>
 
 					</mat-cell>

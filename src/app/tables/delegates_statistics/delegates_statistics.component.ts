@@ -74,9 +74,9 @@ export class Delegates_statisticsComponent implements OnInit {
           this.dashCard1[0].text = data.online_status == 'true' ? 'Online'  : 'Offline';
           this.dashCard1[1].text = parseInt(data.current_delegate_rank);
           this.dashCard1[2].text = block_producer_block_heights.length-1;
-          this.dashCard1[3].text = this.get_lg_numer_format(parseInt(data.total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
+          this.dashCard1[3].text = this.functionsService.get_lg_numer_format(parseInt(data.total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
 
-          this.dashCard1[4].text = parseInt(data.block_verifier_online_percentage);//     parseInt(data.block_verifier_online_total_rounds);
+          this.dashCard1[4].text = parseInt(data.block_verifier_online_percentage);
           this.dashCard1[5].text = parseInt(data.block_verifier_online_total_rounds);
           this.dashCard1[6].text = parseInt(data.block_verifier_total_rounds);
           this.dashCard1[7].text = parseInt(data.block_verifier_score);
@@ -126,15 +126,5 @@ export class Delegates_statisticsComponent implements OnInit {
         Swal.fire("Error","An error has occured:<br>API: Get delegates website statistics failed.","error");
       });
     }
-
-    get_lg_numer_format(value) {
-      var exp, suffixes = ['k', 'M', 'B', 't', 'q', 'Q'];
-      if (Number.isNaN(value)) { return null; }
-      if (value < 1000) { return value; }
-      exp = Math.floor(Math.log(value) / Math.log(1000));
-      return (value / Math.pow(1000, exp)).toFixed(1) + suffixes[exp - 1];
-    }
-
-
 
 }

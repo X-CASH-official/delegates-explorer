@@ -23,4 +23,12 @@ export class FunctionsService {
    Swal.fire("Success","The vote has been copied to the clipboard","success");
   }
 
+  get_lg_numer_format(value){
+    var exp, suffixes = ['k', 'M', 'B', 't', 'q', 'Q'];
+    if (Number.isNaN(value)) { return null; }
+    if (value < 1000) { return value; }
+    exp = Math.floor(Math.log(value) / Math.log(1000));
+    return (value / Math.pow(1000, exp)).toFixed(1) + suffixes[exp - 1];
+  }
+
 }

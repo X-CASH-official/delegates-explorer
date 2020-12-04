@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpdataService } from '../services/http-request.service';
+import { FunctionsService } from '../services/functions.service';
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 
@@ -28,7 +29,7 @@ export class DashboardCrmComponent implements OnInit {
     ];
 
 
-    constructor(private httpdataservice:HttpdataService, private titleService:Title) {
+    constructor(private httpdataservice:HttpdataService, private titleService:Title,  public functionsService: FunctionsService) {
         this.titleService.setTitle("Delegates Explorer - X-CASH");
      }
 
@@ -64,7 +65,7 @@ export class DashboardCrmComponent implements OnInit {
           this.dashCard1[7].text = data.XCASH_DPOPS_round_number;
           this.dashCard1[1].text = data.current_block_height;
           this.dashCard1[2].text = 50;
-          this.dashCard1[4].text = this.get_lg_numer_format(parseInt(data.total_votes) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
+          this.dashCard1[4].text = this.functionsService.get_lg_numer_format(parseInt(data.total_votes) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
           this.dashCard1[6].text = parseInt(data.XCASH_DPOPS_circulating_percentage);
         },
         (error) =>  {
@@ -95,23 +96,13 @@ export class DashboardCrmComponent implements OnInit {
             delegate_total_vote_count += current_delegate_total_vote_count2;
           }
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
-          var avg_vote_count = this.get_lg_numer_format(delegate_total_vote_count/45);
+          var avg_vote_count = this.functionsService.get_lg_numer_format(delegate_total_vote_count/45);
           this.dashCard1[5].text = avg_vote_count;
         },
         (error) => {
           Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
         }
       );
-    }
-
-
-
-    get_lg_numer_format(value){
-      var exp, suffixes = ['k', 'M', 'B', 't', 'q', 'Q'];
-      if (Number.isNaN(value)) { return null; }
-      if (value < 1000) { return value; }
-      exp = Math.floor(Math.log(value) / Math.log(1000));
-      return (value / Math.pow(1000, exp)).toFixed(1) + suffixes[exp - 1];
     }
 
 }
