@@ -134,8 +134,8 @@ $warning-unicorn : $mat-lime;
   $primary-app-accent-unicorn:  mat-palette($accent-unicorn, 500);
   $primary-app-warn-unicorn:    mat-palette($warning-unicorn, A100 );
 
-  $container-bg-unicorn: mat-color($mat-light-green, A100);
-  $bg-unicorn: mat-color($mat-lime,A100);
+  $container-bg-unicorn: #CFF9F2;
+  $bg-unicorn:  #F2FEDC;
 
   $cdk-theme-dark-unicorn:   mat-dark-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
   $cdk-theme-light-unicorn:  mat-light-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
