@@ -6,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
 import {HttpdataService} from '../../services/http-request.service';
 import { FunctionsService } from '../../services/functions.service';
-import {MatDialog} from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
 import { MatPaginator, MatSort } from '@angular/material';
