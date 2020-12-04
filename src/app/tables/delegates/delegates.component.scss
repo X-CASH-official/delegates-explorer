@@ -1,9 +1,4 @@
 
-// @mixin delegates($theme) {
-//
-//
-// }
-
 .mat-toolbar-single-row{
 	height: 65px;
 }
@@ -83,25 +78,6 @@
 	text-align: center;
 }
 
-
-// .mat-header-cell {
-//   flex-direction: column;
-//   justify-content: center;
-// }
-// .mat-cell {
-//   text-align: center;
-//   justify-content: center;
-// }
-// mat-cell.mat-column-delegate_name {
-// 	text-align: left;
-// 	justify-content: space-between;
-// }
-// mat-header-cell.mat-column-delegate_name {
-// 	flex-direction: column;
-// 	justify-content: space-evenly;
-// }
-
-
 .mat-cell, .mat-header-cell {
     overflow-wrap: break-word;
 		word-wrap: break-word;
@@ -114,8 +90,6 @@
     -webkit-hyphens: manual;
     hyphens: manual;
 }
-
-
 
 mat-cell:first-of-type, mat-footer-cell:first-of-type, mat-header-cell:first-of-type { padding-left: 0px;}
 mat-footer-cell:last-of-type, mat-header-cell:last-of-type  { padding-right: 0px;}

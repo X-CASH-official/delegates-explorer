@@ -18,13 +18,10 @@
 				The actual rendered columns are set as a property on the row definition" -->
 
 
-
 				<ng-container matColumnDef="id">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row">{{ row.id | number}}</mat-cell>
 				</ng-container>
-
-
 
 				<ng-container matColumnDef="delegate_name">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Delegate </mat-header-cell>
@@ -34,8 +31,6 @@
             </a>
           </mat-cell>
 				</ng-container>
-
-
 
 				<ng-container matColumnDef="online_status">
 					<mat-header-cell *matHeaderCellDef mat-sort-header>
