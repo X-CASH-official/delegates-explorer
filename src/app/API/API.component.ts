@@ -23,7 +23,6 @@ export class APIComponent implements OnInit {
     ngOnInit() {
 
       let data = API_DATA;
-      console.log(environment.baseURL);
 
       Object.keys(data).forEach(function(key) {
 
