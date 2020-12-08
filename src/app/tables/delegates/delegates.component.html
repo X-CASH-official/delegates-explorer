@@ -75,7 +75,7 @@
 
         <ng-container matColumnDef="delegate_fee">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> Fee </mat-header-cell>
-					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row">{{ row.delegate_fee  | number:'1.0-2' }}{{ row.delegate_fee != "" ?  "%" : "-" }}</mat-cell>
+					<mat-cell id="delegate_fee{{row.id}}" *matCellDef="let row">{{ row.delegate_fee != "" ? row.delegate_fee + " %": "-" }}</mat-cell>
 				</ng-container>
 
 
