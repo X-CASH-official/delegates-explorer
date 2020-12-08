@@ -45,8 +45,11 @@ export class APIComponent implements OnInit {
                           \xA0 \xA0 \xA0--header 'Accept: application/json' \\
                           \xA0 \xA0 \xA0--header 'Content-Type: application/json'`.trim();
 
-        data[key].es8 = `let url = '"`+ data[key].request_url + `"';
-let response = await fetch(url);
+        data[key].es6 = `let url = '"`+ data[key].request_url + `"';
+let response = await fetch(url, {
+\xA0 method: 'GET',
+\xA0 headers: { 'Content-Type': 'application/json;charset=utf-8' }
+  });
 
 if (response.ok) {
 \xA0 let data = await response.json();
@@ -70,7 +73,24 @@ if (response.ok) {
                                 xhr.setRequestHeader("Accept", "application/json");
 
                                 xhr.send(data);`.trim();
+
+        data[key].php = `
+<?php
+
+$url = "`+ data[key].request_url + `";
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER,  ['User-Agent: who-is-your-daddy/69.69.0']);
+
+$response = curl_exec($ch);
+echo $response;
+
+?>`.trim();
+
       });
+
+
+
 
       this.apiData = data;
 
