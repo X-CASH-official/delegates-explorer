@@ -1,14 +1,53 @@
-<h2 class="page_title">Delegate information for: {{title}}</h2>
+<h2 class="page_title delegate_title" >{{delegate_name}} <button class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="functionsService.copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
 
-<a class="delegate_details" style="text-align: center;" [routerLink]="['/auth/tables/delegates_statistics']" [queryParams]="{'data':delegates_data}"><h3>View {{title}} statistics</h3></a>
-<a class="delegate_details" style="text-align: center;" [routerLink]="['/auth/tables/delegates_voters_list']" [queryParams]="{'data':delegates_data}"><h3>View {{title}} voters list</h3></a>
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+  <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/delegates/delegate_information']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+    <mat-icon  class="delegate_details_icon">info</mat-icon>
+    <h3>Informations</h3>
+  </a>
+  <a mat-raised-button class="delegate_details" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+    <mat-icon  class="delegate_details_icon">insights</mat-icon>
+    <h3>Statistics</h3>
+  </a>
+  <a mat-raised-button class="delegate_details" [routerLink]="['/delegates/delegate_voters_list']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+    <mat-icon  class="delegate_details_icon">how_to_reg</mat-icon>
+    <h3>Voters</h3>
+  </a>
+</div>
+
+<div fxLayout="row" class="service-card-container" fxLayout.lt-lg="column" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" >
+  <div *ngIf="about" fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
+      <h3 class="mat-title">About</h3>
+      <p class="mat-body-1"  fxFlex>{{about}}</p>
+  </div>
+
+  <div *ngIf="website"  fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
+      <h3 class="mat-title">Website</h3>
+      <p class="mat-subheading-1"  fxFlex><a href="http://{{website}}" title="{{website}}" target="_blank">{{website}}</a></p>
+  </div>
+
+  <div *ngIf="team" fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
+      <h3 class="mat-title">Team</h3>
+      <p class="mat-subheading-1"  fxFlex>{{team}}</p>
+  </div>
+
+  <div *ngIf="server_specs" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
+      <h3 class="mat-title">Server</h3>
+      <p class="mat-body-1"  fxFlex>{{server_specs}}</p>
+  </div>
+
+  <div *ngIf="shared_delegate_status" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
+      <h3 class="mat-title">Mode</h3>
+      <p class="mat-subheading-2"  fxFlex>{{shared_delegate_status }}</p>
+  </div>
+
+  <div *ngIf="delegate_fee" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
+      <h3 class="mat-title">Fee</h3>
+      <p class="mat-subheading-2"  fxFlex>{{delegate_fee}} %</p>
+  </div>
+</div>
 
 <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
-    <cdk-profile-card id="profilecard1" [title]="'About'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'about'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard2" [title]="'Website'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'website'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard3" [title]="'Team'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'team'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard4" [title]="'Pool Mode'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'shared_delegate_status'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard5" [title]="'Fee Structure'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'delegate_fee'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard6" [title]="'Server Settings'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'server_specs'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard7" [title]="'How to vote for this delegate'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show'" [button_length]="{'width': '25%'}" [button_click]="'public_address'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
+     <cdk-profile-card id="profilecard1" [title]="'Vote with delegate name'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="'vote ' + delegate_name" [button_name]="'Copy vote'" [button_length]="{'width': '25%'}" [button_click]="'copyVote'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100"></cdk-profile-card>
+     <cdk-profile-card id="profilecard1" [title]="'Vote with public address'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="'vote ' + public_address" [button_name]="'Copy vote'" [button_length]="{'width': '25%'}" [button_click]="'copyVote'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100"></cdk-profile-card>
 </div>

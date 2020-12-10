@@ -1,0 +1,104 @@
+mat-card {
+  padding: 5px;
+  margin: 5px;
+}
+@mixin help($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  .service-card-content{
+      .service-card-container {
+          padding: 0px;
+          margin: 10px 5px;
+          .service-card {
+              transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+              cursor: default;
+              background-color: mat-color($primary);
+              color: white;
+              padding: 20px;
+              .service-card-header{
+                background-color: mat-color($accent);
+                height: 160px;
+                width: 160px;
+                border-radius: 50%;
+                display: inline-block;
+                padding-top: 14px;
+                img {
+                    height: 120px;
+                }
+              }
+              .service-card-header-github{
+                background-color: mat-color($accent);
+                height: 160px;
+                width: 160px;
+                border-radius: 50%;
+                display: inline-block;
+                img {
+                    height: 120px;
+                }
+              }
+              h3 {
+                  margin: 0;
+              }
+              p {
+                  margin: 0;
+                  text-align: center;
+              }
+              &:hover {
+                  transform: translate(0, -8px);
+                  box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+              }
+          }
+      }
+  }
+  .expansion-header {
+  	background-color: mat-color($primary);
+  	padding: 0 5px;
+  }
+  .faq_title{
+    padding: 16px 0px 16px 0px;
+    margin:  0px;
+  }
+  .mat-subheading-2{
+    margin:  0px;
+  }
+  .expansion-container {
+  	padding: 26px 0px 26px 0px;
+  }
+  .expansion-component-holder {
+    border-style: 0;
+    margin-bottom: 150px;
+
+    mat-divider {
+    	margin-bottom: 20px;
+      border: 0px;
+    }
+    mat-expansion-panel-header, mat-panel-title {
+      color: white;
+      text-align: center !important;
+      padding-left: 10px;
+    }
+   .mat-expansion-panel-header{
+      background-color: mat-color($primary);
+      height: 52px !important;
+      border: 1px solid mat-color($primary);
+   }
+   .mat-expansion-panel-header.mat-expanded:hover,
+   .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover {
+      background-color: mat-color($primary);
+    }
+   .mat-expansion-panel-header.mat-expanded:focus{
+     background-color: mat-color($primary);
+   }
+   .mat-expanded {
+     border: 1px solid mat-color($primary);
+   }
+   .mat-expansion-panel-header-title{
+      display: block;
+      font: 500 20px Roboto, "Helvetica Neue", sans-serif;
+      text-align: center !important;
+      line-height: 52px;
+
+    }
+  }
+}

@@ -1,26 +1,13 @@
 
-.table-container {
-position: relative;
-margin-top:50px;
-padding: 5px 15px 15px 15px;
+.mat-toolbar-single-row{
+	height: 75px;
 }
-.table-container .mat-table {
-max-height: calc(100vh - 200px);
-overflow-y: auto;
+.mat-form-field {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.table-container .mat-table .mat-header-row {
-position: absolute;
-top: -50px;
-left: 0px;
-right: 18px;
-background: #fff;
-}
-.table-header {
-	background-color: #039be5;
-	color: white;
-	padding: 0 5px;
-}
-.table-component-holder {
-	border: 1px solid #039be5;
-	background-color: white;
+.mat-form-field-wrapper{
+	padding-bottom: 0.8em;
 }

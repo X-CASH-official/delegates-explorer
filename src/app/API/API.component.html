@@ -1,10 +1,89 @@
 <h2 class="page_title">API</h2>
 
-<div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
-    <cdk-profile-card id="profilecard1" [title]="'Statistics'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'delegateswebsitegetstatistics'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard2" [title]="'Get Delegates'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegates'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard3" [title]="'Get Delegates Statistics'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegatesstatistics'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard4" [title]="'Get Delegates Information'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegatesinformation'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard5" [title]="'Get Delegates Voters List'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getdelegatesvoterslist'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
-    <cdk-profile-card id="profilecard6" [title]="'Get Round Statistics'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="delegates_data" [button_name]="'Show API Details'" [button_length]="{'width': '25%'}" [button_click]="'getroundstatistics'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="30"></cdk-profile-card>
+<div fxLayout="row wrap"  [ngClass.xs]="'components-container-xs'" class="api_container">
+  <div fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100" fxFlex.xs="100" *ngFor="let data of apiData; let count = index ">
+		<div class="cards-container">
+
+      <mat-toolbar class="cards-header">
+        <h1 class="mat-headline center-align title_padding" >{{data?.title}}</h1>
+      </mat-toolbar>
+      <div  fxLayoutAlign="space-around stretch " fxLayoutWrap >
+        <mat-tab-group fxFlexFill>
+          <mat-tab label="API Details">
+            <div class="components-container-xs">
+							<table class="components-container-xs"  aria-describedby="API Description">
+								<tr>
+									<th scope="row" class="mat-body-1 data_title">Description:</th>
+									<td class="mat-body-2" colspan=2>{{data?.description}}</td>
+								</tr>
+								<tr>
+									<th scope="row" class="mat-body-1 data_title">HTTP method:</th>
+									<td class="mat-body-1"><code>{{data?.method}} <wbr> {{data?.url}}</code></td>
+								</tr>
+								<tr>
+									<th scope="row" class="mat-body-1 data_title">Request URL:</th>
+									<td class="mat-body-2">
+											<code>{{ data?.request_url}}</code>
+									</td>
+								</tr>
+								<tr *ngIf="data?.parameters && data?.parameters.length > 0" >
+									<th scope="row" class="mat-body-1 data_title">Parameters:</th>
+									<td>
+										<table aria-describedby="API Parameters">
+										<tr  *ngFor="let parameters_data of data?.parameters; let count = index" class="row_bg paramters_row">
+											<th scope="row"	class="mat-body-2 parameters_data_name"><code>{{parameters_data?.name}}</code></th>
+											<td	class="mat-body-2 parameters_data_desc">{{parameters_data?.desc}}</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+
+							<table class="components-container-xs border_bottom"  aria-describedby="API Result">
+								<tr>
+									<th scope="col" class="mat-body-1" colspan="2">Result:</th>
+								</tr>
+								<tr  *ngFor="let result_data of data?.result; let count = index" class="row_bg">
+									<td	class="mat-body-2 result_data_name"><code>{{result_data?.name}}</code></td>
+									<td	class="mat-body-2 result_data_desc">{{result_data?.desc}}</td>
+								</tr>
+							</table>
+
+						</div>
+          </mat-tab>
+          <mat-tab label="Example Response">
+            <div class="component-preview">
+              <pre style="white-space:pre-line;"><code mwlHighlightJs [source]="data?.response" language="json" ></code></pre>
+            </div>
+          </mat-tab>
+					<mat-tab label="Curl Snippet">
+            <div class="component-preview">
+              <pre style="white-space:pre-line;">
+								<code mwlHighlightJs  [source]="data?.curl" language="bash" ></code></pre>
+            </div>
+          </mat-tab>
+          <mat-tab label="ES6 Snippet">
+            <div class="component-preview">
+              <pre style="white-space:pre-line;">
+                <code mwlHighlightJs  [source]="data?.es6" language="javascript" ></code></pre>
+            </div>
+          </mat-tab>
+					<mat-tab label="XHR Snippet">
+            <div class="component-preview">
+              <pre style="white-space:pre-line;">
+								<code mwlHighlightJs  [source]="data?.xhr" language="javascript" ></code></pre>
+            </div>
+          </mat-tab>
+          <mat-tab label="PHP Snippet">
+            <div class="component-preview">
+              <pre style="white-space:pre-line;">
+								<code mwlHighlightJs  [source]="data?.php" language="javascript" ></code></pre>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+
+		</div>
+  </div>
 </div>

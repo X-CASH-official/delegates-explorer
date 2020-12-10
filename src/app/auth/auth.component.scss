@@ -1,41 +1,26 @@
 
 @mixin auth($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
 
-
-    .sidenav{
-        background: mat-color($primary,400);
-        overflow: hidden;
-        position: relative;
-        width: 250px;
-    }
-    .drawer{
-        background: mat-color($primary,400);
-        overflow: hidden;
-        position: relative;
-        width: 80px;
-    }
-    [no-over-flow] {
-        overflow: hidden;
-    }
-    .router-outlet{
-        position: relative;padding: 0px 5px;
-    }
-    .spacer {
-        width: 100%;
-    }
-    #xcash_logo{
-        width: 26px;
-        padding-left: 4px;
-    }
-    .logo{
-        font-size: 24px;
-        font-family: Roboto, Serif;
-        font-weight:500;
-        color:#fa741c;
-        margin-top: 8px;
-        padding-left:20px;
-    }
+  .sidenav{
+    background: mat-color($primary);
+    overflow: hidden;
+    width: 250px;
+  }
+  .drawer{
+    background: mat-color($primary);
+    overflow: hidden;
+    width: 80px;
+  }
+  [no-over-flow] {
+      overflow: hidden;
+  }
+  .router-outlet{
+      position: relative;padding: 0px 5px;
+  }
+  .spacer {
+      width: 100%;
+  }
 }

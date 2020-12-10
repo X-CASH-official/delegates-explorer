@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { ExampleDatabase, ExampleDataSource } from './helpers.data';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatTableModule } from '@angular/material';
-import {RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
-import {httpdataservice} from 'app/services/http-request.service';
+import {HttpdataService} from 'app/services/http-request.service';
 
 import { delegatesComponent } from './delegates.component';
 
@@ -22,7 +22,7 @@ describe('delegatesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ delegatesComponent ],
       imports: [HttpClientTestingModule,RouterTestingModule,MatTableModule],
-      providers: [ httpdataservice ],
+      providers: [ HttpdataService ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();

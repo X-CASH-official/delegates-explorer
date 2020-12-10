@@ -1,0 +1,109 @@
+<h2 class="page_title">Help</h2>
+
+<div fxLayout="column" class="service-card-content">
+  <div fxLayout="row" class="service-card-container" fxLayout.lt-md="column" fxLayoutGap="20px">
+
+    <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.gt-sm="33.3" class="mat-elevation-z4 service-card">
+      <div class="service-card-header" fxFlex>
+        <img alt="X-Cash Documentation" src="/assets/images/menu_book-white-48dp.svg" fxFlex><br />
+      </div>
+      <h3 class="mat-title" fxFlex>X-Cash Documentation </h3>
+      <p class="mat-body-1"  fxFlex>Learn the basic functions and join the validation of the blockchain as an elected delegate.</p>
+      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://docs.xcash.foundation/">
+        Visit X-Cash Documentation
+      </a>
+    </div>
+    <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.gt-sm="33.3" class="mat-elevation-z4 service-card">
+      <div class="service-card-header-github" fxFlex>
+        <img alt="X-Cash Github" src="/assets/images/GitHub-Mark-Light-120px-plus.png" fxFlex style="height: 160px;">
+      </div>
+      <h3 class="mat-title"  fxFlex>X-Cash Github</h3>
+      <p class="mat-body-1"  fxFlex>Contribute or submit a bug report to X-Cash and its derived programs on GitHub!</p>
+      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://github.com/X-CASH-official">
+        Visit X-Cash Github
+      </a>
+    </div>
+    <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-md="100" fxFlex.gt-sm="33.3" class="mat-elevation-z4 service-card">
+      <div class="service-card-header" fxFlex>
+        <img alt="X-Cash Community" src="/assets/images/forum-white-48dp.svg" fxFlex>
+      </div>
+      <h3 class="mat-title" fxFlex>X-Cash Community</h3>
+      <p class="mat-body-1"  fxFlex>Join the official Discord server of the X-Cash community!<br />We are thrilled to have you on board!</p>
+      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://discord.gg/3yGCMr">
+        Visit X-Cash Community
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<div fxLayout="column" class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
+  <div fxFlex class="expansion-component-holder">
+
+    <h2 class="page_title faq_title">FAQ</h2>
+
+    <div class="expansion-container">
+      <div fxLayout="row" fxLayout.lt-sm="column">
+        <div fxFlexLayoutWrap fxFlex.xs="100" fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100">
+          <mat-accordion multi>
+
+            <mat-expansion-panel  expanded>
+              <mat-expansion-panel-header [style.height.px]="52">
+                <mat-panel-title>
+                Voting Rules
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <h4 class="mat-body-1">One vote per wallet</h4>
+                <p class="mat-body-2">
+                  Only one reserve proof will be valid per wallet address. This means you can only vote for one delegate per wallet address.
+                </p>
+                <h4 class="mat-body-1">Changing your vote</h4>
+                <p class="mat-body-2">
+                  You can change your vote by voting for a new delegate, and the old vote will automatically be replaced with the new vote.
+                </p>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel  expanded>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  How to vote in the CLI
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2"> Once the wallet is loaded, type the following command: </p>
+              <code>vote DELEGATES_PUBLIC_ADDRESS or DELEGATES_NAME</code>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel  expanded>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  How to register a delegate
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2"> Once the wallet is loaded, type the following command: </p>
+              <code>delegate_register DELEGATE_NAME DELEGATE_IP_ADDRESS</code>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel  expanded>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  How to update a delegates data
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2"> Once the wallet is loaded, type the following command: </p>
+              <code>delegate_update ITEM (about, website, team, shared_delegate_status, delegate_fee and server_specs)</code>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

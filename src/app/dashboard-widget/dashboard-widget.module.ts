@@ -32,8 +32,7 @@ import { Ng2OdometerModule } from 'ng2-odometer';
   declarations: [
       DashcardComponent,
       ProfileCardComponent
-    
-      ],
+  ],
   exports: [
       DashcardComponent,
       ProfileCardComponent

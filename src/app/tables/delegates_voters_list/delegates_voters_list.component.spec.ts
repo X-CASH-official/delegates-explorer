@@ -4,7 +4,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatTableModule } from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import {httpdataservice} from 'app/services/http-request.service';
+import {HttpdataService} from 'app/services/http-request.service';
 
 import { delegates_voters_listComponent } from './delegates_voters_list.component';
 
@@ -20,7 +20,7 @@ describe('delegates_voters_listComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ delegates_voters_listComponent ],
       imports: [HttpClientTestingModule,RouterTestingModule,MatTableModule],
-      providers: [ httpdataservice ],
+      providers: [ HttpdataService ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
@@ -36,11 +36,11 @@ describe('delegates_voters_listComponent', () => {
   it('should create', () => expect(component).toBeTruthy());
 
   it('should create dash card one', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1')).toBeTruthy());
-  it('should set dash card ones title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1').dashData.title).toBe('TOTAL VOTE COUNT'));
+  it('should set dash card ones title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1').dashData.title).toBe('VOTE COUNT'));
   it('should set dash card ones property to a number', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard1').dashData.text).toBe(0));
 
   it('should create dash card two', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2')).toBeTruthy());
-  it('should set dash card twos title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2').dashData.title).toBe('CURRENT VOTE COUNT'));
+  it('should set dash card twos title', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2').dashData.title).toBe('VOTERS'));
   it('should set dash card twos property to a number', () => expect(fixture.debugElement.nativeElement.querySelector('#dashcard2').dashData.text).toBe(0));
 
   it('should create reserve_proofs table', () => expect(fixture.debugElement.nativeElement.querySelector('#reserve_proofs_table')).toBeTruthy());

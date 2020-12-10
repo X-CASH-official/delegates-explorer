@@ -2,3 +2,105 @@ mat-card {
   padding: 5px;
   margin: 5px;
 }
+
+@mixin stats($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  .topstats-card-holder{
+      padding: 0px 5px 10px 5px;
+      min-height: 200px;
+      box-sizing: border-box;
+
+      .topstats-details{
+          background-color: mat-color($primary);
+          margin-top:-50px;
+          min-height: 200px;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          -ms-word-break: break-word;
+          word-break: break-word;
+          -ms-hyphens: manual;
+          -moz-hyphens: manual;
+          -webkit-hyphens: manual;
+          hyphens: manual;
+          & .topstats-details-holder{
+              margin-top: 50px;
+              padding-top: 15px;
+          }
+      }
+      .center-align{
+          text-align: center;
+      }
+      .view{
+          margin-bottom: 15px;
+          font-size: 14px;
+      }
+      & .banner {
+          background-size: screen;
+          background-color:  mat-color($accent);
+          min-height: 60px;
+          background-repeat: no-repeat;
+          //color: white;
+          z-index: 1;
+          border-radius: 50%;
+          display: inline-block;
+          & img {
+              position: relative;
+              z-index: 1;
+              padding-top: 2px;
+          }
+      }
+      .topstats-card-content{
+          padding: 5px;
+      }
+  }
+  .nav-item {
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: default;
+
+    &:hover {
+      transform: translate(0, -8px);
+      box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+    }
+  }
+  .topstats_container{
+    margin-bottom: 150px;
+
+    .table-container {
+    	margin-top:5px;
+      padding: 3px 10px 3px 10px;
+      overflow-y: auto;
+    }
+    .table-component-holder {
+      margin: 5px;
+    }
+    .table-header {
+    	padding: 10px 20px 1px 20px;
+    }
+    .table {
+        width: 100%;
+        max-width: 100%;
+        border-collapse: collapse;
+    }
+    .table tr:first-child td {
+        border-top: none;
+    }
+    .text-right {
+    	text-align: right;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    .count {
+      width: 8%;
+    }
+    .delegate_name {
+      width: 87%;
+    }
+    .block_producer_total_rounds {
+      width: 5%;
+    }
+  }
+}

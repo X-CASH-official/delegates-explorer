@@ -1,54 +1,114 @@
 
-.table-container {
-position: relative;
-margin-top:50px;
-padding: 5px 15px 15px 15px;
+.mat-toolbar-single-row{
+	height: 65px;
 }
-.table-container .mat-table {
-max-height: calc(100vh - 200px);
-overflow-y: auto;
-}
-.table-container .mat-table .mat-header-row {
-position: absolute;
-top: -50px;
-left: 0px;
-right: 18px;
-background: #fff;
-}
-.table-header {
-	background-color: #039be5;
-	color: white;
-	padding: 0 5px;
-}
-.table-component-holder {
-	border: 1px solid #039be5;
-	background-color: white;
+.mat-form-field {
+		font-size: 26px;
+		font-weight: 500;
+		line-height: normal;
+		font-family: Roboto, "Helvetica Neue", sans-serif;
+		padding: 0px;
+		margin:0;
+		width: 100%;
 }
 
-.mat-column-ID {
-  flex: 0 0 5%;
+::ng-deep .deleagtes_table .mat-form-field-label {  top: 1.05em !important}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {text-align: center !important;}
+::ng-deep .deleagtes_table .mat-form-field-underline, ::ng-deep .deleagtes_table .mat-form-field-ripple {
+	bottom: 0.8em !important;
+	height: 2px !important;
 }
-.mat-column-Delegate_Name {
-  flex: 0 0 25%;
+::ng-deep .deleagtes_table .mat-form-field-suffix .mat-icon{ font-size: 100% !important; }
+::ng-deep .deleagtes_table .mat-form-field-wrapper { padding-bottom: 0.5em !important; }
+::ng-deep .deleagtes_table .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+	transform: translateY(-0.6em) scale(0.6) perspective(100px) translateZ(0.001px) !important;
 }
-.mat-column-Online_Status {
-  flex: 0 0 10%;
+::ng-deep .deleagtes_table .mat-input-element{	font-size: 75% !important; }
+
+
+.mat-column-id {
+	flex: 1 0 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-Pool_Mode {
-  flex: 0 0 10%;
+.mat-column-delegate_name {
+	flex: 4 1 16%;
 }
-.mat-column-Fee_Structure {
-  flex: 0 0 10%;
+.mat-column-online_status {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-Block_Verifier_Total_Rounds {
-  flex: 0 0 10%;
+.mat-column-shared_delegate_status {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-Block_Verifier_Online_Percentage {
-  flex: 0 0 10%;
+.mat-column-delegate_fee{
+	flex: 2 1 40px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-Total_Vote_Count {
-  flex: 0 0 10%;
+.mat-column-total_vote_count {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-.mat-column-Block_Verifier_Score {
-  flex: 0 0 5%;
+.mat-column-block_verifier_online_percentage {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
+.mat-column-block_verifier_total_rounds {
+	flex: 2 1 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+.mat-column-block_producer_total_rounds {
+	flex: 2 1 36px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.mat-cell, .mat-header-cell {
+    overflow-wrap: break-word;
+		word-wrap: break-word;
+
+    -ms-word-break: break-word;
+    word-break: break-word;
+
+    -ms-hyphens: manual;
+    -moz-hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+}
+
+mat-cell:first-of-type, mat-footer-cell:first-of-type, mat-header-cell:first-of-type { padding-left: 0px;}
+mat-footer-cell:last-of-type, mat-header-cell:last-of-type  { padding-right: 0px;}
+mat-cell:last-of-type  { padding-right: 6px;}
+
+@media(max-width: 800px)
+{
+
+	::ng-deep .mat-sort-header-arrow, ::ng-deep [dir="rtl"] .mat-sort-header-position-before .mat-sort-header-arrow {
+	    margin: 0 0 0 1px !important;
+	}
+	.material-icons {font-size: 18px;}
+	.mat-column-block_verifier_online_percentage,
+	.mat-column-block_verifier_total_rounds,
+	.mat-column-delegate_fee{
+	  display: none;
+	}
+
+}
+mat-cell.mat-column-online_status > mat-icon,
+mat-cell.mat-column-shared_delegate_status >  mat-icon,
+mat-cell.mat-column-total_vote_count > span { cursor: help; }

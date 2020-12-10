@@ -1,71 +1,23 @@
-<div fxLayout="row"  class="dashcard mat-elevation-z4 "  >
-    <div *ngIf="dashData?.width === 10" fxFlex="10" fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight">
-        <mat-icon  class="cardIcon">{{dashData?.icon}}</mat-icon>
-    </div>
-    <div *ngIf="dashData?.width === 20" fxFlex="20" fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight">
-        <mat-icon  class="cardIcon">{{dashData?.icon}}</mat-icon>
-    </div>
-    <div *ngIf="dashData?.width === 40" fxFlex="40" fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight">
-        <mat-icon  class="cardIcon">{{dashData?.icon}}</mat-icon>
+<div fxLayout="row"  class="dashcard mat-elevation-z4">
+
+    <div *ngIf="dashData?.width_icon > 0"  [fxFlex]="dashData?.width_icon"   fxLayout="row"  fxLayoutAlign="center center" [style.background]="dashData?.colorLight" class="dashcard_icon">
+        <mat-icon  class="cardIcon" >{{dashData?.icon}}</mat-icon>
     </div>
 
-     <div *ngIf="dashData?.width === 10" fxFlex="90" fxLayout="column" fxLayoutAlign="center center" [style.background]="dashData?.colorDark" >
-         
-        <div *ngIf="dashData?.settings === true" style="color: white;font-size: 40px">
-            <ng2-odometer [number]="dashData?.text" [config]="{ }"></ng2-odometer>
+    <div [fxFlex]="100 - dashData?.width_icon" fxLayout="column" fxLayoutAlign="center center" [style.background]="dashData?.colorDark"  class="dashcard_box">
+
+        <div *ngIf="dashData?.ogmeter === true" [style.fontSize.px]="dashData?.text_size">
+            <ng2-odometer [number]="dashData?.text" [config]="{ }"></ng2-odometer> {{dashData?.suffix}}
         </div>
 
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 10" style="color: white;font-size: 10px">
-            <p>{{dashData?.text}}</p>
+        <div *ngIf="dashData?.ogmeter === false" [style.fontSize.px]="dashData?.text_size">
+              <span class="odometer-digit">{{dashData?.text}}</span> {{dashData?.suffix}}
         </div>
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 15" style="color: white;font-size: 15px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 20" style="color: white;font-size: 20px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <p class="mat-body-1 border-top">
+
+        <p class="mat-body-1 border-top" >
             {{dashData?.title}}
         </p>
+
     </div>
 
-    <div *ngIf="dashData?.width === 20" fxFlex="80" fxLayout="column" fxLayoutAlign="center center" [style.background]="dashData?.colorDark" >
-         
-        <div *ngIf="dashData?.settings === true" style="color: white;font-size: 40px">
-            <ng2-odometer [number]="dashData?.text" [config]="{ }"></ng2-odometer>
-        </div>
-
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 10" style="color: white;font-size: 10px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 15" style="color: white;font-size: 15px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 20" style="color: white;font-size: 20px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <p class="mat-body-1 border-top">
-            {{dashData?.title}}
-        </p>
-    </div>
-
-    <div *ngIf="dashData?.width === 40" fxFlex="60" fxLayout="column" fxLayoutAlign="center center" [style.background]="dashData?.colorDark" >
-         
-        <div *ngIf="dashData?.settings === true" style="color: white;font-size: 40px">
-            <ng2-odometer [number]="dashData?.text" [config]="{ }"></ng2-odometer>
-        </div>
-
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 10" style="color: white;font-size: 10px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 15" style="color: white;font-size: 15px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <div *ngIf="dashData?.settings === false && dashData?.text_settings === 20" style="color: white;font-size: 20px">
-            <p>{{dashData?.text}}</p>
-        </div>
-        <p class="mat-body-1 border-top">
-            {{dashData?.title}}
-        </p>
-    </div>
 </div>

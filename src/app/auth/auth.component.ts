@@ -1,7 +1,6 @@
+
 import { Component, OnInit ,Input} from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
-
-
 
 
 @Component({
@@ -20,6 +19,7 @@ export class AuthComponent implements OnInit{
   matDrawerShow: boolean = true;
   sideNavMode: string = 'side';
 
+
   ngOnChanges() {
    this.visibility = this.isVisible ? 'shown' : 'hidden';
   }
@@ -31,30 +31,27 @@ export class AuthComponent implements OnInit{
             this.toggleView();
         });
 	}
-    getRouteAnimation(outlet) {
 
-       return outlet.activatedRouteData.animation;
-       //return outlet.isActivated ? outlet.activatedRoute : ''
-    }
+  getRouteAnimation(outlet) {
+     return outlet.activatedRouteData.animation;
+  }
 
 	toggleView() {
 		if (this.media.isActive('gt-md')) {
-            this.sideNavMode = 'side';
-            this.sideNavOpened = true;
-            this.matDrawerOpened = false;
-            this.matDrawerShow = true;
-        } else if(this.media.isActive('gt-xs')) {
-            this.sideNavMode = 'side';
-            this.sideNavOpened = false;
-            this.matDrawerOpened = true;
-            this.matDrawerShow = true;
-        } else if (this.media.isActive('lt-sm')) {
-            this.sideNavMode = 'over';
-            this.sideNavOpened = false;
-            this.matDrawerOpened = false;
-            this.matDrawerShow = false;
-        }
+        this.sideNavMode = 'side';
+        this.sideNavOpened = true;
+        this.matDrawerOpened = false;
+        this.matDrawerShow = true;
+    } else if(this.media.isActive('gt-xs')) {
+        this.sideNavMode = 'side';
+        this.sideNavOpened = false;
+        this.matDrawerOpened = true;
+        this.matDrawerShow = true;
+    } else if (this.media.isActive('lt-sm')) {
+        this.sideNavMode = 'over';
+        this.sideNavOpened = false;
+        this.matDrawerOpened = false;
+        this.matDrawerShow = false;
+    }
 	}
-
-
 }

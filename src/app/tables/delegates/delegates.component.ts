@@ -1,80 +1,111 @@
-import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
-import { ExampleDatabase, ExampleDataSource } from './helpers.data';
-import {httpdataservice} from '../../services/http-request.service';
+import {fromEvent as observableFromEvent } from 'rxjs';
+import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
+
+import { Component, OnInit , ElementRef, ViewChild } from '@angular/core';
+import { DelegateDatabase, DelegateDataSource } from './helpers.data';
+import {HttpdataService} from '../../services/http-request.service';
+import { FunctionsService } from '../../services/functions.service';
+import { MatPaginator, MatSort } from '@angular/material';
+import { Title } from '@angular/platform-browser';
+
 import Swal from 'sweetalert2';
-import { Observable } from 'rxjs';
+import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
+
+/** Custom options the configure the tooltip's default show/hide delays. */
+export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
+  showDelay: 500,
+  hideDelay: 500,
+  touchendHideDelay: 750,
+};
 
 @Component({
   selector: 'app-fixed-table',
   templateUrl: './delegates.component.html',
-  styleUrls: ['./delegates.component.scss']
+  styleUrls: ['./delegates.component.scss'],
+  providers: [
+    {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}
+  ],
 })
-export class delegatesComponent implements OnInit {
-	public dashCard1 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL BLOCK VERIFIERS', icon: 'cloud' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'TOTAL DELEGATES', icon: 'cloud' }       
-    ];
 
-        public dashCard2 = [
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text: 0, settings: true, title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'cloud' },
-        { colorDark: '#fa741c', colorLight: '#fb934e', width: 40, text_settings: 20, text: '', settings: false, title: 'NEXT RECALCULATING OF VOTES', icon: 'assignments' }        
-    ];
-	public displayedColumns = ['ID', 'Delegate_Name', 'Online_Status', 'Shared_Delegate_Status', 'Delegate_Fee', 'Block_Verifier_Total_Rounds', 'Block_Verifier_Online_Percentage', 'Total_Vote_Count', 'Block_Producer_Total_Rounds'];
-	public exampleDatabase = new ExampleDatabase();
-	public dataSource: ExampleDataSource | null;
-  	public showFilterTableCode;
-  	constructor(private httpdataservice: httpdataservice) { }
+export class DelegatesComponent implements OnInit {
 
-  	ngOnInit() {
-        this.dashCard1[0].text = 50;  
+	displayedColumns = ['id', 'delegate_name', 'online_status', 'shared_delegate_status', 'delegate_fee', 'total_vote_count', 'block_verifier_online_percentage', 'block_verifier_total_rounds', 'block_producer_total_rounds'];
+	exampleDatabase = new DelegateDatabase();
+	dataSource: DelegateDataSource | null;
+	showFilterTableCode;
+  length;
+  pagesize;
+  mobile = false;
 
-        setInterval(() => {
-        var current_date_and_time = new Date();
-        var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
-        var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
-        if (minutes < 10)
-        {
-          minutes = "0" + minutes.toString();
-        }  
-        if (seconds < 10)
-        {
-          seconds = "0" + seconds;
-        }  
-        this.dashCard2[1].text = minutes + ":" + seconds;
-        }, 1000); 
 
-        this.get_delegates(); 
-      }
+	constructor(private httpdataservice: HttpdataService, private titleService:Title, public functionsService: FunctionsService) {
+      this.titleService.setTitle(" Delegates List - Delegates Explorer - X-CASH");
+   }
 
-        get_delegates()
-        {
-          // get the data
-	  this.httpdataservice.get_request(this.httpdataservice.SERVER_HOSTNAME_AND_PORT_GET_DELEGATES).subscribe(
-	  (res) =>
-	  {
-            this.exampleDatabase = new ExampleDatabase();
-            let data = JSON.parse(JSON.stringify(res));
-	    let count = 0;
-            let delegate_total_vote_count;
-            let current_delegate_total_vote_count;
-            this.dashCard1[1].text = data.length; 
 
-	    for (count = 0, delegate_total_vote_count = 0; count < data.length; count++)
-	    {
-              current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
-              delegate_total_vote_count += current_delegate_total_vote_count;
-	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),data[count].online_status.toString(),data[count].shared_delegate_status.toString(),data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
-	    }
-  	    this.dataSource = new ExampleDataSource(this.exampleDatabase);
-            
-            // only use 45 to calculate this since there are no votes for the 5 seed nodes
-            this.dashCard2[0].text = delegate_total_vote_count / 45;
-	  },
-	  (error) => 
-          {
-            
-	    Swal.fire("Error","An error has occured","error");
-	  }
-	  );
-        }
+	@ViewChild(MatPaginator) paginator: MatPaginator;
+	@ViewChild(MatSort) sort: MatSort;
+	@ViewChild('filter') filter: ElementRef;
+
+  getRouteAnimation(outlet) {
+     return outlet.activatedRouteData.animation;
+  }
+
+
+  ngOnInit() {
+
+    if (window.screen.width < 800) { // 768px portrait
+      this.mobile = true;
+    }
+
+
+    this.get_delegates();
+  }
+
+
+	get_delegates() {
+    // get the data
+	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES).subscribe(
+  	  (res) => {
+        this.exampleDatabase = new DelegateDatabase();
+        let data = JSON.parse(JSON.stringify(res));
+  	    let count = 0;
+        let current_delegate_total_vote_count;
+        let mode;
+        let status;
+        let xcash_wallet_decimal_places_amount = this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT;
+
+  	    for (count = 0; count < data.length; count++) {
+          current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / xcash_wallet_decimal_places_amount;
+          status = data[count].online_status == 'true' ? 'Online'  : 'Offline';
+          mode = data[count].shared_delegate_status == 'true' ? 'Shared'  : 'Solo';
+  	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),status,mode,data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
+
+  	    }
+
+        // paginator settings
+        this.length = data.length;
+        this.pagesize = 50;
+
+        this.dataSource = new DelegateDataSource(this.exampleDatabase, this.paginator, this.sort);
+
+
+        observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
+          debounceTime(150),
+          distinctUntilChanged(),)
+          .subscribe(() => {
+            if (!this.dataSource) { return; }
+            this.dataSource.filter = this.filter.nativeElement.value;
+          }
+        );
+  	  },
+  	  (error) => {
+  	    Swal.fire("Error","An error has occured:<br>API: Get delegates failed.","error");
+  	  }
+    );
+  }
+
+
+
+
 }

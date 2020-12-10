@@ -3,26 +3,26 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatTableModule } from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import {httpdataservice} from 'app/services/http-request.service';
+import {HttpdataService} from 'app/services/http-request.service';
 
-import { delegates_informationComponent } from './delegates_information.component';
+import { Delegates_informationComponent } from './delegates_information.component';
 
-describe('delegates_informationComponent', () => {
-  let component: delegates_informationComponent;
-  let fixture: ComponentFixture<delegates_informationComponent>;
+describe('Delegates_informationComponent', () => {
+  let component: Delegates_informationComponent;
+  let fixture: ComponentFixture<Delegates_informationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ delegates_informationComponent ],
+      declarations: [ Delegates_informationComponent ],
       imports: [HttpClientTestingModule,RouterTestingModule,MatTableModule],
-      providers: [ httpdataservice ],
+      providers: [ HttpdataService ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(delegates_informationComponent);
+    fixture = TestBed.createComponent(Delegates_informationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -47,7 +47,7 @@ describe('delegates_informationComponent', () => {
 
   it('should create profile card six', () => expect(fixture.debugElement.nativeElement.querySelector('#profilecard6')).toBeTruthy());
   it('should set profile card sixs title', () => expect(fixture.debugElement.nativeElement.querySelector('#profilecard6').title).toBe('Server Settings'));
-  
+
   it('should create profile card seven', () => expect(fixture.debugElement.nativeElement.querySelector('#profilecard7')).toBeTruthy());
   it('should set profile card sevens title', () => expect(fixture.debugElement.nativeElement.querySelector('#profilecard7').title).toBe('How to vote for this delegate'));
 });

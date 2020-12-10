@@ -5,202 +5,519 @@
 @import '../app/dashboard-widget/dashcard/dashcard.component.scss';
 @import '../app/dashboard-widget/profile-card/profile-card.component.scss';
 
+@import '../app/API/API.component.scss';
+@import '../app/help/help.component.scss';
+@import '../app/statistics/statistics.component.scss';
+@import '../app/delegates_information/delegates_information.component.scss';
 
-$mat-light-theme-background: (
-  status-bar: whitesmoke, //map_get($mat-grey, 300),
-  app-bar:    whitesmoke, //map_get($mat-grey, 100),
-  background: map_get($mat-indigo, 50),
-  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
-  card:       whitesmoke,
-  dialog:     whitesmoke,
-  disabled-button: $black-12-opacity,
-  raised-button: white,
-  focused-button: $black-6-opacity,
-  selected-button: map_get($mat-grey, 300),
-  selected-disabled-button: map_get($mat-grey, 400),
-  disabled-button-toggle: map_get($mat-grey, 200),
-  unselected-chip: map_get($mat-grey, 300),
-  disabled-list-option: map_get($mat-grey, 200),
-);
+@import './palette.scss';
 
 @include mat-core();
 
-$primary : $mat-light-blue;
-$accent  : $mat-orange;
-$warn    : $mat-light-blue;
+
+// TEAL THEME
+$primary-xteal : $md-xteal;
+$accent-xteal  : $md-xorange;
+$warn-xteal    : $mat-cyan;
+$spin_background-xteal: mat-palette($mat-grey);
+
+// GREY THEME
+$primary-xgrey : $md-xgrey;
+$accent-xgrey  : $md-xorange;
+$warn-xgrey    : $mat-grey;
+$spin_background-xgrey: mat-palette($mat-grey);
 
 
 
-$primary-app-primary: mat-palette($primary , 600);
-$primary-app-accent:  mat-palette($accent , 900);
-$primary-app-warn:    mat-palette($warn, 600 );
-$cdk-theme:   mat-light-theme($primary-app-primary, $primary-app-accent,$primary-app-warn);
 
-cdk-sidemenu{
-    $sidemenu-app-primary: mat-palette($primary , 600);
-    $sidemenu-app-accent:  mat-palette($accent , 900);
-    $sidemenu-app-warn:    mat-palette($warn, 600 );
-    $cdk-sidemenu-theme:   mat-dark-theme($sidemenu-app-primary, $sidemenu-app-accent,$sidemenu-app-warn);
-    @include mat-list-theme($cdk-sidemenu-theme);
-}
-
-
-cdk-sidemenu-item{
-    @include sidemenu-item($cdk-theme,20px)
-}
-
-
-cdk-dashcard {
-    $dashcard-primary: mat-palette($primary);
-    $dashcard-accent:  mat-palette($accent);
-    $dashcard-warn:    mat-palette($warn);
-    $dashcard-theme:   mat-dark-theme($dashcard-primary, $dashcard-accent,$dashcard-warn);
-    @include dashcard($dashcard-theme);
-}
-
-cdk-profile-card{
-  $dashboard-profile-primary: mat-palette($primary , 600);
-    $dashboard-profile-accent:  mat-palette($accent , 900);
-    $dashboard-profile-warn:    mat-palette($warn, 600 );
-    $cdk-dashboard-profile-theme:   mat-dark-theme($dashboard-profile-primary, $dashboard-profile-accent,$dashboard-profile-warn);
-    @include dashboard-profile($cdk-dashboard-profile-theme);
-    @include mat-tabs-theme($cdk-dashboard-profile-theme);
-}
-@include angular-material-theme($cdk-theme);
-@include auth($cdk-theme);
-
-
-html {
-  height:100%;
-}
-body{
-  padding: 0px !important;
-  margin: 0px !important;
-  height:100%;
-}
-.components-container-gt-xs {
-    padding: 20px;
-    // background-color: #fdfdfd;
-}
-.components-container-xs {
-    padding: 5px !important;
-    // background-color: #fdfdfd;
-}
-.component-preview {
-    padding: 20px;
-}
-.ps-content {
-  height: 100%;
-}
-
-.loader-container {
-    background-color: white;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2000;
-    position: absolute;
-
-    -moz-animation: cssAnimation 1s ease-in 3s forwards;
-    /* Firefox */
-    animation: cssAnimation 1s ease-in 3s forwards;
-    /* Safari and Chrome */
-    -o-animation: cssAnimation 1s ease-in 3s forwards;
-    /* Opera */
-    animation-fill-mode: forwards;
-}
-
-@keyframes cssAnimation {
-    to {
-        opacity:0;
-        display: none;
-        visibility:hidden;
-    }
-}
-@keyframes cssAnimation {
-    to {
-        visibility:hidden;
-        opacity:0;
-        display: none;
-    }
-}
+// DARKSEA THEME
+$primary-darksea : $mat-blue;
+$accent-darksea  : $mat-light-blue;
+$warning-darksea : $mat-blue-grey;
+$spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
 
 
 
-.spinner {
-    margin: 50vh auto 0;
-    width: 70px;
-    text-align: center;
-}
+//
+// DARK THEME
+//
+.darksea-theme {
 
-.spinner > div {
-  width: 18px;
-  height: 18px;
+  $primary-app-primary-darksea: mat-palette($primary-darksea,900);
+  $primary-app-accent-darksea:  mat-palette($accent-darksea,700);
+  $primary-app-warn-darksea:    mat-palette($warning-darksea,900 );
 
+  $pri-darksea: mat-color($primary-darksea,900);
+  $acc-darksea:  #002240; // mat-color($accent-darksea,800);
+  $warn-darksea: #002240;//mat-color($warning-darksea,900);
 
-  border-radius: 100%;
-  display: inline-block;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-}
+  $cdk-theme-dark-darksea:      mat-dark-theme($primary-app-primary-darksea, $primary-app-accent-darksea,$primary-app-warn-darksea);
 
-.bounce3 {
-    background-color: #039be5;
-}
+  cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-darksea); }
+  cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-dark-darksea,28px) }
 
-.spinner .bounce1 {
-    background-color: #4fc3f7;
-    animation-delay: -0.32s;
-}
+  cdk-dashcard { @include dashcard($cdk-theme-dark-darksea); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-darksea);
+    @include mat-tabs-theme($cdk-theme-dark-darksea);
+  }
+  @include angular-material-theme($cdk-theme-dark-darksea);
+  @include mat-table-theme($cdk-theme-dark-darksea);
 
-.spinner .bounce2 {
-    background-color: #29b6f6;
-    animation-delay: -0.16s;
-}
+  @include auth($cdk-theme-dark-darksea);
+  @include help($cdk-theme-dark-darksea);
+  @include api($cdk-theme-dark-darksea);
+  @include stats($cdk-theme-dark-darksea);
+  @include delegate-info($cdk-theme-dark-darksea);
 
-
-
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% { transform: scale(0) }
-  40% { transform: scale(1.0) }
-}
-
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-  } 40% {
-    transform: scale(1.0);
+  // Backgrounds
+  .mat-drawer-container{ background: #1d3557; }
+  .sidenav{ background: $warn-darksea; }
+  .drawer { background: $warn-darksea; }
+  #header{ background: $warn-darksea; }
+  #logo-header, #logo-header-xs{ background: $warn-darksea; }
+  .mat-table,  .mat-paginator, .section-container {background: $warn-darksea; }
+  .mat-expansion-panel {background: $warn-darksea; }
+  .mat-tab-group {background: $warn-darksea; }
+  .table-header { background: $warn-darksea; }
+  .table-container {background: $warn-darksea; }
+  .service-card-content .service-card-container .service-card {background: $warn-darksea; }
+  .topstats-card-holder .topstats-details {background: $warn-darksea; }
+  // Logo SVG Fill
+  .xca0 { fill: mat-color($primary-darksea,500); }
+  .xca1 { fill: white; }
+  .loader-container { background: $warn-darksea; }
+  .swal2-confirm { background-color: $pri-darksea !important; }
+  .logo { color:  mat-color($primary-darksea,500); }
+  .page_title { color: white; background: $warn-darksea; }
+  .page_subtitle { color: white; background: $pri-darksea; }
+  .page_title_icon { color: white; }
+  .dashcard_icon { color: white; background-color: $pri-darksea; }
+  .dashcard_box { color: white; background-color: $acc-darksea; }
+  .codeblock { color: $pri-darksea; background: white;     border: 2px solid white; }
+  // Links
+  a{  color: white; text-decoration: none; }
+  a:hover {  color: mat-color($accent-darksea,500); }
+   // Buttons
+  .delegate_details {  color: white; background-color:mat-color($accent-darksea,700); }
+  .delegate_details_active, a.delegate_details:hover  {  color: white; background-color: $warn-darksea; }
+  .mat-raised-button.mat-warn { color: white; background-color: mat-color($accent-darksea,700); }
+  .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: $warn-darksea; background-color: mat-color($accent-darksea,700); }
+  // ...
+  .result_data_name, .parameters_data_name { font-style: italic; color: mat-color($accent-darksea,400); }
+  .cards-container { border: 2px solid $pri-darksea; }
+  span.hljs-string { color: mat-color($accent-darksea,400); }
+  span.hljs-built_in { color: mat-color($mat-amber  ,500); }
+  span.hljs-literal { color: mat-color($md-xorange,500); }
+  .Online { color:  mat-color($mat-green,500); }
+  .Offline { color: mat-color($mat-red,500); }
+  .mat-tooltip{
+      border: 1px solid $pri-darksea;
+      background-color: #ffffff;
+      color:  $pri-darksea;
+      &.red-tooltip{ color: red; }
+      &.green-tooltip{ color: green; }
   }
 }
 
-.page_title{
-  color: white;
-  font: 500 26px Roboto, "Helvetica Neue", sans-serif;
-  text-align: center;
-  background: #29b6f6;
-  padding: 26px;
-  margin: 10px 5px;
+
+
+//
+// UNICDORN THEME
+//
+$primary-unicorn : $mat-pink;
+$accent-unicorn  : $mat-cyan;
+$warning-unicorn : $mat-lime;
+
+.unicorn-theme {
+  $primary-app-primary-unicorn: mat-palette($primary-unicorn, A100);
+  $primary-app-accent-unicorn:  mat-palette($accent-unicorn, 500);
+  $primary-app-warn-unicorn:    mat-palette($warning-unicorn, A100 );
+
+  $container-bg-unicorn: #CFF9F2;
+  $bg-unicorn:  #F2FEDC;
+
+  $cdk-theme-dark-unicorn:   mat-dark-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
+  $cdk-theme-light-unicorn:  mat-light-theme($primary-app-primary-unicorn, $primary-app-accent-unicorn,$primary-app-warn-unicorn);
+
+  cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-unicorn); }
+  cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-light-unicorn,28px) }
+
+  cdk-dashcard { @include dashcard($cdk-theme-dark-unicorn); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-unicorn);
+    @include mat-tabs-theme($cdk-theme-dark-unicorn);
+  }
+  @include angular-material-theme($cdk-theme-light-unicorn);
+  @include mat-table-theme($cdk-theme-light-unicorn);
+  @include auth($cdk-theme-light-unicorn);
+  @include help($cdk-theme-light-unicorn);
+  @include api($cdk-theme-light-unicorn);
+  @include stats($cdk-theme-light-unicorn);
+  @include delegate-info($cdk-theme-light-unicorn);
+
+  // Logo SVG Fill
+  .xca0 { fill: mat-color($mat-cyan,500); }
+  .xca1 { fill: mat-color($primary-unicorn,A100); }
+  // Backgrounds
+  .loader-container { background: $container-bg-unicorn;  }
+  .mat-drawer-container{ background:  $container-bg-unicorn; }
+  .mat-toolbar { background: mat-color($primary-unicorn,A100); }
+  #header, #logo-header, #logo-header-xs { background: $bg-unicorn; }
+  .table-container, .mat-table,  .mat-paginator, .section-container { background: $bg-unicorn; }
+  .mat-expansion-panel{ background: $bg-unicorn; }
+  .mat-tab-group { background: $bg-unicorn; }
+  .table-header { background: mat-color($primary-unicorn,A100); color: white; }
+  .table-component-holder {  border: 1px solid mat-color($primary-unicorn,A100); }
+  .swal2-confirm { background-color: mat-color($primary-unicorn,A100) !important; }
+  // .service-card-content .service-card-container .service-card { background: $bg-unicorn; }
+  // .topstats-card-holder .topstats-details { background: $bg-unicorn; }
+  // Toolbar
+  .mat-icon-button, .mat-button{ color: mat-color($primary-unicorn,A100); }
+  .logo { color: mat-color($accent-unicorn,500); }
+  .page_title {  color: white; background: mat-color($primary-unicorn,A100); }
+  // Page title
+  .page_subtitle {  color: white; background: mat-color($primary-unicorn,A100); }
+  .page_title_icon {    color: white; }
+  // Dashcards
+  .dashcard_icon {  background-color: mat-color($warning-unicorn,A100); }
+  .dashcard_box, .dashcard_box p {  color: white; background-color: mat-color($primary-unicorn,A100); }
+  cdk-dashcard .mat-icon {  color: mat-color($primary-unicorn,A100); }
+  // Links
+  a{  color: mat-color($primary-unicorn,A100); text-decoration: none; }
+  a:hover {  color: mat-color($accent-unicorn,500); }
+   // Buttons
+  .delegate_details {  color: white; background-color:mat-color($accent-unicorn,500); }
+  .delegate_details_active, a.delegate_details:hover  {  color: mat-color($primary-unicorn,A100); background-color: $bg-unicorn; }
+  .mat-raised-button.mat-warn { color: white; background-color:mat-color($accent-unicorn,500); }
+  .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: mat-color($primary-unicorn,500); background-color: $bg-unicorn; }
+  // ...
+  .codeblock {  color: mat-color($primary-unicorn,A100); background: $bg-unicorn; border: 2px solid $bg-unicorn; }
+  .topstats-details { color: white; }
+  .result_data_name, .parameters_data_name {  font-style: italic; color: mat-color($primary-unicorn,500); }
+  span.hljs-string { color: mat-color($mat-cyan, 500); }
+  span.hljs-built_in { color: mat-color($mat-green, 500); }
+  span.hljs-literal { color: mat-color($primary-unicorn, 500); }
+  .cards-container {  border: 2px solid mat-color($primary-unicorn,A100); }
+  .Online {	color:  mat-color($mat-green,A700); }
+  .Offline {	color: mat-color($mat-red,A400); }
+  .mat-tooltip{
+      border: 1px solid mat-color($primary-unicorn,500);
+      background-color: $bg-unicorn;
+      color:  mat-color($primary-unicorn,500);
+      &.green-tooltip{ color: mat-color($mat-green,A700); }
+      &.red-tooltip{ color: mat-color($mat-red,A400); }
+  }
+  .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover, ::ng-deep .mat-expansion-indicator::after {  color: white;  }
+  .mat-expansion-indicator::after {  color: white;  }
 }
 
-.delegate_details{
-  text-align: center;
-  color: white;
+
+//
+// LIGHT THEME
+//
+.light-theme {
+  $primary-app-primary-xteal: mat-palette($primary-xteal);
+  $primary-app-accent-xteal:  mat-palette($accent-xteal);
+  $primary-app-warn-xteal:    mat-palette($warn-xteal);
+  $cdk-theme-light-xteal:     mat-light-theme($primary-app-primary-xteal, $primary-app-accent-xteal,$primary-app-warn-xteal);
+  $cdk-theme-dark-xteal:      mat-dark-theme($primary-app-primary-xteal, $primary-app-accent-xteal,$primary-app-warn-xteal);
+  cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-xteal); }
+  cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-light-xteal,28px); }
+  cdk-dashcard { @include dashcard($cdk-theme-dark-xteal); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-xteal);
+    @include mat-tabs-theme($cdk-theme-dark-xteal);
+  }
+  @include angular-material-theme($cdk-theme-light-xteal);
+  @include mat-table-theme($cdk-theme-light-xteal);
+  @include auth($cdk-theme-light-xteal);
+  @include help($cdk-theme-light-xteal);
+  @include api($cdk-theme-light-xteal);
+  @include stats($cdk-theme-light-xteal);
+  @include delegate-info($cdk-theme-light-xteal);
+  // Logo SVG Fill
+  .xca0 { fill: mat-color($accent-xteal,500); }
+  .xca1 { fill: mat-color($primary-xteal,500); }
+
+  // Toolbar nav-elements
+  .mat-icon-button, .mat-button{ color: mat-color($primary-xteal,500); }
+
+  .loader-container { background: mat-color($spin_background-xteal, 50, 0.9); }
+  .swal2-confirm { background-color: mat-color($primary-xteal,500) !important; }
+  .logo{ color: mat-color($accent-xteal,500); }
+  .page_title{  color: white; background: mat-color($primary-xteal,500); }
+  .page_subtitle{  color: white; background: mat-color($primary-xteal,500); }
+  .page_title_icon { color: white; }
+  .dashcard_icon { color: white; background-color: mat-color($accent-xteal,500); }
+  .dashcard_box { color: white; background-color: mat-color($primary-xteal,500); }
+  .delegate_details{  color: white; background-color: mat-color($warn-xteal,600); }
+  .delegate_details_active{  color: white; background-color:mat-color($accent-xteal,500); }
+  .codeblock {  color: mat-color($primary-xteal,500); background: white; border: 2px solid white; }
+  a{ color: mat-color($primary-xteal,500); text-decoration: none; }
+  a:hover { color: mat-color($accent-xteal,500); }
+  a.delegate_details:hover {  background: mat-color($accent-xteal,500); color: white; }
+  .mat-raised-button:hover {  background: mat-color($accent-xteal,500); color: white; }
+  .table-header{  background: mat-color($primary-xteal,500); color: white; }
+  .table-component-holder {  border: 1px solid mat-color($primary-xteal,500); }
+  .topstats-details{ color: white; }
+  .result_data_name, .parameters_data_name{  font-style: italic; color: mat-color($primary-xteal,500); }
+  span.hljs-string{ color: mat-color($accent-xteal, 500); }
+  span.hljs-built_in{ color: mat-color($mat-green, 500); }
+  span.hljs-literal{ color: mat-color($mat-cyan, 500); }
+  .cards-container {  border: 2px solid mat-color($primary-xteal,500); }
+  .Online{	color:  mat-color($mat-green,500); }
+  .Offline{	color: mat-color($mat-red,500); }
+  .mat-tooltip{
+      border: 1px solid mat-color($primary-xteal,500);
+      background-color: #ffffff;
+      color:  mat-color($primary-xteal,500);
+      &.red-tooltip{ color: red; }
+      &.green-tooltip{ color: green; }
+  }
+
+  .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover, ::ng-deep .mat-expansion-indicator::after {  color: white;  }
+  .mat-expansion-indicator::after {  color: white;  }
 }
 
-a.delegate_details:link {
- color: white;
- text-decoration: underline;
- }
-a.delegate_details:visited {
- color: white;
- text-decoration: underline;
- }
-a.delegate_details:hover {
- color: #039be5;
- text-decoration: none;
- }
 
-.delegate_details h3 {
-  color: white;
-  background-color:#29b6f6;
-  padding:18px;
-  margin: 10px 5px;
+//
+// DARK THEME
+//
+.dark-theme {
+  $primary-app-primary-xgrey: mat-palette($primary-xgrey);
+  $primary-app-accent-xgrey:  mat-palette($accent-xgrey);
+  $primary-app-warn-xgrey:    mat-palette($warn-xgrey, 600 );
+  $cdk-theme-dark-xgrey:      mat-dark-theme($primary-app-primary-xgrey, $primary-app-accent-xgrey,$primary-app-warn-xgrey);
+  $cdk-theme-light-xgrey:     mat-light-theme($primary-app-primary-xgrey, $primary-app-accent-xgrey,$primary-app-warn-xgrey);
+  cdk-sidemenu{ @include mat-list-theme($cdk-theme-dark-xgrey); }
+  cdk-sidemenu-item{ @include sidemenu-item($cdk-theme-dark-xgrey,28px) }
+  cdk-dashcard { @include dashcard($cdk-theme-dark-xgrey); }
+  cdk-profile-card{
+    @include dashboard-profile($cdk-theme-dark-xgrey);
+    @include mat-tabs-theme($cdk-theme-dark-xgrey);
+  }
+  @include angular-material-theme($cdk-theme-dark-xgrey);
+  @include mat-table-theme($cdk-theme-dark-xgrey);
+  @include auth($cdk-theme-dark-xgrey);
+  @include help($cdk-theme-dark-xgrey);
+  @include api($cdk-theme-dark-xgrey);
+  @include stats($cdk-theme-dark-xgrey);
+  @include delegate-info($cdk-theme-dark-xgrey);
+  // Logo SVG Fill
+  .xca0 { fill: mat-color($accent-xgrey,500); }
+  .xca1 { fill: white; }
+
+  .loader-container { background: mat-color($spin_background-xgrey, 900, 0.9); }
+  .swal2-confirm { background-color: mat-color($primary-xgrey,500) !important; }
+  .logo { color: mat-color($accent-xgrey,500); }
+  .page_title { color: white; background: mat-color($primary-xgrey,500); }
+  .page_subtitle { color: white; background: mat-color($primary-xgrey,500); }
+  .page_title_icon { color: white; }
+  .dashcard_icon { color: white; background-color: mat-color($accent-xgrey,500); }
+  .dashcard_box { color: white; background-color: mat-color($primary-xgrey,500); }
+  .delegate_details{ color: white; background-color: mat-color($warn-xgrey,600); }
+  .delegate_details_active{ color: white; background-color:mat-color($accent-xgrey,500); }
+  .codeblock { color: mat-color($primary-xgrey,500); background: white;     border: 2px solid white; }
+  a { color: white; }
+  a:hover { color: mat-color($accent-xgrey,500); }
+  a.delegate_details:hover { background: mat-color($accent-xgrey,500); color: white; }
+  .mat-raised-button:hover { background: mat-color($accent-xgrey,500); color: white; }
+  .table-header { background: mat-color($primary-xgrey,500); }
+  .table-component-holder { border: 1px solid mat-color($primary-xgrey,500); }
+  .result_data_name, .parameters_data_name { font-style: italic; color: mat-color($accent-xgrey,500); }
+  span.hljs-string { color: mat-color($accent-xgrey,400); }
+  span.hljs-built_in { color: mat-color($mat-amber  ,500); }
+  span.hljs-literal { color: mat-color($mat-cyan,500); }
+  .cards-container { border: 2px solid mat-color($primary-xgrey,500); }
+  .Online { color:  mat-color($mat-green,500); }
+  .Offline { color: mat-color($mat-red,500); }
+  .mat-tooltip{
+      border: 1px solid mat-color($primary-xgrey,500);
+      background-color: #ffffff;
+      color:  mat-color($primary-xgrey,500);
+      &.red-tooltip{ color: red; }
+      &.green-tooltip{ color: green; }
+  }
 }
+
+
+
+
+//
+// GLOBAL CSS
+//
+  html {
+    height:100%;
+  }
+  body{
+    padding: 0px !important;
+    margin: 0px !important;
+    height:100%;
+  }
+  .xcash_logo{
+      width: 26px;
+      padding-left: 4px;
+  }
+  .logo{
+      font-size: 24px;
+      font-family: Roboto, Serif;
+      font-weight:500;
+      margin-top: 8px;
+      padding-left:14px;
+  }
+  .components-container-gt-xs {
+    // padding: 20px;
+    padding:  10px 5px;
+  }
+  .components-container-xs {
+    padding: 5px !important;
+  }
+  .component-preview {
+    padding: 20px;
+  }
+  .ps-content {
+    height: 100%;
+  }
+  .page_title{
+    font: 500 26px Roboto, "Helvetica Neue", sans-serif;
+    text-align: center;
+    padding: 16px;
+    margin: 10px 5px;
+  }
+  .page_subtitle{
+    font: 500 20px Roboto, "Helvetica Neue", sans-serif;
+    text-align: center;
+    padding: 12px;
+    margin: 10px 5px;
+  }
+  .page_title_icon {
+    font-size: 26px;
+    padding: 5px;
+  }
+  .delegate_title{
+  	padding-left: 120px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-word;
+    word-break: break-word;
+    -ms-hyphens: manual;
+    -moz-hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+  }
+  @media(max-width: 800px)
+  {
+  	.delegate_title{
+  		padding: 5px !important;
+  		font-size: 22px;
+  	}
+  	.copy_vote_btn{
+  		display:none !important;
+  	}
+  }
+  .delegate_details{
+    text-align: center;
+    line-height:24px;
+    &:hover {
+        transform: translate(0, -2px);
+        box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+    }
+  }
+  .delegate_details_icon{
+    font-size: 24px;
+    padding-top: 0px;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right:10px;
+  }
+  .delegate_details h3 {
+    margin: 5px;
+    display:inline-block;
+    vertical-align:middle;
+  }
+  a.delegate_details{
+    margin: 5px 5px !important;
+  }
+  a.delegate_details:link {
+    text-decoration: none;
+  }
+  a.delegate_details:visited {
+    text-decoration: none;
+  }
+  a.delegate_details:hover {
+    text-decoration: underline;
+  }
+  a.delegate_details:active {
+    text-decoration: underline;
+  }
+  a.delegate_details_active  {
+    pointer-events: none !important;
+    cursor: default !important;
+    text-decoration: underline !important;
+  }
+  .codeblock {
+  	font: 500 16px Roboto, "Helvetica Neue", sans-serif;
+    border-radius: 3px;
+    padding: 4px 16px;
+  	margin: 0 0 20px;
+
+  }
+  .table-container {
+  	position: relative;
+  	margin-top:50px;
+  	padding: 5px 0px 15px 0px;
+  }
+  .table-container .mat-table {
+  	// max-height: calc(100vh - 250px);
+  	// overflow-y: auto;
+  	width: 100%;
+  }
+  .table-container .mat-table .mat-header-row {
+  	position: absolute;
+  	top: -50px;
+  	left: 0px;
+  	right: 0px;
+  }
+  .table-header {
+    padding: 0px 20px 0px 20px;
+  }
+  .mat-cell{
+    font-weight: 300;
+    font-size: 18px;
+  }
+  .mat-cell h5, .mat-cell a {
+   	font-weight: 500;
+    font-size: 18px;
+  }
+  .mat-header-cell{
+   	font-weight: 500;
+    font-size: 16px;
+  }
+  @media(max-width: 600px)
+  {
+    .mat-header-cell{
+      font-size: 15px;
+    }
+    .mat-cell{
+      font-size: 14px;
+    }
+    .mat-cell h5, .mat-cell a {
+      font-size: 14px;
+    }
+    .components-container-xs {
+      padding: 0px !important;
+    }
+  }
+  .no-results{
+    text-align: center;
+    margin: 2em;
+    font: 500 16px Roboto, "Helvetica Neue", sans-serif;
+  }
+  a{
+      text-decoration: none;
+  }
+
+  .hide_th { height: 1px; border: none }
+  .offscreen { height: 1px; width: 1px; position: absolute; overflow: hidden; top: -10px; }
+  .mat-tooltip{ font-size: 1.0rem; }

@@ -25,7 +25,7 @@
 - [Installation Process](#installation-process)
   - [Dependencies](#dependencies)
   - [Requirements](#requirements)
-  - [Develop](#develop)
+  - [Install](#install)
   - [Testing](#testing)
 
 ## Features
@@ -55,7 +55,7 @@ We are hosting our documentation on **GitBook** 👉 [**docs.xcash.foundation**]
 
 > You can contribute directly on our [`gitbook-docs`](https://github.com/X-CASH-official/gitbook-docs) repository.
 
-## Security 
+## Security
 
 If you discover a **security** vulnerability, please send an e-mail to [security@xcash.foundation](mailto:security@xcash.foundation).  
 All security vulnerabilities concerning the X-Cash blockchain will be promply addressed.
@@ -108,7 +108,7 @@ echo -e '\nexport PATH=path_to_nodejs/bin:$PATH' >> ~/.profile && source ~/.prof
 
 > Note if your installing on a `root` session, you need to run these additional commands before upgrading
 > ```bash
-> npm config set user 0 
+> npm config set user 0
 > npm config set unsafe-perm true
 > ```
 
@@ -117,37 +117,64 @@ Update `npm` globally:
 npm install -g npm
 ```
 
-#### angular 
+#### angular
 
-Install the latest version of Angular globally: 
-```shell 
+Install the latest version of Angular globally:
+```shell
 npm install -g @angular/cli@latest
 ```
 
-Then install the compressor `UglifyJS` globally : 
+Then install the compressor `UglifyJS` globally :
 ```shell
 npm install -g uglify-js
 ```
 
-### Develop
+### Install
 
 #### Clone repository
 
 In your desired folder, clone the repository:
 ```shell
 git clone https://github.com/X-CASH-official/delegates-explorer.git
-``` 
+```
 
 #### Install dependencies
 
 ```shell
-~cd /delegates-explorer
+cd delegates-explorer
 npm install
 ```
 
-#### Redirect port 80 to 18283
+#### Configure application
 
-Make sure to follow the steps to [setup the firewall for `xcash-dpops`](https://github.com/X-CASH-official/xcash-dpops#how-to-setup-the-firewall)
+Edit the `delegates-explorer/src/environments/environment.prod.ts` , set your Base-URL (Domain URL) and if needed an external API Endpoint:
+
+```
+export const environment = {
+    baseURL: "http://delegates.your-domain.tld",
+    apiEndPoint: ''
+};
+```
+
+#### Install the firewall with parameters for shared delegates.
+
+Run `bash -c "$(curl -sSL https://raw.githubusercontent.com/X-CASH-official/xcash-dpops/master/scripts/autoinstaller/autoinstaller.sh)"` and choose `12 = Shared Delegates Firewall`.
+
+#### Manual Installation of the firewall
+
+Download the [`firewall_script.sh`](https://github.com/X-CASH-official/xcash-dpops/tree/master/scripts/firewall) .
+
+Uncomment these lines in `firewall_script.sh` to enable port 80 and redirect port 80 to 18283:
+```
+# iptables -t filter -I INPUT -p tcp --syn --dport 80 -m connlimit --connlimit-above 100 --connlimit-mask 32 -j DROP
+# iptables -t filter -I INPUT -p tcp --syn --dport 18283 -m connlimit --connlimit-above 100 --connlimit-mask 32 -j DROP
+```
+```
+# iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+```
+
+Run the firewall script
+`./firewall_script.sh`
 
 #### Build
 
@@ -173,7 +200,7 @@ cp -a dist/* ~/xcash-dpops/delegates-explorer/
 
 ```shell
 npm test
-``` 
+```
 
 To test that you have properly configured the delegates explorer, run `xcash-dpops` with the `--test_data_add` flag. *This will add test datas to the MongoDB.*
 
@@ -182,4 +209,3 @@ Now run the website server again using the normal options.
 Next, navigate to your servers IP address or website domain. You should now see the website and some test data. You can navigate through the website using the test data.
 
 When you have verified that the website works correctly, remove the test data by shutting down the `xcash-dpops` and then running it again with the `--test_data_remove` flag.  
-

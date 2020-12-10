@@ -2,25 +2,31 @@ export const menus = [
     {
         'name': 'Dashboard',
         'open': false,
-        'link': '/auth/dashboard',
+        'link': '/dashboard',
         'icon': 'dashboard',
     },
     {
         'name': 'Delegates',
         'open': false,
-        'link': 'tables/delegates',
-        'icon': 'assignments',
+        'link': '/delegates',
+        'icon': 'groups',
     },
     {
         'name': 'Statistics',
         'open': false,
-        'link': '/auth/statistics',
-        'icon': 'info',
+        'link': '/statistics',
+        'icon': 'insights',
+    },
+    {
+       'name': 'Help',
+        'open': false,
+        'link': '/help',
+        'icon': 'help',
     },
     {
         'name': 'API',
         'open': false,
-        'link': '/auth/API',
+        'link': '/API',
         'icon': 'cloud',
     },
 ];

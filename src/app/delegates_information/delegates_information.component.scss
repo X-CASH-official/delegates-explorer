@@ -2,3 +2,34 @@ mat-card {
   padding: 5px;
   margin: 5px;
 }
+@mixin delegate-info($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  .service-card-container {
+    padding: 0px;
+    margin: 10px 5px;
+    .service-card {
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        cursor: default;
+        background-color: mat-color($primary);
+        color: white;
+        padding: 20px;
+        h3 {
+            margin: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            text-align: center;
+            border-bottom: 1px solid white;
+        }
+        p {
+            margin: 0;
+            text-align: center;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+  }
+}
