@@ -65,16 +65,16 @@ export class statisticsComponent implements OnInit {
             let data = JSON.parse(JSON.stringify(res));
             let count = 0;
             let top_count = 25;
-
-            this.top_producer = data.sort(function(a, b) {
+            // Top Block Producer List
+            this.top_producer = [...data].sort(function(a, b) {
               return b.block_producer_total_rounds - a.block_producer_total_rounds;
             }).slice( 0, top_count);
-
-            this.top_verifier = data.sort(function(a, b) {
+            // Top Block Verifier List
+            this.top_verifier = [...data].sort(function(a, b) {
               return b.block_verifier_total_rounds - a.block_verifier_total_rounds;
             }).slice( 0, top_count);
-
-            data.map(function(item) {
+            // Top Block Ratio List
+            [...data].map(function(item) {
                item.block_ratio = item.block_producer_total_rounds / item.block_verifier_total_rounds * 100;
             });
             this.top_ratio = data.sort(function(a, b) {
