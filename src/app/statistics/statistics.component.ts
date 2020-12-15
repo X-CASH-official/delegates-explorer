@@ -74,7 +74,7 @@ export class statisticsComponent implements OnInit {
               return b.block_verifier_total_rounds - a.block_verifier_total_rounds;
             }).slice( 0, top_count);
             // Top Block Ratio List
-            [...data].map(function(item) {
+            [...data].forEach(function(item) {
                item.block_ratio = item.block_producer_total_rounds / item.block_verifier_total_rounds * 100;
             });
             this.top_ratio = data.sort(function(a, b) {
