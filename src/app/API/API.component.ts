@@ -46,6 +46,7 @@ export class APIComponent implements OnInit {
                           \xA0 \xA0 \xA0--header 'Content-Type: application/json'`.trim();
 
         data[key].es6 = `let url = '"`+ data[key].request_url + `"';
+
 let response = await fetch(url, {
 \xA0 method: 'GET',
 \xA0 headers: { 'Content-Type': 'application/json;charset=utf-8' }
@@ -77,13 +78,13 @@ if (response.ok) {
         data[key].php = `
 <?php
 
-$url = "`+ data[key].request_url + `";
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER,  ['User-Agent: who-is-your-daddy/69.69.0']);
+\xA0 $url = "`+ data[key].request_url + `";
+\xA0 $ch = curl_init($url);
+\xA0 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+\xA0 curl_setopt($ch, CURLOPT_HTTPHEADER,  ['User-Agent: who-is-your-daddy/69.69.0']);
 
-$response = curl_exec($ch);
-echo $response;
+\xA0 $response = curl_exec($ch);
+\xA0 echo $response;
 
 ?>`.trim();
 
