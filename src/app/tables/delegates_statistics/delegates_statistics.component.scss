@@ -1,13 +1,31 @@
-
 .mat-toolbar-single-row{
 	height: 75px;
 }
 .mat-form-field {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+		font-weight: 500;
+		line-height: normal;
+		font-family: Roboto, "Helvetica Neue", sans-serif;
+		padding: 0px;
+		margin:0;
+
+		width: 100%;
 }
-.mat-form-field-wrapper{
-	padding-bottom: 0.8em;
+.mat-form-field-infix{
+
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {text-align: center !important; margin-left: 52px !important;}
+
+
+.mat-column-id {
+	flex: 1 0 24px;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.mat-column-block_height {
+  flex: 4 1 85%;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }

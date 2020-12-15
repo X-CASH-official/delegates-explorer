@@ -11,9 +11,7 @@
 		width: 100%;
 }
 
-
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {text-align: center !important;}
-
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {text-align: center !important; margin-left: 52px !important;}
 
 .mat-column-id {
 	flex: 1 0 24px;
@@ -28,14 +26,12 @@
   flex: 4 1 55%;
 	padding-right: 15px;
 }
-
 .mat-column-reserve_proof {
   flex: 1 0 24px;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center
 }
-
 
 .mat-cell, .mat-header-cell {
     overflow-wrap: break-word;
@@ -60,21 +56,4 @@ mat-cell:last-of-type  { padding-right: 6px;}
 	::ng-deep .mat-sort-header-arrow, ::ng-deep [dir="rtl"] .mat-sort-header-position-before .mat-sort-header-arrow {
 	    margin: 0 0 0 1px !important;
 	}
-}
-
-::ng-deep .extralong-tooltip {
-	max-width: unset !important;
-	 max-width: 80%;
-
-	 overflow-wrap: break-word;
-	 word-wrap: break-word;
-
-	 -ms-word-break: break-word;
-	 word-break: break-word;
-
-	 -ms-hyphens: manual;
-	 -moz-hyphens: manual;
-	 -webkit-hyphens: manual;
-	 hyphens: manual;
-
 }
