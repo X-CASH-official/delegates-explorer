@@ -85,26 +85,26 @@ export const API_DATA:any = [
         }
       ],
       response: `[
-        {
-        "total_vote_count":"200000000",
-        "delegate_name":"delegate_name_5",
-        "shared_delegate_status":"false",
-        "delegate_fee":"0.100000",
-        "block_verifier_score":"0",
-        "online_status":"true",
-        "block_verifier_total_rounds":"5",
-        "block_verifier_online_percentage":"0"
-      },
-      {
-          "total_vote_count":"100000000",
-        "delegate_name":"delegate_name_4",
-        "shared_delegate_status":"false",
-        "delegate_fee":"",
-        "block_verifier_score":"0",
-        "online_status":"true",
-        "block_verifier_total_rounds":"4",
-        "block_verifier_online_percentage":"25"
-      }
+                \xA0  {
+                      \xA0  "total_vote_count":"200000000",
+                      \xA0  "delegate_name":"delegate_name_5",
+                      \xA0  "shared_delegate_status":"false",
+                      \xA0  "delegate_fee":"0.100000",
+                      \xA0  "block_verifier_score":"0",
+                      \xA0  "online_status":"true",
+                      \xA0  "block_verifier_total_rounds":"5",
+                      \xA0  "block_verifier_online_percentage":"0"
+                \xA0  },
+                \xA0  {
+                      \xA0  "total_vote_count":"100000000",
+                      \xA0  "delegate_name":"delegate_name_4",
+                      \xA0  "shared_delegate_status":"false",
+                      \xA0  "delegate_fee":"",
+                      \xA0  "block_verifier_score":"0",
+                      \xA0  "online_status":"true",
+                      \xA0  "block_verifier_total_rounds":"4",
+                      \xA0  "block_verifier_online_percentage":"25"
+                \xA0  }
     ]
       `.trim()
     },
@@ -282,22 +282,21 @@ export const API_DATA:any = [
           "desc": "The reserve proof created by the delegate"
         }
       ],
-      response: `
-      [
-        {
-          "public_address_created_reserve_proof":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP",
-          "public_address_voted_for":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP",
-          "total":"120000000",
-          "reserve_proof":"ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112VKmH111118NDPqYHviiubTHpa5jPey2PF2RPr7p92nUY5PYcCqPwkM3Vezb1BvSAu2zX5kKMuJYo2q837KH4HAXkXbdgF6wa13pkkpuMxv74keNZLAeeM9wmSuJvSHmMvVjfo6u6iCWMDRESRouQ359NvpAZN71D9fSivgK7K7WkbNzftkUZ6V7Uza6K9eihTgu7hSB3AqaTm7cK9uTb5Fzg9LyJbC4phfGYM7bazM2UrVfitZtbEkKuhPxnzFzKkWtdYBB59zUo1uS4UUR8faS25sjfc2cPjZUfbEZsiJVo7EDNs3d1KdhTN5TdNxZK6MZgVB77jE9ed4jJUrNSrqfWg1BwigbN9smQicoi9yYwujuGaHEzEnLBwQeLFxJJQj31qRQb4ZijEBGrMxvcmybhPKiHA3LBARnBREJxkQ39dp2HRfEfR1G7z6RGhS9o1KQCF3MAwomCMCuj69SpeovPEYwQb5uVXti"
-        },
-        {
-          "public_address_created_reserve_proof":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3",
-          "public_address_voted_for":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP",
-          "total":"200000000",
-          "reserve_proof":"ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112VKmH111118NDPqYHviiubTHpa5jPey2PF2RPr7p92nUY5PYcCqPwkM3Vezb1BvSAu2zX5kKMuJYo2q837KH4HAXkXbdgF6wa13pkkpuMxv74keNZLAeeM9wmSuJvSHmMvVjfo6u6iCWMDRESRouQ359NvpAZN71D9fSivgK7K7WkbNzftkUZ6V7Uza6K9eihTgu7hSB3AqaTm7cK9uTb5Fzg9LyJbC4phfGYM7bazM2UrVfitZtbEkKuhPxnzFzKkWtdYBB59zUo1uS4UUR8faS25sjfc2cPjZUfbEZsiJVo7EDNs3d1KdhTN5TdNxZK6MZgVB77jE9ed4jJUrNSrqfWg1BwigbN9smQicoi9yYwujuGaHEzEnLBwQeLFxJJQj31qRQb4ZijEBGrMxvcmybhPKiHA3LBARnBREJxkQ39dp2HRfEfR1G7z6RGhS9o1KQCF3MAwomCMCuj69SpeovPEYwQb5uVXti"
-        }
-      ]
-      `.trim()
+      response: `[
+                \xA0  {
+                        "public_address_created_reserve_proof":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP",
+                        "public_address_voted_for":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP",
+                        "total":"120000000",
+                        "reserve_proof":"ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112 ..."
+                 \xA0  },
+                 \xA0  {
+                        "public_address_created_reserve_proof":"XCA1v18Qsf5PKLr8GFr14jHkjgf3mPm1MAVbswBs9QP7FwGTLCE4SwYi81BRp2vrcV12maMtCw9TE1NZRVyynQ3e2c3b7mxRw3",
+                        "public_address_voted_for":"XCA1pEWxj2q7gn7TJjae7JfsDhtnhydxsHhtADhDm4LbdE11rHVZqbX5MPGZ9tM7jQbDF4VKK89jSAqgL9Nxxjdh8RM5JEpZZP",
+                        "total":"200000000",
+                        "reserve_proof":"ReserveProofV11BZ23sBt9sZJeGccf84mzyAmNCP3KzYbE1111112 ..."
+                 \xA0  }
+     ]
+       `.trim()
     },
     {
       title: 'Get round statistics',
@@ -318,7 +317,7 @@ export const API_DATA:any = [
       ],
       response: `
       {
-        "reserve_bytes":"reserve_bytes"}
+        "reserve_bytes":"reserve_bytes"
       }
       `.trim()
     }
