@@ -78,7 +78,7 @@ export class DelegatesComponent implements OnInit {
   	    for (count = 0; count < data.length; count++) {
           current_delegate_total_vote_count = parseInt(data[count].total_vote_count) / xcash_wallet_decimal_places_amount;
           status = data[count].online_status == 'true' ? 'Online'  : 'Offline';
-          mode = data[count].shared_delegate_status == 'true' ? 'Shared'  : 'Solo';
+          mode = data[count].shared_delegate_status == 'solo' ? 'Solo' : data[count].shared_delegate_status == 'shared' ? 'Shared' : 'Group';
   	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),status,mode,data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
 
   	    }
