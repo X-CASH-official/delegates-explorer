@@ -28,8 +28,6 @@ $warn-xgrey    : $mat-grey;
 $spin_background-xgrey: mat-palette($mat-grey);
 
 
-
-
 // DARKSEA THEME
 $primary-darksea : $mat-blue;
 $accent-darksea  : $mat-light-blue;
@@ -39,7 +37,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
 
 
 //
-// DARK THEME
+// DARKSEA THEME
 //
 .darksea-theme {
 
@@ -89,6 +87,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .loader-container { background: $warn-darksea; }
   .swal2-confirm { background-color: $pri-darksea !important; }
   .logo { color:  mat-color($primary-darksea,500); }
+  .hint { color:  mat-color($primary-darksea, 500); }
   .page_title { color: white; background: $warn-darksea; }
   .page_subtitle { color: white; background: $pri-darksea; }
   .page_title_icon { color: white; }
@@ -118,6 +117,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
       &.red-tooltip{ color: red; }
       &.green-tooltip{ color: green; }
   }
+
 }
 
 
@@ -175,6 +175,7 @@ $warning-unicorn : $mat-lime;
   // Toolbar
   .mat-icon-button, .mat-button{ color: mat-color($primary-unicorn,A100); }
   .logo { color: mat-color($accent-unicorn,500); }
+  .hint { color: mat-color($accent-unicorn,500); }
   .page_title {  color: white; background: mat-color($primary-unicorn,A100); }
   // Page title
   .page_subtitle {  color: white; background: mat-color($primary-unicorn,A100); }
@@ -246,6 +247,7 @@ $warning-unicorn : $mat-lime;
   .loader-container { background: mat-color($spin_background-xteal, 50, 0.9); }
   .swal2-confirm { background-color: mat-color($primary-xteal,500) !important; }
   .logo{ color: mat-color($accent-xteal,500); }
+  .hint { color: mat-color($accent-xteal,500); }
   .page_title{  color: white; background: mat-color($primary-xteal,500); }
   .page_subtitle{  color: white; background: mat-color($primary-xteal,500); }
   .page_title_icon { color: white; }
@@ -311,6 +313,7 @@ $warning-unicorn : $mat-lime;
   .loader-container { background: mat-color($spin_background-xgrey, 900, 0.9); }
   .swal2-confirm { background-color: mat-color($primary-xgrey,500) !important; }
   .logo { color: mat-color($accent-xgrey,500); }
+  .hint { color: mat-color($accent-xgrey,500); }
   .page_title { color: white; background: mat-color($primary-xgrey,500); }
   .page_subtitle { color: white; background: mat-color($primary-xgrey,500); }
   .page_title_icon { color: white; }
@@ -365,6 +368,11 @@ $warning-unicorn : $mat-lime;
       font-weight:500;
       margin-top: 8px;
       padding-left:14px;
+  }
+  .hint{
+      font-size: 16px;
+      font-family: Roboto, Serif;
+      font-weight:500;
   }
   .components-container-gt-xs {
     // padding: 20px;
@@ -456,7 +464,7 @@ $warning-unicorn : $mat-lime;
     cursor: default !important;
     text-decoration: underline !important;
   }
-  .codeblock {
+  .voteblock {
   	font: 500 16px Roboto, "Helvetica Neue", sans-serif;
     border-radius: 3px;
     padding: 4px 16px;

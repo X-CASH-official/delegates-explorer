@@ -3,7 +3,7 @@
 <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
   <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/delegates/delegate_information']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
     <mat-icon  class="delegate_details_icon">info</mat-icon>
-    <h3>Informations</h3>
+    <h3>Information</h3>
   </a>
   <a mat-raised-button class="delegate_details" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
     <mat-icon  class="delegate_details_icon">insights</mat-icon>
@@ -36,9 +36,17 @@
       <p class="mat-body-1"  fxFlex>{{server_specs}}</p>
   </div>
 
-  <div *ngIf="shared_delegate_status" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
+  <div *ngIf="shared_delegate_status"  fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">
       <h3 class="mat-title">Mode</h3>
-      <p class="mat-subheading-2"  fxFlex>{{shared_delegate_status }}</p>
+      <p class="mat-subheading-2"  fxFlex>
+        <mat-icon *ngIf="shared_delegate_status === 'Solo';" matTooltip="Solo Node">person_outline</mat-icon>
+        <mat-icon *ngIf="shared_delegate_status === 'Shared';" matTooltip="Shared Node - {{ delegate_fee + '%' }} Fee">groups</mat-icon>
+        <mat-icon *ngIf="shared_delegate_status === 'Group';" matTooltip="Private Group">lock</mat-icon>
+        <br>
+        <span *ngIf="shared_delegate_status === 'Solo';">Solo Node</span>
+        <span *ngIf="shared_delegate_status === 'Shared';">Shared Node</span>
+        <span *ngIf="shared_delegate_status === 'Group';">Private Group</span>
+      </p>
   </div>
 
   <div *ngIf="delegate_fee" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-lg="100" class="mat-elevation-z4 service-card">

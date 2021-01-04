@@ -3,7 +3,7 @@
         <div   class="profile-details mat-elevation-z8" [ngStyle]="data_settings" >
             <div fxLayout="column" class="profile-details-holder" [ngStyle]="text_settings" fxLayoutAlign="space-around center">
                 <h1 class="mat-headline center-align" >{{title}}</h1>
-                <code *ngIf="data" class="codeblock center-align" >{{data}}</code>
+                <code *ngIf="data" class="codeblock voteblock center-align" >{{data}}</code>
                 <button class="Follow " mat-raised-button [ngStyle]="button_length" color="warn" (click)="functionsService.copyVote(data)">{{button_name}}</button>
             </div>
         </div>

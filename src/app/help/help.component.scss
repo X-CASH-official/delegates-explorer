@@ -69,36 +69,63 @@ mat-card {
     border-style: 0;
     margin-bottom: 150px;
 
-    mat-divider {
-    	margin-bottom: 20px;
-      border: 0px;
-    }
-    mat-expansion-panel-header, mat-panel-title {
-      color: white;
-      text-align: center !important;
-      padding-left: 10px;
-    }
-   .mat-expansion-panel-header{
-      background-color: mat-color($primary);
-      height: 52px !important;
-      border: 1px solid mat-color($primary);
-   }
-   .mat-expansion-panel-header.mat-expanded:hover,
-   .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover {
-      background-color: mat-color($primary);
-    }
-   .mat-expansion-panel-header.mat-expanded:focus{
-     background-color: mat-color($primary);
-   }
-   .mat-expanded {
-     border: 1px solid mat-color($primary);
-   }
-   .mat-expansion-panel-header-title{
-      display: block;
-      font: 500 20px Roboto, "Helvetica Neue", sans-serif;
-      text-align: center !important;
-      line-height: 52px;
+      mat-divider {
+      	margin-bottom: 20px;
+        border: 0px;
+      }
+      mat-expansion-panel-header, mat-panel-title {
+        color: white;
+        text-align: center !important;
+        padding-left: 10px;
+      }
+     .mat-expansion-panel-header{
+        background-color: mat-color($primary);
+        height: 52px !important;
+        border: 1px solid mat-color($primary);
+     }
+     .mat-expansion-panel-header.mat-expanded:hover,
+     .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover {
+        background-color: mat-color($primary);
+      }
+     .mat-expansion-panel-header.mat-expanded:focus{
+       background-color: mat-color($primary);
+     }
+     .mat-expanded {
+       border: 1px solid mat-color($primary);
+     }
+     .mat-expansion-panel-header-title{
+        display: block;
+        font: 500 20px Roboto, "Helvetica Neue", sans-serif;
+        text-align: center !important;
+        line-height: 52px;
+      }
+      .mat-expansion-panel-content {
+        //font: 300 16px/20px Roboto, "Helvetica Neue", sans-serif;
+        letter-spacing: normal;
+      }
+      span.desc {
+        font: 300 16px/20px Roboto, "Helvetica Neue", sans-serif;
+        letter-spacing: normal;
+      }
+      li {
+        margin-bottom:  15px;
+      }
+      p {
+        display: block;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+      }
+      .mat-expansion-panel-body {
+        padding-top: 16px;
+      }
+      .helpblock {
+        font: 500 14px Roboto, "Helvetica Neue", sans-serif;
+        border-radius: 3px;
+        padding: 0px 4px;
+        margin: 0 0 0px;
 
-    }
+      }
   }
 }
