@@ -42,7 +42,7 @@ export class Delegates_informationComponent implements OnInit {
               this.about = data.about;
               this.website = data.website;
               this.team = data.team;
-              this.shared_delegate_status = data.shared_delegate_status == 'true' ? 'Shared'  : 'Solo';
+              this.shared_delegate_status = data.shared_delegate_status == 'solo' ? 'Solo' : data.shared_delegate_status == 'shared' ? 'Shared' : 'Group';
               this.delegate_fee = data.delegate_fee;
               this.server_specs = data.server_specs;
               this.public_address = data.public_address;
