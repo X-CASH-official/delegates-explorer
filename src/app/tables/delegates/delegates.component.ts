@@ -85,7 +85,7 @@ export class DelegatesComponent implements OnInit {
 
         // paginator settings
         this.length = data.length;
-        this.pagesize = 50;
+        this.pagesize = 100;
 
         this.dataSource = new DelegateDataSource(this.exampleDatabase, this.paginator, this.sort);
 
