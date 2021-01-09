@@ -31,6 +31,8 @@
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	font-weight: 500;
+	font-size: 18px;
 }
 .mat-column-delegate_name {
 	flex: 4 1 16%;
@@ -107,8 +109,16 @@ mat-cell:last-of-type  { padding-right: 6px;}
 	.mat-column-delegate_fee{
 	  display: none;
 	}
+	.filterButtons > .mat-raised-button{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 
 }
 mat-cell.mat-column-online_status > mat-icon,
 mat-cell.mat-column-shared_delegate_status >  mat-icon,
 mat-cell.mat-column-total_vote_count > span { cursor: help; }
+
+.filterButtons {
+	padding-top: 15px;
+}
