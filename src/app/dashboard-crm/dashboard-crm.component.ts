@@ -26,6 +26,7 @@ export class DashboardCrmComponent implements OnInit {
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' },
       { ogmeter: true,  width_icon: 25, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
       { ogmeter: true,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
+      { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'RANK 50 TOTAL VOTE ', icon: 'swap_vert' },
     ];
 
 
@@ -95,6 +96,8 @@ export class DashboardCrmComponent implements OnInit {
             current_delegate_total_vote_count2 = parseInt(data2[count].total_vote_count) / xcash_wallet_decimal_places_amount;
             delegate_total_vote_count += current_delegate_total_vote_count2;
           }
+
+          this.dashCard1[8].text = this.functionsService.get_lg_numer_format(parseInt(data2[49].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT );
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
           var avg_vote_count = this.functionsService.get_lg_numer_format(delegate_total_vote_count/45);
           this.dashCard1[5].text = avg_vote_count;
