@@ -85,7 +85,7 @@ export class DashboardCrmComponent implements OnInit {
           let mainnet_block = 800000;
           let blocks_left = 0;
           let block_reward = 0;
-          let block_height =  data.block_height;
+
           blocks_left = (mainnet_block - data.block_height );
           this.dashCard2[0].text = blocks_left;
 
