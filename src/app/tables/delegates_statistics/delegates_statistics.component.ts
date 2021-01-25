@@ -30,7 +30,7 @@ export class Delegates_statisticsComponent implements OnInit {
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'PRODUCER/VERIFIER RATIO', icon: 'star_half' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'EST ROUNDS BTW BLOCK PRODUCER ', icon: 'published_with_changes' },
     { ogmeter: false, width_icon: 25, text_size: 40, text: '-', suffix: '',  title: 'SINCE LAST BLOCK PRODUCED', icon: 'alarm_on' },
-    { ogmeter: true, width_icon: 25, text_size: 40, text: '-', suffix: '%',  title: 'FEE', icon: 'local_atm' }
+    { ogmeter: false, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'FEE', icon: 'local_atm' }
   ];
 
   title:string = "Delegates Statistics";
