@@ -152,7 +152,7 @@
 				</ng-container>
 
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-				<mat-row *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color': row.id <= 50  ? ( row.id > 5 ? 'none' : 'rgba(17, 137, 165, 0.1)') : 'rgba(250, 116, 28, 0.1)'}"></mat-row>
+				<mat-row *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color': row.id <= 50  ? 'none' : 'rgba(250, 116, 28, 0.1)'}"></mat-row>
 
 			</mat-table>
 
