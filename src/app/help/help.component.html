@@ -48,13 +48,16 @@
         <div fxFlexLayoutWrap fxFlex.xs="100" fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100">
           <mat-accordion multi>
 
-            <mat-expansion-panel  expanded>
-              <mat-expansion-panel-header [style.height.px]="52">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Staking
+                  Staking Characteristics
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ol>
+                <li>
+                  Only the top 50 delegates are elected as block verifiers and will receive (and share) a block rewards.
+                </li>
                 <li>
                   The block reward is given to the block verifier responsible of forging the block, and shared with their voters.
                 </li>
@@ -72,8 +75,8 @@
             <mat-divider></mat-divider>
 
 
-            <mat-expansion-panel  expanded>
-              <mat-expansion-panel-header [style.height.px]="52">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
                 <mat-panel-title>
                 Voting Rules
                 </mat-panel-title>
@@ -112,7 +115,45 @@
             <mat-divider></mat-divider>
 
 
-            <mat-expansion-panel  expanded>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Solo Delegates, Private Group Delegates, Shared Delegates and Seed nodes
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="mat-body-2">You will find 4 types of delegates:</p>
+              <ol>
+                <li>
+                  Shared Delegates  <mat-icon style="vertical-align: bottom;" matTooltip="Shared Node">groups</mat-icon>
+                  <p class="mat-body-2">
+                    The shared delegates are public delegates for whom you can vote. They will redistribute your share of the rewards minus their fees. As a voter, you should favor shared delegates.
+                  </p>
+                </li>
+                <li>
+                  Solo Delegates <mat-icon style="vertical-align: bottom;" matTooltip="Solo Node">person_outline</mat-icon>
+                  <p class="mat-body-2">
+                    Solo delegates are elected by themselves and are keeping the reward for them. You can vote for solo delegates, but don't expect to receive a share of the block reward.
+                  </p>
+                </li>
+                <li>
+                  Private groups <mat-icon style="vertical-align: bottom;" matTooltip="Private Group">lock</mat-icon>
+                  <p class="mat-body-2">
+                    Private delegates group are delegates that will only redistribute shares of the block reward to a select group of their voters. They are usually decided with the delegate in private, so you shouldn't vote for them if you haven't communicated with the delegate first.
+                  </p>
+                </li>
+                <li>
+                  Seed nodes <mat-icon style="vertical-align: bottom;" matTooltip="Backup Node">admin_panel_settings</mat-icon>
+                  <p class="mat-body-2">
+                    Seed nodes help verify the block, keep the database. They are a trusted source to get the top 50 delegates from the daemon and keep the blockchain secure. Seed nodes can't produce blocks!
+                  </p>
+                </li>
+              </ol>
+            </mat-expansion-panel>
+            <mat-divider></mat-divider>
+
+
+
+            <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   How to vote in the CLI
@@ -137,7 +178,7 @@
             <mat-divider></mat-divider>
 
 
-            <mat-expansion-panel  expanded>
+            <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Changing your vote in the CLI
@@ -157,7 +198,7 @@
 
 
 
-            <mat-expansion-panel  expanded>
+            <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   How to vote in the android wallet
@@ -190,39 +231,7 @@
             <mat-divider></mat-divider>
 
 
-            <mat-expansion-panel  expanded>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Solo, Private Group and Shared Delegates
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <p class="mat-body-2">You will find 3 types of delegates:</p>
-              <ol>
-                <li>
-                  Shared Delegates:
-                  <p class="mat-body-2">
-                    The shared delegates are public delegates for whom you can vote. They will redistribute your share of the rewards minus their fees. As a voter, you should favor shared delegates.
-                  </p>
-                </li>
-                <li>
-                  Solo Delegates:
-                  <p class="mat-body-2">
-                    Solo delegates are elected by themselves and are keeping the reward for them. You can vote for solo delegates, but don't expect to receive a share of the block reward.
-                  </p>
-                </li>
-                <li>
-                  Private group:
-                  <p class="mat-body-2">
-                    Private delegates group are delegates that will only redistribute shares of the block reward to a select group of their voters. They are usually decided with the delegate in private, so you shouldn't vote for them if you haven't communicated with the delegate first.
-                  </p>
-                </li>
-              </ol>
-            </mat-expansion-panel>
-
-            <mat-divider></mat-divider>
-
-
-            <mat-expansion-panel  expanded>
+            <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   How to register a delegate
@@ -246,7 +255,7 @@
 
             <mat-divider></mat-divider>
 
-            <mat-expansion-panel  expanded>
+            <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   How to update a delegates data

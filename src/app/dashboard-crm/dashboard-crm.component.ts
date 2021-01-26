@@ -3,6 +3,7 @@ import { HttpdataService } from '../services/http-request.service';
 import { FunctionsService } from '../services/functions.service';
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
+import { formatDate } from '@angular/common'
 
 @Component({
     selector: 'app-dashboard-crm',
@@ -16,6 +17,10 @@ export class DashboardCrmComponent implements OnInit {
     delegatestatistics:string;
     delegateprofileinformation:string;
     circulating_percentage;
+    miliseconds_left;
+    isMainnet = false;
+    mainnet_date_and_time:any;
+
 
     public dashCard1 = [
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '',title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' },
@@ -25,7 +30,21 @@ export class DashboardCrmComponent implements OnInit {
       { ogmeter: false,  width_icon: 25, text_size: 40, text: '-', suffix: '', title: 'TOTAL VOTES', icon: 'done_all' },
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' },
       { ogmeter: true,  width_icon: 25, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
-      { ogmeter: true,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'PROOF OF STAKE ROUND NUMBER', icon: 'autorenew' },
+      { ogmeter: true,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'DPoPS ROUND NUMBER', icon: 'autorenew' },
+      { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'RANK 50 TOTAL VOTE ', icon: 'swap_vert' },
+      { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'BLOCK REWARD ', icon: 'toll' },
+      { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'BLOCK TIME ', icon: 'timelapse' },
+      { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'EST. BLOCK PER DAY ', icon: 'view_week' },
+    ];
+    public dashCard2 = [
+      { ogmeter: false, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'BLOCKS LEFT TILL MAINNET', icon: 'update' },
+      { ogmeter: false, width_icon: 0, text_size: 42, text: '', suffix: '',title: 'EST. MAINNET LAUNCH', icon: 'event' },
+      // { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '',title: 'TILL MAINNET', icon: 'av_timer' },
+    ];
+    public dashCard3 = [
+      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'DAYS', icon: '' },
+      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'HOURS', icon: '' },
+      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'MINUTES', icon: '' },
     ];
 
 
@@ -37,22 +56,72 @@ export class DashboardCrmComponent implements OnInit {
 
     ngOnInit() {
 
+      this.get_delegates();
+      this.get_statistics();
+      this.get_blockheight();
+
+
+
       setInterval(() => {
           var current_date_and_time = new Date();
           var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
           var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
-          if (minutes < 10) {
-            minutes = "0" + minutes.toString();
-          }
-          if (seconds < 10) {
-            seconds = "0" + seconds;
-          }
+          this.dashCard1[0].text = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
 
-          this.dashCard1[0].text = minutes + ":" + seconds;
+          var mainnet_minutes:any = Math.floor(((this.miliseconds_left) / 1000 / 60) % 60) - 1;
+          console.log(mainnet_minutes);
+          this.dashCard3[2].text = parseInt(('0' + mainnet_minutes).slice(-2) );
       }, 1000);
 
-      this.get_delegates();
-      this.get_statistics();
+    }
+
+
+    get_blockheight() {
+      // get the data
+      this.httpdataservice.get_request('https://explorer.x-cash.org/getlastblockdata').subscribe(
+        (res) => {
+          var data = JSON.parse(JSON.stringify(res));
+
+          let mainnet_block = 800000;
+          let blocks_left = 0;
+          let block_reward = 0;
+
+          blocks_left = (mainnet_block - data.block_height );
+          this.dashCard2[0].text = blocks_left;
+
+          if(data.block_height < mainnet_block){
+      			block_reward = (data.block_reward * 2);
+            this.isMainnet = false;
+      		}else{
+            block_reward = data.block_reward;
+            this.isMainnet = true;
+          }
+
+          this.dashCard1[9].text = this.functionsService.get_lg_numer_format(block_reward);
+          this.dashCard1[10].text = 5 + " min";
+          this.dashCard1[11].text = (24*60)/5;
+
+
+          this.miliseconds_left = (blocks_left * 120 * 1000);
+          var current_date_and_time = new Date();
+          var mainnet_date = new Date(current_date_and_time.getTime() + this.miliseconds_left);
+          this.mainnet_date_and_time = mainnet_date;
+
+          this.dashCard2[1].text = formatDate(mainnet_date, 'MMM d, HH:mm  z', 'en');
+
+          var total = this.miliseconds_left;
+          const mainnet_hours:any = Math.floor((total / (1000 * 60 * 60)) % 24);
+          const mainnet_days:any = Math.floor((total) / (1000 * 60 * 60 * 24));
+
+          this.dashCard3[0].text = mainnet_days;
+          this.dashCard3[1].text = parseInt(('0' + mainnet_hours).slice(-2));
+
+
+        },
+        (error) =>  {
+          Swal.fire("Error","An error has occured.<br/>Get blockheight failed.","error");
+        }
+      );
     }
 
 
@@ -95,6 +164,8 @@ export class DashboardCrmComponent implements OnInit {
             current_delegate_total_vote_count2 = parseInt(data2[count].total_vote_count) / xcash_wallet_decimal_places_amount;
             delegate_total_vote_count += current_delegate_total_vote_count2;
           }
+
+          this.dashCard1[8].text = this.functionsService.get_lg_numer_format(parseInt(data2[49].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT );
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
           var avg_vote_count = this.functionsService.get_lg_numer_format(delegate_total_vote_count/45);
           this.dashCard1[5].text = avg_vote_count;

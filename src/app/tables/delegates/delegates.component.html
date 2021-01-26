@@ -35,7 +35,7 @@
 						</ng-template>
 						</mat-header-cell>
 					<mat-cell id="id{{row.id}}" *matCellDef="let row">
-						<span [ngStyle]="{'color': row.id <= 50 ? 'green' : 'orange'}" [matTooltip]="row.id <= 50 ? 'Verifier/Producer' : 'Standby'">
+						<span [ngStyle]="{'color': row.id <= 50 ? ( row.id > 5 ? 'green' : 'inherit') : 'orange'}" [matTooltip]="row.id <= 50 ? 'Verifier/Producer' : 'Standby'">
 							{{ row.id | number}}
 						</span>
 					</mat-cell>
@@ -81,7 +81,9 @@
 					</mat-header-cell>
 					<mat-cell id="shared_delegate_status{{row.id}}" *matCellDef="let row">
 
-						<mat-icon *ngIf="row.shared_delegate_status === 'Solo';" matTooltip="Solo Node">person_outline</mat-icon>
+
+						<mat-icon *ngIf="row.id < 6;" matTooltip="Seed Node">admin_panel_settings</mat-icon>
+						<mat-icon *ngIf="row.shared_delegate_status === 'Solo' && row.id > 5 ;" matTooltip="Solo Node">person_outline</mat-icon>
             <mat-icon *ngIf="row.shared_delegate_status === 'Shared';" matTooltip="Shared Node - {{ row.delegate_fee + '%' }} Fee">groups</mat-icon>
             <mat-icon *ngIf="row.shared_delegate_status === 'Group';" matTooltip="Private Group">lock</mat-icon>
 
@@ -150,7 +152,7 @@
 				</ng-container>
 
 				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+				<mat-row *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color': row.id <= 50  ? 'none' : 'rgba(250, 116, 28, 0.1)'}"></mat-row>
 
 			</mat-table>
 
