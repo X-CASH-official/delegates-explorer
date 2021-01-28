@@ -5,7 +5,8 @@ import { Component, OnInit , ElementRef, ViewChild } from '@angular/core';
 import { DelegateDatabase, DelegateDataSource } from './helpers.data';
 import {HttpdataService} from '../../services/http-request.service';
 import { FunctionsService } from '../../services/functions.service';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { Title } from '@angular/platform-browser';
 
 import Swal from 'sweetalert2';

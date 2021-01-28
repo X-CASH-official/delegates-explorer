@@ -9,7 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
 
-import { MatDividerModule } from '@angular/material'
+import { MatDividerModule } from '@angular/material/divider'
 import { MatExpansionModule } from '@angular/material/expansion';
 
 export const appRoutes: Routes = [
