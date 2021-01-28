@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material';
 
 import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
 
@@ -25,7 +26,9 @@ export const appRoutes: Routes = [
     MatButtonModule,
     MatButtonToggleModule,
     DashboardWidgetModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   declarations: [
     Delegates_informationComponent,

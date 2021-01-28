@@ -28,8 +28,6 @@ $warn-xgrey    : $mat-grey;
 $spin_background-xgrey: mat-palette($mat-grey);
 
 
-
-
 // DARKSEA THEME
 $primary-darksea : $mat-blue;
 $accent-darksea  : $mat-light-blue;
@@ -39,7 +37,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
 
 
 //
-// DARK THEME
+// DARKSEA THEME
 //
 .darksea-theme {
 
@@ -89,6 +87,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   .loader-container { background: $warn-darksea; }
   .swal2-confirm { background-color: $pri-darksea !important; }
   .logo { color:  mat-color($primary-darksea,500); }
+  .hint { color:  mat-color($primary-darksea, 500); }
   .page_title { color: white; background: $warn-darksea; }
   .page_subtitle { color: white; background: $pri-darksea; }
   .page_title_icon { color: white; }
@@ -111,6 +110,8 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   span.hljs-literal { color: mat-color($md-xorange,500); }
   .Online { color:  mat-color($mat-green,500); }
   .Offline { color: mat-color($mat-red,500); }
+  .on {color: white; background-color: $warn-darksea !important; }
+  .off {color: white; background-color: mat-color($accent-darksea,700) !important;}
   .mat-tooltip{
       border: 1px solid $pri-darksea;
       background-color: #ffffff;
@@ -118,6 +119,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
       &.red-tooltip{ color: red; }
       &.green-tooltip{ color: green; }
   }
+
 }
 
 
@@ -175,6 +177,7 @@ $warning-unicorn : $mat-lime;
   // Toolbar
   .mat-icon-button, .mat-button{ color: mat-color($primary-unicorn,A100); }
   .logo { color: mat-color($accent-unicorn,500); }
+  .hint { color: mat-color($accent-unicorn,500); }
   .page_title {  color: white; background: mat-color($primary-unicorn,A100); }
   // Page title
   .page_subtitle {  color: white; background: mat-color($primary-unicorn,A100); }
@@ -187,8 +190,8 @@ $warning-unicorn : $mat-lime;
   a{  color: mat-color($primary-unicorn,A100); text-decoration: none; }
   a:hover {  color: mat-color($accent-unicorn,500); }
    // Buttons
-  .delegate_details {  color: white; background-color:mat-color($accent-unicorn,500); }
-  .delegate_details_active, a.delegate_details:hover  {  color: mat-color($primary-unicorn,A100); background-color: $bg-unicorn; }
+  .off, .delegate_details {  color: white !important; background-color:mat-color($accent-unicorn,500)  !important; }
+  .on, .delegate_details_active, a.delegate_details:hover  {  color: mat-color($primary-unicorn,A100) !important; background-color: $bg-unicorn  !important; }
   .mat-raised-button.mat-warn { color: white; background-color:mat-color($accent-unicorn,500); }
   .mat-raised-button:hover, .service-card-container .service-card a:hover  { color: mat-color($primary-unicorn,500); background-color: $bg-unicorn; }
   // ...
@@ -246,13 +249,14 @@ $warning-unicorn : $mat-lime;
   .loader-container { background: mat-color($spin_background-xteal, 50, 0.9); }
   .swal2-confirm { background-color: mat-color($primary-xteal,500) !important; }
   .logo{ color: mat-color($accent-xteal,500); }
+  .hint { color: mat-color($accent-xteal,500); }
   .page_title{  color: white; background: mat-color($primary-xteal,500); }
   .page_subtitle{  color: white; background: mat-color($primary-xteal,500); }
   .page_title_icon { color: white; }
   .dashcard_icon { color: white; background-color: mat-color($accent-xteal,500); }
   .dashcard_box { color: white; background-color: mat-color($primary-xteal,500); }
-  .delegate_details{  color: white; background-color: mat-color($warn-xteal,600); }
-  .delegate_details_active{  color: white; background-color:mat-color($accent-xteal,500); }
+  .off, .delegate_details{  color: white; background-color: mat-color($warn-xteal,600); }
+  .on, .delegate_details_active{  color: white; background-color:mat-color($accent-xteal,500); }
   .codeblock {  color: mat-color($primary-xteal,500); background: white; border: 2px solid white; }
   a{ color: mat-color($primary-xteal,500); text-decoration: none; }
   a:hover { color: mat-color($accent-xteal,500); }
@@ -268,6 +272,8 @@ $warning-unicorn : $mat-lime;
   .cards-container {  border: 2px solid mat-color($primary-xteal,500); }
   .Online{	color:  mat-color($mat-green,500); }
   .Offline{	color: mat-color($mat-red,500); }
+  .on {color: white !important; background-color:mat-color($accent-xteal,500) !important;}
+  .off {color: white !important; background-color: mat-color($warn-xteal,600) !important;}
   .mat-tooltip{
       border: 1px solid mat-color($primary-xteal,500);
       background-color: #ffffff;
@@ -275,7 +281,6 @@ $warning-unicorn : $mat-lime;
       &.red-tooltip{ color: red; }
       &.green-tooltip{ color: green; }
   }
-
   .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover, ::ng-deep .mat-expansion-indicator::after {  color: white;  }
   .mat-expansion-indicator::after {  color: white;  }
 }
@@ -311,13 +316,14 @@ $warning-unicorn : $mat-lime;
   .loader-container { background: mat-color($spin_background-xgrey, 900, 0.9); }
   .swal2-confirm { background-color: mat-color($primary-xgrey,500) !important; }
   .logo { color: mat-color($accent-xgrey,500); }
+  .hint { color: mat-color($accent-xgrey,500); }
   .page_title { color: white; background: mat-color($primary-xgrey,500); }
   .page_subtitle { color: white; background: mat-color($primary-xgrey,500); }
   .page_title_icon { color: white; }
   .dashcard_icon { color: white; background-color: mat-color($accent-xgrey,500); }
   .dashcard_box { color: white; background-color: mat-color($primary-xgrey,500); }
-  .delegate_details{ color: white; background-color: mat-color($warn-xgrey,600); }
-  .delegate_details_active{ color: white; background-color:mat-color($accent-xgrey,500); }
+  .off, .delegate_details{ color: white !important; background-color: mat-color($warn-xgrey,600) !important; }
+  .on, .delegate_details_active{ color: white !important; background-color:mat-color($accent-xgrey,500) !important; }
   .codeblock { color: mat-color($primary-xgrey,500); background: white;     border: 2px solid white; }
   a { color: white; }
   a:hover { color: mat-color($accent-xgrey,500); }
@@ -365,6 +371,11 @@ $warning-unicorn : $mat-lime;
       font-weight:500;
       margin-top: 8px;
       padding-left:14px;
+  }
+  .hint{
+      font-size: 16px;
+      font-family: Roboto, Serif;
+      font-weight:500;
   }
   .components-container-gt-xs {
     // padding: 20px;
@@ -456,7 +467,7 @@ $warning-unicorn : $mat-lime;
     cursor: default !important;
     text-decoration: underline !important;
   }
-  .codeblock {
+  .voteblock {
   	font: 500 16px Roboto, "Helvetica Neue", sans-serif;
     border-radius: 3px;
     padding: 4px 16px;

@@ -30,7 +30,8 @@ export class Delegates_statisticsComponent implements OnInit {
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER SCORE', icon: 'military_tech' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'PRODUCER/VERIFIER RATIO', icon: 'star_half' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'EST ROUNDS BTW BLOCK PRODUCER ', icon: 'published_with_changes' },
-    { ogmeter: false, width_icon: 25, text_size: 40, text: '-', suffix: '',  title: 'SINCE LAST BLOCK PRODUCED', icon: 'alarm_on' }
+    { ogmeter: false, width_icon: 25, text_size: 40, text: '-', suffix: '',  title: 'SINCE LAST BLOCK PRODUCED', icon: 'alarm_on' },
+    { ogmeter: false, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'FEE', icon: 'local_atm' }
   ];
 
   title:string = "Delegates Statistics";
@@ -84,7 +85,7 @@ export class Delegates_statisticsComponent implements OnInit {
 
           this.dashCard1[8].text = parseInt(data.block_producer_total_rounds) / parseInt(data.block_verifier_total_rounds) * 100;
           this.dashCard1[9].text = data.block_producer_total_rounds > 0 ? parseInt(data.block_verifier_total_rounds) / parseInt(data.block_producer_total_rounds) : "0";
-
+          this.dashCard1[11].text = data.delegate_fee;
 
           this.length = block_producer_block_heights.length - 1;
           this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);

@@ -9,6 +9,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Title } from '@angular/platform-browser';
 
+
 import Swal from 'sweetalert2';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
 
@@ -37,6 +38,7 @@ export class DelegatesComponent implements OnInit {
   length;
   pagesize;
   mobile = false;
+  filter_active = '';
 
 
 	constructor(private httpdataservice: HttpdataService, private titleService:Title, public functionsService: FunctionsService) {
@@ -59,9 +61,9 @@ export class DelegatesComponent implements OnInit {
       this.mobile = true;
     }
 
-
     this.get_delegates();
   }
+
 
 
 	get_delegates() {
@@ -86,10 +88,11 @@ export class DelegatesComponent implements OnInit {
 
         // paginator settings
         this.length = data.length;
-        this.pagesize = 50;
+        this.pagesize = 100;
 
         this.dataSource = new DelegateDataSource(this.exampleDatabase, this.paginator, this.sort);
 
+        console.log(this.filter_active);
 
         observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
           debounceTime(150),
@@ -106,6 +109,13 @@ export class DelegatesComponent implements OnInit {
     );
   }
 
+
+  filterMode(value) {
+    this.dataSource.filter = value;
+    this.filter_active = value;
+    console.log(value);
+    console.log(this.filter_active);
+  }
 
 
 
