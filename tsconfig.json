@@ -17,7 +17,7 @@
       "dom"
     ]
   },
-"angularCompilerOptions": {
-   "enableIvy": false
-}
+  "angularCompilerOptions": {
+     "enableIvy": false
+   }
 }

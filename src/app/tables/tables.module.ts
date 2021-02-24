@@ -26,10 +26,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
-
-import * as hljs from 'highlight.js';
-import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
-import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import { DelegatesComponent } from './delegates/delegates.component';
 import { Delegates_statisticsComponent } from './delegates_statistics/delegates_statistics.component';
 import { Delegates_voters_listComponent } from './delegates_voters_list/delegates_voters_list.component';
@@ -38,11 +34,6 @@ import { Round_statisticsComponent } from './round_statistics/round_statistics.c
 import { MatCardModule } from '@angular/material/card';
 import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.module';
 
-
-export function highlightJsFactory(): any {
-  hljs.registerLanguage('typescript', hljsTypescript);
-  return hljs;
-}
 
 @NgModule({
   imports: [
@@ -70,10 +61,6 @@ export function highlightJsFactory(): any {
     MatButtonToggleModule,
     MatCardModule,
     DashboardWidgetModule,
-    HighlightJsModule.forRoot({
-      provide: HIGHLIGHT_JS,
-      useFactory: highlightJsFactory
-    }),
     TablesRouterModule
   ],
   declarations: [
