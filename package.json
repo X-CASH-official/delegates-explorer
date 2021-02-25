@@ -1,6 +1,6 @@
 {
   "name": "X-CASH_Proof_of_Stake_Delegates_Website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -17,7 +17,7 @@
     "@angular/common": "^9.0.0",
     "@angular/compiler": "^9.0.0",
     "@angular/core": "^9.0.0",
-    "@angular/flex-layout": "^11.0.0-beta.33",
+    "@angular/flex-layout": "^9.0.0-beta.31",
     "@angular/forms": "^9.0.0",
     "@angular/localize": "^11.2.3",
     "@angular/material": "^9.0.0",
