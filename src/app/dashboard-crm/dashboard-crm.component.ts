@@ -75,7 +75,13 @@ export class DashboardCrmComponent implements OnInit {
 
         },
         (error) =>  {
-          Swal.fire("Error","An error has occured.<br/>Get blockheight failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get blockheight failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
       );
     }
@@ -94,7 +100,13 @@ export class DashboardCrmComponent implements OnInit {
           this.dashCard1[6].text = parseInt(data.XCASH_DPOPS_circulating_percentage);
         },
         (error) =>  {
-          Swal.fire("Error","An error has occured.<br/>Get statistics failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get statistics failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
       );
     }
@@ -127,7 +139,13 @@ export class DashboardCrmComponent implements OnInit {
           this.dashCard1[5].text = avg_vote_count;
         },
         (error) => {
-          Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get delegates failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
       );
     }

@@ -102,7 +102,13 @@ export class DelegatesComponent implements OnInit {
         );
   	  },
   	  (error) => {
-  	    Swal.fire("Error","An error has occured:<br>API: Get delegates failed.","error");
+        Swal.fire({
+            title: "Error",
+            html: "An error has occured:<br>API: Get delegates failed.",
+            icon: "error",
+            position: 'bottom',
+            timer: 2500
+          });
   	  }
     );
   }

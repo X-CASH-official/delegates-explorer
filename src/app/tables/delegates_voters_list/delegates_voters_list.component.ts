@@ -83,7 +83,13 @@ export class Delegates_voters_listComponent implements OnInit {
 
       },
       (error) => {
-        Swal.fire("Error","An error has occured:<br>API: Get delegates voters list failed.","error");
+        Swal.fire({
+            title: "No voters found.",
+            html: "An error has occured:<br>API: Get delegates voters list returned null.",
+            icon: "error",
+            position: 'bottom',
+            timer: 2500
+          });
       }
 	  );
 	}

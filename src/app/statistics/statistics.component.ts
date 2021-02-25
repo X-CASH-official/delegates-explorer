@@ -50,7 +50,13 @@ export class statisticsComponent implements OnInit {
             this.most_total_rounds = data.most_total_rounds;
       	  },
       	  (error) =>  {
-      	     Swal.fire("Error","An error has occured.<br/>Get statistics failed.","error");
+             Swal.fire({
+                 title: "Error",
+                 html: "An error has occured:<br>API: Get statistics failed.",
+                 icon: "error",
+                 position: 'bottom',
+                 timer: 2500
+               });
       	  }
        );
 
@@ -98,7 +104,13 @@ export class statisticsComponent implements OnInit {
 
           },
           (error) => {
-            Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
+            Swal.fire({
+                title: "Error",
+                html: "An error has occured:<br>API: Get delegates failed.",
+                icon: "error",
+                position: 'bottom',
+                timer: 2500
+              });
           }
         );
       }

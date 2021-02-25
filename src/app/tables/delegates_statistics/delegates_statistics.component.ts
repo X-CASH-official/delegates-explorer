@@ -106,7 +106,13 @@ export class Delegates_statisticsComponent implements OnInit {
           );
         },
         (error) => {
-          Swal.fire("Error","An error has occured:<br>API: Get delegates statistics failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get delegates statistics failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
     	);
     }
@@ -129,7 +135,13 @@ export class Delegates_statisticsComponent implements OnInit {
 
       },
       (error) => {
-        Swal.fire("Error","An error has occured:<br>API: Get delegates website statistics failed.","error");
+        Swal.fire({
+            title: "Error",
+            html: "An error has occured:<br>API: Get delegates website statistics failed.",
+            icon: "error",
+            position: 'bottom',
+            timer: 2500
+          });
       });
     }
 

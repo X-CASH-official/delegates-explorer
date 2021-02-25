@@ -52,7 +52,13 @@ export class Delegates_informationComponent implements OnInit {
               this.public_address = data.public_address;
             },
             (error) =>    {
-              Swal.fire("Error","An error has occured.<br/>Get delegates information failed.","error");
+              Swal.fire({
+                  title: "Error",
+                  html: "An error has occured:<br>API: Get delegates information failed.",
+                  icon: "error",
+                  position: 'bottom',
+                  timer: 2500
+                });
             }
         );
     }
