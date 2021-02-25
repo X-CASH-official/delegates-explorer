@@ -89,6 +89,7 @@ export class statisticsComponent implements OnInit {
             }).slice( 0, top_count);
 
             this.most_total_rounds_delegate_name =  this.top_verifier[0]['delegate_name'];
+            this.delegate_most_total_rounds =  this.top_verifier[0]['block_verifier_total_rounds'];
 
             // Top Block Ratio List
             [...result].forEach(function(item) {
