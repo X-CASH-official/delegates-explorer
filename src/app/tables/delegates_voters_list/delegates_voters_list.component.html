@@ -1,4 +1,4 @@
-<h2 class="page_title delegate_title" >{{delegate_name}} <button class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="functionsService.copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
+<h2 class="page_title delegate_title" >{{delegate_name}} <button *ngIf="!is_seednode" class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="functionsService.copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
 
 <div fxLayout.lt-md="column" fxLayout.lt-lg="row" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch">
   <a mat-raised-button class="delegate_details " [routerLink]="['/delegates/delegate_information']" [queryParams]="{'data':delegate_name}" fxFlex.lt-sm="100" fxFlex.gt-sm="33">

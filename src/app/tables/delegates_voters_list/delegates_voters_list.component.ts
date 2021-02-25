@@ -36,6 +36,7 @@ export class Delegates_voters_listComponent implements OnInit {
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
   length;
+  is_seednode:boolean = false;
 
 	constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, public functionsService: FunctionsService) { }
 
@@ -45,7 +46,9 @@ export class Delegates_voters_listComponent implements OnInit {
 
 	ngOnInit() {
     this.delegate_name = this.route.snapshot.queryParamMap.get("data");
-
+    if (this.delegate_name .includes('_xcash_foundation')) {
+      this.is_seednode = true;
+    }
 	  // get the data
 	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES_VOTERS_LIST + "?parameter1=" + this.delegate_name).subscribe(
 	  (res) => {

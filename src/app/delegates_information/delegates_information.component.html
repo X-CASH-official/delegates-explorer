@@ -1,4 +1,4 @@
-<h2 class="page_title delegate_title" >{{delegate_name}} <button class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="functionsService.copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
+<h2 class="page_title delegate_title" >{{delegate_name}} <button *ngIf="!is_seednode" class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="functionsService.copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
 
 <div fxLayout.lt-md="column" fxLayout.lt-lg="row" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" >
   <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/delegates/delegate_information']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.gt-sm="33">
@@ -66,7 +66,7 @@
 
 
 
-<div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
+<div *ngIf="!is_seednode" fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
      <cdk-profile-card id="profilecard1" [title]="'Vote with delegate name'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="'vote ' + delegate_name" [button_name]="'Copy vote'" [button_length]="{'width': '25%'}" [button_click]="'copyVote'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100"></cdk-profile-card>
      <cdk-profile-card id="profilecard1" [title]="'Vote with public address'" [settings]="{'min-height': '0%'}" [data_settings]="{'margin-top': '0%'}" [text_settings]="{'margin-top': '0%'}" [data]="'vote ' + public_address" [button_name]="'Copy vote'" [button_length]="{'width': '25%'}" [button_click]="'copyVote'" fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="100"></cdk-profile-card>
 </div>
