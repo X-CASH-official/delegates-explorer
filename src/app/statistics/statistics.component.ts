@@ -24,6 +24,7 @@ export class statisticsComponent implements OnInit {
     ratio_data;
     top_ratio_delegate_name;
     top_ratio_block_ratio;
+    delegate_most_total_rounds;
 
     public dashCard1 = [
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text_settings: 20, text: '', settings: false, title: 'MOST BLOCK PRODUCER TOTAL ROUNDS', icon: 'emoji_events' },
