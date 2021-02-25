@@ -92,8 +92,6 @@ export class DelegatesComponent implements OnInit {
 
         this.dataSource = new DelegateDataSource(this.exampleDatabase, this.paginator, this.sort);
 
-        console.log(this.filter_active);
-
         observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
           debounceTime(150),
           distinctUntilChanged(),)

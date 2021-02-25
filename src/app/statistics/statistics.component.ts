@@ -70,7 +70,6 @@ export class statisticsComponent implements OnInit {
                 const {key, ...filteredObject} = data;
               }
             });
-            console.log(data);
 
             let count = 0;
             let top_count = 25;
