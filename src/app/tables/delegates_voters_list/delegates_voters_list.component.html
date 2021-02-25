@@ -15,11 +15,12 @@
   </a>
 </div>
 
-<div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50">
+<div fxLayout="row wrap">
+    <div *ngFor="let dash of dashCard; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" >
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
+
 
 <div fxLayout="column"  class="components-container-gt-xs reserve_proofs_table"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="5px">
 
