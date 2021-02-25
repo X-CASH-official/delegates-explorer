@@ -36,16 +36,7 @@ export class DashboardCrmComponent implements OnInit {
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'BLOCK TIME ', icon: 'timelapse' },
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'EST. BLOCK PER DAY ', icon: 'view_week' },
     ];
-    public dashCard2 = [
-      { ogmeter: false, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'BLOCKS LEFT TILL MAINNET', icon: 'update' },
-      { ogmeter: false, width_icon: 0, text_size: 42, text: '', suffix: '',title: 'EST. MAINNET LAUNCH', icon: 'event' },
-      // { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '',title: 'TILL MAINNET', icon: 'av_timer' },
-    ];
-    public dashCard3 = [
-      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'DAYS', icon: '' },
-      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'HOURS', icon: '' },
-      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'MINUTES', icon: '' },
-    ];
+
 
 
     constructor(private httpdataservice:HttpdataService, private titleService:Title,  public functionsService: FunctionsService) {
@@ -67,10 +58,6 @@ export class DashboardCrmComponent implements OnInit {
           var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
           var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
           this.dashCard1[0].text = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
-
-          var mainnet_minutes:any = Math.floor(((this.miliseconds_left) / 1000 / 60) % 60) - 1;
-          console.log(mainnet_minutes);
-          this.dashCard3[2].text = parseInt(('0' + mainnet_minutes).slice(-2) );
       }, 1000);
 
     }
@@ -82,40 +69,9 @@ export class DashboardCrmComponent implements OnInit {
         (res) => {
           var data = JSON.parse(JSON.stringify(res));
 
-          let mainnet_block = 800000;
-          let blocks_left = 0;
-          let block_reward = 0;
-
-          blocks_left = (mainnet_block - data.block_height );
-          this.dashCard2[0].text = blocks_left;
-
-          if(data.block_height < mainnet_block){
-      			block_reward = (data.block_reward * 2);
-            this.isMainnet = false;
-      		}else{
-            block_reward = data.block_reward;
-            this.isMainnet = true;
-          }
-
-          this.dashCard1[9].text = this.functionsService.get_lg_numer_format(block_reward);
+          this.dashCard1[9].text = this.functionsService.get_lg_numer_format(data.block_reward);
           this.dashCard1[10].text = 5 + " min";
           this.dashCard1[11].text = (24*60)/5;
-
-
-          this.miliseconds_left = (blocks_left * 120 * 1000);
-          var current_date_and_time = new Date();
-          var mainnet_date = new Date(current_date_and_time.getTime() + this.miliseconds_left);
-          this.mainnet_date_and_time = mainnet_date;
-
-          this.dashCard2[1].text = formatDate(mainnet_date, 'MMM d, HH:mm  z', 'en');
-
-          var total = this.miliseconds_left;
-          const mainnet_hours:any = Math.floor((total / (1000 * 60 * 60)) % 24);
-          const mainnet_days:any = Math.floor((total) / (1000 * 60 * 60 * 24));
-
-          this.dashCard3[0].text = mainnet_days;
-          this.dashCard3[1].text = parseInt(('0' + mainnet_hours).slice(-2));
-
 
         },
         (error) =>  {
