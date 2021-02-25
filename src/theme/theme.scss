@@ -1,3 +1,5 @@
+$mat-theme-ignore-duplication-warnings: true;
+
 @import '~@angular/material/theming';
 @import '../app/auth/auth.component.scss';
 @import '../app/core/sidemenu/sidemenu.component.scss';
