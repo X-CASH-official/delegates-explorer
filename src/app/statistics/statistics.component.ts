@@ -45,7 +45,7 @@ export class statisticsComponent implements OnInit {
     	  (res) => {
           var data = JSON.parse(JSON.stringify(res));
             this.most_block_producer_total_rounds_delegate_name = data.most_block_producer_total_rounds_delegate_name;
-            this.most_total_rounds_delegate_name = data.most_total_rounds_delegate_name;
+            //this.most_total_rounds_delegate_name = data.most_total_rounds_delegate_name;
             this.most_block_producer_total_rounds = data.most_block_producer_total_rounds;
             this.most_total_rounds = data.most_total_rounds;
       	  },
@@ -63,16 +63,29 @@ export class statisticsComponent implements OnInit {
    	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES).subscribe(
      	  (res) =>  {
             let data = JSON.parse(JSON.stringify(res));
+
+            Object.keys(data).forEach(function(key){
+              var delegate = data[key]['delegate_name'];
+              if (delegate.includes('_xcash_foundation')) {
+                const {key, ...filteredObject} = data;
+              }
+            });
+            console.log(data);
+
             let count = 0;
             let top_count = 25;
             // Top Block Producer List
             this.top_producer = [...data].sort(function(a, b) {
               return b.block_producer_total_rounds - a.block_producer_total_rounds;
             }).slice( 0, top_count);
+
             // Top Block Verifier List
             this.top_verifier = [...data].sort(function(a, b) {
               return b.block_verifier_total_rounds - a.block_verifier_total_rounds;
-            }).slice( 0, top_count);
+            }).slice( 5, top_count);
+
+            this.most_total_rounds_delegate_name =  this.top_verifier[0]['delegate_name'];
+
             // Top Block Ratio List
             [...data].forEach(function(item) {
                item.block_ratio = item.block_producer_total_rounds / item.block_verifier_total_rounds * 100;
