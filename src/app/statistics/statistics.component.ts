@@ -64,32 +64,31 @@ export class statisticsComponent implements OnInit {
      	  (res) =>  {
             let data = JSON.parse(JSON.stringify(res));
 
-            Object.keys(data).forEach(function(key){
-              var delegate = data[key]['delegate_name'];
-              if (delegate.includes('_xcash_foundation')) {
-                const {key, ...filteredObject} = data;
-              }
+            var result = data.filter(function(d) {
+              var delegate = d.delegate_name;
+              return !(delegate.includes('_xcash_foundation'));
             });
+
 
             let count = 0;
             let top_count = 25;
             // Top Block Producer List
-            this.top_producer = [...data].sort(function(a, b) {
+            this.top_producer = [...result].sort(function(a, b) {
               return b.block_producer_total_rounds - a.block_producer_total_rounds;
             }).slice( 0, top_count);
 
             // Top Block Verifier List
-            this.top_verifier = [...data].sort(function(a, b) {
+            this.top_verifier = [...result].sort(function(a, b) {
               return b.block_verifier_total_rounds - a.block_verifier_total_rounds;
-            }).slice( 5, top_count);
+            }).slice( 0, top_count);
 
             this.most_total_rounds_delegate_name =  this.top_verifier[0]['delegate_name'];
 
             // Top Block Ratio List
-            [...data].forEach(function(item) {
+            [...result].forEach(function(item) {
                item.block_ratio = item.block_producer_total_rounds / item.block_verifier_total_rounds * 100;
             });
-            this.top_ratio = data.sort(function(a, b) {
+            this.top_ratio = result.sort(function(a, b) {
               return b.block_ratio - a.block_ratio;
             }).slice( 0, top_count);
 
