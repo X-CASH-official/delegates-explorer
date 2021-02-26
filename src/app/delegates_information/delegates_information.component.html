@@ -20,7 +20,7 @@
 
   <div *ngIf="shared_delegate_status"  fxLayout="column" fxFlex.sm="100" fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxLayoutAlign="center center" class="mat-elevation-z4 service-card">
       <h3 class="mat-title">Mode</h3>
-      <p class="mat-subheading-2"  style="max-width:600px">
+      <p *ngIf="!is_seednode" class="mat-subheading-2"  style="max-width:600px">
         <mat-icon *ngIf="shared_delegate_status === 'Solo';" matTooltip="Solo Node">person_outline</mat-icon>
         <mat-icon *ngIf="shared_delegate_status === 'Shared';" matTooltip="Shared Node - {{ delegate_fee + '%' }} Fee">groups</mat-icon>
         <mat-icon *ngIf="shared_delegate_status === 'Group';" matTooltip="Private Group">lock</mat-icon>
@@ -28,6 +28,11 @@
         <span *ngIf="shared_delegate_status === 'Solo';">Solo Node</span>
         <span *ngIf="shared_delegate_status === 'Shared';">Shared Node</span>
         <span *ngIf="shared_delegate_status === 'Group';">Private Group</span>
+      </p>
+      <p *ngIf="is_seednode" class="mat-subheading-2"  style="max-width:600px">
+        <mat-icon matTooltip="Solo Node">admin_panel_settings</mat-icon>
+        <br>
+        <span>Seed Node</span>
       </p>
   </div>
 
