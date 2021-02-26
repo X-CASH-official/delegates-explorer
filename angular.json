@@ -10,6 +10,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          "allowedCommonJsDependencies": [ "ng2-odometer"], 
           "options": {
             "aot": true,
             "outputPath": "dist",
