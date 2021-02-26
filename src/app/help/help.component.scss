@@ -48,6 +48,9 @@ mat-card {
                   transform: translate(0, -8px);
                   box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
               }
+              ul{
+                list-style-type:none;
+              }
           }
       }
   }

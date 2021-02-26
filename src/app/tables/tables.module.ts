@@ -67,10 +67,9 @@ import { DashboardWidgetModule } from '../dashboard-widget/dashboard-widget.modu
    DelegatesComponent,
    Delegates_statisticsComponent,
    Delegates_voters_listComponent,
-   Round_statisticsComponent],
-
+   Round_statisticsComponent
+  ],
   exports: [
     ]
-
 })
 export class TablesModule { }
