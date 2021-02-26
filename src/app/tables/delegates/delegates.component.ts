@@ -57,10 +57,9 @@ export class DelegatesComponent implements OnInit {
 
   ngOnInit() {
 
-    if (window.screen.width < 800) { // 768px portrait
+    if (window.innerWidth < 900) { // 768px portrait
       this.mobile = true;
     }
-
     this.get_delegates();
   }
 
