@@ -13,7 +13,7 @@
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{most_block_producer_total_rounds_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{most_block_producer_total_rounds}} produced blocks</h2>
-                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_block_producer_total_rounds_delegate_name}">View Delegate</a>
               </div>
           </div>
       </div>
@@ -29,7 +29,7 @@
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{most_total_rounds_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{delegate_most_total_rounds}} verified blocks</h2>
-                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View Delegate</a>
               </div>
           </div>
       </div>
@@ -45,7 +45,7 @@
               <div fxLayout="column" class="topstats-details-holder" fxLayoutAlign="space-around center">
                   <h2 class="mat-headline center-align">{{top_ratio_delegate_name}}</h2>
                   <h2 class="mat-headline center-align">{{top_ratio_block_ratio| number:'1.0-1'}}% producer/verifier ratio</h2>
-                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':most_total_rounds_delegate_name}">View delegate</a>
+                  <a mat-raised-button class="mat-raised-button mat-warn view" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':top_ratio_delegate_name}">View Delegate</a>
               </div>
           </div>
       </div>
