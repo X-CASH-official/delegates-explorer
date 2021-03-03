@@ -2,7 +2,12 @@
 .center-align{
     text-align: center;
 }
-.announcement {
+
+@mixin dashboard-crm($theme) {
+	$primary: map-get($theme, primary);
+	$accent: map-get($theme, accent);
+	$warn: map-get($theme, warn);
+
 
   mat-card {
     margin: 10px 5px;
@@ -10,36 +15,43 @@
     box-sizing: border-box;
     color: white;
     text-align: center;
+    background-color: mat-color($primary) !important;
+    color: rgba(255, 255, 255, 1) !important;
   }
 
+  .announcement {
+    .mat-card-avatar {
+      width: 60px;
+      height: 60px;
+      font-size: 60px;
+    }
 
-  .mat-card-avatar {
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-    color: #fa741c;
-  }
-  mat-card-header {
-    display: block;
-    // margin-bottom: 16px;
-  }
-  mat-card-subtitle{
-      display: block;
-      margin-bottom: 6px !important;
+    .mat-card-subtitle{
+        display: block;
+        margin-bottom: 6px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 1) !important;
+    }
+    .mat-card-title{
+      font-size: 26px;
+      text-align: center;
+
+    }
+      .mat-card-header {
+        display: block;
+      }
+     .mat-card-content {
+       font-size: 16px;
+       text-align: center;
+     }
+    .mat-card-title, .mat-card-content, .mat-card-actions{
+      padding: 16px;
+      margin: 10px 5px;
+    }
+    .mat-card-footer{
       font-size: 12px;
-
-  }
-
-
-  mat-card-title{
-    font-size: 26px;
-    text-align: center;
-    padding: 16px;
-    margin: 10px 5px;
-    color: #fa741c !important;
-  }
-  mat-card-footer{
-    font-size: 12px !important;
-    margin: 10px 5px;
+      margin: 10px 5px;
+      color: rgba(255, 255, 255, 0.7);
+    }
   }
 }
