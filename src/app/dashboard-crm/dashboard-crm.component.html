@@ -4,3 +4,25 @@
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
+
+
+<mat-card class="announcement center-align">
+  <mat-card-header  class="center-align">
+
+    <span  mat-card-avatar class="material-icons">announcement</span>
+    <mat-card-subtitle>Announcement</mat-card-subtitle>
+    <mat-card-title>{{announcement?.title}}</mat-card-title>
+
+  </mat-card-header>
+  <mat-card-content class="center-align">
+    <p>
+      {{announcement?.text}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button class="mat-raised-button mat-warn view" href="{{announcement?.URL}}">Read more ...</a>
+  </mat-card-actions>
+  <mat-card-footer>
+    {{announcement?.publish_date}}
+  </mat-card-footer>
+</mat-card>

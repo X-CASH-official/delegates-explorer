@@ -4,6 +4,10 @@ import { FunctionsService } from '../services/functions.service';
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 import { formatDate } from '@angular/common'
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+
+import { environment } from './../../environments/environment';
 
 @Component({
     selector: 'app-dashboard-crm',
@@ -20,7 +24,8 @@ export class DashboardCrmComponent implements OnInit {
     miliseconds_left;
     isMainnet = false;
     mainnet_date_and_time:any;
-
+    announcementJSON:string = environment.announcementJSON;
+    announcement:any;
 
     public dashCard1 = [
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '',title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' },
@@ -50,7 +55,7 @@ export class DashboardCrmComponent implements OnInit {
       this.get_delegates();
       this.get_statistics();
       this.get_blockheight();
-
+      this.get_announcement();
 
 
       setInterval(() => {
@@ -62,6 +67,20 @@ export class DashboardCrmComponent implements OnInit {
 
     }
 
+    get_announcement() {
+
+      console.log(environment.announcementJSON);
+
+      this.httpdataservice.get_request(environment.announcementJSON).subscribe(
+        (res) => {
+          var announcementData = JSON.parse(JSON.stringify(res));
+
+          //console.log(announcementData.title);
+
+          this.announcement = announcementData;
+        }
+      )
+    }
 
     get_blockheight() {
       // get the data
