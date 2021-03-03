@@ -6,7 +6,7 @@
 </div>
 
 
-<mat-card class="announcement center-align">
+<mat-card *ngIf="announcement?.title" class="announcement center-align">
   <mat-card-header  class="center-align">
 
     <span  mat-card-avatar class="material-icons">announcement</span>
@@ -14,15 +14,15 @@
     <mat-card-title>{{announcement?.title}}</mat-card-title>
 
   </mat-card-header>
-  <mat-card-content class="center-align">
+  <mat-card-content *ngIf="announcement?.text" class="center-align">
     <p>
       {{announcement?.text}}
     </p>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions *ngIf="announcement?.URL" >
     <a mat-raised-button class="mat-raised-button mat-warn view" href="{{announcement?.URL}}">Read more ...</a>
   </mat-card-actions>
-  <mat-card-footer>
+  <mat-card-footer *ngIf="announcement?.publish_date" >
     {{announcement?.publish_date}}
   </mat-card-footer>
 </mat-card>
