@@ -73,7 +73,11 @@ export class statisticsComponent implements OnInit {
 
             var result = data.filter(function(d) {
               var delegate = d.delegate_name;
-              return !(delegate.includes('_xcash_foundation'));
+              return !(delegate.includes('us1_xcash_foundation'))
+                    || !(delegate.includes('europe1_xcash_foundation'))
+                    || !(delegate.includes('europe2_xcash_foundation'))
+                    || !(delegate.includes('europe3_xcash_foundation'))
+                    || !(delegate.includes('oceania1_xcash_foundation'))
             });
 
 

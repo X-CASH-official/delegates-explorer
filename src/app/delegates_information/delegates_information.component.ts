@@ -27,7 +27,12 @@ export class Delegates_informationComponent implements OnInit {
 
     constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private titleService:Title, public functionsService: FunctionsService) {
         this.delegate_name = this.route.snapshot.queryParamMap.get("data");
-        if (this.delegate_name .includes('_xcash_foundation')) {
+        if ( (this.delegate_name.includes('us1_xcash_foundation'))
+            || (this.delegate_name.includes('europe1_xcash_foundation'))
+            || (this.delegate_name.includes('europe2_xcash_foundation'))
+            || (this.delegate_name.includes('europe3_xcash_foundation'))
+            || (this.delegate_name.includes('oceania1_xcash_foundation'))
+            ) {
           this.is_seednode = true;
         }
         this.titleService.setTitle( this.delegate_name +  "Delegate Information - Delegates Explorer - X-CASH" );
