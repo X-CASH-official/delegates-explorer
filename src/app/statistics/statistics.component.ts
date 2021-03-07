@@ -24,6 +24,7 @@ export class statisticsComponent implements OnInit {
     ratio_data;
     top_ratio_delegate_name;
     top_ratio_block_ratio;
+    delegate_most_total_rounds;
 
     public dashCard1 = [
         { colorDark: '#fa741c', colorLight: '#fb934e', width: 20, text_settings: 20, text: '', settings: false, title: 'MOST BLOCK PRODUCER TOTAL ROUNDS', icon: 'emoji_events' },
@@ -45,12 +46,18 @@ export class statisticsComponent implements OnInit {
     	  (res) => {
           var data = JSON.parse(JSON.stringify(res));
             this.most_block_producer_total_rounds_delegate_name = data.most_block_producer_total_rounds_delegate_name;
-            this.most_total_rounds_delegate_name = data.most_total_rounds_delegate_name;
+            //this.most_total_rounds_delegate_name = data.most_total_rounds_delegate_name;
             this.most_block_producer_total_rounds = data.most_block_producer_total_rounds;
             this.most_total_rounds = data.most_total_rounds;
       	  },
       	  (error) =>  {
-      	     Swal.fire("Error","An error has occured.<br/>Get statistics failed.","error");
+             Swal.fire({
+                 title: "Error",
+                 html: "An error has occured:<br>API: Get statistics failed.",
+                 icon: "error",
+                 position: 'bottom',
+                 timer: 2500
+               });
       	  }
        );
 
@@ -63,21 +70,37 @@ export class statisticsComponent implements OnInit {
    	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES).subscribe(
      	  (res) =>  {
             let data = JSON.parse(JSON.stringify(res));
+
+            var result = data.filter(function(d) {
+              var delegate = d.delegate_name;
+              return !(delegate.includes('us1_xcash_foundation'))
+                    || !(delegate.includes('europe1_xcash_foundation'))
+                    || !(delegate.includes('europe2_xcash_foundation'))
+                    || !(delegate.includes('europe3_xcash_foundation'))
+                    || !(delegate.includes('oceania1_xcash_foundation'))
+            });
+
+
             let count = 0;
             let top_count = 25;
             // Top Block Producer List
-            this.top_producer = [...data].sort(function(a, b) {
+            this.top_producer = [...result].sort(function(a, b) {
               return b.block_producer_total_rounds - a.block_producer_total_rounds;
             }).slice( 0, top_count);
+
             // Top Block Verifier List
-            this.top_verifier = [...data].sort(function(a, b) {
+            this.top_verifier = [...result].sort(function(a, b) {
               return b.block_verifier_total_rounds - a.block_verifier_total_rounds;
             }).slice( 0, top_count);
+
+            this.most_total_rounds_delegate_name =  this.top_verifier[0]['delegate_name'];
+            this.delegate_most_total_rounds =  this.top_verifier[0]['block_verifier_total_rounds'];
+
             // Top Block Ratio List
-            [...data].forEach(function(item) {
+            [...result].forEach(function(item) {
                item.block_ratio = item.block_producer_total_rounds / item.block_verifier_total_rounds * 100;
             });
-            this.top_ratio = data.sort(function(a, b) {
+            this.top_ratio = result.sort(function(a, b) {
               return b.block_ratio - a.block_ratio;
             }).slice( 0, top_count);
 
@@ -87,7 +110,13 @@ export class statisticsComponent implements OnInit {
 
           },
           (error) => {
-            Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
+            Swal.fire({
+                title: "Error",
+                html: "An error has occured:<br>API: Get delegates failed.",
+                icon: "error",
+                position: 'bottom',
+                timer: 2500
+              });
           }
         );
       }

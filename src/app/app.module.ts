@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { NgxJsonLdModule } from 'ngx-json-ld';
+// import { NgxJsonLdModule } from 'ngx-json-ld';
 import { MatMenuModule} from '@angular/material/menu';
 
 
@@ -20,7 +20,6 @@ import { LazyLoadModule } from './lazy-load/lazy-load.module';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardCrmModule } from './dashboard-crm/dashboard-crm.module';
 import { PlatformLocation } from '@angular/common';
-
 
 
 
@@ -47,7 +46,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     PerfectScrollbarModule,
     LazyLoadModule,
     DashboardCrmModule,
-    NgxJsonLdModule,
+  //  NgxJsonLdModule,
     MatMenuModule
   ],
   providers: [

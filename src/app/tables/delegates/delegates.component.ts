@@ -57,10 +57,9 @@ export class DelegatesComponent implements OnInit {
 
   ngOnInit() {
 
-    if (window.screen.width < 800) { // 768px portrait
+    if (window.innerWidth < 900) { // 768px portrait
       this.mobile = true;
     }
-
     this.get_delegates();
   }
 
@@ -92,8 +91,6 @@ export class DelegatesComponent implements OnInit {
 
         this.dataSource = new DelegateDataSource(this.exampleDatabase, this.paginator, this.sort);
 
-        console.log(this.filter_active);
-
         observableFromEvent(this.filter.nativeElement, 'keyup').pipe(
           debounceTime(150),
           distinctUntilChanged(),)
@@ -104,7 +101,13 @@ export class DelegatesComponent implements OnInit {
         );
   	  },
   	  (error) => {
-  	    Swal.fire("Error","An error has occured:<br>API: Get delegates failed.","error");
+        Swal.fire({
+            title: "Error",
+            html: "An error has occured:<br>API: Get delegates failed.",
+            icon: "error",
+            position: 'bottom',
+            timer: 2500
+          });
   	  }
     );
   }

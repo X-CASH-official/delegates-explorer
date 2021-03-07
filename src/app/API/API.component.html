@@ -1,3 +1,5 @@
+
+
 <h2 class="page_title">API</h2>
 
 <div fxLayout="row wrap"  [ngClass.xs]="'components-container-xs'" class="api_container">
@@ -51,35 +53,56 @@
 
 						</div>
           </mat-tab>
+
           <mat-tab label="Example Response">
             <div class="component-preview">
-              <pre style="white-space:pre-line;"><code mwlHighlightJs [source]="data?.response" language="json" ></code></pre>
+              <pre style="white-space:pre-line;">
+                <code class="json highlight" highlight-js-content=".highlight">
+                  {{ data?.response }}
+                </code>
+              </pre>
+
             </div>
           </mat-tab>
-					<mat-tab label="Curl Snippet">
+          <mat-tab label="Curl Snippet">
             <div class="component-preview">
               <pre style="white-space:pre-line;">
-								<code mwlHighlightJs  [source]="data?.curl" language="bash" ></code></pre>
+                  <code class="javascript highlight" highlight-js-content=".highlight">
+                    {{ data?.curl }}
+                  </code>
+                </pre>
             </div>
           </mat-tab>
           <mat-tab label="ES6 Snippet">
             <div class="component-preview">
               <pre style="white-space:pre-line;">
-                <code mwlHighlightJs  [source]="data?.es6" language="javascript" ></code></pre>
+                <code class="javascript highlight">
+                  {{ data?.es6 }}
+                </code>
+              </pre>
             </div>
           </mat-tab>
-					<mat-tab label="XHR Snippet">
+          <mat-tab label="XHR Snippet">
             <div class="component-preview">
               <pre style="white-space:pre-line;">
-								<code mwlHighlightJs  [source]="data?.xhr" language="javascript" ></code></pre>
+                <code class="javascript highlight">
+                  {{ data?.xhr }}
+                </code>
+              </pre>
             </div>
           </mat-tab>
           <mat-tab label="PHP Snippet">
             <div class="component-preview">
               <pre style="white-space:pre-line;">
-								<code mwlHighlightJs  [source]="data?.php" language="javascript" ></code></pre>
+                <code class="javascript highlight">
+                  {{ data?.php }}
+                </code>
+              </pre>
             </div>
           </mat-tab>
+
+
+
         </mat-tab-group>
 
       </div>

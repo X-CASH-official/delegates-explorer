@@ -1,11 +1,24 @@
-<div fxLayout="column" fxLayout.lt-sm="column"  class="components-container-gt-xs deleagtes_table"  [ngClass.xs]="'components-container-xs'"   fxLayoutGap="20px">
-	<div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50"  fxLayoutGap="20px" class="filterButtons">
-		<button  mat-raised-button  fxFlex.lt-sm="50" fxFlex.md="25"  color="accent" [ngClass]="filter_active == '' ? 'on' : 'off'" (click)="filterMode('')"  matTooltip="Show All Nodes"><mat-icon>select_all</mat-icon> All</button>
-		<button  mat-raised-button  fxFlex.lt-sm="50" fxFlex.md="25"  color="accent" [ngClass]="filter_active == 'Shared' ? 'on' : 'off'" (click)="filterMode('Shared')"  matTooltip="Show Shared Nodes"><mat-icon>groups</mat-icon> Shared</button>
-		<button  mat-raised-button  fxFlex.lt-sm="50" fxFlex.md="25"  color="accent" [ngClass]="filter_active == 'Group' ? 'on' : 'off'" (click)="filterMode('Group')"  matTooltip="Show Private Groups"><mat-icon>lock</mat-icon> Group</button>
-		<button  mat-raised-button  fxFlex.lt-sm="50" fxFlex.md="25"  color="accent" [ngClass]="filter_active == 'Solo' ? 'on' : 'off'" (click)="filterMode('Solo')"  matTooltip="Show Solo Nodes"><mat-icon>person_outline</mat-icon>Solo</button>
-	</div>
+
+<div  fxLayout="row " fxLayout.lt-sm="column" fxLayout.gt-sm="row"  fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" class="components-container-gt-xs deleagtes_table filterButtons">
+
+		<button mat-raised-button fxFlex.lt-xs="100" fxFlex.gt-xs="25" fxLayoutAlign="center center" color="accent" [ngClass]="filter_active == '' ? 'on' : 'off'" (click)="filterMode('')"  matTooltip="Show All Nodes">
+			<mat-icon>select_all</mat-icon> <span class="align-text-bottom"> All</span>
+		</button>
+
+		<button mat-raised-button fxFlex.lt-xs="100" fxFlex.gt-xs="25" fxLayoutAlign="center center" color="accent" [ngClass]="filter_active == 'Shared' ? 'on' : 'off'" (click)="filterMode('Shared')"  matTooltip="Show Shared Nodes">
+			<mat-icon>groups</mat-icon> <span class="align-text-bottom"> Shared</span>
+		</button>
+
+		<button mat-raised-button fxFlex.lt-xs="100" fxFlex.gt-xs="25" fxLayoutAlign="center center" color="accent" [ngClass]="filter_active == 'Group' ? 'on' : 'off'" (click)="filterMode('Group')"  matTooltip="Show Private Groups">
+			<mat-icon>lock</mat-icon> <span class="align-text-bottom"> Group</span>
+		</button>
+
+		<button mat-raised-button fxFlex.lt-xs="100" fxFlex.gt-xs="25" fxLayoutAlign="center center" color="accent" [ngClass]="filter_active == 'Solo' ? 'on' : 'off'" (click)="filterMode('Solo')"  matTooltip="Show Solo Nodes">
+			<mat-icon>person_outline</mat-icon> <span class="align-text-bottom"> Solo</span>
+		</button>
+
 </div>
+
 
 
 <div fxLayout="column"  class="components-container-gt-xs deleagtes_table"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="5px">
@@ -25,7 +38,6 @@
 
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
-
 
 				<ng-container matColumnDef="id">
 					<mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -120,7 +132,7 @@
 
 
         <ng-container matColumnDef="block_verifier_online_percentage">
-					<mat-header-cell *matHeaderCellDef mat-sort-header> Online </mat-header-cell>
+					<mat-header-cell *matHeaderCellDef mat-sort-header> Top 50 % </mat-header-cell>
 					<mat-cell id="block_verifier_online_percentage{{row.id}}" *matCellDef="let row">{{ row.block_verifier_online_percentage | number}} %</mat-cell>
 				</ng-container>
 

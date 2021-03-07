@@ -4,6 +4,10 @@ import { FunctionsService } from '../services/functions.service';
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 import { formatDate } from '@angular/common'
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+
+import { environment } from './../../environments/environment';
 
 @Component({
     selector: 'app-dashboard-crm',
@@ -20,7 +24,8 @@ export class DashboardCrmComponent implements OnInit {
     miliseconds_left;
     isMainnet = false;
     mainnet_date_and_time:any;
-
+    announcementJSON:string = environment.announcementJSON;
+    announcement:any;
 
     public dashCard1 = [
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '',title: 'NEXT RECALCULATING OF VOTES', icon: 'hourglass_empty' },
@@ -36,16 +41,7 @@ export class DashboardCrmComponent implements OnInit {
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'BLOCK TIME ', icon: 'timelapse' },
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'EST. BLOCK PER DAY ', icon: 'view_week' },
     ];
-    public dashCard2 = [
-      { ogmeter: false, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'BLOCKS LEFT TILL MAINNET', icon: 'update' },
-      { ogmeter: false, width_icon: 0, text_size: 42, text: '', suffix: '',title: 'EST. MAINNET LAUNCH', icon: 'event' },
-      // { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '',title: 'TILL MAINNET', icon: 'av_timer' },
-    ];
-    public dashCard3 = [
-      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'DAYS', icon: '' },
-      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'HOURS', icon: '' },
-      { ogmeter: true, width_icon: 0, text_size: 52, text: 0, suffix: '',title: 'MINUTES', icon: '' },
-    ];
+
 
 
     constructor(private httpdataservice:HttpdataService, private titleService:Title,  public functionsService: FunctionsService) {
@@ -59,7 +55,7 @@ export class DashboardCrmComponent implements OnInit {
       this.get_delegates();
       this.get_statistics();
       this.get_blockheight();
-
+      this.get_announcement();
 
 
       setInterval(() => {
@@ -67,14 +63,24 @@ export class DashboardCrmComponent implements OnInit {
           var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
           var seconds:any = 60 - current_date_and_time.getSeconds() - 1;
           this.dashCard1[0].text = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
-
-          var mainnet_minutes:any = Math.floor(((this.miliseconds_left) / 1000 / 60) % 60) - 1;
-          console.log(mainnet_minutes);
-          this.dashCard3[2].text = parseInt(('0' + mainnet_minutes).slice(-2) );
       }, 1000);
 
     }
 
+    get_announcement() {
+
+      console.log(environment.announcementJSON);
+
+      this.httpdataservice.get_request(environment.announcementJSON).subscribe(
+        (res) => {
+          var announcementData = JSON.parse(JSON.stringify(res));
+
+          //console.log(announcementData.title);
+
+          this.announcement = announcementData;
+        }
+      )
+    }
 
     get_blockheight() {
       // get the data
@@ -82,44 +88,19 @@ export class DashboardCrmComponent implements OnInit {
         (res) => {
           var data = JSON.parse(JSON.stringify(res));
 
-          let mainnet_block = 800000;
-          let blocks_left = 0;
-          let block_reward = 0;
-
-          blocks_left = (mainnet_block - data.block_height );
-          this.dashCard2[0].text = blocks_left;
-
-          if(data.block_height < mainnet_block){
-      			block_reward = (data.block_reward * 2);
-            this.isMainnet = false;
-      		}else{
-            block_reward = data.block_reward;
-            this.isMainnet = true;
-          }
-
-          this.dashCard1[9].text = this.functionsService.get_lg_numer_format(block_reward);
+          this.dashCard1[9].text = this.functionsService.get_lg_numer_format(data.block_reward);
           this.dashCard1[10].text = 5 + " min";
           this.dashCard1[11].text = (24*60)/5;
 
-
-          this.miliseconds_left = (blocks_left * 120 * 1000);
-          var current_date_and_time = new Date();
-          var mainnet_date = new Date(current_date_and_time.getTime() + this.miliseconds_left);
-          this.mainnet_date_and_time = mainnet_date;
-
-          this.dashCard2[1].text = formatDate(mainnet_date, 'MMM d, HH:mm  z', 'en');
-
-          var total = this.miliseconds_left;
-          const mainnet_hours:any = Math.floor((total / (1000 * 60 * 60)) % 24);
-          const mainnet_days:any = Math.floor((total) / (1000 * 60 * 60 * 24));
-
-          this.dashCard3[0].text = mainnet_days;
-          this.dashCard3[1].text = parseInt(('0' + mainnet_hours).slice(-2));
-
-
         },
         (error) =>  {
-          Swal.fire("Error","An error has occured.<br/>Get blockheight failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get blockheight failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
       );
     }
@@ -138,7 +119,13 @@ export class DashboardCrmComponent implements OnInit {
           this.dashCard1[6].text = parseInt(data.XCASH_DPOPS_circulating_percentage);
         },
         (error) =>  {
-          Swal.fire("Error","An error has occured.<br/>Get statistics failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get statistics failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
       );
     }
@@ -171,7 +158,13 @@ export class DashboardCrmComponent implements OnInit {
           this.dashCard1[5].text = avg_vote_count;
         },
         (error) => {
-          Swal.fire("Error","An error has occured.<br/>Get delegates failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get delegates failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
       );
     }

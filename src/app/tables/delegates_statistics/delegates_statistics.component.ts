@@ -24,14 +24,14 @@ export class Delegates_statisticsComponent implements OnInit {
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE RANK ', icon: 'leaderboard' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'BLOCKS PRODUCED ', icon: 'find_in_page' },
     { ogmeter: false, width_icon: 25, text_size: 40, text: '-', suffix: '',  title: 'VOTE COUNT', icon: 'done_all' },
-    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'ONLINE PERCENTAGE', icon: 'update' },
-    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VERIFIERS ONLINE ROUNDS', icon: 'model_training' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'Top 50 PERCENTAGE', icon: 'update' },
+    { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'DELEGATE ONLINE ROUNDS', icon: 'model_training' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER ROUNDS', icon: 'autorenew' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'VERIFIER SCORE', icon: 'military_tech' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'PRODUCER/VERIFIER RATIO', icon: 'star_half' },
     { ogmeter: true, width_icon: 25, text_size: 40, text: 0, suffix: '',  title: 'EST ROUNDS BTW BLOCK PRODUCER ', icon: 'published_with_changes' },
     { ogmeter: false, width_icon: 25, text_size: 40, text: '-', suffix: '',  title: 'SINCE LAST BLOCK PRODUCED', icon: 'alarm_on' },
-    { ogmeter: false, width_icon: 25, text_size: 40, text: 0, suffix: '%',  title: 'FEE', icon: 'local_atm' }
+    { ogmeter: false, width_icon: 25, text_size: 40, text: '0', suffix: '%',  title: 'FEE', icon: 'local_atm' }
   ];
 
   title:string = "Delegates Statistics";
@@ -43,6 +43,7 @@ export class Delegates_statisticsComponent implements OnInit {
 	public showFilterTableCode;
   last_block_found:number;
   length;
+  is_seednode:boolean = false;
 
   constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, public functionsService: FunctionsService) { }
 
@@ -54,6 +55,14 @@ export class Delegates_statisticsComponent implements OnInit {
 	ngOnInit() {
 
       this.delegate_name = this.route.snapshot.queryParamMap.get("data");
+      if ( (this.delegate_name.includes('us1_xcash_foundation'))
+          || (this.delegate_name.includes('europe1_xcash_foundation'))
+          || (this.delegate_name.includes('europe2_xcash_foundation'))
+          || (this.delegate_name.includes('europe3_xcash_foundation'))
+          || (this.delegate_name.includes('oceania1_xcash_foundation'))
+          ) {
+        this.is_seednode = true;
+      }
 
       // get the data
     	this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES_STATISTICS + "?parameter1=" + this.delegate_name).subscribe(
@@ -85,7 +94,7 @@ export class Delegates_statisticsComponent implements OnInit {
 
           this.dashCard1[8].text = parseInt(data.block_producer_total_rounds) / parseInt(data.block_verifier_total_rounds) * 100;
           this.dashCard1[9].text = data.block_producer_total_rounds > 0 ? parseInt(data.block_verifier_total_rounds) / parseInt(data.block_producer_total_rounds) : "0";
-          this.dashCard1[11].text = data.delegate_fee;
+          this.dashCard1[11].text = data.delegate_fee == '' ? '0' : data.delegate_fee;
 
           this.length = block_producer_block_heights.length - 1;
           this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
@@ -102,7 +111,13 @@ export class Delegates_statisticsComponent implements OnInit {
           );
         },
         (error) => {
-          Swal.fire("Error","An error has occured:<br>API: Get delegates statistics failed.","error");
+          Swal.fire({
+              title: "Error",
+              html: "An error has occured:<br>API: Get delegates statistics failed.",
+              icon: "error",
+              position: 'bottom',
+              timer: 2500
+            });
         }
     	);
     }
@@ -125,7 +140,13 @@ export class Delegates_statisticsComponent implements OnInit {
 
       },
       (error) => {
-        Swal.fire("Error","An error has occured:<br>API: Get delegates website statistics failed.","error");
+        Swal.fire({
+            title: "Error",
+            html: "An error has occured:<br>API: Get delegates website statistics failed.",
+            icon: "error",
+            position: 'bottom',
+            timer: 2500
+          });
       });
     }
 

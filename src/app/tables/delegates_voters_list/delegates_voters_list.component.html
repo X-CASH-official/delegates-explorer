@@ -1,25 +1,28 @@
-<h2 class="page_title delegate_title" >{{delegate_name}} <button class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="functionsService.copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
+<h2 class="page_title delegate_title" >{{delegate_name}} <button *ngIf="!is_seednode" class="copy_vote_btn " style="float:right;" mat-raised-button color="warn" (click)="functionsService.copyVote('vote ' + delegate_name)">Copy Vote</button></h2>
 
-<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
-  <a mat-raised-button class="delegate_details " [routerLink]="['/delegates/delegate_information']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+<div fxLayout.lt-md="column" fxLayout.lt-lg="row" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch">
+  <a mat-raised-button class="delegate_details " [routerLink]="['/delegates/delegate_information']" [queryParams]="{'data':delegate_name}" fxFlex.lt-sm="100" fxFlex.gt-sm="33">
     <mat-icon  class="delegate_details_icon">info</mat-icon>
     <h3>Information</h3>
   </a>
-  <a mat-raised-button class="delegate_details" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details" [routerLink]="['/delegates/delegate_statistics']" [queryParams]="{'data':delegate_name}" fxFlex.lt-sm="100" fxFlex.gt-sm="33">
     <mat-icon  class="delegate_details_icon">insights</mat-icon>
     <h3>Statistics</h3>
   </a>
-  <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/delegates/delegate_voters_list']" [queryParams]="{'data':delegate_name}"  fxFlex.lt-sm="100" fxFlex.md="33">
+  <a mat-raised-button class="delegate_details delegate_details_active" [routerLink]="['/delegates/delegate_voters_list']" [queryParams]="{'data':delegate_name}" fxFlex.lt-sm="100" fxFlex.gt-sm="33">
     <mat-icon  class="delegate_details_icon">how_to_reg</mat-icon>
     <h3>Voters</h3>
   </a>
 </div>
 
-<div fxLayout="row" fxLayout="row wrap">
-    <div *ngFor="let dash of dashCard; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50">
+
+
+<div fxLayout="row wrap">
+    <div *ngFor="let dash of dashCard; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" >
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
+
 
 <div fxLayout="column"  class="components-container-gt-xs reserve_proofs_table"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="5px">
 

@@ -10,11 +10,11 @@ const routes: Routes = [
     {
       path: '', component: AuthComponent, children: [
           { path: 'dashboard', component: DashboardCrmComponent },
-          { path: 'delegates', loadChildren: '../tables/tables.module#TablesModule' },
-          { path: 'statistics', loadChildren: '../statistics/statistics.module#statisticsModule' },
-          { path: 'delegates/delegate_information', loadChildren: '../delegates_information/delegates_information.module#delegates_informationModule' },
-          { path: 'help', loadChildren: '../help/help.module#helpModule' },
-          { path: 'API', loadChildren: '../API/API.module#APIModule' },
+          { path: 'delegates', loadChildren: () => import('../tables/tables.module').then(m => m.TablesModule) },
+          { path: 'statistics', loadChildren: () => import('../statistics/statistics.module').then(m => m.statisticsModule) },
+          { path: 'delegates/delegate_information', loadChildren: () => import('../delegates_information/delegates_information.module').then(m => m.delegates_informationModule) },
+          { path: 'help', loadChildren: () => import('../help/help.module').then(m => m.helpModule) },
+          { path: 'API', loadChildren: () => import('../API/API.module').then(m => m.APIModule) },
           { path: '', component: DashboardCrmComponent },
           { path: '**', redirectTo: '/dashboard' },
       ]

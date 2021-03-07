@@ -1,21 +1,28 @@
-<div *ngIf="isMainnet === false" style="margin: 5px !important;">
-  <h2 class="page_title">DPoPS MAINNET COUNTER</h2>
-  <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
-    <div *ngFor="let dash of dashCard3; let count = index" fxFlex.lt-sm="33.3" fxFlex.sm="33.3" fxFlex.md="33.3" fxFlex.lg="33.3" fxFlex.xl="33.3">
-        <cdk-dashcard id="dashcard{{ count+9 }}" [dashData]="dash"></cdk-dashcard>
-    </div>
-  </div>
-
-  <div fxLayout="row" fxLayout="row wrap" fxLayoutAlign="center">
-    <div *ngFor="let dash of dashCard2; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" >
-        <cdk-dashcard id="dashcard{{ count+9 }}" [dashData]="dash" ></cdk-dashcard>
-    </div>
-  </div>
-</div>
-
 <h2 class="page_title">Dashboard</h2>
 <div fxLayout="row wrap">
     <div *ngFor="let dash of dashCard1; let count = index" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="33.3" fxFlex.xl="25" >
         <cdk-dashcard id="dashcard{{count+1}}" [dashData]="dash"></cdk-dashcard>
     </div>
 </div>
+
+
+<mat-card *ngIf="announcement?.title" class="announcement center-align">
+  <mat-card-header  class="center-align">
+
+    <span  mat-card-avatar class="material-icons">announcement</span>
+    <mat-card-subtitle>Announcement</mat-card-subtitle>
+    <mat-card-title>{{announcement?.title}}</mat-card-title>
+
+  </mat-card-header>
+  <mat-card-content *ngIf="announcement?.text" class="center-align">
+    <p>
+      {{announcement?.text}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions *ngIf="announcement?.URL" >
+    <a mat-raised-button class="mat-raised-button mat-warn view" href="{{announcement?.URL}}">Read more ...</a>
+  </mat-card-actions>
+  <mat-card-footer *ngIf="announcement?.publish_date" >
+    {{announcement?.publish_date}}
+  </mat-card-footer>
+</mat-card>

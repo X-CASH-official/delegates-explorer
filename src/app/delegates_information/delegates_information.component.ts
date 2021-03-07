@@ -23,9 +23,18 @@ export class Delegates_informationComponent implements OnInit {
     delegate_fee:string;
     server_specs:string;
     public_address:string;
+    is_seednode:boolean = false;
 
     constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private titleService:Title, public functionsService: FunctionsService) {
         this.delegate_name = this.route.snapshot.queryParamMap.get("data");
+        if ( (this.delegate_name.includes('us1_xcash_foundation'))
+            || (this.delegate_name.includes('europe1_xcash_foundation'))
+            || (this.delegate_name.includes('europe2_xcash_foundation'))
+            || (this.delegate_name.includes('europe3_xcash_foundation'))
+            || (this.delegate_name.includes('oceania1_xcash_foundation'))
+            ) {
+          this.is_seednode = true;
+        }
         this.titleService.setTitle( this.delegate_name +  "Delegate Information - Delegates Explorer - X-CASH" );
      }
 
@@ -48,7 +57,13 @@ export class Delegates_informationComponent implements OnInit {
               this.public_address = data.public_address;
             },
             (error) =>    {
-              Swal.fire("Error","An error has occured.<br/>Get delegates information failed.","error");
+              Swal.fire({
+                  title: "Error",
+                  html: "An error has occured:<br>API: Get delegates information failed.",
+                  icon: "error",
+                  position: 'bottom',
+                  timer: 2500
+                });
             }
         );
     }

@@ -1,3 +1,5 @@
+$mat-theme-ignore-duplication-warnings: true;
+
 @import '~@angular/material/theming';
 @import '../app/auth/auth.component.scss';
 @import '../app/core/sidemenu/sidemenu.component.scss';
@@ -9,6 +11,7 @@
 @import '../app/help/help.component.scss';
 @import '../app/statistics/statistics.component.scss';
 @import '../app/delegates_information/delegates_information.component.scss';
+@import '../app/dashboard-crm/dashboard-crm.component.scss';
 
 @import './palette.scss';
 
@@ -67,6 +70,7 @@ $spin_background-darksea: mat-palette($warning-darksea, 900, 0.9);
   @include api($cdk-theme-dark-darksea);
   @include stats($cdk-theme-dark-darksea);
   @include delegate-info($cdk-theme-dark-darksea);
+  @include dashboard-crm($cdk-theme-dark-darksea);
 
   // Backgrounds
   .mat-drawer-container{ background: #1d3557; }
@@ -157,6 +161,8 @@ $warning-unicorn : $mat-lime;
   @include api($cdk-theme-light-unicorn);
   @include stats($cdk-theme-light-unicorn);
   @include delegate-info($cdk-theme-light-unicorn);
+  @include dashboard-crm($cdk-theme-light-unicorn);
+
 
   // Logo SVG Fill
   .xca0 { fill: mat-color($mat-cyan,500); }
@@ -239,6 +245,8 @@ $warning-unicorn : $mat-lime;
   @include api($cdk-theme-light-xteal);
   @include stats($cdk-theme-light-xteal);
   @include delegate-info($cdk-theme-light-xteal);
+  @include dashboard-crm($cdk-theme-light-xteal);
+
   // Logo SVG Fill
   .xca0 { fill: mat-color($accent-xteal,500); }
   .xca1 { fill: mat-color($primary-xteal,500); }
@@ -309,6 +317,7 @@ $warning-unicorn : $mat-lime;
   @include api($cdk-theme-dark-xgrey);
   @include stats($cdk-theme-dark-xgrey);
   @include delegate-info($cdk-theme-dark-xgrey);
+  @include dashboard-crm($cdk-theme-dark-xgrey);
   // Logo SVG Fill
   .xca0 { fill: mat-color($accent-xgrey,500); }
   .xca1 { fill: white; }
@@ -518,6 +527,9 @@ $warning-unicorn : $mat-lime;
     }
     .components-container-xs {
       padding: 0px !important;
+    }
+    .table-component-holder {
+      margin-left: 4px;
     }
   }
   .no-results{

@@ -48,6 +48,9 @@ mat-card {
                   transform: translate(0, -8px);
                   box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
               }
+              ul{
+                list-style-type:none;
+              }
           }
       }
   }
@@ -97,7 +100,7 @@ mat-card {
         display: block;
         font: 500 20px Roboto, "Helvetica Neue", sans-serif;
         text-align: center !important;
-        line-height: 52px;
+        //line-height: 52px;
       }
       .mat-expansion-panel-content {
         //font: 300 16px/20px Roboto, "Helvetica Neue", sans-serif;

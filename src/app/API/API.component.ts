@@ -6,6 +6,9 @@ import { environment } from './../../environments/environment';
 
 import { API_DATA } from './API.data';
 
+//import { HighlightResult } from 'ngx-highlightjs';
+
+
 @Component({
     selector: 'app-API',
     templateUrl: './API.component.html',

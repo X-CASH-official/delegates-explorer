@@ -36,6 +36,7 @@ export class Delegates_voters_listComponent implements OnInit {
 	public dataSource: ExampleDataSource | null;
 	public showFilterTableCode;
   length;
+  is_seednode:boolean = false;
 
 	constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, public functionsService: FunctionsService) { }
 
@@ -45,7 +46,14 @@ export class Delegates_voters_listComponent implements OnInit {
 
 	ngOnInit() {
     this.delegate_name = this.route.snapshot.queryParamMap.get("data");
-
+    if ( (this.delegate_name.includes('us1_xcash_foundation'))
+        || (this.delegate_name.includes('europe1_xcash_foundation'))
+        || (this.delegate_name.includes('europe2_xcash_foundation'))
+        || (this.delegate_name.includes('europe3_xcash_foundation'))
+        || (this.delegate_name.includes('oceania1_xcash_foundation'))
+        ) {
+      this.is_seednode = true;
+    }
 	  // get the data
 	  this.httpdataservice.get_request(this.httpdataservice.GET_DELEGATES_VOTERS_LIST + "?parameter1=" + this.delegate_name).subscribe(
 	  (res) => {
@@ -80,7 +88,13 @@ export class Delegates_voters_listComponent implements OnInit {
 
       },
       (error) => {
-        Swal.fire("Error","An error has occured:<br>API: Get delegates voters list failed.","error");
+        Swal.fire({
+            title: "No voters found.",
+            html: "An error has occured:<br>API: Get delegates voters list returned null.",
+            icon: "error",
+            position: 'bottom',
+            timer: 2500
+          });
       }
 	  );
 	}

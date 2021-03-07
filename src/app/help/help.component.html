@@ -4,32 +4,32 @@
   <div fxLayout="row" class="service-card-container" fxLayout.lt-md="column" fxLayoutGap="20px">
 
     <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.gt-sm="33.3" class="mat-elevation-z4 service-card">
-      <div class="service-card-header" fxFlex>
-        <img alt="X-Cash Documentation" src="/assets/images/menu_book-white-48dp.svg" fxFlex><br />
+      <div class="service-card-header" >
+        <img alt="X-Cash Documentation" src="/assets/images/menu_book-white-48dp.svg" fxFlex>
       </div>
-      <h3 class="mat-title" fxFlex>X-Cash Documentation </h3>
+      <h3 class="mat-title" fxFlex>X-Cash<br/>Documentation </h3>
       <p class="mat-body-1"  fxFlex>Learn the basic functions and join the validation of the blockchain as an elected delegate.</p>
       <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://docs.xcash.foundation/" target="_blank" rel="noopener">
         Visit X-Cash Documentation
       </a>
     </div>
     <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.gt-sm="33.3" class="mat-elevation-z4 service-card">
-      <div class="service-card-header-github" fxFlex>
-        <img alt="X-Cash Github" src="/assets/images/GitHub-Mark-Light-120px-plus.png" fxFlex style="height: 160px;">
+      <div class="service-card-header-github" >
+        <img alt="X-Cash Github" src="/assets/images/GitHub-Mark-Light-120px-plus.png" fxFlex style="height:160px">
       </div>
-      <h3 class="mat-title"  fxFlex>X-Cash Github</h3>
+      <h3 class="mat-title"  fxFlex>X-Cash<br/>Github</h3>
       <p class="mat-body-1"  fxFlex>Contribute or submit a bug report to X-Cash and its derived programs on GitHub!</p>
       <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://github.com/X-CASH-official" target="_blank" rel="noopener">
         Visit X-Cash Github
       </a>
     </div>
     <div fxFlex.lt-md="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.lt-md="100" fxFlex.gt-sm="33.3" class="mat-elevation-z4 service-card">
-      <div class="service-card-header" fxFlex>
+      <div class="service-card-header" >
         <img alt="X-Cash Community" src="/assets/images/forum-white-48dp.svg" fxFlex>
       </div>
-      <h3 class="mat-title" fxFlex>X-Cash Community</h3>
-      <p class="mat-body-1"  fxFlex>Join the official Discord server of the X-Cash community!<br />We are thrilled to have you on board!</p>
-      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://discord.gg/3yGCMr" target="_blank" rel="noopener">
+      <h3 class="mat-title" fxFlex>X-Cash<br/>Community</h3>
+      <p class="mat-body-1"  fxFlex>Join the official Discord server of the community!<br />We are thrilled to have you on board!</p>
+      <a mat-raised-button class="Follow mat-raised-button mat-warn" href="https://discord.gg/4CAahnd" target="_blank" rel="noopener">
         Visit X-Cash Community
       </a>
     </div>
@@ -45,7 +45,7 @@
 
     <div class="expansion-container">
       <div fxLayout="row" fxLayout.lt-sm="column">
-        <div fxFlexLayoutWrap fxFlex.xs="100" fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100">
+        <div fxFlexLayoutWrap fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100"  fxFlex.lg="100"  fxFlex.xl="100">
           <mat-accordion multi>
 
             <mat-expansion-panel>
@@ -65,7 +65,7 @@
                   Reserve proof-based voting/staking system: the XCASH’s stake always stays in your wallet.
                 </li>
                 <li>
-                  There is no lockup period. The staked XCASH always remain in your wallet and you can use them at any time. However, moving them from your wallet will cancel your entire staking<
+                  There is no lockup period. The staked XCASH always remain in your wallet and you can use them at any time. However, moving them from your wallet will cancel your entire staking.
                 </li>
                 <li>
                   No need to keep your wallet/computer online if you are staking towards a shared delegate.
@@ -99,7 +99,7 @@
                 <li>
                   New votes will be taken into account at the top of the next hour.
                   <p class="mat-body-2">
-                   If you apply a new vote at XX:30, it will be in effect at XX+1:00.
+                   If you apply a new vote at 09:30, it will be in effect at 10:00.
                   </p>
                 </li>
                 <li>
@@ -124,27 +124,27 @@
               <p class="mat-body-2">You will find 4 types of delegates:</p>
               <ol>
                 <li>
-                  Shared Delegates  <mat-icon style="vertical-align: bottom;" matTooltip="Shared Node">groups</mat-icon>
+                  Shared Delegates  <mat-icon class="align-bottom" matTooltip="Shared Node">groups</mat-icon>
                   <p class="mat-body-2">
                     The shared delegates are public delegates for whom you can vote. They will redistribute your share of the rewards minus their fees. As a voter, you should favor shared delegates.
                   </p>
                 </li>
                 <li>
-                  Solo Delegates <mat-icon style="vertical-align: bottom;" matTooltip="Solo Node">person_outline</mat-icon>
+                  Solo Delegates <mat-icon class="align-bottom" matTooltip="Solo Node">person_outline</mat-icon>
                   <p class="mat-body-2">
                     Solo delegates are elected by themselves and are keeping the reward for them. You can vote for solo delegates, but don't expect to receive a share of the block reward.
                   </p>
                 </li>
                 <li>
-                  Private groups <mat-icon style="vertical-align: bottom;" matTooltip="Private Group">lock</mat-icon>
+                  Private groups <mat-icon class="align-bottom" matTooltip="Private Group">lock</mat-icon>
                   <p class="mat-body-2">
                     Private delegates group are delegates that will only redistribute shares of the block reward to a select group of their voters. They are usually decided with the delegate in private, so you shouldn't vote for them if you haven't communicated with the delegate first.
                   </p>
                 </li>
                 <li>
-                  Seed nodes <mat-icon style="vertical-align: bottom;" matTooltip="Backup Node">admin_panel_settings</mat-icon>
+                  Seed nodes <mat-icon class="align-bottom" matTooltip="Backup Node">admin_panel_settings</mat-icon>
                   <p class="mat-body-2">
-                    Seed nodes help verify the block, keep the database. They are a trusted source to get the top 50 delegates from the daemon and keep the blockchain secure. Seed nodes can't produce blocks!
+                    Seed nodes help verify the block and keep the database. They are a trusted source to get the top 50 delegates from the daemon and keep the blockchain secure. Seed nodes can't produce blocks!
                   </p>
                 </li>
               </ol>
@@ -156,7 +156,7 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  How to vote in the CLI
+                  How to Vote in the CLI
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <p class="mat-body-2">Download the 2.0.0 version of the X-Cash binaries, on our <a  class="hint" href="https://www.xcash.foundation/wallet" target="_blank" rel="noopener">official website</a> or on the <a  class="hint" href="https://github.com/X-CASH-official/xcash-core/releases" target="_blank" rel="noopener">GitHub Releases</a>.</p>
@@ -181,7 +181,7 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Changing your vote in the CLI
+                  Changing your Vote in the CLI
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <p class="mat-body-2">You can change your vote by voting for a new delegate, and the old vote will automatically be replaced with the new vote:
@@ -201,20 +201,20 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  How to vote in the android wallet
+                  How to Vote in the Android Wallet
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <p class="mat-body-2"> In case you have already generated a wallet, voting from the Android X-Cash Wallet APP is a very simple process. (Please be aware that the Android wallet is still in Beta) </p>
+              <p class="mat-body-2"> In case you have already generated a wallet, voting from the Android X-Cash Wallet APP is a very simple process. <br />(Please be aware that the Android wallet is still in Beta)</p>
               <ol>
                 <li>Open the X-Cash APP</li>
                 <li>Tap to resume and type your wallet password.</li>
                 <li>Wait to synchronize with the network.</li>
-                <li>Once synced, tap the DPOPS button in the upper right corner</li>
-                <li>Scroll down the list to find your desired delegate and tap it’s name to select it, or type it’s name in the “Delegate Name” textbox near the “Vote” button</li>
-                <li>With the desired delegate’s name in the text box, tap the Vote button</li>
+                <li>Once synced, tap the DPOPS button in the upper right corner.</li>
+                <li>Scroll down the list to find your desired delegate and tap it’s name to select it, or type it’s name in the “Delegate Name” textbox near the “Vote” button.</li>
+                <li>With the desired delegate’s name in the text box, tap the Vote button.</li>
                 <li>In the next window, you will have two choices:</li>
                   <ul>
-                    <li>If you are in the 3rd minute of the hour, you can tap Quick Vote and the vote will be placed right away</li>
+                    <li>If you are in the 3rd minute of the hour, you can tap Quick Vote and the vote will be placed right away.</li>
                     <li>If you are out of the 3rd minute, you can tap Auto Waiting and the app will place the vote after the needed waiting time (you need to maintain the wallet opened till you will receive the confirmation).</li>
                   </ul>
               </ol>
@@ -234,12 +234,12 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  How to register a delegate
+                  How to Register a Delegate
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <p class="mat-body-2"> Once the wallet is loaded, type the following command: <code class="codeblock helpblock">delegate_register DELEGATE_NAME   IP_ADDRESS|DOMAIN_NAME   BLOCK_VERIFIER_PUBLIC_KEY</code></p>
               <p class="mat-body-2">  And replace the information with:</p>
-                <ul style="list-style-type:none;">
+                <ul>
                   <li>DELEGATE_NAME<br/><span class="desc">the name that will be displayed on the delegate explorer. Cannot be updated.</span></li>
                   <li>IP_ADDRESS|DOMAIN_NAME<br/><span class="desc">your server's IP address or its domain name (if you have bought a domain name and correctly set up the DNS record). It is possible to change this information at a later time. Can be updated.</span></li>
                   <li>BLOCK_VERIFIER_PUBLIC_KEY<br/><span class="desc">the block verifier public key that you have generated <a class="hint" href="https://docs.xcash.foundation/dpops/register-delegate#1-generate-a-block-verifier-key" target="_blank" rel="noopener">earlier</a>. Cannot be updated.</span></li>
@@ -258,13 +258,13 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  How to update a delegates data
+                  How to Update a Delegates Data
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <p class="mat-body-2">
                 Once the wallet is loaded, type the following command: <code class="codeblock helpblock">delegate_update ITEM (about, website, team, shared_delegate_status, delegate_fee and server_specs)</code>
               </p>
-                <ul style="list-style-type:none;">
+                <ul>
                   <li>
                     about <span class="desc">- Short description about you and your motivations as a delegate.</span>
                   </li>
