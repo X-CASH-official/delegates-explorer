@@ -73,16 +73,12 @@ export class statisticsComponent implements OnInit {
 
             var result = data.filter(function(d) {
               var delegate = d.delegate_name;
-              return !(delegate.includes('us1_xcash_foundation'))
-                    || !(delegate.includes('europe1_xcash_foundation'))
-                    || !(delegate.includes('europe2_xcash_foundation'))
-                    || !(delegate.includes('europe3_xcash_foundation'))
-                    || !(delegate.includes('oceania1_xcash_foundation'))
+              return !(delegate.includes('us1_xcash_foundation')) && !(delegate.includes('europe1_xcash_foundation')) && !(delegate.includes('europe2_xcash_foundation')) && !(delegate.includes('europe3_xcash_foundation')) && !(delegate.includes('oceania1_xcash_foundation'));
             });
-
 
             let count = 0;
             let top_count = 25;
+
             // Top Block Producer List
             this.top_producer = [...result].sort(function(a, b) {
               return b.block_producer_total_rounds - a.block_producer_total_rounds;

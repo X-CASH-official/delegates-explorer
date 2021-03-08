@@ -56,8 +56,6 @@ export class DashboardCrmComponent implements OnInit {
       this.get_statistics();
       this.get_blockheight();
       this.get_announcement();
-
-
       setInterval(() => {
           var current_date_and_time = new Date();
           var minutes:any = (60 - current_date_and_time.getMinutes() - 1) % 60;
@@ -68,15 +66,10 @@ export class DashboardCrmComponent implements OnInit {
     }
 
     get_announcement() {
-
-      console.log(environment.announcementJSON);
-
+      // get the data
       this.httpdataservice.get_request(environment.announcementJSON).subscribe(
         (res) => {
           var announcementData = JSON.parse(JSON.stringify(res));
-
-          //console.log(announcementData.title);
-
           this.announcement = announcementData;
         }
       )
