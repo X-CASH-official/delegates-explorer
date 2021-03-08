@@ -52,17 +52,17 @@
 
 <div class="service-card-container" fxLayout.lt-xl="column" fxLayoutGap="20px" fxLayoutAlign="space-evenly stretch" >
 
-  <div *ngIf="about" fxLayout="column" fxLayoutAlign="center center"  class="mat-elevation-z4 service-card">
+  <div *ngIf="about" fxLayout="column" fxLayoutAlign="center center"  class="mat-elevation-z4 service-card" fxFlex.lg="100" fxFlex.xl="100">
       <h3 class="mat-title">About</h3>
       <p class="mat-body-1"  style="max-width:600px">{{about}}</p>
   </div>
 
-  <div *ngIf="team" fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z4 service-card">
+  <div *ngIf="team" fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z4 service-card" fxFlex.lg="100" fxFlex.xl="100">
       <h3 class="mat-title">Team</h3>
       <p class="mat-subheading-1"  style="max-width:600px">{{team}}</p>
   </div>
 
-  <div *ngIf="server_specs" fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z4 service-card">
+  <div *ngIf="server_specs" fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z4 service-card" fxFlex.lg="100" fxFlex.xl="100">
       <h3 class="mat-title">Server</h3>
       <p class="mat-body-1"  style="max-width:600px">{{server_specs}}</p>
   </div>
