@@ -94,8 +94,8 @@
 					<mat-cell id="shared_delegate_status{{row.id}}" *matCellDef="let row">
 
 
-						<mat-icon *ngIf="row.id < 6;" matTooltip="Seed Node">admin_panel_settings</mat-icon>
-						<mat-icon *ngIf="row.shared_delegate_status === 'Solo' && row.id > 5 ;" matTooltip="Solo Node">person_outline</mat-icon>
+						<mat-icon *ngIf="row.delegate_name.includes('_xcash_foundation');" matTooltip="Seed Node">admin_panel_settings</mat-icon>
+						<mat-icon *ngIf="row.shared_delegate_status === 'Solo' && !row.delegate_name.includes('_xcash_foundation') ;" matTooltip="Solo Node">person_outline</mat-icon>
             <mat-icon *ngIf="row.shared_delegate_status === 'Shared';" matTooltip="Shared Node - {{ row.delegate_fee + '%' }} Fee">groups</mat-icon>
             <mat-icon *ngIf="row.shared_delegate_status === 'Group';" matTooltip="Private Group">lock</mat-icon>
 
