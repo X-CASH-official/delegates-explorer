@@ -10,7 +10,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "allowedCommonJsDependencies": [ "ng2-odometer"], 
+          "allowedCommonJsDependencies": [ "ng2-odometer"],
           "options": {
             "aot": true,
             "outputPath": "dist",
@@ -35,7 +35,18 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "index": "src/index.html"
+
+            },
+            "testnet": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.testnet.ts"
+                }
+              ],
+              "index": "src/index.testnet.html"
             }
           }
         },
@@ -46,8 +57,11 @@
           },
           "configurations": {
             "prod": {
-              "browserTarget": "cd-admin-v2:build:prod"
-            }
+              "browserTarget": "cd-admin-v2:build:production"
+            },
+            "testnet": {
+              "browserTarget": "cd-admin-v2:build:testnet"
+            },
           }
         },
         "extract-i18n": {
