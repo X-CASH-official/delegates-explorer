@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-fixed-table',
@@ -55,12 +56,7 @@ export class Delegates_statisticsComponent implements OnInit {
 	ngOnInit() {
 
       this.delegate_name = this.route.snapshot.queryParamMap.get("data");
-      if ( (this.delegate_name.includes('us1_xcash_foundation'))
-          || (this.delegate_name.includes('europe1_xcash_foundation'))
-          || (this.delegate_name.includes('europe2_xcash_foundation'))
-          || (this.delegate_name.includes('europe3_xcash_foundation'))
-          || (this.delegate_name.includes('oceania1_xcash_foundation'))
-          ) {
+      if ( environment.seedNodes.includes(this.delegate_name)) {
         this.is_seednode = true;
       }
 

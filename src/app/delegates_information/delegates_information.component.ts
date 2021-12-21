@@ -4,6 +4,7 @@ import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 import { Title } from '@angular/platform-browser';
 import { FunctionsService } from '../services/functions.service';
+import { environment } from './../../environments/environment';
 
 @Component({
     selector: 'app-delegates_information',
@@ -27,15 +28,10 @@ export class Delegates_informationComponent implements OnInit {
 
     constructor(private route: ActivatedRoute, private httpdataservice: HttpdataService, private titleService:Title, public functionsService: FunctionsService) {
         this.delegate_name = this.route.snapshot.queryParamMap.get("data");
-        if ( (this.delegate_name.includes('us1_xcash_foundation'))
-            || (this.delegate_name.includes('europe1_xcash_foundation'))
-            || (this.delegate_name.includes('europe2_xcash_foundation'))
-            || (this.delegate_name.includes('europe3_xcash_foundation'))
-            || (this.delegate_name.includes('oceania1_xcash_foundation'))
-            ) {
+        if ( environment.seedNodes.includes(this.delegate_name)) {
           this.is_seednode = true;
         }
-        this.titleService.setTitle( this.delegate_name +  "Delegate Information - Delegates Explorer - X-CASH" );
+        this.titleService.setTitle( this.delegate_name +  "Delegate Information - " + environment.shortTitle + " - X-CASH" );
      }
 
 

@@ -45,7 +45,7 @@ export class DashboardCrmComponent implements OnInit {
 
 
     constructor(private httpdataservice:HttpdataService, private titleService:Title,  public functionsService: FunctionsService) {
-        this.titleService.setTitle("Delegates Explorer - X-CASH");
+        this.titleService.setTitle( environment.shortTitle + " - X-CASH");
      }
 
 

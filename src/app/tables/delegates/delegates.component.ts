@@ -12,6 +12,7 @@ import { Title } from '@angular/platform-browser';
 
 import Swal from 'sweetalert2';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
+import { environment } from './../../../environments/environment';
 
 /** Custom options the configure the tooltip's default show/hide delays. */
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
@@ -39,10 +40,11 @@ export class DelegatesComponent implements OnInit {
   pagesize;
   mobile = false;
   filter_active = '';
+  seedNodes;
 
 
 	constructor(private httpdataservice: HttpdataService, private titleService:Title, public functionsService: FunctionsService) {
-      this.titleService.setTitle(" Delegates List - Delegates Explorer - X-CASH");
+      this.titleService.setTitle(" Delegates List - " + environment.shortTitle + " - X-CASH");
    }
 
 
@@ -84,6 +86,8 @@ export class DelegatesComponent implements OnInit {
   	      this.exampleDatabase.addUser((count + 1).toString(),data[count].delegate_name.toString(),status,mode,data[count].delegate_fee.toString(),data[count].block_verifier_total_rounds.toString(),data[count].block_verifier_online_percentage.toString(),current_delegate_total_vote_count.toString(),data[count].block_producer_total_rounds.toString());
 
   	    }
+
+        this.seedNodes = environment.seedNodes;
 
         // paginator settings
         this.length = data.length;

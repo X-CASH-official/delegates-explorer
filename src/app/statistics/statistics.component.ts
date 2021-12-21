@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpdataService} from '../services/http-request.service';
 import Swal from 'sweetalert2';
 import { Title } from '@angular/platform-browser';
+import { environment } from './../../environments/environment';
 
 @Component({
     selector: 'app-statistics',
@@ -37,7 +38,7 @@ export class statisticsComponent implements OnInit {
     ];
 
     constructor(private httpdataservice: HttpdataService, private titleService:Title) {
-        this.titleService.setTitle(" Statistics - Delegates Explorer - X-CASH");
+        this.titleService.setTitle(" Statistics - " + environment.shortTitle + " - X-CASH");
      }
 
     ngOnInit() {
@@ -73,7 +74,7 @@ export class statisticsComponent implements OnInit {
 
             var result = data.filter(function(d) {
               var delegate = d.delegate_name;
-              return !(delegate.includes('us1_xcash_foundation')) && !(delegate.includes('europe1_xcash_foundation')) && !(delegate.includes('europe2_xcash_foundation')) && !(delegate.includes('europe3_xcash_foundation')) && !(delegate.includes('oceania1_xcash_foundation'));
+              return !environment.seedNodes.includes(delegate);
             });
 
             let count = 0;
