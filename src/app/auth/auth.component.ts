@@ -1,7 +1,7 @@
 
 import { Component, OnInit ,Input} from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
-
+import { environment } from './../../environments/environment';
 
 @Component({
   selector: 'app-auth',
@@ -18,6 +18,7 @@ export class AuthComponent implements OnInit{
   matDrawerOpened: boolean = false;
   matDrawerShow: boolean = true;
   sideNavMode: string = 'side';
+  shortTitle;
 
 
   ngOnChanges() {
@@ -27,9 +28,10 @@ export class AuthComponent implements OnInit{
 	constructor(private media: MediaObserver) { }
 
 	ngOnInit() {
-		/*this.media.subscribe((mediaChange: MediaChange) => {
+		    /*this.media.subscribe((mediaChange: MediaChange) => {
             this.toggleView();
         });*/
+        this.shortTitle = environment.shortTitle;
 	}
 
   getRouteAnimation(outlet) {

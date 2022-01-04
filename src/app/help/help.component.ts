@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { environment } from './../../environments/environment';
 
 @Component({
     selector: 'app-help',
@@ -21,7 +22,7 @@ export class HelpComponent implements OnInit {
     ];
 
     constructor(private titleService:Title) {
-        this.titleService.setTitle(" Help - Delegates Explorer - X-CASH");
+        this.titleService.setTitle(" Help - " + environment.shortTitle + " - X-CASH");
      }
 
     ngOnInit() {  }

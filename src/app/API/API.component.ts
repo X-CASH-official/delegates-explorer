@@ -20,7 +20,7 @@ export class APIComponent implements OnInit {
     apiData:any;
 
     constructor(private titleService:Title) {
-        this.titleService.setTitle(" API - Delegates Explorer - X-CASH");
+        this.titleService.setTitle(" API - " + environment.shortTitle + " - X-CASH");
      }
 
     ngOnInit() {

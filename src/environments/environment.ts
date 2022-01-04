@@ -1,5 +1,13 @@
 export const environment = {
-    baseURL: "http://delegates.xcash.rocks",
+    baseURL: "http://localhost:4200",
     apiEndPoint: 'http://delegates.xcash.foundation',
-    announcementJSON: 'https://raw.githubusercontent.com/X-CASH-official/delegates-explorer/master/announcement.json'
+    announcementJSON: 'https://raw.githubusercontent.com/X-CASH-official/delegates-explorer/testnet/announcement.json',
+    shortTitle: 'Local Explorer',
+    seedNodes: [
+                'us1_xcash_foundation',
+                'europe1_xcash_foundation',
+                'europe2_xcash_foundation',
+                'europe3_xcash_foundation',
+                'oceania1_xcash_foundation'
+              ]
 };
