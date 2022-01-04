@@ -46,7 +46,10 @@
                   "with": "src/environments/environment.testnet.ts"
                 }
               ],
-              "index": "src/index.testnet.html"
+              "index": {
+                "input": "src/index.testnet.html",
+                "output": "index.html"
+              }
             }
           }
         },
