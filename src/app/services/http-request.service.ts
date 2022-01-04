@@ -5,7 +5,7 @@ import { environment } from './../../environments/environment';
 
 @Injectable()
 export class HttpdataService{
-  
+
   constructor(private httpClient: HttpClient) {}
 
   GET_STATISTICS:string = environment.apiEndPoint + "/delegateswebsitegetstatistics";
@@ -17,6 +17,7 @@ export class HttpdataService{
   GET_PUBLIC_ADDRESS_PAYMENT_INFORMATION:string = environment.apiEndPoint + "/getpublicaddresspaymentinformation";
   XCASH_WALLET_DECIMAL_PLACES_AMOUNT:number = 1000000;
   BLOCK_TIME:number = 5;
+  GET_LAST_BLOCK_DATA:string = environment.explorerApiEndPoint + "/getlastblockdata";
 
   Timer:any;
 

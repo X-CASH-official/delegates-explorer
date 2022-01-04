@@ -66,7 +66,7 @@ export class DashboardCrmComponent implements OnInit {
     }
 
     get_announcement() {
-      // get the data
+      // get the data from blockchain explorer
       this.httpdataservice.get_request(environment.announcementJSON).subscribe(
         (res) => {
           var announcementData = JSON.parse(JSON.stringify(res));
@@ -77,7 +77,7 @@ export class DashboardCrmComponent implements OnInit {
 
     get_blockheight() {
       // get the data
-      this.httpdataservice.get_request('https://explorer.x-cash.org/getlastblockdata').subscribe(
+      this.httpdataservice.get_request(this.httpdataservice.GET_LAST_BLOCK_DATA).subscribe(
         (res) => {
           var data = JSON.parse(JSON.stringify(res));
 
