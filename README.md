@@ -193,7 +193,7 @@ To build the delegate explorer for the production (mainnet) environment, go to t
 npm run build
 ```
 
-Optional you can build the delegate explorer for the testnet run:
+Optionally, you can build the delegate explorer for the testnet with the command:
 ```shell
 ng build --aot=true --build--optimizer=true -c testnet
 ```
