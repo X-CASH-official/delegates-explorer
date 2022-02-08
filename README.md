@@ -151,8 +151,18 @@ Edit the `delegates-explorer/src/environments/environment.prod.ts` , set your Ba
 
 ```
 export const environment = {
-    baseURL: "http://delegates.your-domain.tld",
-    apiEndPoint: ''
+    baseURL: "",
+    apiEndPoint: '',
+    explorerApiEndPoint: 'https://explorer.xcash.foundation',
+    announcementJSON: 'https://raw.githubusercontent.com/X-CASH-official/delegates-explorer/master/announcement.json',
+    shortTitle: 'Delegates Explorer',
+    seedNodes: [
+                'us1_xcash_foundation',
+                'europe1_xcash_foundation',
+                'europe2_xcash_foundation',
+                'europe3_xcash_foundation',
+                'oceania1_xcash_foundation'
+              ]
 };
 ```
 
@@ -178,9 +188,14 @@ Run the firewall script
 
 #### Build
 
-To build the delegate explorer, go to the `delegates-explorer` folder and run:
+To build the delegate explorer for the production (mainnet) environment, go to the `delegates-explorer` folder and run:
 ```shell
 npm run build
+```
+
+Optionally, you can build the delegate explorer for the testnet with the command:
+```shell
+ng build --aot=true --build--optimizer=true -c testnet
 ```
 
 It will build in the `dist`folder.

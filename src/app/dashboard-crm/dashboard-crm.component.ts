@@ -36,7 +36,7 @@ export class DashboardCrmComponent implements OnInit {
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'AVERAGE DELEGATE TOTAL VOTE', icon: 'signal_cellular_null' },
       { ogmeter: true,  width_icon: 25, text_size: 40, text: 0, suffix: '%', title: 'PoS CIRCULATING', icon: 'pie_chart' },
       { ogmeter: true,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'DPoPS ROUND NUMBER', icon: 'autorenew' },
-      { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'RANK 50 TOTAL VOTE ', icon: 'swap_vert' },
+      { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'RANK '+ environment.totalBlockVerifiers +' TOTAL VOTE ', icon: 'swap_vert' },
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'BLOCK REWARD ', icon: 'toll' },
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'BLOCK TIME ', icon: 'timelapse' },
       { ogmeter: false,  width_icon: 25, text_size: 40, text: 0, suffix: '', title: 'EST. BLOCK PER DAY ', icon: 'view_week' },
@@ -66,7 +66,7 @@ export class DashboardCrmComponent implements OnInit {
     }
 
     get_announcement() {
-      // get the data
+      // get the data from blockchain explorer
       this.httpdataservice.get_request(environment.announcementJSON).subscribe(
         (res) => {
           var announcementData = JSON.parse(JSON.stringify(res));
@@ -77,7 +77,7 @@ export class DashboardCrmComponent implements OnInit {
 
     get_blockheight() {
       // get the data
-      this.httpdataservice.get_request('https://explorer.x-cash.org/getlastblockdata').subscribe(
+      this.httpdataservice.get_request(this.httpdataservice.GET_LAST_BLOCK_DATA).subscribe(
         (res) => {
           var data = JSON.parse(JSON.stringify(res));
 
@@ -107,7 +107,7 @@ export class DashboardCrmComponent implements OnInit {
           var data = JSON.parse(JSON.stringify(res));
           this.dashCard1[7].text = data.XCASH_DPOPS_round_number;
           this.dashCard1[1].text = data.current_block_height;
-          this.dashCard1[2].text = 50;
+          this.dashCard1[2].text = environment.totalBlockVerifiers;
           this.dashCard1[4].text = this.functionsService.get_lg_numer_format(parseInt(data.total_votes) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT);
           this.dashCard1[6].text = parseInt(data.XCASH_DPOPS_circulating_percentage);
         },
@@ -145,10 +145,11 @@ export class DashboardCrmComponent implements OnInit {
             delegate_total_vote_count += current_delegate_total_vote_count2;
           }
 
-          this.dashCard1[8].text = this.functionsService.get_lg_numer_format(parseInt(data2[49].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT );
+          this.dashCard1[8].text = this.functionsService.get_lg_numer_format(parseInt(data2[environment.totalBlockVerifiers - 1].total_vote_count) / this.httpdataservice.XCASH_WALLET_DECIMAL_PLACES_AMOUNT );
           // only use 45 to calculate this since there are no votes for the 5 seed nodes
-          var avg_vote_count = this.functionsService.get_lg_numer_format(delegate_total_vote_count/45);
+          var avg_vote_count = this.functionsService.get_lg_numer_format(delegate_total_vote_count / environment.totalBlockVerifiers - 5);
           this.dashCard1[5].text = avg_vote_count;
+
         },
         (error) => {
           Swal.fire({
