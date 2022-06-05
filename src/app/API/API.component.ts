@@ -84,7 +84,6 @@ if (response.ok) {
 \xA0 $url = "`+ data[key].request_url + `";
 \xA0 $ch = curl_init($url);
 \xA0 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-\xA0 curl_setopt($ch, CURLOPT_HTTPHEADER,  ['User-Agent: who-is-your-daddy/69.69.0']);
 
 \xA0 $response = curl_exec($ch);
 \xA0 echo $response;
